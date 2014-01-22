@@ -1,0 +1,747 @@
+<!--
+    Written by: Genesisx and Feary
+    Inspired & Special Thanks To: Tonko
+    Last Updated: 4/23/12
+    Current Version: Skillup.xml v2.0
+    -->
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Aniyah" server="Sylph" description="Feary's Master Skillup Spellcast" job="BRD"/>
+  <!-- SpellCast Configurations -->
+  <config Debug="false" ShowSpellInfo="false" ShowGearSwaps="false" />
+  <!--- SpellCast Variables -->
+  <variables clear="false">
+    <var name="SkillUp">1</var>
+    <!--- /Heal Break DO NOT ALTER -->
+    <var name="FirstSetup">1</var>
+    <!--- First Run Display Var DO NOT ALTER-->
+    <var name="SkillCycle">1</var>
+    <!-- Turn off dnc -->
+    <var name="varStop">0</var>
+    <!--- Spell Cycle NO NOT ALTER -->
+    <!--- You can alter these variables, 180 is 3 min. of resting -->
+    <var name="RestTime4Smn">180</var>
+    <!--- Set REST time for SMN Skill -->
+    <var name="RestTime4Cure">180</var>
+    <!--- Set REST time for Healing Skill -->
+    <var name="RestTime4Protect">180</var>
+    <!--- Set REST time for Blue Magic Skill -->
+    <var name="RestTime4Pollen">180</var>
+    <!--- Set REST time for Enhancing Skill -->
+    <var name="RestTime4Regen">180</var>
+    <!-- Set resting time for barspell Enhancing skill-->
+    <var name="RestTime4Barfira">180</var>
+    <!--- Ammo For ranged Skill up -->
+    <var name="Ammo"></var>
+  </variables>
+  <sets>
+    <!--- Specify Resting / Standard gear if desired -->
+    <group default="yes" name="Job">
+      <set name = "Standard" />
+      <set name = "Resting Gear">
+        <main>Iridal Staff</main>
+        <head>Caller's Horn +2</head>
+        <neck>Eidolon Pendant</neck>
+        <body>Yingyang Robe</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Sagacity Lappas</legs>
+        <feet>Numerist Pumps</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <lear>Moonshade Earring</lear>
+        <rear>Magnetic Earring</rear>
+        <lring>Bifrost Ring</lring>
+        <rring>Serket Ring</rring>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <if zone="Windurst Waters|Abyssea*|Sauro*|*Gustaberg*|*pro*">
+      <!--- Setup Gear and /Heal Break Variable for Resting & Idle -->
+      <equip when="idle" set="Standard" />
+      <equip when="resting" set="Resting Gear" />
+      <command when="resting">spellcast var set SkillUp 0;</command>
+      <command when="idle">spellcast var set SkillUp 1;</command>
+      <!--- Setup First Run Notification -->
+      <if advanced='"$FirstSetup" == "1"'>
+        <command>bind ^escape input /echo Exiting.;unload spellcast;unbind ^escape;</command>
+        <addtochat color="121">-- SkillUp.Xml v2.0 ---</addtochat>
+        <addtochat color="121">Press CTRL+Escape at anytime to unload spellcast and exit SkillUp.Xml</addtochat>
+        <if spell="Pollen">
+          <addtochat color="121">Set Spells = Pollen, Healing Breeze, Cocoon, Metallic Body,</addtochat>
+        </if>
+        <var cmd="set FirstSetup 0" />
+      </if>
+      <!-- *Magic Skills, Ninjustu, Bard Song -->
+      <if skill="*Magic*|Ninjitsu|Singing">
+        <!--- Summoning Magic Skill-Up Segment -->
+        <if spell="Carbuncle">
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!--- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="15" MP="15">
+              <if notspell="release">
+                <command when="precast">input /heal on;wait $RestTime4Smn;input /heal off;wait 4;input /ja "Release";wait 4;input /ma "Carbuncle"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4SMN;input /heal off;wait 4;input /ja "Release";wait 4;input /ma "Carbuncle"</command>
+              </else>
+            </if>
+            <!--- Smn Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Carbuncle" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Ifrit" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Titan" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="Leviathan" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="Garuda" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 7" />
+              <changespell spell="Shiva" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "7"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 8" />
+              <changespell spell="Ramuh" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "8"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 9" />
+              <changespell spell="Fenrir" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "9"'>
+              <command when="aftercast">wait 2;input /ja "Release";wait 2;input /ma "Carbuncle"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Diabolos" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </if>
+        <!--- Healing Magic Skill-Up Segment -->
+        <elseif spell="Cure" >
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!--- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "4|5|6|7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 3;input /ma "Cure"</command>
+              <cancelspell />
+            </if>
+            <!--- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="46" MP="46">
+              <if notspell="blink">
+                <command when="precast">input /heal on;wait $RestTime4Cure;input /heal off;wait 4;input /ma "Cure"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4Cure;input /heal off;wait 4;input /ma "Cure"</command>
+              </else>
+            </if>
+            <!--- Healing Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 3;input /ma "Cure"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Cure" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 3;input /ma "Cure"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Cure II" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 3;input /ma "Cure"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Cure III" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!--- Enhancing Magic Skill-Up Segment -->
+        <elseif spell="Protect" >
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!--- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "5|6|7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 3;input /ma "Protect"</command>
+              <cancelspell />
+            </if>
+            <!--- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="18" MP="18">
+              <if notspell="blink">
+                <command when="precast">input /heal on;wait $RestTime4Protect;input /heal off;wait 4;input /ma "Protect"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4Protect;input /heal off;wait 4;input /ma "Protect"</command>
+              </else>
+            </if>
+            <!--- Enhancing Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 3;input /ma "Protect"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Protect" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 3;input /ma "Protect"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Shell" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 3;input /ma "Protect"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Protectra" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 3;input /ma "Protect"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Shellra" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!--- Blue Magic Skill Cycling -->
+        <elseif spell="Pollen" >
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!--- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "6|7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 3;input /ma "Pollen"</command>
+              <cancelspell />
+            </if>
+            <!--- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="100" MP="100">
+              <if notspell="blink">
+                <command when="precast">input /heal on;wait $RestTime4Pollen;input /heal off;wait 4;input /ma "Pollen"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4Pollen;input /heal off;wait 4;input /ma "Pollen"</command>
+              </else>
+            </if>
+            <!--- Blue Magic Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 7;input /ma "Pollen"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Pollen" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 7;input /ma "Pollen"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Cocoon" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 7;input /ma "Pollen"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Healing Breeze" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 7;input /ma "Pollen"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="Metallic Body" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 7;input /ma "Pollen"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Pollen" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!-- Blue Magic Post Fantod -->
+        <elseif spell="Fantod">
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!--- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "5|6|7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 10;input /ma "Fantod"</command>
+              <cancelspell />
+            </if>
+            <!--- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="100" MP="100">
+              <if notspell="blink">
+                <command when="precast">input /heal on;wait $RestTime4Pollen;input /heal off;wait 4;input /ma "Fantod"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4Pollen;input /heal off;wait 4;input /ma "Fantod"</command>
+              </else>
+            </if>
+            <!--- Blue Magic Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 3;input /ma "Fantod"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Fantod" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 2;input /ma "Fantod"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Plenilune Embrace" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 2;input /ma "Fantod"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Battery Charge" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!-- /WHM Barspell Enhancing magic Skill UP -->
+        <elseif spell="Barfira" >
+          <addtochat color="121">barfira</addtochat>
+          <!-- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!-- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <cancelspell />
+            </if>
+            <!-- Check if your MP is low -->
+            <if Mode="OR" NOTMPGT="12" MP="12">
+              <if notspell="blink">
+                <command when="precast">input /heal on;wait $RestTime4Barfira;input /heal off;wait 4;input /ma "Barfira"</command>
+                <cancelspell />
+              </if>
+              <else>
+                <command when="aftercast">input /heal on;wait $RestTime4Barfira;input /heal off;wait 4;input /ma "Barfira"</command>
+              </else>
+            </if>
+            <!-- Enhancing Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Barfira" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Barstonra" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Barwatera" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="Baraera" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="BarBlizzara" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 1;input /ma "Barfira"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Barthundra" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!-- Ninjustu Skill Up Segment -->
+        <elseif spell="hojo: ni" >
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!---  Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "9|10|11|12|13|14"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <cancelspell />
+            </if>
+            <!--- NIN Magic Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="hojo: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="hyoton: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="huton: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="doton: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="raiton: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 7" />
+              <changespell spell="suiton: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "7"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 8" />
+              <changespell spell="myoshu: ichi" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "8"'>
+              <command when="aftercast">wait 2;input /ma "hojo: ni"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="hojo: ni" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!-- WHM Divine Magic SKill Segment -->
+        <elseif spell="flash" >
+          <!--- Check if /Heal Break is active -->
+          <if advanced='"$SkillUp" == "1"'>
+            <!---  Fix/Reset the SkillCycle variable in case the Segment boinked it-->
+            <if advanced='"$SkillCycle" == "13|14|15|16|17|18"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <cancelspell />
+            </if>
+            <!--- Divine Magic Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="flash" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="phalanx" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="refresh" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="banish" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="banish II" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 7" />
+              <changespell spell="banish III" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "7"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 8" />
+              <changespell spell="banishga" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "8"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 9" />
+              <changespell spell="banishga II" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "9"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 10" />
+              <changespell spell="repose" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "10"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 11" />
+              <changespell spell="holy" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "11"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 12" />
+              <changespell spell="holy II" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "12"'>
+              <command when="aftercast">wait 2;input /ma "flash"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="flash" />
+              <changetarget target="&lt;t&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+        <!-- Bard Skill UP -->
+        <elseif spell="Sword Madrigal">
+          <if advanced='"$SkillUp" == "1"'>
+            <addtochat color="121">Bard Segment</addtochat>
+            <!--- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "10|11|12|13|14|15"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal"</command>
+              <cancelspell />
+            </if>
+            <!--- Singing Skill Cycling -->
+            <if advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Valor Minuet" />
+              <changetarget target="&lt;me&gt;" />
+            </if>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Valor Minuet II" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Valor Minuet III" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="Valor Minuet IV" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="Valor Minuet V" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 7" />
+              <changespell spell="Victory March" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "7"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 8" />
+              <changespell spell="Advancing March" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "8"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 9" />
+              <changespell spell="Blade Madrigal" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "9"'>
+              <command when="aftercast">wait 3;input /ma "Sword Madrigal" &lt;me&gt;</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Sword Madrigal" />
+              <changetarget target="&lt;me&gt;" />
+            </elseif>
+          </if>
+        </elseif>
+      </if>
+      <!-- Automaton Magic Skills -->
+      <elseif spell="*Maneuver*">
+        <!-- PUP Healing Skill Up @ Beadaux - Does Not Work.-->
+        <elseif spell="Dark Maneuver" >
+          <if advanced='"$SkillUp" == "1"'>
+            <!-- Fix/Reset the SkillCycle variable in case the Segment boinked it -->
+            <if advanced='"$SkillCycle" == "7|8|9"'>
+              <var cmd="set SkillCycle 1" />
+              <command when="aftercast">wait 3;input /pet "Dark Maneuver"</command>
+              <cancelspell />
+            </if>
+            <!-- Enhancing Skill Cycling -->
+            <elseif advanced='"$SkillCycle" == "1"'>
+              <command when="aftercast">wait 1;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 2" />
+              <changespell spell="Provoke" />
+              <changetarget target="&lt;bt&gt;" />
+              <addtochat color="121">Step 1</addtochat>
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "2"'>
+              <command when="aftercast">wait 17;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 3" />
+              <changespell spell="Dark Maneuver" />
+              <changetarget target="&lt;me&gt;" />
+              <addtochat color="121">Step 2</addtochat>
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "3"'>
+              <command when="aftercast">wait 11;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 4" />
+              <changespell spell="Dark Maneuver" />
+              <changetarget target="&lt;me&gt;" />
+              <addtochat color="121">Step 3</addtochat>
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "4"'>
+              <command when="aftercast">wait 11;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 5" />
+              <changespell spell="Dark Maneuver" />
+              <changetarget target="&lt;me&gt;" />
+              <addtochat color="121">Step 4</addtochat>
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "5"'>
+              <command when="aftercast">wait 11;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 6" />
+              <changespell spell="Provoke" />
+              <changetarget target="&lt;bt&gt;" />
+              <addtochat color="121">Step 5</addtochat>
+            </elseif>
+            <elseif advanced='"$SkillCycle" == "6"'>
+              <command when="aftercast">wait 30;input /pet "Dark Maneuver"</command>
+              <var cmd="set SkillCycle 1" />
+              <changespell spell="Light Maneuver" />
+              <changetarget target="&lt;me&gt;" />
+              <addtochat color="121">Step 6</addtochat>
+            </elseif>
+          </if>
+        </elseif>
+      </elseif>
+      <!-- Geo/Bell  Skill-Up Segment -->
+      <elseif spell="Indi-Poison">
+        <!-- Check if /Heal Break is active -->
+        <if advanced='"$SkillUp" == "1"'>
+          <!-- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+          <if advanced='"$SkillCycle" == "5|6|7|8|9"'>
+            <action type="var" cmd="set SkillCycle 1" />
+            <action type="command" when="aftercast">wait 3;input /ma "Indi-Poison"</action>
+            <action type="cancelspell"/>
+          </if>
+          <!-- Check if your MP is low -->
+          <if Mode="OR" NOTMPGT="18" MP="18">
+            <if notspell="blink">
+              <action type="command" when="precast">input /heal on;wait $RestTime4Protect;input /heal off;wait 2;input /ma "Indi-Poison"</action>
+              <action type="cancelspell"/>
+            </if>
+            <else>
+              <action type="command" when="aftercast">input /heal on;wait $RestTime4Protect;input /heal off;wait 2;input /ma "Indi-Poison"</action>
+            </else>
+          </if>
+          <!-- Geomancy Skill Cycling -->
+          <elseif advanced='"$SkillCycle" == "1"'>
+            <action type="command" when="aftercast">wait 3;input /ma "Indi-Poison"</action>
+            <action type="var" cmd="set SkillCycle 2" />
+            <action type="changespell" spell="Indi-Poison" />
+            <action type="Changetarget" target="&lt;me&gt;"/>
+          </elseif>
+          <elseif advanced='"$SkillCycle" == "2"'>
+            <action type="command" when="aftercast">wait 3;input /ma "Indi-Poison"</action>
+            <action type="var" cmd="set SkillCycle 3" />
+            <action type="changespell" spell="Indi-Voidance" />
+            <action type="Changetarget" target="&lt;me&gt;"/>
+          </elseif>
+          <elseif advanced='"$SkillCycle" == "3"'>
+            <action type="command" when="aftercast">wait 3;input /ma "Indi-Poison"</action>
+            <action type="var" cmd="set SkillCycle 4" />
+            <action type="changespell" spell="Indi-Regen" />
+            <action type="Changetarget" target="&lt;me&gt;"/>
+          </elseif>
+          <elseif advanced='"$SkillCycle" == "4"'>
+            <action type="command" when="aftercast">wait 3;input /ma "Indi-Poison"</action>
+            <action type="var" cmd="set SkillCycle 1" />
+            <action type="changespell" spell="Indi-Focus" />
+            <action type="Changetarget" target="&lt;me&gt;"/>
+          </elseif>
+        </if>
+      </elseif>
+      <!-- Combat Skills-->
+      <else>
+        <!-- Ranged -->
+        <if spell="ranged" subjob="DNC">
+          <addtochat color="121">Ranged Segment</addtochat>
+          <!--Equip Ammo-->
+          <equip when="Precast">
+            <ammo>$Ammo</ammo>
+          </equip>
+          <!-- If HP% less then 75 do CW3 -->
+          <if HPPLT="75">
+            <cmd when="precast">input /ja Curing Waltz III &lt;me&gt;</cmd>
+            <cmd when="aftercast">input /ra &lt;t&gt;</cmd>
+          </if>
+          <else>
+            <cmd when="aftercast">input /ra &lt;t&gt;</cmd>
+          </else>
+        </if>
+        <else>
+          <if spell="Stone V">
+            <!-- DD no cast stone V. Do stuff here -->
+            <!-- If HP% less then 75 do CW3 -->
+            <if HPPLT="75">
+              <action type="command" when="precast">input /ja Curing Waltz III &lt;me&gt; </action>
+            </if>
+            <!-- If no /sc var set vatstop 1 then cast stone 5 after stone 5 is done -->
+            <if advanced='"$varStop"="0"'>
+              <action type="command" when="aftercast">input /ma Stone5 &lt;t&gt;</action>
+            </if>
+          </if>
+          <if spell="Curing Waltz III">
+            <action type="command" when="aftercast">input /ma Stone5 &lt;t&gt;</action>
+          </if>
+        </else>
+      </else>
+    </if>
+    <else>
+      <addtochat color="121">This Only works in windy waters abyssea sauro. campaign and gustaberg</addtochat>
+    </else>
+  </rules>
+</spellcast>

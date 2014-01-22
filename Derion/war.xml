@@ -1,0 +1,645 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Derion" server="Sylph" description="Derion's WAR Spellcast" job="WAR"/>
+  <config RequireVersion="2.40" Debug="False" ShowGearSwaps="False" ShowspellInfo="false"/>
+  <variables clear="true">
+    <!-- Auto Macroset 1.NIN 2.DNC 3.SAM -->
+    <var name="AutoMacroset">1</var>
+    <!-- Announce statues-->    
+    <var name="Statuses">0</var>
+    <!-- Tomahawk Merit Level - 1 to 5 -->
+    <var name="Tomahawk">5</var>
+    <!-- Which weapons are you useing?  Weapons will be Locked-->
+    <var name="GreatAxe">Eminent Voulge</var>
+    <var name="GreatSword">Eminent Sword</var>
+    <var name="Axe">Eminent Axe|Doom Tabar|Francisca</var>
+    <var name="Polearm">Quint Spear|PitchFork</var>
+    <var name="Scythe">Eminent Sickle|Bounty Sickle</var>
+    <var name="Sword">Eminent scimitar|Dissector|Joyeuse|Wax Sword +1</var>
+    <var name="Staff">Plenitas Virga</var>
+    <var name="Club">Warp Cudgel|Rounsey Wand</var>  
+    <var name="Dagger">Twilight Knife|Yataghan</var>
+    <!-- Tomahawk Merit Level - 1 to 5 -->
+    <var name="Tomahawk">5</var>
+    <!-- Create macros to set MDT PDT Values -->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="TwilightSet">0</var>
+    <!-- Do Not Edit Below -->
+  </variables>
+  <sets>
+    <group default="yes" name="War" load="yes">
+      <set name="MiscGearCollector" load="yes">
+        <item>Plenitas Virga</item>
+        <item>Thr. Tomahawk</item>
+        <item>Warrior's Mask</item>
+        <item>Warrior's Lorica</item>
+        <item>Warrior's Calligae</item>
+        <item>Rvg. Lorica +2</item>
+        <item>Rvg. Mufflers +2</item>
+        <item>Rvg. Cuisses +2</item>
+        <item>Rvg. Calligae +2</item>
+        <!--<legs>Pumm. Cuisses</legs>-->
+      </set>
+      <set name="weapon|w" baseset="TP">
+        <main>$GreatAxe</main>
+        <sub>Pole grip</sub>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <feet>Hermes' Sandals</feet>
+      </set>
+      <!-- PDT > Movement Speed-->
+      <set name="Standard|Idle" baseset="TP" load="yes">
+        <head>Ravager's Mask +2</head>
+        <neck>Twilight Torque</neck>
+        <hands>Rvg. Mufflers +2</hands>
+        <body>Twilight Mail</body>
+        <waist>Nierenschutz</waist>
+        <feet>Hermes' Sandals</feet>
+        <lring>Dark Ring</lring>
+        <!--<rring>Dark Ring</rring>-->       
+      </set>
+      <set name="PDT">
+        <neck>Twilight Torque</neck>
+        <waist>Nierenschutz</waist>
+        <lring>Dark Ring</lring>
+      </set>
+      <set name="MDT">
+        <neck>Twilight Torque</neck>
+        <waist>Nierenschutz</waist>
+        <lring>Dark Ring</lring>
+      </set>
+      <set name="Fastcast" load="yes">
+        <head>Zelus Tiara</head>
+        <hands>Dusk Gloves</hands>
+        <legs>Rvg. Cuisses +2</legs>
+        <feet>Rvg. Calligae +2</feet>
+        <waist>Goading Belt</waist>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+      </set>
+      <set name="Enmity" load="yes"/>
+      <set name="Ranged" load="yes"/>
+      <set name="Resting" baseset="PDT"/>
+      <!-- Restriant Down -->
+      <set name="TP" load="yes">
+        <head>Zelus Tiara</head>
+        <neck>Agasaya's Collar</neck> 
+        <body>Rvg. Lorica +2</body>
+        <hands>Brego Gloves</hands>
+        <legs>Rvg. Cuisses +2</legs>
+        <feet>Rvg. Calligae +2</feet>
+        <waist>Goading Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Ravager's Earring</rear>
+        <ammo>Ravager's Orb</ammo>
+      </set>
+      <set name="ResTP" baseset="TP">
+        <hands>Rvg. Mufflers +2</hands>
+      </set>
+      <!-- GA TP Set Restraint Down -->
+      <set name="GA-TP" load="yes">
+       
+      </set>
+      <!-- Greataxe Restraint UP-->
+      <set name="GA-RESTP" load="yes">
+       
+      </set>
+      <!-- GS TP Set Restraint Down -->
+      <set name="GS-TP">
+    
+      </set>
+      <!-- GS TP Set Restraint UP -->
+      <set name="GS-RESTP" baseset="GS-TP"/>
+      <set name="WS" baseset="TP" load="yes">
+        <head>Ravager's Mask +2</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Twilight Mail</body>
+        <hands>Rvg. Mufflers +2</hands>
+        <legs>Rvg. Cuisses +2</legs>
+        <feet>Rvg. Calligae +2</feet>
+        <waist>Wanion Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Spiral Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Ravager's Earring</rear>
+      </set>    
+      <!-- Great Axe -->
+      <set name="Ukko's Fury" baseset="ws">
+        <waist>Breeze Belt</waist>
+      </set>
+      <set name="Upheaval" baseset="WS">
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Raging Rush" baseset="ws">
+      </set>
+      <set name="Fell Cleave" baseset="WS" load="yes">
+        <waist>Breeze Belt</waist>
+      </set>
+      <!-- Great Sword -->     
+      <set name="Resolution" baseset="WS">
+        <waist>Breeze Belt</waist>
+      </set>
+      <!-- Mighty Strikes Active -->
+      <set name="MS-Resolution" baseset="Resolution">
+        <!-- Heca Hands +1-->
+        <hands>Rvg. Mufflers +2</hands>
+      </set>
+      <set name="MS-Upheaval" baseset="Upheaval">
+        <head>Ravager's Mask +2</head>
+      </set>
+      <set name="MS-Fell Cleave" baseset="Fell Cleave">
+
+      </set>
+      <set name="MS-Ukko's Fury" baseset="Ukko's Fury">
+
+      </set>
+    </group>  
+  </sets>
+  <rules>
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Ring</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <rring lock="true">Prouesse Ring</rring>
+      </equip>
+    </if>
+    <!-- Twilight Set -->
+    <if mode='or' advanced='"$TwilightSet"=="1"' buffactive="Weakness" hpplt="30">
+      <addtochat color="121">Twilight Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT">
+        <head lock="true">Twilight Helm</head>
+        <body lock="true">Twilight Mail</body>
+      </equip>
+    </if>
+    <!-- Auto sets -->
+    <!-- Mode-->
+    <if mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+      <if type="Weaponskill">
+        <equip when="precast" set="%Spell"/>
+      </if>
+    </if>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <!-- Set Gear for Great Axe -->
+      <if EquipMain="$GreatAxe">
+        <if equipmain="Razorfury">
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif equipmain="Ixtab">
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <elseif equipmain="Ukonvasara">
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <addtochat color="121">Unknown Greataxe</addtochat>
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GA-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GA-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </if>
+      <!-- Set Gear for GreatSword -->
+      <elseif EquipMain="$GreatSword">
+        <if equipmain="Ragnarok">
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GS-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GS-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GS-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GS-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <else>
+          <if status="engaged">
+            <if buffactive="Restraint">
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GS-ResTP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GS-ResTP"/>
+              </else>
+            </if>
+            <else>
+              <if buffactive="Blood Rage">
+                <equip when="engaged|AfterCast" set="GS-TP">
+                  <feet>Rvg. Calligae +2</feet>
+                </equip>
+              </if>
+              <else>
+                <equip when="engaged|AfterCast" set="GS-TP"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </elseif>
+      <!-- Set Gear for Axe-->
+      <elseif EquipMain="$Axe">
+        <if status="engaged">
+          <if buffactive="Restraint">
+            <if buffactive="Blood Rage">
+              <equip when="engaged|AfterCast" set="ResTP">
+                <feet>Rvg. Calligae +2</feet>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="ResTP"/>
+            </else>
+          </if>
+          <else>
+            <if buffactive="Blood Rage">
+              <equip when="engaged|AfterCast" set="TP">
+                <feet>Rvg. Calligae +2</feet>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </else>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <!-- Set Gear for Everything else-->
+      <else>
+        <if status="engaged">
+          <if buffactive="Restraint">
+            <if buffactive="Blood Rage">
+              <equip when="engaged|AfterCast" set="ResTP">
+                <feet>Rvg. Calligae +2</feet>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="ResTP"/>
+            </else>
+          </if>
+          <else>
+            <if buffactive="Blood Rage">
+              <equip when="engaged|AfterCast" set="TP">
+                <feet>Rvg. Calligae +2</feet>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </else>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!-- Ranged -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror">
+        <cancelspell/>
+      </if>
+      <else>
+        <if spell="Provoke|Defender">
+          <equip when="precast" set="Enmity" />
+        </if>
+        <elseif spell="Berserk">
+          <equip when="precast" set="Enmity">
+            <feet>Warrior's Calligae</feet>
+          </equip>
+        </elseif>
+        <elseif spell="Warcry">
+          <equip when="precast" set="Enmity">
+            <head>Warrior's Mask</head>
+          </equip>
+        </elseif>
+        <elseif spell="Aggressor">
+          <equip when="precast">
+            <body>Warrior's Lorica</body>
+          </equip>
+        </elseif>
+        <elseif spell="Tomahawk">
+          <equip when="precast|Midcast">
+            <ammo>Thr. Tomahawk</ammo>
+          </equip>
+          <cmd when="aftercast">input /p %Spell Just Used It</cmd>
+          <if advanced='"$Tomahawk"=="0"'>
+            <addtochat color="121">Why do you have a macro for it? Get Tomahawk!</addtochat>
+          </if>
+          <elseif advanced='"$Tomahawk"=="1"'>
+            <!-- Wait 30 secs and tell party it is off-->
+            <Cmd when="aftercast">wait 30;input /p %Spell has wore off </Cmd>
+          </elseif>
+          <elseif advanced='"$Tomahawk"=="2"'>
+            <Cmd when="aftercast">wait 45;input /p %Spell has wore off </Cmd>
+          </elseif>
+          <elseif  advanced='"$Tomahawk"=="3"'>
+            <Cmd when="aftercast">wait 60;input /p %Spell has wore off </Cmd>
+          </elseif>
+          <elseif  advanced='"$Tomahawk"=="4"'>
+            <Cmd when="aftercast">wait 75;input /p %Spell has wore off </Cmd>
+          </elseif>
+          <elseif  advanced='"$Tomahawk"=="5"'>
+            <Cmd when="aftercast">wait 90;input /p %Spell has wore off </Cmd>
+          </elseif>
+        </elseif>
+        <elseif spell="Warrior's Charge">
+          <equip when="precast" />
+        </elseif>
+        <elseif spell="Restraint">
+          <equip when="precast" set="TP">
+            <hands>Rvg. Mufflers +2</hands>
+          </equip>
+        </elseif>
+        <elseif spell="Blood Rage">
+          <equip when="precast">
+            <body>Rvg. Lorica +2</body>
+          </equip>
+        </elseif>
+      </else>
+    </if>
+    <!-- Handle WS Rules-->
+    <elseif type="Weaponskill">
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror">
+        <cancelspell/>
+      </if>
+      <else>
+        <if TPGT="99" status="Engaged">
+          <if advanced="%SpellTargetDistance &lt; 5">
+            <CastDelay Delay=".5"/>
+            <if buffactive="Mighty Strikes">
+              <if spell="Resolution|Upheaval|Fell Cleave|Ukko's Fury">
+                <equip when="precast|midcast" set="MS-%Spell"/>
+              </if>
+              <else>
+                <equip when="precast|midcast" set="WS"/>
+              </else>
+            </if>
+            <else>
+              <if spell="Resolution|Upheaval|Fell Cleave|Ukko's Fury|Raging Rush">
+                <equip when="precast|midcast" set="%Spell"/>
+              </if>
+              <else>
+                <equip when="precast|midcast" set="WS"/>
+              </else>
+            </else>
+          </if>
+          <else>
+            <cancelspell/>
+            <addtochat color="121">%SpellTargetName is too far.</addtochat>
+            <Return/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">You dont have enough tp for that</addtochat>
+          <Return/>
+        </else>
+      </else>
+    </elseif>
+    <!-- Sub job Rules -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <equip when="Aftercast" set="Standard"/>
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </if>
+    <elseif subjob="SAM">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if mode="and" spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </if>
+      <elseif spell="Meditate" tpgt="200">
+        <cancelspell/>
+        <addtochat color="121">You have too much tp for that.</addtochat>
+      </elseif>
+      <!-- Auto Hasso on Engage -->
+      <if status="engaged" notbuffactive = "Hasso">
+        <Cmd when="engaged">wait 3;input /ja "Hasso" &lt;me&gt;</Cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if Spell="Spectral Jig">
+        <command when="precast">cancel 71</command>
+      </if>
+      <!--     
+      <elseif spell="*step">
+        <equip when="precast" set="SA" />
+      </elseif>
+      <elseif spell="violent flourish|desperate*">
+        <equip when="precast" set="SA" />
+      </elseif>
+      <elseif spell="*waltz*">
+        <equip when="precast" set="waltz" />
+      </elseif>
+       -->
+    </elseif>
+    <elseif subjob="MNK">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

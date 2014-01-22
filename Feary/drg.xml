@@ -1,0 +1,655 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's DRG Spellcast" job="DRG"/>
+  <config requireversion="2.45" showgearswaps="true" showspellinfo="False"/>
+  <variables clear="true">
+    <!-- AutoMacroSet Based on Sub: Macro Set 1.SAM 2.NIN 3.DNC 4.WAR 5.BLU 6.RDM 7.WHM 8.SCH 9.PLD-->
+    <var name="AutoMacroSet">1</var>
+    <!-- Report Statuses -->
+    <var name="Statuses">1</var>
+    <!-- Weapons Locked -->
+    <var name="Polearm">Upukirex|Rhongomiant</var>
+    <var name="Staff">Plenitas Virga|Voay Staff</var>
+    <var name="Club">Warp Cudgel</var>
+    <var name="Dagger">Oynos Knife</var>
+    <var name="Sword">Halachuinic Sword</var>
+    <!-- Modes -->
+    <!-- Lock to Default Sets-->
+    <!-- 1. Best to set with a macro -->
+    <!--    a. line1 /console sc set pdt -->
+    <!--    b. line2 /console sc var set pdt 1-->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="Evasion">0</var>
+    <var name="TwilightSet">0</var>
+  </variables>
+  <sets>
+    <group name="DRG" default="yes">
+      <set name="MiscGearCollector" load="yes">
+        <item>Angon</item>
+        <item>Vishap Armet</item>
+        <item>Vishap Brais</item>
+        <item>Drachen Armet</item>
+        <item>Drachen Brais</item>
+        <item>Wym. Armet +2</item>
+        <item>Wym. Mail +2</item>
+        <item>Wym. Fng. Gnt. +2</item>        
+        <item>Wym. Greaves +2</item>
+        <item>Lncr. Plackart +2</item>
+        <item>Lncr. Vmbrc. +2</item>
+        <item>Lncr. Cuissots +2</item>
+        <item>Lncr. Schynbld. +2</item>
+        <item>Lancer's Torque</item>
+        <item>Lancer's Pelerine</item>       
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <legs>Blood Cuisses</legs>
+      </set>
+      <set name="Twilight" baseset="Standard">
+        <head>Twilight Helm</head>
+        <body>Twilight Mail</body>
+      </set>
+      <!-- Movement Speed - PDT-->
+      <set name="Standard|Idle" baseset="PDT" load="yes">
+        <legs>Blood Cuisses</legs>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="PDT">
+        <!-- Cizin Helm-->
+        <head>Yaoyotl Helm</head>
+        <neck>Twilight Torque</neck>
+        <body>Mekira Meikogai</body>
+        <hands>Cizin Mufflers</hands>
+        <!-- Cizin Breeches -->
+        <legs>Miki. Cuisses</legs>
+        <Feet>Cizin Greaves</Feet>
+        <waist>Flume Belt</waist>
+        <back>Repulse Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Yaoyotl Helm</head>
+        <neck>Twilight Torque</neck>
+        <!-- Laedar Breastplate -->
+        <body>Mekira Meikogai</body>
+        <hands>Cizin Mufflers</hands>
+        <!-- Cizin Breeches -->
+        <legs>Gorney Brayettes</legs>
+        <feet>Whirlpool Greaves</feet>
+        <waist>Nierenschutz</waist>
+        <back>Engulfer Cape</back>
+        <!-- Defending Ring -->
+        <lring>Dark Ring</lring>
+        <rring>Shadow Ring</rring>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="Evasion" baseset="Standard" load="yes">
+        
+      </set>
+      <set name="resting" load="yes"/>
+      <set name="Recast"/>
+      <!-- JA -->
+      <set name="Jump" baseset="TP" load="yes">
+        <!--<head>Sceamol Band</head>-->
+        <head>Yaoyotl Helm</head>
+        <!--<neck>Ganesha's Mala</neck>-->
+        <neck>Asperity Necklace</neck>
+        <body>Lncr. Plackart +2</body>
+        <hands>Ogier's Gauntlets</hands>
+        <legs>Lncr. Cuissots +2</legs>
+        <feet>Mikinaak Greaves</feet>
+        <waist>Windbuffet Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>K'ayres Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <set name="High Jump" baseset="Jump" load="yes"/>
+      <set name="Spirit Jump" baseset="Jump">
+        <!--<head>Sceamol Band</head>-->
+        <head>Yaoyotl Helm</head>
+        <!--<neck>Ganesha's Mala</neck>-->
+        <neck>Asperity Necklace</neck>
+        <body>Lncr. Plackart +2</body>
+        <hands>Ogier's Gauntlets</hands>
+        <legs>Lncr. Cuissots +2</legs>
+        <feet>Lncr. Schynbld. +2</feet>
+        <waist>Windbuffet Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>K'ayres Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <set name="Soul Jump" baseset="Spirit Jump">
+        <!--<head>Sceamol Band</head>-->
+        <head>Yaoyotl Helm</head>
+        <!--<neck>Ganesha's Mala</neck>-->
+        <neck>Asperity Necklace</neck>
+        <body>Lncr. Plackart +2</body>
+        <hands>Ogier's Gauntlets</hands>
+        <legs>Lncr. Cuissots +2</legs>
+        <feet>Mikinaak Greaves</feet>
+        <waist>Windbuffet Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>K'ayres Ring</lring>
+        <rring>Rajas Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <!-- Breath-->
+      <set name="preHealing Breath|PHB|HP" load="yes">
+        <!-- HP and Breath Spell + -->
+        <head>Drachen Armet</head>
+        <body>Gorney Haubert</body>
+        <hands>Ogier's Gauntlets</hands>
+        <legs>Gorney Brayettes</legs>
+        <feet>Gorney Sollerets</feet>
+        <waist>Glassblower's Belt</waist>
+        <back>Strendu Mantle</back>
+        <lring>Meridian Ring</lring>
+        <rring>K'ayres Ring</rring>
+      </set>
+      <set name="Healing Breath|HB" load="yes">
+        <!-- Wyvern hp+ Gear-->
+        <head>Wym. Armet +2</head>
+        <neck>Lancer's Torque</neck>
+        <body>Wyvern Mail</body>
+        <!-- Ostreger's Mitts -->
+        <hands>Buremte Gloves</hands>
+        <legs>Drachen Brais</legs>
+        <feet>Wym. Greaves +2</feet>
+        <waist>Glassblower's Belt</waist>
+        <back>Updraft Mantle</back>
+        <lear>Lancer's Earring</lear>
+      </set>
+      <set name="TP" load="yes">
+        <head>Yaoyotl Helm</head>
+        <!-- Ganesha's Mala -->
+        <neck>Asperity Necklace</neck>
+        <body>Porthos Byrnie</body>
+        <hands>Ogier's Gauntlets</hands>
+        <!-- Cizin Breeches-->
+        <legs>Miki. Cuisses</legs>
+        <feet>Mikinaak Greaves</feet>
+        <waist>Goading Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>K'ayres Ring</rring>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <set name="Surge-TP" baseset="TP" load="yes">
+        
+      </set>
+      <set name="WS" baseset="TP" load="yes">
+        <head>Yaoyotl Helm</head>
+        <neck>Asperity Necklace</neck>
+        <!-- Cizin Mail -->
+        <body>Miki. Breastplate</body>
+        <hands>Miki. Gauntlets</hands>
+        <legs>Miki. Cuisses</legs>
+        <feet>Mikinaak Greaves</feet>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <set name="Stardiver" baseset="ws" load="yes">
+        <head>Yaoyotl Helm</head>
+        <neck>Light Gorget</neck>
+        <body>Miki. Breastplate</body>
+        <hands>Miki. Gauntlets</hands>
+        <!-- Cizin Breeches -->
+        <legs>Miki. Cuisses</legs>
+        <feet>Mikinaak Greaves</feet>
+        <waist>Light belt</waist>
+        <back>Atheling Mantle</back>
+        <!-- Pyrosoul Ring -->
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <!-- Brutal Earring -->
+        <lear>Bladeborn Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Steelflash Earring</rear>
+        <ammo>Hagneia Stone</ammo>
+      </set>
+      <set name="Camlann's Torment" baseset="WS">
+        <!-- 60% VIT -->
+      </set>
+      <!-- Crit Damage -->
+      <set name="Skewer|Drakesbane" baseset="ws" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light belt</waist>
+      </set>
+      <!-- Muttihit -->
+      <set name="Penta Thrust" baseset="ws" load="yes">
+        <neck>Shadow Gorget</neck>
+      </set>     
+      <set name="Fastcast" baseset="TP" load="no">
+        <head>Cizin Helm</head>
+        <neck>Orunmila's Torque</neck>
+        <Rring>Prolix Ring</Rring>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+      </set>     
+    </group>
+  </sets>
+  <rules>
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Ring</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <rring lock="true">Prouesse Ring</rring>
+      </equip>
+    </if>
+    <!-- Twilight Set -->
+    <if mode='or' advanced='"$TwilightSet"=="1"' buffactive="Weakness" hpplt="30">
+      <addtochat color="121">Twilight Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT">
+        <head lock="true">Twilight Helm</head>
+        <body lock="true">Twilight Mail</body>
+      </equip>
+    </if>
+    <!-- Auto sets -->
+    <!-- Mode-->
+    <if buffactive="Spirit Surge">
+      <disable slot="Main|Sub|Range"/>
+      <equip when="resting" set="resting"/>
+      <addtochat color="121">Spirit Surge Set Locked</addtochat>
+      <if status="engaged">
+        <equip when="Engaged|aftercast" set="Surge-TP" />
+      </if>
+      <else>
+        <equip when="Idle|aftercast" set="Standard" />
+      </else>
+    </if>
+    <elseif mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+      <if type="Weaponskill">
+        <equip when="precast" set="%Spell"/>
+      </if>
+    </elseif>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <if equipmain="$Polearm">
+        <addtochat color="121">%Equipmain Locked</addtochat>
+        <disable slot="Main|Sub|Range"/>
+        <equip when="resting" set="resting"/>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <elseif equipmain="$Staff">
+        <addtochat color="121">%Equipmain Locked</addtochat>
+        <disable slot="Main|Sub|Range"/>
+        <equip when="resting" set="resting"/>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <elseif equipmain="$Dagger">
+        <addtochat color="121">%Equipmain Locked</addtochat>
+        <disable slot="Main|Sub|Range"/>
+        <equip when="resting" set="resting"/>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <elseif equipmain="$Club">
+        <addtochat color="121">%Equipmain Locked</addtochat>
+        <disable slot="Main|Sub|Range"/>
+        <equip when="resting" set="resting"/>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <elseif equipmain="$Sword">
+        <addtochat color="121">%Equipmain Locked</addtochat>
+        <disable slot="Main|Sub|Range"/>
+        <equip when="resting" set="resting"/>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <else>
+        <addtochat color="121">Unknown Weapon</addtochat>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="TP" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!--Job Ability Rules -->
+    <if type="jobability">
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror">
+        <cancelspell/>
+      </if>
+      <else>
+        <if spell="*Jump">
+          <equip when="precast" set="%Spell" />
+        </if>
+        <elseif spell="Call Wyvern">
+          <equip when="precast">
+            <body>Wym. Mail +2</body>
+          </equip>
+        </elseif>
+        <elseif spell="Spirit Surge">
+          <equip when="precast">
+            <body>Wym. Mail +2</body>
+          </equip>
+        </elseif>
+        <elseif spell="Spirit Link">
+          <equip when="precast">
+            <hands>Lncr. Vmbrc. +2</hands>
+          </equip>
+        </elseif>
+        <elseif spell="Ancient Circle">
+          <equip when="precast">
+            <legs>Drachen Brais</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Angon">
+          <if spelltargetdistanceGT="10">
+            <cancelspell/>
+            <addtochat color="121">You're too far for Angon</addtochat>
+          </if>
+          <else>
+            <equip when="precast|midcast">
+              <hands>Wym. Fng. Gnt. +2</hands>
+            </equip>
+            <cmd when="aftercast">input /p Angon Just Used it</cmd>
+          </else>
+        </elseif>
+      </else>
+    </if>
+    <!--  Handle Weaponskill -->
+    <elseif type="Weaponskill">
+      <if buffactive="Amnesia|Sleep|Petrication|Stun*|terror">
+        <cancelspell/>
+      </if>
+      <else>
+        <if TPGT="99">
+          <if advanced="%SpellTargetDistance &lt; 5">
+            <CastDelay Delay=".5"/>
+            <if spell="Stardiver">
+              <if Advanced='"%DayElement" = "Light" OR "%DayElement" = "Earth" OR "%DayElement" = "Dark"'>
+                <equip when="precast">
+                  <head lock="yes">Mekira-Oto +1</head>
+                </equip>
+              </if>
+              <equip when="precast" set="%Spell"/>
+            </if>
+            <elseif spell="Drakesbane">
+              <if Advanced='"%DayElement" = "Light" OR "%DayElement" = "Fire"'>
+                <equip when="precast">
+                  <head lock="yes">Mekira-Oto +1</head>
+                </equip>
+              </if>
+              <equip when="precast" set="%Spell"/>
+            </elseif>
+            <elseif spell="Penta Thrust">
+              <if Advanced='"%DayElement" = "Dark"'>
+                <equip when="precast">
+                  <head lock="yes">Mekira-Oto +1</head>
+                </equip>
+              </if>
+              <equip when="precast" set="%Spell"/>
+            </elseif>
+            <elseif spell="Skewer">
+              <if Advanced='"%DayElement" = "Light" OR "%DayElement" = "Thunder"'>
+                <equip when="precast">
+                  <head lock="yes">Mekira-Oto +1</head>
+                </equip>
+              </if>
+              <equip when="precast" set="%Spell"/>
+            </elseif>
+            <else>
+              <equip when="precast" set="WS"/>
+            </else>
+          </if>
+          <else>
+            <cancelspell/>
+            <addtochat color="121">%SpellTargetName is too far.</addtochat>
+            <Return/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">You dont have enough tp for that</addtochat>
+          <Return/>
+        </else>
+      </else>
+     
+    </elseif>
+    <elseif type="PetCommand">
+      <!-- Pet Commands -->
+      <if spell="Smiting Breath">
+        <if petisvalid="true">
+          <midcastdelay delay="1"/>
+          <aftercastdelay delay="2"/>
+          <equip when="precast" set="prehealing breath"/>
+          <equip when="midcast" set="Healing breath"/>
+        </if>
+        <else>
+          <cancelspell />
+        </else>
+      </if>
+      <elseif spell="Restoring Breath">
+        <if petisvalid="true">
+          <midcastdelay delay="1"/>
+          <aftercastdelay delay="2"/>
+          <equip when="precast" set="prehealing breath"/>
+          <equip when="midcast" set="Healing breath"/>
+        </if>
+        <else>
+          <cancelspell />
+        </else>
+      </elseif>
+      <elseif spell="Steady Wing"/>
+    </elseif>
+    <!-- Subjob Rules -->
+    <!-- SAM-->
+    <if subjob="SAM">
+      <!-- Auto Macro set -->
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <!-- Sekkanoki -->
+      <if spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </if>
+      <!-- Meditate -->
+      <elseif spell="Meditate" tpgt="175">
+        <cancelspell/>
+        <addtochat color="121">You have too much tp for that.</addtochat>
+      </elseif>
+      <!-- Auto Hasso on Engaged -->
+      <if status="engaged" notbuffactive = "Hasso">
+        <Cmd when="engaged">wait 3;input /ja "Hasso" &lt;me&gt;</Cmd>
+      </if>
+    </if>
+    <!-- NIN -->
+    <elseif subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if spell="Utsusemi*">
+        <equip when="precast|Midcast" set="Recast">
+          <neck>Magoraga Beads</neck>
+        </equip>
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+    </elseif>
+    <!-- DNC -->
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <!-- WAR-->
+    <elseif subjob="WAR">
+      <cmd when="aftercast">input /macro set 4</cmd>
+      <if spell="Berserk" buffactive="Berserk">
+        <cancelspell/>
+      </if>
+    </elseif>
+    <!-- BLU -->
+    <elseif subjob="BLU">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+      <if Spell="Foot Kick" hpplt="50">
+        <equip when="Precast" set="PreHealing Breath" />
+        <midcastdelay delay="1.5"/>
+        <equip when="midcast" set="Healing Breath" />
+        <aftercastdelay delay="5"/>
+      </if>
+    </elseif>
+    <!-- RDM -->
+    <elseif subjob="RDM">
+      <if spell="Convert">
+        <cancelspell/>
+      </if>
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 6</cmd>
+      </if>
+      <if skill="EnhancingMagic">
+        <if Spell="Stone|Bar*" hpplt="50">        
+          <equip when="Precast" set="PHB" />
+          <midcastdelay delay="1.5"/>
+          <equip when="midcast" set="HB" />
+          <aftercastdelay delay="5"/>
+        </if>
+        <elseif spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+          <midcastdelay delay="1" />
+          <command when="MidCast">cancel 71</command>
+        </elseif>
+        <else>
+          <equip when="Precast" set="Recast"/>
+        </else>
+      </if>
+    </elseif>
+    <!-- WHM -->
+    <elseif subjob="WHM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 7</cmd>
+      </if>
+      <if Spell="Bar*" hpplt="50">
+        <equip when="Precast" set="PHB" />
+        <midcastdelay delay="1.5"/>
+        <equip when="midcast" set="HB" />
+        <aftercastdelay delay="5"/>
+      </if>
+      <elseif spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+        <midcastdelay delay="1" />
+        <command when="MidCast">cancel 71</command>
+      </elseif>
+    </elseif>
+    <!-- SCH -->
+    <elseif subjob="SCH">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 8</cmd>
+      </if>
+      <if Spell="Stone|Bar*">
+        <equip when="Precast" set="PHB" />
+        <midcastdelay delay="1.5"/>
+        <equip when="midcast" set="HB" />
+        <aftercastdelay delay="5"/>
+      </if>
+    </elseif>
+    <!-- PLD -->
+    <elseif subjob="PLD">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 9</cmd>
+      </if>
+    </elseif>
+    <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </if>
+      <if buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </if>
+      <if buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </if>
+      <if buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

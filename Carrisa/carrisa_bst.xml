@@ -1,0 +1,862 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Carrisa" server="Sylph" description="Feary's BST Spellcast" job="BST" />
+  <config RequireVersion="2.40" Showgearswaps="false" ShowspellInfo="false" />
+  <variables clear="true">
+    <!-- Auto macro sets -->
+    <var name="AutoMacroset">1</var>
+    <!-- Ready -->
+    <var name="Ready">1</var>
+    <!-- Announce statues-->
+    <var name="Statuses">1</var>
+    <!-- Aftercast tells the pet to fight-->
+    <var name="AutoFight">0</var>
+    <!-- Weapon -->
+    <var name="Axe">Farsha|Hunahpu|Brethren Axe|Kerehcatl</var>   
+    <var name="Dagger">Twilight Dagger</var>
+    <var name="Scythe">Perdu Sickle</var>
+    <var name="Sword">Halachuinic Sword</var>
+    <var name="Club">Rounsey Wand</var>
+    <var name="Staff">Terra's Staff</var>
+    <!-- Sub Weapon -->
+    <var name="Axesub">Brethren Axe</var>
+    <var name="Shield">Tatami Shield</var>
+    <!-- Pet Item -->
+    <var name="PetJug">D. Herbal Broth</var>
+    <var name="PetFood">Pet Food Theta</var>
+    <!-- Elemental Staffs, input what staff to use for each element here -->
+    <var name="DarkStaff">Pluto's Staff</var>
+    <var name="LightStaff">Apollo's Staff</var>
+    <var name="EarthStaff">Terra's Staff</var>
+    <!--Do Not Edit-->
+    <!-- Elemental Obi's -->
+    <var Name="LightObi">Korin Obi</var>
+  </variables>
+  <!-- Porter Moogle 
+  All Monster  
+  ferine neck and back
+  -->
+  <sets>
+    <group default="yes" name="bst" load="yes">
+      <set name="miscgearcollector">
+        <item>Farsha</item>
+        <item>Perdu Sickle</item>
+        <item>Monster Helm</item>
+        <item>Monster Jackcoat</item>
+        <item>Monster Gloves</item>
+        <item>Monster Trousers</item>
+        <item>Monster Gaiters</item>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <feet>Skadi's Jambeaux</feet>
+      </set>
+      <set name="Twilight">
+        <head>Twilight Helm</head>
+        <body>Twilight Mail</body>
+      </set>
+      <set name="Standard|Idle" baseset="PDT" load="yes">
+        <ammo>$PetJug</ammo>
+      </set>
+      <set name="PDT" load="yes">
+        <head>Iuitl Headgear</head>
+        <neck>Twilight Torque</neck>
+        <body>Iuitl Vest</body>
+        <hands>Iuitl Wristbands</hands>
+        <legs>Iuitl Tights</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Flume Belt</waist>
+        <back>Repulse Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT" load="yes">
+        <head>Iuitl Headgear</head>
+        <neck>Twilight Torque</neck>
+        <body>Iuitl Vest</body>
+        <hands>Iuitl Wristbands</hands>
+        <legs>Iuitl Tights</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Nierenschutz</waist>
+        <back>Engulfer Cape</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="Evasion" baseset="TP">
+
+      </set>
+      <set name="resting" />
+      <!-- Pet PDT-->
+      <set name="PetTP" baseset="Town" load="yes">
+        <neck>Shepherd's Chain</neck>
+        <back>Ferine Mantle</back>
+      </set>
+      <set name="PetPDT" baseset="Town" load="yes">
+        <neck>Shepherd's Chain</neck>
+        <back>Ferine Mantle</back>
+      </set>
+      <set name="TP" load="yes">
+        <head>Iuitl Headgear</head>
+        <neck>Asperity Necklace</neck>
+        <body>Iuitl Vest</body>
+        <hands>Iuitl Wristbands</hands>
+        <legs>Iuitl Tights</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Windbuffet Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Suppanomimi</rear>
+      </set>     
+      <set name="Charm" load="yes">
+        <head>Beast Helm</head>
+        <body>Beast jackcoat</body>
+        <hands>Beast Gloves</hands>
+        <legs>Beast Trousers</legs>
+        <feet>Beast Gaiters</feet>
+      </set>
+      <set name="Recast" baseset="TP" load="yes">
+        <head>Yaoyotl Helm</head>
+        <neck>Magoraga Beads</neck>
+        <body>Iuitl Vest</body>
+        <hands>Iuitl Wristbands</hands>
+        <legs>Ferine quijotes +2</legs>
+        <feet>Iuitl Gaiters</feet>        
+        <lear>Magnetic Earring</lear>
+        <rear>Loquac. Earring</rear>       
+      </set>
+      <!-- Reward + and MND -->
+      <set name="Reward" load="yes">
+        <ammo>$PetFood</ammo>
+        <!-- Stout Bonnet -->
+        <head>Khimaira Bonnet</head>
+        <!-- Mst. Jackcoat +2 -->
+        <body>Monster Jackcoat</body>
+        <!-- Ogre Gloves +1 -->
+        <hands>Ogre Gloves</hands>
+        <!-- Mst. Trousers +2-->
+        <legs>Monster Trousers</legs>
+        <!-- Mst. Gaiters +2 -->
+        <feet>Monster Gaiters</feet>
+        <rear>Ferine Earring</rear>
+      </set>
+      <set name="WS" baseset="TP" load="yes">
+
+      </set>
+      <!-- Axe -->
+      <set name="Ruinator" baseset="ws">
+        <waist>Breeze Belt</waist>
+      </set>
+      <set name="Rampage" baseset="ws" load="yes">
+        <waist>Soil Belt</waist>
+      </set>
+      <set name="Mistral Axe|Decimation|Cloudsplitter|Primal Rend" baseset="ws" load="no"/>
+      <!-- Dagger -->
+      <set name="ShadowStitch|Energy Drain|Cyclone|Evisceration|Exenterator" baseset="ws" load="no"/>
+      <!-- Scythe -->
+      <set name="Shadow of Death|Spiral Hell" baseset="ws" load="no"/>
+      <!-- Acc > Dex -->
+      <set name="Step" baseset="Standard">
+
+      </set>
+      <!-- CHR AND VIT-->
+      <set name="Waltz" load="yes"/>
+      <set name="Ranged" load="yes"/>
+    </group>
+  </sets>
+  <rules>
+    <!-- set petjug varible -->
+    <if equipammo="Dancing Herbal Broth|Wool Grease|Shadowy Broth|Cloudy Wheat Broth">
+      <cmd when="Precast">sc var set PetJug %Equip Ammo</cmd>
+    </if>
+    <!-- Changes needed:
+    1. Account of Reward Axes.
+    2. Account for situational glyph axe
+    3. name pets
+    -->
+    <!-- Auto set-->
+    <!-- Axe-->
+    <if mode="or" equipmain="$Axe" equipsub="$AxeSub">
+      <disable slot="main|sub|range" />
+      <equip when="resting" set="resting"/>
+      <!-- Engaged -->
+      <if status="engaged">
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if area="Abyssea*">
+            <if advanced='"$AutoFight"=="1"'>
+              <cmd when="engaged|aftercast">input /pet Fight &lt;t&gt;</cmd>
+            </if>
+          </if>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="PetTP"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="PetTP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="Standard"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </else>
+    </if>
+    <elseif equipmain="$Dagger">
+      <disable slot="main|sub|range" />
+      <equip when="resting" set="resting"/>
+      <if status="Engaged">
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if area="Abyssea*">
+            <if advanced='"$AutoFight"=="1"'>
+              <cmd when="engaged|aftercast">input /pet Fight &lt;t&gt;</cmd>
+            </if>
+          </if>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <!-- Pet -->
+          <if advanced='"%PetISValid" = "true"'>
+            <if subjob="NIN|DNC">
+              <equip when="idle|AfterCast" set="PetTP"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="PetTP">
+                <sub>$Shield</sub>
+              </equip>
+            </else>
+          </if>
+          <!-- No Pet -->
+          <else>
+            <if subjob="NIN|DNC">
+              <equip when="idle|AfterCast" set="Standard"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="Standard">
+                <sub>$Shield</sub>
+              </equip>
+            </else>
+          </else>
+        </else>
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="PetTP"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="PetTP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="Standard"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </else>
+    </elseif>
+    <elseif equipmain="$Club">
+      <disable slot="main|sub|range" />
+      <equip when="resting" set="resting"/>
+      <if status="Engaged">
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if area="Abyssea*">
+            <if advanced='"$AutoFight"=="1"'>
+              <cmd when="engaged|aftercast">input /pet Fight &lt;t&gt;</cmd>
+            </if>
+          </if>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="PetTP"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="PetTP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="Standard"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </else>
+    </elseif>
+    <else>
+      <enable slot="main|sub|range" />
+      <if status="Engaged">
+        <!-- Pet -->
+        <if petvalid="true">
+          <if area="Abyssea*">
+            <if advanced='"$AutoFight"=="1"'>
+              <cmd when="engaged|aftercast">input /pet Fight &lt;t&gt;</cmd>
+            </if>
+          </if>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="engaged|AfterCast" set="TP"/>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <!-- Pet -->
+        <if advanced='"%PetISValid" = "true"'>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="PetTP"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="PetTP">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </if>
+        <!-- No Pet -->
+        <else>
+          <if subjob="NIN|DNC">
+            <equip when="idle|AfterCast" set="Standard"/>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard">
+              <sub>$Shield</sub>
+            </equip>
+          </else>
+        </else>
+      </else>
+    </else>
+    <!-- Ranged Attack - Use to check dynamis procs. -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged"/>
+      <!-- Dynamis -->
+      <if Area="Dynamis*">
+        <!-- City and Snow Zones-->
+        <!-- JA Abilities -->
+        <if spelltarget="*Ranger|*Predator|*Ambusher|*Mason|*Salvager|*Ninja|*Backstabber|*Assassin|*Kusa|*Hitman|*Beastmaster|*Ogresoother|*Hawker|*Beasttender|*Pathfinder|*Monk|*Sentinel|*Grappler|*Militant|*Pitfighter|*Thief|*Pillager|*Liberator|*Purloiner|*Welldigger">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+          </else>
+        </if>
+        <!-- Magic Abilities -->
+        <elseif spelltarget="*Black Mage|*Mesmerizer|*Prelate|*Thaumaturge|*Shaman|*White Mage|*Alchemist|*Amputator|*Priest|*Constable|*Red Mage|*Protector|*Visionary|*Vexer|*Enchanter|*Summoner|*Undertaker|*Oracle|*Dollmaster|*Necromancer|*Bard|*Minstrel|*Chanter|*Bugler|*Maestro">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+          </else>
+        </elseif>
+        <!-- WS Abilities -->
+        <elseif spelltarget="*Paladin|*Armorer|*Trooper|*Exemplar|*Defender|*Dark Knight|*Tinkerer|*Neckchopper|*Inciter|*Vigilante|*Samurai|*Ronin|*Gutslasher|*Persecutor|*Hatamoto|*Warrior|*Smithy|*Footsoldier|*Skirmisher|*Vindicator|*Dragoon|*Dragontamer|*Impaler|*Partisan|*Drakekeeper">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+          </else>
+        </elseif>
+        <!-- COP Zones -->
+        <elseif spelltarget="*Goobbue|*Manticore|*Treant|*Crab|*Dhalmel|*Scorpion|*Diremite|*Raptor|*Tiger|*Leech|*Worm">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Gaylas|*Kraken|*Roc|*Crawler|*Raven|*Uragnite|*Fly|*Flytrap|*Funguar|*Bugard|*Hornet">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Hippogryph|*Sabotender|*Sheep|*Mandragora|*Eft|*Bunny|*Weapon|*Stirge|*Snoll|*Cluster|*Makara">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+        </elseif>
+      </if>
+      <!-- Not in Dynamis-->
+      <else>
+        <if advanced='"$PullCall"="1"'>
+          <cmd>input /p Fishing >>>>> %spelltargetname &lt;call14&gt;</cmd>
+        </if>
+        <else>
+          <cmd>input /p Fishing >>>>> %spelltargetname</cmd>
+        </else>
+      </else>
+      <return/>
+    </if>
+    <!-- Fix Pet Spells-->
+    <if Type="BlueMagic">
+      <command>input /raw /pet "%Spell" &lt;me&gt;</command>
+      <cancelspell />
+    </if>
+    <!-- Ready -->
+    <if advanced='"$Ready"=="1"'>
+      <!-- Crude Raphie-->
+      <if advanced='"%PetName" = "Crude Raphie"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+          <addtochat color="121">Tortoise Stomp</addtochat>
+          <changespell>Tortoise Stomp</changespell>
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+          <addtochat color="121">Harden Shell</addtochat>
+          <changespell>Harden Shell</changespell>
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+          <addtochat color="121">Aqua Breath</addtochat>
+          <changespell>Aqua Breath</changespell>
+        </elseif>
+      </if>
+      <!-- Gooey Gerard-->
+      <elseif advanced='"%PetName" = "Gooey Gerard"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+      <!-- Dipper Yuly -->
+      <elseif advanced='"%PetName" = "Dipper Yuly"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+          <addtochat color="121">Sudden Lunge</addtochat>
+          <changespell>Sudden Lunge</changespell>
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+          <addtochat color="121">Spiral Spin</addtochat>
+          <changespell>Spiral Spin</changespell>
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+          <addtochat color="121">Noisome Powder</addtochat>
+          <changespell>Noisome Powder</changespell>
+        </elseif>
+      </elseif>
+      <!-- Nursery Nazuna-->
+      <elseif advanced='"%PetName" = "Nursery Nazuna"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+          <addtochat color="121">Lamb Chop</addtochat>
+          <changespell>Lamb Chop</changespell>
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+          <addtochat color="121">Rage</addtochat>
+          <changespell>Rage</changespell>
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+          <addtochat color="121">Sheep Charge</addtochat>
+          <changespell>Sheep Charge</changespell>
+        </elseif>
+        <!-- Pet Spell 4-->
+        <elseif spell="Stone V">
+          <addtochat color="121">Sheep Song</addtochat>
+          <changespell>Sheep Song</changespell>
+        </elseif>
+      </elseif>
+      <!-- Faithful Falcorr -->
+      <elseif advanced='"%PetName" = "Faithful Falcorr"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+      <!-- Herald Henry -->
+      <elseif advanced='"%PetName" = "Herald Henry"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+      <!-- Sunburst Malfik -->
+      <elseif advanced='"%PetName" = "Sunburst Malfik"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+      <!-- Scissorleg Xerin -->
+      <elseif advanced='"%PetName" = "Scissorleg Xerin"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+      <!-- Droopy Dortwin -->
+      <elseif advanced='"%PetName" = "Droopy Dortwin"'>
+        <!-- Pet Spell 1-->
+        <if spell="Thunder V">
+
+        </if>
+        <!-- Pet Spell 2 -->
+        <elseif spell="Blizzard V">
+
+        </elseif>
+        <!-- Pet Spell 3-->
+        <elseif spell="Fire V">
+
+        </elseif>
+      </elseif>
+    </if>
+    <if type="Jobability">
+      <if spell="Charm">
+        <equip when="Precast" set="Charm" />
+      </if>
+      <elseif spell="Reward">
+        <precastdelay delay=".2"/>
+        <equip when="precast" set="Reward"/>
+      </elseif>
+      <elseif spell="Call Beast">
+        <equip when="precast">
+          <ammo>$PetJug</ammo>
+          <hands>Monster Gloves</hands>
+        </equip>
+      </elseif>
+      <elseif spell="Spur">
+        <equip when="precast">
+          <feet>Ferine Ocreae +2</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Ready|Sic">
+        <equip when="precast">
+          <hands>Frn. Manoplas +2</hands>
+        </equip>
+      </elseif>
+      <elseif spell="Snarl">
+        <equip when="precast" set="Enmity" />
+      </elseif>
+    </if>
+    <!-- Weapon skills -->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <equip when="precast" set="%Spell"/>
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return />
+        </else>
+      </if>
+      <else>
+        <cancelspell />
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return />
+      </else>
+    </elseif>
+    <!-- Subjobs -->
+    <if subjob="nin">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <!-- Usustemi -->
+      <if spell="Utsu*">
+        <equip when="precast" set="Recast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <if spell="Sneak">
+        <changespell>Monomi: Ichi</changespell>
+      </if>
+      <if spell ="invisible">
+        <changespell>Tonko: Ni</changespell>
+      </if>
+    </if>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if Spell="Spectral Jig">
+        <command when="PreCast">cancel 71</command>
+      </if>
+      <elseif spell="*step">
+        <equip when="precast" set="step" />
+      </elseif>
+      <elseif spell="violent flourish|desperate*">
+        <equip when="precast" set="step" />
+      </elseif>
+      <elseif spell="*waltz*">
+        <equip when="precast" set="waltz" />
+      </elseif>
+    </elseif>
+    <elseif subjob="WAR">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="SAM">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="WHM|RDM">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+      <if spell="stoneskin">
+        <equip when="precast" set="Stoneskin"/>
+      </if>
+    </elseif>
+    <if advanced='"$Statuses"=="1"'>
+      <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </if>
+      <if buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </if>
+      <if buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </if>
+      <if buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

@@ -1,0 +1,2033 @@
+<!--
+Original Coding Written by: Genesisx (Windower Forums)
+Updated Coding Written by: Nimotas
+Last Updated: 06/09/13
+Current Version: Skillup_v3.7
+-->
+
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- SpellCast Configurations -->
+  <config Debug="false" HideErrors="false" ShowSpellInfo="false" ShowGearSwaps="false" />
+  <guildwork character="Feary" server="Sylph" description="Nimotas's Skillup" job="BRD"/>
+  <!-- SpellCast Variables -->
+  <variables clear="True">
+    <!-- DO NOT ALTER THESE VARIABLES -->
+    <var name="CurrentVersion">v3.7</var>
+    <!-- Current Skillup Coding Version DO NOT ALTER -->
+    <var name="FirstSetup">1</var>
+    <!-- First Run Display Var DO NOT ALTER-->
+    <var name="SkillCycle">1</var>
+    <!-- Spell Cycle DO NOT ALTER -->
+    <var name="CurrentSpell">Cure</var>
+    <!-- Spell Cycle NO NOT ALTER -->
+    <var name="FoodCycle">1</var>
+    <!-- Food Cycle DO NOT ALTER -->
+    <var name="SkillUp">1</var>
+    <!-- Skill-Up Pause Cycle DO NOT ALTER -->
+
+    <!-- YOU MAY ALTER THESE VARIABLES -->
+    <var name="Show.Debug">False</var>
+    <!-- Show Process/Debug Info True/False -->
+
+    <!-- Automatic Script End Variables -->
+    <!-- Order of Days: Firesday -> Earthsday -> Watersday -> Windsday -> Iceday -> Lightningday -> Lightsday -> Darksday -->
+    <var name="SUEndDay">Windsday</var>
+    <!-- Change value to the name of the day you want the script to auto end or leave blank for continuous run. -->
+    <var name="SUEndTime">0.00</var>
+    <!-- Change value to the time of the day you want the script to auto end -->
+
+    <!-- You can alter these variables to use Skill UP food or not. -->
+    <var name="UseFood">false</var>
+    <!-- Use skill-up food True/False -->
+    <var name="FoodName">B.E.W. Pitaru</var>
+    <!-- Valid Magic Food: Stuffed Pitaru, Poultry Pitaru, Seafood Pitaru, B.E.W. Pitaru -->
+    <!-- Valid Melee Food: Saltena, Elshena, Montagna, Maringna-->
+
+    <!-- Time is in seconds. -->
+    <var name="WaitTime4SMN">2</var>
+    <!-- Set time to wait in-between SMN Skill actions -->
+    <var name="WaitTime4Healing">2</var>
+    <!-- Set time to wait in-between Healing Skill actions -->
+    <var name="WaitTime4Enhancing">2</var>
+    <!-- Set time to wait in-between Enhancing Skill actions -->
+    <var name="WaitTime4BLU">2</var>
+    <!-- Set time to wait in-between Blue Magic Skill actions -->
+    <var name="WaitTime4GEO">2</var>
+    <!-- Set time to wait in-between Geomancy Skill actions -->
+    <var name="WaitTime4BRD">2</var>
+    <!-- Set time to wait in-between BRD Skill actions -->
+    <var name="WaitTime4Dark">2</var>
+    <!-- Set time to wait in-between Dark Skill actions -->
+    <var name="WaitTime4Divine">2</var>
+    <var name="WaitTime4Enlight">24</var>
+    <!-- Set time to wait in-between Divine Skill actions -->
+    <var name="WaitTime4Elemental">2</var>
+    <!-- Set time to wait in-between Elemental Skill actions -->
+    <var name="WaitTime4Enfeebling">2</var>
+    <!-- Set time to wait in-between Enfeebling Skill actions -->
+    <var name="WaitTime4ninjitsu">2</var>
+    <!-- Set time to wait in-between Enfeebling Skill actions -->
+
+
+    <!-- Summons: 1= Use, 0= Do not use -->
+    <var name="CarbuncleAva">1</var>
+    <!-- This must remain set to 1 since all SMN's have Carbuncle -->
+    <var name="IfritAva">1</var>
+    <var name="TitanAva">1</var>
+    <var name="LeviathanAva">1</var>
+    <var name="GarudaAva">1</var>
+    <var name="ShivaAva">1</var>
+    <var name="RamuhAva">1</var>
+    <var name="FenrirAva">1</var>
+    <var name="DiabolosAva">1</var>
+
+  </variables>
+
+  <sets>
+    <!-- Specify Resting / Standard gear if desired -->
+    <group name="SMN" default="yes">
+      <set name="Standard">
+        <main></main>
+        <sub></sub>
+        <ammo></ammo>
+        <head></head>
+        <neck></neck>
+        <lear></lear>
+        <rear></rear>
+        <body></body>
+        <hands></hands>
+        <lring></lring>
+        <rring></rring>
+        <back></back>
+        <waist></waist>
+        <legs></legs>
+        <feet></feet>
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+        
+      </set>
+    </group>
+
+    <group name="SCH">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="WHM">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="BLU">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="GEO">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+        <main>Chatoyant Staff</main>
+        <neck>Eidolon Pendant</neck>
+        <body>Bokwus Robe</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <lear>Magnetic Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+    </group>
+
+    <group name="BRD">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="BLM">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="RDM">
+      <set name="Standard">
+        <main>$Maccstaff</main>
+        <!-- Buremte Hat-->
+        <head>Nahtirah Hat</head>
+        <!-- Wilke Torque-->
+        <neck>Enfeebling Torque</neck>
+        <body>Estq. Sayon +2</body>
+        <hands>Estq. Ganthrt. +2</hands>
+        <legs>Bokwus Slops</legs>
+        <!-- Uk'uxkaj Boots -->
+        <feet>Bokwus Boots</feet>
+        <waist>Demonry Sash</waist>
+        <back>Refraction Cape</back>
+        <lring>Balrahn's ring</lring>
+        <rring>Sangoma Ring</rring>
+        <lear>Lifestorm Earring</lear>
+        <rear>Psystorm Earring</rear>
+        <sub>Mephitis Grip</sub>
+        <ammo>Aureole</ammo>
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+        <main>$RestingStaff</main>
+        <ammo>Clarus Stone</ammo>
+        <head>Dls. Chapeau +2</head>
+        <neck>Eidolon Pendant</neck>
+        <body>Bokwus Robe</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <lear>Magnetic Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+    </group>
+
+    <group name="RUN">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="DRK">
+      <set name="Standard">
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+      </set>
+    </group>
+
+    <group name="PLD">
+      <set name="Standard">
+        <head lock="true">Tema. Headband</head>
+        <body lock="true">Temachtiani Shirt</body>
+        <hands lock="true">Temachtiani Gloves</hands>
+        <legs lock="true">Temachtiani Pants</legs>
+        <feet lock="true">Temachtiani Boots</feet>
+        <rring lock="true">Prouesse Ring</rring>
+        <lear lock="true">Liminus Earring</lear>
+        <rear lock="true">Terminus Earring</rear>
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+        <neck>Creed Collar</neck>
+        <head>Twilight Helm</head>
+        <body>Twilight Mail</body>
+        <lear>Magnetic earring</lear>
+        <rear>Moonshade earring</rear>
+      </set>
+    </group>
+    
+    <group name="NIN">
+      <set name="Standard">
+        <head lock="true">Tema. Headband</head>
+        <body lock="true">Temachtiani Shirt</body>
+        <hands lock="true">Temachtiani Gloves</hands>
+        <legs lock="true">Temachtiani Pants</legs>
+        <feet lock="true">Temachtiani Boots</feet>
+        <rring lock="true">Prouesse Ring</rring>
+        <lear lock="true">Liminus Earring</lear>
+        <rear lock="true">Terminus Earring</rear>
+      </set>
+      <set name="Resting Gear" BaseSet="Standard">
+        
+      </set>
+    </group>
+  </sets>
+
+  <rules>
+    <!-- Rules for Idle/Resting Equipment Changes -->
+    <action type="equip" when="idle" set="Standard" />
+    <action type="equip" when="resting" set="Resting Gear" />
+
+    <!-- Setup First Run Notification -->
+    <if advanced='"$FirstSetup" == "1"'>
+      <!-- Set $CurrentSpell variable to the spell cast by user -->
+      <var cmd="set CurrentSpell %spell" />
+
+      <action type="command">alias SUEnd input /echo --- Exiting SkillUp Script $CurrentVersion ---;unload spellcast;unbind ^escape;unbind f10;unbind f12;wait 3;load spellcast;wait 3;input /ja "Release";</action>
+      <action type="command">bind ^escape SUEnd</action>
+
+      <action type="command">alias SUReset input /echo --- Resetting SkillUp Script $CurrentVersion ---;sc reload</action>
+      <action type="command">bind f10 SUReset</action>
+
+      <action type="command">alias DebugOn input /echo --- Show Debug = ON ---;sc var set Show.Debug True;bind f11 DebugOff</action>
+      <action type="command">alias DebugOff input /echo --- Show Debug = Off ---;sc var set Show.Debug False;bind f11 DebugOn</action>
+      <action type="command">bind f11 DebugOn</action>
+
+      <action type="command">alias PauseOn input /echo --- Pausing SkillUp Script $CurrentVersion ---;sc var set SkillUp 0;bind f12 PauseOff</action>
+      <action type="command">alias PauseOff input /echo --- Resuming SkillUp Script $CurrentVersion ---;sc var set SkillUp 1;bind f12 PauseOn;input /ma "$currentspell"</action>
+      <action type="command">bind f12 PauseOn</action>
+
+      <if notspell="Carbuncle|Cure|Protect|Barfira|Barfire|Blaze Spikes|Pollen|Indi-Regen|Fire Carol|Mage's Ballad|Endark|Banish|Enlight|Burn|Fire|Bio|Dia|Sleep|Utsusemi: Ni">
+        <action type="AddToChat" color="204">--- SkillUp Script $CurrentVersion Loaded ---</action>
+        <action type="AddToChat" color="121">Cast one of the following spells to start the script:</action>
+
+        <action type="AddToChat" color="166">Summoning Magic Skill: Carbuncle</action>
+        <action type="AddToChat" color="166">Healing Magic Skill: Cure</action>
+        <action type="AddToChat" color="166">Enhancing Magic Skill: Protect | Barfira | Barfire | Blaze Spikes</action>
+        <action type="AddToChat" color="166">Blue Magic Skill: Pollen</action>
+        <action type="AddToChat" color="166">Goemancy/Handbell Skill: Indi-Regen</action>
+        <action type="AddToChat" color="166">BRD Singing/Wind/String Skill: Fire Carol</action>
+        <action type="AddToChat" color="166">BRD Ballad Loop: Mage's Ballad</action>
+        <action type="AddToChat" color="166">Dark Magic Skill: Endark | Bio</action>
+        <action type="AddToChat" color="166">Divine Magic Skill: Banish</action>
+        <action type="AddToChat" color="166">Self Divine Magic Skill: Enlight</action>
+        <action type="AddToChat" color="166">Elemental Magic Skill: Burn | Fire</action>
+        <action type="AddToChat" color="166">Enfeebling Magic Skill: Dia</action>
+        <action type="AddToChat" color="166">Enfeebling Magic Skill: Sleep</action>
+        <action type="AddToChat" color="166">NInjitsu Magic Skill: Utsusemi: Ni</action>
+
+
+        <!-- Debug info -->
+        <if advanced='"$Show.Debug" == "True"'>
+          <addtochat color="207">Debug Process:: Incorrect Start Spell Detected - Show Start Spell List</addtochat>
+        </if>
+        <action type="AddToChat" color="204">--- Press CTRL+Escape at any time to exit SkillUp Script $CurrentVersion ---</action>
+        <cancelspell />
+        <return />
+      </if>
+
+      <action type="AddToChat" color="204">--- Starting SkillUp Script $CurrentVersion - %skill ---</action>
+      <action type="AddToChat" color="121">Current Day is %Day, Current Time is %Time</action>
+      <action type="AddToChat" color="121">Script will Automatically End on $SUEndDay at or after $SUEndTime time</action>
+
+      <!-- Set Equipment Group Using Main Job -->
+      <command>sc group %mainjob</command>
+      <action type="AddToChat" color="121">%job Detected - Setting Equipment Group to %mainjob</action>
+
+      <action type="AddToChat" color="204">--- Press F10 to reset SkillUp Script $CurrentVersion to First Run ---</action>
+      <action type="AddToChat" color="204">--- Press F11 to toggle debug messages On/Off ---</action>
+      <action type="AddToChat" color="204">--- Press F12 at any time to Pause/Resume SkillUp Script $CurrentVersion ---</action>
+      <action type="AddToChat" color="204">--- Press CTRL+Escape at any time to exit SkillUp Script $CurrentVersion ---</action>
+      <action type="var" cmd="set FirstSetup 0" />
+      <!-- Debug info -->
+      <if advanced='"$Show.Debug" == "True"'>
+        <addtochat color="207">Debug Process:: Show First Run Note</addtochat>
+      </if>
+    </if>
+
+    <!-- Rule to Auto End Script on specified day and time -->
+    <if mode="and" day="$SUEndDay" TimeGT="$SUEndTime">
+      <action type="AddToChat" color="121">End Day (%day)/Time (%time) Detected</action>
+      <!-- Debug info -->
+      <if advanced='"$Show.Debug" == "True"'>
+        <addtochat color="207">Debug Process:: End Day/Time Detected - Ending Script</addtochat>
+      </if>
+      <command>SUEnd</command>
+    </if>
+
+    <!-- Cancel Trigger Spell if Script is Paused; This will only cancel trigger spells. Other spells will process when paused. -->
+    <if advanced='"$SkillUp"=="0"'>
+      <if spell="Carbuncle|Cure|Protect|Barfira|Barfire|Blaze Spikes|Pollen|Indi-Regen|Fire Carol|Mages Ballad|Endark|Banish|Enlight|Burn|Fire|Bio|Dia|sleep|Utsusemi: Ni">
+        <cancelspell />
+        <return />
+      </if>
+    </if>
+
+    <!-- Idle/Resting Rules -->
+    <if status ="Idle">
+      <action type="equip" set="Standard" />
+
+      <if advanced='"$SkillUp"=="1"'>
+        <!-- Rule to activate Avatar's Favor if Avatar's Favor not active -->
+        <if notbuffactive="Avatar's Favor" job="SMN/*" advanced='"%PetIsValid" == "True"' MainJobLvlGT="54" >
+          <changespell spell="Avatar's Favor" />
+          <changetarget target="&lt;me&gt;" />
+          <command when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</command>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Avatar's Favor not Detected - Activating Avatar's Favor</addtochat>
+          </if>
+          <return />
+        </if>
+
+        <!-- Change spell to Release if SMN avatar is active -->
+        <if mode="and" advanced='"%PetIsValid" == "True"' Job="SMN/*|*/SMN">
+          <changespell spell="Release" />
+          <changetarget target="&lt;me&gt;" />
+          <command when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</command>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: %petname Avatar Detected - Changing Action to Release.</addtochat>
+          </if>
+          <return />
+        </if>
+
+        <!-- Rules to use Food if $UseFood=True -->
+        <if advanced='"$UseFood"=="True"' notbuffactive="food">
+          <if advanced='"$FoodCycle"=="1"'>
+            <command>input /item "$FoodName" &lt;me&gt;;wait 3;input /ma "$currentspell"</command>
+            <action type="var" cmd="set FoodCycle 0" />
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Food Buff not Detected - Using $FoodName</addtochat>
+            </if>
+            <cancelspell />
+            <return />
+          </if>
+        </if>
+        <if mode="AND" advanced='"$UseFood"=="True"' BuffActive="food">
+          <if advanced='"$FoodCycle"=="0"'>
+            <action type="var" cmd="set FoodCycle 1" />
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Food Buff Detected - Changing FoodCycle to 1</addtochat>
+            </if>
+          </if>
+        </if>
+
+        <!-- Rule to activate Light Arts if Light Arts buff not active -->
+        <if notbuffactive="Light Arts">
+          <if mode="OR" mainjob="SCH" subjob="SCH">
+            <changespell spell="Light Arts" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Light Arts not Detected - Activating Light Arts</addtochat>
+            </if>
+            <return />
+          </if>
+        </if>
+
+        <if MPPLT="5" notmainjob="NIN">
+          <command when="midcast">wait 5;input /heal on;wait 5;input /ma "$currentspell"</command>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Low MP detected sending /heal on action in 5 sec.</addtochat>
+          </if>
+          <return />
+        </if>
+
+        <!-- Rules to cast refresh spell if refresh buff not active -->
+        <if notbuffactive="Refresh">
+          <if mainjob="GEO" MainJobLvlGT="33">
+            <changespell spell="Geo-Refresh" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 3;input /ma "$CurrentSpell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Refresh Buff not Detected - Casting Geo-Refresh Spell</addtochat>
+            </if>
+            <return />
+          </if>
+          <elseif mainjob="BLU" MainJobLvlGT="78">
+            <changespell spell="Battery Charge" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Refresh Buff not Detected - Casting Battery Charge Spell</addtochat>
+            </if>
+            <return />
+          </elseif>
+          <elseif mainjob="RDM" MainJobLvlGT="81" >
+            <changespell spell="Refresh II" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Refresh Buff not Detected - Casting Refresh II Spell</addtochat>
+            </if>
+            <return />
+          </elseif>
+          <elseif subjob="RDM" SubJobLvlGT="40" NotMainJob="BLU|GEO|BRD">
+            <changespell spell="Refresh" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Refresh Buff not Detected - Casting Refresh Spell</addtochat>
+            </if>
+            <return />
+          </elseif>
+        </if>
+
+        <!-- Rules to cast Haste spell if Haste buff not active -->
+        <if notbuffactive="Haste" SubJobLvlGT="45" MainJobLvlGT="45">
+          <if mode="OR" mainjob="RDM|WHM" subjob="RDM|WHM">
+            <if notmainjob="BRD|BLU">
+              <changespell spell="Haste" />
+              <changetarget target="&lt;me&gt;" />
+              <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+              <!-- Debug info -->
+              <if advanced='"$Show.Debug" == "True"'>
+                <addtochat color="207">Debug Process:: Haste Buff not Detected - Casting Haste Spell</addtochat>
+              </if>
+              <return />
+            </if>
+          </if>
+          <if mainjob="BLU" MainJobLvlGT="78">
+            <changespell spell="Animating Wail" />
+            <changetarget target="&lt;me&gt;" />
+            <command when="aftercast">wait 2;input /ma "$currentspell"</command>
+            <!-- Debug info -->
+            <if advanced='"$Show.Debug" == "True"'>
+              <addtochat color="207">Debug Process:: Haste Buff not Detected - Casting Animating Wail Spell</addtochat>
+            </if>
+            <return />
+          </if>
+        </if>
+      </if>
+    </if>
+
+    <if Status ="Resting">
+      <if MPPGT="99">
+        <command when="precast">input /heal off;wait 5;input /ma "$currentspell"</command>
+        <!-- Debug info -->
+        <if advanced='"$Show.Debug" == "True"'>
+          <addtochat color="207">Debug Process:: Full MP Detected sending /heal off action.</addtochat>
+        </if>
+        <cancelspell />
+        <return />
+      </if>
+      <else>
+        <command when="precast">wait 5;input /ma "$currentspell"</command>
+        <!-- Debug info -->
+        <if advanced='"$Show.Debug" == "True"'>
+          <addtochat color="207">Debug Process:: Resting, Current MP is at %mpp%. Continue resting.</addtochat>
+        </if>
+        <cancelspell />
+        <return />
+      </else>
+    </if>
+
+    <if advanced='"$SkillUp"=="1"'>
+
+      <!-- Summoning Magic Skill-Up Segment -->
+      <if spell="Carbuncle">
+        <!--- Smn Skill Cycling -->
+        <if advanced='"$SkillCycle" == "2" and "$IfritAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 3" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Ifrit Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "3" and "$TitanAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 4" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Titan Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "4" and "$LeviathanAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 5" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Leviathan Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "5" and "$GarudaAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 6" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Garuda Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "6" and "$ShivaAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 7" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Shiva Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "7" and "$RamuhAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 8" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Ramuh Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "8" and "$FenrirAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 9" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Fenrir Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+        <if advanced='"$SkillCycle" == "9" and "$DiabolosAva" == "0"'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Diabolos Avatar Not Active - Advancing Skill Cycle</addtochat>
+          </if>
+        </if>
+
+        <if advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Carbuncle" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </if>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Ifrit" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Titan" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Leviathan" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Garuda" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Shiva" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 8" />
+          <action type="changespell" spell="Ramuh" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "8"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 9" />
+          <action type="changespell" spell="Fenrir" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 8 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "9"'>
+          <action type="command" when="aftercast">wait $WaitTime4SMN;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Diabolos" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 9 Processed</addtochat>
+          </if>
+        </elseif>
+      </if>
+
+      <!-- Healing Magic Skill-Up Segment -->
+      <elseif spell="Cure" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 4'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Healing Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Healing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Cure V" />
+          <action type="Changetarget" target="&lt;feary&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Healing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Cure III" />
+          <action type="Changetarget" target="&lt;feary&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Healing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Cure" />
+          <action type="Changetarget" target="&lt;feary&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Healing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Cure II" />
+          <action type="Changetarget" target="&lt;feary&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Enhancing Magic Skill-Up Segment -->
+      <!-- Enhancing Magic Skill-Up using Protect/Shell spells -->
+      <elseif spell="Protect" >
+        <!-- Cancel Protect/Shell -->
+        <if buffactive="Protect">
+          <command >cancel 40</command>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Protect Detected - Cancelling Protect</addtochat>
+          </if>
+        </if>
+        <if buffactive="Shell">
+          <command >cancel 41</command>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Shell Detected - Cancelling Shell</addtochat>
+          </if>
+        </if>
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 4'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enhancing Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Protect" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Shell" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Protect II" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Shell II" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Enhancing Magic Skill-Up using WHM Bar spells -->
+      <elseif spell="Barfira" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 6'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enhancing Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Barfira" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Barblizzara" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Baraera" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Barstonra" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Barthundra" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Barwatera" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Enhancing Magic Skill-Up using RDM Bar spells -->
+      <elseif spell="Barfire" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 6'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enhancing Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Barfire" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Barblizzard" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Baraero" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed.</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Barstone" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Barthunder" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Barwater" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Enhancing Magic Skill-Up using Spikes spells -->
+      <elseif spell="Blaze Spikes" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 3'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enhancing Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Blaze Spikes" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Ice Spikes" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enhancing;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Shock Spikes" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Blue Magic Skill-Up Segment -->
+      <elseif spell="Pollen" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 4'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Blue Magic Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4BLU;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Pollen" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4BLU;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Magic Fruit" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4BLU;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Pollen" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4BLU;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Magic Fruit" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Geomancy Magic Skill-Up Segment -->
+      <elseif spell="Indi-Regen" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 7'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Geomancy Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Indi-Regen" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Indi-Poison" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Indi-Refresh" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Indi-Fury" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Indi-Barrier" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Indi-Precision" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4GEO;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Indi-Voidance" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- BRD Song Skill-Up Segment -->
+      <if spell="Fire Carol">
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 8'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- BRD Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Fire Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Ice Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Wind Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Earth Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Lightning Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Water Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 8" />
+          <action type="changespell" spell="Light Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "8"'>
+          <action type="command" when="aftercast">wait $WaitTime4BRD;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Dark Carol" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 8 Processed</addtochat>
+          </if>
+        </elseif>
+      </if>
+      <!-- BRD Song Skill-Up Segment -->
+      <if spell="Mages Ballad">
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 6'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- BRD Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Mage's Ballad III" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Mage's Ballad II" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Tenuto" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Victory March" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Tenuto" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait 5;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Advancing March" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+      </if>
+      <!-- Dark Magic Skill-Up Segment -->
+      <!-- Dark Magic Skill-Up using Endark spell -->
+      <elseif spell="Endark" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 3'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Dark Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Endark" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Endark" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Endark" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Dark Magic Skill-Up using Bio spell -->
+      <elseif spell="Bio" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 3'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Dark Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Bio" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Bio" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Dark;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Bio" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Divine Magic Skill-Up Segment -->
+      <elseif spell="Banish" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 8'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Divine Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Banish" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Banish II" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Flash" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Phalanx" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Cure IV" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Holy" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 8" />
+          <action type="changespell" spell="Holy II" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "8"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Enlight" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 8 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <elseif spell="Enlight" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 3'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Divine Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Enlight" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Enlight" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Divine;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Enlight" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Elemental Magic Skill-Up Segment -->
+      <!-- Elemental Magic Skill-Up using D.O.T. spells -->
+      <elseif spell="Burn" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 6'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Elemental Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Burn" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Frost" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Choke" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed.</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Rasp" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Shock" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Drown" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Elemental Magic Skill-Up using Nuke spells -->
+      <elseif spell="Fire" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 6'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Elemental Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Fire" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Blizzard" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Aero" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed.</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Stone" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Thunder" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Elemental;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Water" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+
+      <!-- Enfeebling Magic Skill-Up using Dia spell -->
+      <elseif spell="Dia" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 4'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enfeebling Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Dia" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Dia" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Dia" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Silence" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+      <!-- Enfeebling Magic Skill-Up using Sleep spell -->
+      <elseif spell="Sleep" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 9'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Enfeebling Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Sleep" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Paralyze" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Silence" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Addle" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Gravity" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Blind" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 8" />
+          <action type="changespell" spell="Sleep II" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "8"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 9" />
+          <action type="changespell" spell="Blind II" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 8 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "9"'>
+          <action type="command" when="aftercast">wait $WaitTime4Enfeebling;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Silence" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 9 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+      
+      <!-- Ninjitsu -->
+      <elseif spell="Utsusemi: Ni" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 14'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Ninjitsu Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Utsusemi: Ni" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Katon: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Suiton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "4"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 5" />
+          <action type="changespell" spell="Doton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 4 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "5"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 6" />
+          <action type="changespell" spell="Hyoton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 5 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "6"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 7" />
+          <action type="changespell" spell="Huton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 6 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "7"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 8" />
+          <action type="changespell" spell="Raiton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 7 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "8"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 9" />
+          <action type="changespell" spell="Curing Waltz III" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 8 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "9"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 10" />
+          <action type="changespell" spell="Katon: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 9 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "10"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 11" />
+          <action type="changespell" spell="Suiton: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 10 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "11"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 12" />
+          <action type="changespell" spell="Doton: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 11 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "12"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 13" />
+          <action type="changespell" spell="Hyoton: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 12 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "13"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 14" />
+          <action type="changespell" spell="Huton: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 13 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "14"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="changespell" spell="Raiton: Ni" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 14 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+      
+      <!-- Range -->
+      <elseif spell="Range" >
+        <!--- Fix the SkillCycle varaible in case the SMN SKILL Segment boinked it -->
+        <if advanced='$SkillCycle &gt; 3'>
+          <action type="var" cmd="set SkillCycle 1" />
+          <action type="command" when="aftercast">wait 3;input /ma "$CurrentSpell"</action>
+          <action type="cancelspell"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat color="207">Debug Process:: Incorrect variable detected for this group, resetting to 1</addtochat>
+          </if>
+        </if>
+        <!--- Ninjitsu Skill Cycling -->
+        <elseif advanced='"$SkillCycle" == "1"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 2" />
+          <action type="changespell" spell="Utsusemi: Ni" />
+          <action type="Changetarget" target="&lt;me&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 1 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "2"'>
+          <action type="command" when="aftercast">wait $WaitTime4Ninjitsu;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 3" />
+          <action type="changespell" spell="Katon: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 2 Processed</addtochat>
+          </if>
+        </elseif>
+        <elseif advanced='"$SkillCycle" == "3"'>
+          <action type="command" when="aftercast">wait $WaitTime4Range;input /ma "$CurrentSpell"</action>
+          <action type="var" cmd="set SkillCycle 4" />
+          <action type="changespell" spell="Suiton: San" />
+          <action type="Changetarget" target="&lt;t&gt;"/>
+          <!-- Debug info -->
+          <if advanced='"$Show.Debug" == "True"'>
+            <addtochat when="aftercast" color="207">Debug Process:: Cycle 3 Processed</addtochat>
+          </if>
+        </elseif>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

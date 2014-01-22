@@ -1,0 +1,573 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Derion" server="Sylph" description="Feary's THF Spellcast" job="THF" />
+  <config RequireVersion="2.45" Debug="false" ShowGearSwaps="false" />
+  <variables clear="true">
+    <!-- Auto macro sets -->
+    <var name="AutoMacroset">1</var>
+    <!-- Sub Dagger-->
+    <var name="SubDagger">Rapidus Sax</var>
+    <!-- Announce statues-->
+    <var name="Statuses">0</var>
+    <!-- Adds a call to chat-->
+    <var name="pullcall">0</var>
+    <!-- Lock Evasion gear -->
+    <var name="Evasion">0</var>
+    <!-- Do not Change -->
+    <!-- Lock TH Gear during SA/TA-->
+    <var name="TH">0</var>
+  </variables>
+  <sets>
+    <group default="yes" name="THF">
+      <set name="miscgearcollector">
+        <item>Assassin's Armlets</item>
+        <item>Thief's Knife</item>
+        <item>triplus Dagger</item>
+        <item>Mandau</item>
+        <item>Twashtar</item>
+        <item>Ungur Boomerang</item>
+        <item>Leo Crossbow</item>
+      </set>
+      <set name="weapon">
+        <main>Mandau</main>
+        <sub>Triplus Dagger</sub>
+        <range>Raider's Bmrng.</range>
+      </set>
+      <set name="Town" baseset="TP" load="yes">
+        <range>Raider's Bmrng.</range>
+        <head>Raid. Bonnet +2</head>
+        <neck>Twilight Torque</neck>
+        <body>Raider's Vest</body>
+        <hands>Raid. Armlets</hands>
+        <legs>Raid. Culottes</legs>
+        <feet>Raid. Poulaines +1</feet>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="Evasion|Standard" load="yes">
+        <head>Optical Hat</head>
+        <neck>Torero Torque</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Slither gloves</hands>
+        <legs>Ocelot Trousers</legs>
+        <feet>Raid. Poulaines +2</feet>
+        <waist>Scouter's Rope</waist>
+        <back>Boxer's Mantle</back>
+        <lring>Keen Ring</lring>
+        <rring>Heed Ring</rring>
+        <lear>Musical Earring</lear>
+        <rear>Novia Earring</rear>
+      </set>
+      <set name="TP" baseset="Evasion" load="yes">
+        <ammo>Raider's Bmrng.</ammo>
+        <head>Raid. Bonnet +2</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Raider's Vest</body>
+        <hands>Raid. Armlets</hands>
+        <legs>Raid. Culottes</legs>
+        <feet>Ballerines</feet>
+        <back>Atheling Mantle</back>
+        <waist>Twilight Belt</waist>
+        <lring>Keen Ring</lring>
+        <rring>Heed Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Suppanomimi</rear>
+      </set>
+      <set name="PDT" baseset="Evasion" load="yes">
+        <neck>Twilight Torque</neck>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>       
+      </set>
+      <set name="MDT" baseset="Evasion" load="no">
+        <head>Merman's Cap</head>
+        <neck>Twilight Torque</neck>
+        <body>Merman's Harness</body>
+        <hands>Merman's Mittens</hands>
+        <legs>Merman's Subligar</legs>
+        <feet>Merman's Leggings</feet>
+        <waist>Lieutenant's Sash</waist>
+        <back>Colossus's Mantle</back>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="Sneak Attack|SA" BaseSet="TP" load="yes">
+        <head>lightsome cap</head>
+        <hands>Raid. Armlets +2</hands>
+        <legs>Matre Bragezenn</legs>
+        <feet>Hct. Leggings</feet>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Pixie Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <lring>Keen Ring</lring>
+        <rring>Airy Ring</rring>
+      </set>
+      <set name="Trick Attack|TA" BaseSet="TP" load="yes">
+        <head>Maat's Cap</head>
+        <body>Loki's Kaftan</body>
+        <hands>Raid. Armlets +2</hands>
+        <legs>Ambusher's hose</legs>
+        <feet>Raid. Poulaines +2</feet>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Drone Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <lring store ="sack">Keen Ring</lring>
+        <rring>Solemn Ring</rring>
+      </set>
+      <set name="SATA" BaseSet="TP" load="yes">
+        <head>Maat's Cap</head>
+        <neck>Love Torque</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Raid. Armlets +2</hands>
+        <legs>Raid. Culottes +2</legs>
+        <feet>Hct. Leggings</feet>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Pixie Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <lring>Keen Ring</lring>
+        <rring>Airy Ring</rring>
+      </set>
+      <set name="ACRudra's Storm" baseset="Rudra's Storm"/>
+      <!-- Breeze thunder soil -->
+      <set name="Exenterator" baseset="TA" load="yes">
+        <lear>Brutal Earring</lear>
+      </set>
+      <set name="Dancing Edge|Shadowstitch" BaseSet="Sneak Attack" load="yes">
+        <!-- Modifer: DEX:30% ; CHR:40% -->
+        <lear>Brutal Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <lring>Keen Ring</lring>
+        <rring>Airy Ring</rring>
+        <waist store ="sack">Breeze Belt</waist>
+      </set>
+      <set name="Evisceration" baseset="Sneak Attack" load="yes">
+        <!-- Modifer: DEX:30%  -->
+        <lear>Brutal Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Shark Bite" baseset="Sneak Attack" load="yes">
+        <!-- Modifer: DEX:50% -->
+        <lear>Brutal Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <rring>Epona's Ring</rring>
+        <waist store ="sack">Breeze Belt</waist>
+      </set>
+      <set name="Mandalic Stab|Rudra's Storm" Baseset="Sneak Attack" load="yes">
+        <!-- Modifer: DEX:30% -->
+        <neck>Shadow Gorget</neck>
+        <lear>Brutal Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="Mercy Stroke|MS|Viper Bite" baseset="Sneak Attack" load="yes">
+        <!-- Modifer: STR:60%  -->
+        <head>Hecatomb Cap +1</head>
+        <neck>Shadow Gorget</neck>
+        <body>Hecatomb Harness</body>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Brutal Earring</lear>
+        <rear>Kemas Earring</rear>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <set name="Aeolian Edge|Cyclone|Wasp Sting" baseset="Sneak Attack">
+        <!-- Modifer: DEX:29.5% INT:29.5% -->
+        <neck>Artemis' Medal</neck>
+        <lear store = "Mog satchel">Novio Earring</lear>
+        <rear store = "Mog satchel">Hecate's Earring</rear>
+        <rring>Demon's ring</rring>
+        <lring>Demon's ring</lring>
+        <waist store ="sack">Breeze Belt</waist>
+      </set>
+      <set name="Energy Drain|Energy Steal" baseset="Aeolian Edge"/>
+      <!-- Proc Spells-->
+      <set name="True Strike" baseset="Mercy Stoke"/>
+      <set name="Haste" baseset="Evasion" load="yes">
+        <head>Raid. Bonnet +2</head>
+        <body>Raider's Vest +2</body>
+        <hands>Homam Manopolas</hands>
+        <legs>Homam cosciales</legs>
+        <feet>Ballerines</feet>
+        <waist>Twilight Belt</waist>
+      </set>
+      <set name="Fastcast" baseset="Haste" load="yes">
+        <neck>Magoraga Beads</neck>
+        <rear>Loquac. Earring</rear>
+        <lear>Magnetic Earring</lear>
+        <legs>Homam cosciales</legs>
+      </set>
+      <set name="Steal">
+        <head>Rogue's Bonnet</head>
+        <hands>Thief's Kote</hands>
+        <legs>Assassin's Culottes</legs>
+        <feet>Rogue's Poulaines</feet>
+        <neck>Rabbit Charm</neck>
+      </set>
+      <set name="Ranged" baseset="Evasion">
+        <head>Optical Hat</head>
+        <body>Loki's Kaftan</body>
+        <waist>Buccaneer's Belt</waist>
+        <back>Terebellum Mantle</back>
+        <feet>Raid. Poulaines +2</feet>
+        <lring>Arewe Ring</lring>
+        <rring>Arewe Ring</rring>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!--Auto sets-->
+    <!-- im fleeing! I Don't need anything but my flee Shoes-->
+    <if mode="OR" buffactive="Flee" Spell="Flee">
+      <equip when="precast|aftercast|Idle" set="Standard">
+        <feet>Rogue's Poulaines</feet>
+      </equip>
+      <return/>
+    </if>
+    <!--Ranged Attacks-->
+    <elseif spell="ranged">
+      <equip when="precast" set="Ranged"/>
+      <equip when="aftercast">
+        <feet>Trotter Boots</feet>
+      </equip>
+      <!-- Dynamis -->
+      <if Area="Dynamis*">
+        <!-- City and Snow Zones-->
+        <!-- JA Abilities -->
+        <if spelltarget="*Ranger|*Predator|*Ambusher|*Mason|*Salvager|*Ninja|*Backstabber|*Assassin|*Kusa|*Hitman|*Beastmaster|*Ogresoother|*Hawker|*Beasttender|*Pathfinder|*Monk|*Sentinel|*Grappler|*Militant|*Pitfighter|*Thief|*Pillager|*Liberator|*Purloiner|*Welldigger">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+          </else>
+        </if>
+        <!-- Magic Abilities -->
+        <elseif spelltarget="*Black Mage|*Mesmerizer|*Prelate|*Thaumaturge|*Shaman|*White Mage|*Alchemist|*Amputator|*Priest|*Constable|*Red Mage|*Protector|*Visionary|*Vexer|*Enchanter|*Summoner|*Undertaker|*Oracle|*Dollmaster|*Necromancer|*Bard|*Minstrel|*Chanter|*Bugler|*Maestro">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+          </else>
+        </elseif>
+        <!-- WS Abilities -->
+        <elseif spelltarget="*Paladin|*Armorer|*Trooper|*Exemplar|*Defender|*Dark Knight|*Tinkerer|*Neckchopper|*Inciter|*Vigilante|*Samurai|*Ronin|*Gutslasher|*Persecutor|*Hatamoto|*Warrior|*Smithy|*Footsoldier|*Skirmisher|*Vindicator|*Dragoon|*Dragontamer|*Impaler|*Partisan|*Drakekeeper">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+          </else>
+        </elseif>
+        <!-- COP Zones -->
+        <elseif spelltarget="*Goobbue|*Manticore|*Treant|*Crab|*Dhalmel|*Scorpion|*Diremite|*Raptor|*Tiger|*Leech|*Worm">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Gaylas|*Kraken|*Roc|*Crawler|*Raven|*Uragnite|*Fly|*Flytrap|*Funguar|*Bugard|*Hornet">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Hippogryph|*Sabotender|*Sheep|*Mandragora|*Eft|*Bunny|*Weapon|*Stirge|*Snoll|*Cluster|*Makara">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+        </elseif>
+      </if>
+      <!-- Not in Dynamis-->
+      <else>
+        <if advanced='"$PullCall"="1"'>
+          <cmd>input /p Fishing >>>>> %spelltargetname &lt;call14&gt;</cmd>
+        </if>
+        <else>
+          <cmd>input /p Fishing >>>>> %spelltargetname</cmd>
+        </else>
+      </else>
+      <return/>
+    </elseif>
+    <!--Trick Attack-->
+    <elseif spell="Trick Attack">
+      <if notstatus="engaged">
+        <cancelspell/>
+        <cmd>input /echo Your Not Engaged.</cmd>
+      </if>
+      <else>
+        <if advanced='"$TH"=="1"'>
+          <equip when="precast" set="TA">
+            <sub>Thief's Knife</sub>
+            <hands>Assassin's Armlets</hands>
+            <feet>Raid. Poulaines +2</feet>
+          </equip>
+          <!-- Reset TH Varible-->
+          <cmd when="aftercast">sc var set TH 0</cmd>
+        </if>
+        <else>
+          <equip when="precast" set="TA"/>
+        </else>
+      </else>
+      <return/>
+    </elseif>
+    <!-- Sneak Attack-->
+    <elseif spell="Sneak Attack">
+      <if notstatus="engaged">
+        <cancelspell/>
+        <cmd>input /echo Your Not Engaged.</cmd>
+      </if>
+      <else>
+        <if advanced='"$TH"=="1"'>
+          <equip when="precast" set="SA">
+            <sub>Thief's Knife</sub>
+            <hands>Assassin's Armlets</hands>
+            <feet>Raid. Poulaines +2</feet>
+          </equip>
+          <!-- Reset TH Varible-->
+          <cmd when="aftercast">sc var set TH 0</cmd>
+        </if>
+        <else>
+          <equip when="precast" set="SA"/>
+        </else>
+      </else>
+      <!-- Do nothing and use your in game macros-->
+      <return/>
+    </elseif>
+    <else>
+      <!-- Lock Evasion Gear -->
+      <if advanced='"$Evasion"=="1"'>
+        <equip when="Idle|engaged|aftercast" set="Evasion">
+          <range>Ungur Boomerang</range>
+        </equip>
+      </if>
+      <elseif status="engaged">
+        <if advanced='"$TH"=="1"'>
+          <equip when="engaged" set="TP">
+            <sub>Thief's Knife</sub>
+            <hands>Assassin's Armlets</hands>
+            <feet>Raid. Poulaines +2</feet>
+          </equip>
+          <!-- Reset TH Varible-->
+          <cmd when="aftercast">sc var set TH 0</cmd>
+        </if>
+        <else>
+          <equip when="engaged|aftercast" set="TP">
+            <sub>$SubDagger</sub>
+          </equip>
+        </else>
+      </elseif>
+      <else>
+        <equip when="idle|aftercast" set="Standard">
+          <feet>Trotter Boots</feet>
+        </equip>
+      </else>
+    </else>
+    <!--Job Abilites-->
+    <if type="jobability">
+      <if spell="Feint">
+        <cmd>input /p Feint Just Used it &lt;call14&gt;</cmd>
+      </if>
+      <elseif spell="Steal">
+        <equip when="precast" set="Steal" />
+      </elseif>
+      <elseif spell="Despoil">
+        <equip when="precast">
+          <legs>Raid. Culottes +2</legs>
+          <feet>Raid. Poulaines +2</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Mug">
+        <equip when="precast">
+          <head>Assassin's Bonnet</head>
+        </equip>
+      </elseif>
+      <elseif spell="Hide">
+        <equip when="precast" set="Evasion">
+          <head>Rogue's Vest</head>
+        </equip>
+      </elseif>
+      <elseif spell="Conspirator">
+        <equip when="precast">
+          <head>Raider's Vest +2</head>
+        </equip>
+      </elseif>
+      <elseif spell="Collaborator|Accomplice">
+        <equip when="precast">
+          <head>Raid. Bonnet +2</head>
+        </equip>
+      </elseif>
+    </if>
+    <!--Weapon Skills-->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <equip when="precast" set="%Spell"/>
+          <addtochat color="121">%Spell Set</addtochat>
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return />
+        </else>
+      </if>
+      <else>
+        <cancelspell />
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return />
+      </else>
+    </elseif>
+    <!-- Sub Job-->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <equip when="Aftercast" set="Standard"/>
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </if>
+    <elseif subjob="WAR">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DRK"/>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

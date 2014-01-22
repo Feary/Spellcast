@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork
+        character="Aniyah"
+        server="Sylph"
+        description="Aniyah's MNK Spellcast"
+        job="MNK"
+    />
+  <config
+      requireversion="2.40"
+      showgearswaps="False"
+      showspellinfo="False"
+        />
+  <variables clear="True">
+    <!-- Auto Macro set based on Sub -->
+    <var name="AutoMacroset">1</var>
+    <!-- Announce statues to party chat-->
+    <var name="Statuses">0</var>
+    <!-- Modes - Melee, Tank, Chi Blast-->
+    <var name="Mode">Melee</var>
+    <!-- Kirin Pole -->
+    <var name="KirinPole">0</var>
+    <!--Weapons - currenly jsut a reminder for gearing-->
+    <var name="H2H">Taurine Cesti</var>
+    <var name="Staff">Kirin's Pole</var>
+    <var name="Club">Warp Cudgel</var>
+  </variables>
+  <sets>
+    <group name="MNK" default="yes">
+      <set name="weapon">
+        <main>$H2H</main>
+        <ammo store = "sack">Tantra Tathlum</ammo>
+      </set>
+      <!-- pimping gear - use autoexec-->
+      <set name="Town" baseset="Standard">
+        <head store = "sack">Tantra Crown +2</head>
+        <body store = "sack">Tantra Cyclas +2</body>
+        <hands store = "sack">Tantra Gloves +2</hands>
+        <legs>Tantra Hose +2</legs>
+        <feet>Tantra Gaiters +2</feet>
+      </set>
+      <!-- Movement Speed > PDT -->
+      <set name="Standard|pdt" baseset="TP">
+        <neck store = "sack">Twilight Torque</neck>
+        <feet store = "sack">Hermes' Sandals</feet>
+      </set>
+      <set name="MDT">
+        <neck store = "sack">Twilight Torque</neck>
+        <rring>Dark Ring</rring>
+        <lring>Dark Ring</lring>
+      </set>
+      <set name="TP">
+        <ammo store = "sack">Tantra Tathlum</ammo>
+        <neck>Chivalrous Chain</neck>
+        <head store = "sack">Tantra Crown +2</head>
+        <body store = "sack">Tantra Cyclas +2</body>
+        <hands store = "sack">Tantra Gloves +2</hands>
+        <legs store = "sack">Tantra Hose +2</legs>
+        <feet store = "sack">Tantra Gaiters +2</feet>
+        <waist store = "sack">Black Belt</waist>
+        <back store = "sack">Atheling Mantle</back>
+        <lring store = "sack">Rajas Ring</lring>
+        <rring store = "sack">Epona's Ring</rring>
+        <lear store = "sack">Brutal Earring</lear>
+        <rear store = "sack">Kemas Earring</rear>
+      </set>
+      <!-- Footwork TP-->
+      <set name="footwork" baseset="TP"/>
+      <!-- Evasion -->
+      <set name="Evasion" baseset="TP">
+        <neck store = "sack">Torero Torque</neck>
+        <hands>Slither Gloves</hands>
+        <rring store = "sack">Heed Ring</rring>
+        <back store = "sack">Boxer's Mantle</back>
+      </set>
+      <!-- Subtle Bow -->
+      <set name="Subtle Blow" baseset="TP"/>    
+      <!-- Weapon Skill  -->
+      <set name="WS" baseset="TP">
+        <waist store="sack">Anguinus Belt</waist>
+        <feet store = "sack">Tantra Gaiters +2</feet>
+        <rring store = "sack">Spiral Ring</rring>
+      </set>
+      <!-- No Focus - ACC Gear -->
+      <!-- Acc -->
+      <set name="Asuran Fists" baseset="ws">
+        <waist store="sack">Soil Belt</waist>
+      </set>
+      <set name="One Inch Punch|Backhand Blow|Shoulder Tackle" baseset="ws" />
+      <set name="Howling Fist" baseset="ws">
+        <waist store="sack">Light Belt</waist>
+      </set>
+      <!-- str and vit-->
+      <set name="Ascetic's Fury|Shijin Spiral" baseset="ws">
+        <waist store="sack">Light Belt</waist>
+      </set>
+      <set name="Combo|Raging Fists" baseset="ws"/>
+      <!--  Focus Active - NO ACC Needed-->
+      <set name="focusws" baseset="ws" />
+      <set name="focuswsAsuran Fists" baseset="focusws"/>
+      <set name="FocuswsAscetic's Fury" baseset="focusws">
+        <waist store="sack">Light Belt</waist>
+      </set>
+      <set name="FocuswsHowling Fist" baseset="focusws">
+        <waist store="sack">Light Belt</waist>
+      </set>
+      <!-- Kick Attacks-->
+      <!-- No Focus -->
+      <set name="footworkkick" baseset="ws" />
+      <set name="Dragon Kick" baseset="ws" />
+      <set name="Spinning Attack" baseset="ws" />
+      <set name="Tornado Kick" baseset="ws" />
+      <!-- Focus Active -->
+      <set name="focuskick" baseset="ws" />
+      <set name="FootworkFocusKick" baseset="ws" />
+      <!-- Staff -->
+      <set name="Sunburst|Earth Crusher|Heavy Swing|Shell Crusher|Full Swing|Spirit Taker|Retribution|Cataclysm"  baseset="ws"/>
+      <!-- Club -->
+       <set name="Seraph Strike|Skullbreaker|True Strike|Judgment|Black Halo|Flash Nova" baseset="ws"/>
+      <!-- Utsusemi -->
+      <set name="Fastcast" base="TP">
+        <neck store ="sack">Magoraga Beads</neck>
+        <lear store = "sack">Loquac. Earring</lear>
+        <rear store = "sack">Magnetic Earring</rear>
+        <rring>Diamond Ring</rring>
+      </set>
+      <set name="Chakra">
+        <body store = "sack">Temple Cyclas</body>
+        <hands store = "sack">Melee Gloves</hands>
+        <ammo store = "sack">Bibiki SeaShell</ammo>
+      </set>
+      <!-- MND+ -->
+      <set name="Chi Blast">
+        <neck store = "sack">Morgana's Choker</neck>
+        <lring store = "sack">Omega Ring</lring>
+        <rring store = "sack">Solemn Ring</rring>
+      </set>
+      <!-- Guard - Skill + agi -->
+      <set name="Guard">
+        <back store = "sack">Boxer's Mantle</back>
+        <rring store = "sack">Solemn ring</rring>
+      </set>
+      <set name="Max HP"/>
+      <set name="Resting" baseset="Standard"/>
+      <!-- Enmity +1-->
+      <set name="Enmity">
+        <neck store="sack">Invidia Torque</neck>
+        <back store = "sack">Cerberus Mantle</back>
+      </set>
+      <set name="waltz"/>
+      <set name="MiscGearCollector" load="yes">
+        <item store = "sack">Taurine Cesti</item>
+        <item store = "sack">Celeritas Pole</item>
+        <item store = "sack">Warp Cudgel</item>
+        <item store = "sack">Shihei</item>
+        <item store = "sack">Sanjaku-Tenugui</item>
+        <item store = "sack">Shinobi-Tabi</item>
+        <item store = "sack">Tsurara</item>
+        <item store = "sack">Kawahori-ogi</item>
+        <item store = "sack">Hiraishin</item>
+        <item store = "sack">mizu-deppo</item>
+        <item store = "sack">uchitake</item>
+        <item store = "sack">Makibishi</item>
+        <item store = "sack">Kaginawa</item>
+        <item store = "sack">Sairui-ran</item>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- Autoset -->
+    <equip when="resting" set="Resting" />
+    <if advanced='"$Mode"=="Melee"'>
+      <if status="engaged">
+        <if buffactive="Footwork">
+          <equip when="Aftercast" set="Footwork" />
+        </if>
+        <else>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </else>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </if>
+    <elseif advanced='"$Mode"=="Tank"'>
+      <if status="engaged">
+        <if buffactive="Footwork">
+          <equip when="Aftercast" set="Footwork" />
+        </if>
+        <else>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </else>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <elseif advanced='"$Mode"=="Chiblast"'>
+      <if status="engaged">
+        <equip when="engaged|AfterCast" set="TP"/>
+        <if advanced='"$KirinPole"="1"'>
+          <main>Kirin's Pole</main>
+        </if>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <!-- Ranged Attack -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <!-- VIT -->
+      <if spell="Chakra">
+        <equip when="precast" set="Chakra"/>
+      </if>
+      <!-- Mind -->
+      <elseif spell="Chi Blast">
+        <equip when="precast" set="Chi Blast"/>
+      </elseif>
+      <elseif spell="Focus">
+        <equip when="precast">
+          <head>Temple Crown</head>
+        </equip>
+      </elseif>
+      <elseif spell="Dodge">
+        <equip when="precast">
+          <feet>Temple Gaiters</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Boost">
+        <equip when="precast">
+          <hands>Temple Gloves</hands>
+        </equip>
+        <if advanced='"$Mode"=="Chiblast"'>
+          <!-- Add a boost counter and print to chat for ls or p-->
+        </if>
+      </elseif>
+      <elseif spell="Counterstance">
+        <equip when="precast">
+          <feet>Melee Gaiters</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Formless Strikes">
+        <addtochat color="121">Formless Strikes</addtochat>
+      </elseif>
+      <else>
+        <equip when="precast" set="Enmity"/>
+      </else>
+    </if>
+    <!-- WS Rules-->
+    <if type="Weaponskill">
+      <!-- Check if you have enough tp -->
+      <if TPGT="99">
+        <!-- check if the distance of the mob is more than 4-->
+        <if advanced="%SpellTargetDistance &lt; 4">
+          <castdelay delay=".2" />
+          <!-- Kicking WS-->
+          <if spell="Dragon Kick|Tornado Kick">
+            <!-- Kicking WS Gear with Footwork-->
+            <if buffactive="Footwork">
+              <!-- Account for Focus -->
+              <if buffactive="Focus">
+                <equip when="precast|midcast" set="FootworkFocusKick" />
+                <addtochat color="121">FootworkFocuskick</addtochat>
+              </if>
+              <!-- No Focus -->
+              <else>
+                <equip when="precast|midcast" set="FootworkKick" />
+                <addtochat color="121">FootWork Kick No Focus</addtochat>
+              </else>
+            </if>
+            <!-- Kicking WS without footwork -->
+            <elseif notbuffactive="Footwork">
+              <!-- Account for Focus without Footwork-->
+              <if buffactive="Focus">
+                <equip when="precast|midcast" set="FocusKick" />
+                <addtochat color="121">Kick Attack with Focus</addtochat>
+              </if>
+              <!-- Any kick attack without focus or footwork-->
+              <else>
+                <equip when="precast|midcast" set="%Spell" />
+                <addtochat color="121">No Focus Kick - Acc</addtochat>
+              </else>
+            </elseif> 
+          </if>
+          <!-- Your punching WS with sets -->
+          <elseif spell="Asuran Fists|Howling Fist|Ascetic's Fury">
+            <if buffactive="Focus">
+              <equip when="precast|midcast" set="FocusWS%Spell" />
+              <addtochat color="121">Focusws - Full STR</addtochat>
+            </if>
+            <else>
+              <equip when="precast|midcast" set="%Spell"/>
+              <addtochat color="121">No Focus WS - Acc</addtochat>
+            </else>
+          </elseif>
+          <!-- Any other ws equip basic ws Set -->
+          <else>
+            <equip when="Precast|midcast" set="%Spell" />
+            <addtochat color="121">Basic WS Set</addtochat>
+          </else>
+          <!-- endif for spelldistance check-->
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">---- %Spelltargetname is Too Far. WS Canceled -----</addtochat>
+          <return/>
+        </else>
+        <!-- endif for tp check-->
+      </if>
+      <!-- Cancel if you dont have Enough tp -->
+      <else>
+        <cancelspell />
+        <addtochat color="121">------ Not Enough TP for WS. Canceled ------ </addtochat>
+        <return/>
+      </else>
+      <!-- endif for ws -->
+    </if>
+    <!-- Subjob Rules -->
+    <if subjob="War">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if mode="and" hpplt="40" buffactive="Berserk">
+        <command>cancel 56</command>
+      </if>
+    </if>
+    <!-- NIN Subjob-->
+    <elseif subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+      <!-- Cancel Rules -->
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <if spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </if>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+    <if Spell="*Jig">
+      <!-- Jig AF Swap -->
+      <if Spell="Chocobo Jig">
+        <if BuffActive="Quickening">
+          <cancelspell />
+          <command>input /echo ~ [NOTE] Quickening already active. ~</command>
+        </if>
+        <else>
+          <equip when="PreCast" set="Jig" />
+          <command>input /echo [Chocobo Jig] Zoom Xoom Zoom</command>
+          <aftercastdelay delay=".5" />
+          <equip when="aftercast" set="Standard" />
+        </else>
+      </if>
+      <elseif Spell="Spectral Jig">
+        <equip when="PreCast" set="Jig" />
+        <aftercastdelay delay=".5" />
+        <equip when="aftercast" set="Standard" />
+      </elseif>
+    </if>
+    <!-- Flourishes -->
+    <elseif spell="*Flourish">
+      <!-- Flourishs -->
+      <if Spell="*Flourish" notBuffActive="Finishing Move">
+        <cancelspell />
+        <addtochat Color="121">WARNING: No Finishing Moves!</addtochat>
+      </if>
+      <elseif Spell="Animated Flourish">
+        <equip set="Enmity" />
+        <aftercastdelay delay="1" />
+        <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+          <command When="MidCast">input /echo Animated Snugglage &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+        </if>
+      </elseif>
+      <elseif Spell="Wild Flourish">
+        <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+          <command When="PreCast">input /echo %SpellName &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+        </if>
+      </elseif>
+    </elseif>
+    <!-- Waltz-->
+    <elseif spell="*Waltz*">
+      <!-- Waltz Swap -->
+      <!-- NOTE: If Waltz when !engaged it will default to appropriate Engaged set aftercast-->
+      <if BuffActive="Trance">
+        <equip when="PreCast" set="Waltz" />
+        <aftercastdelay delay=".5" />
+      </if>
+      <else>
+        <!-- Check TP -->
+        <if Spell="Curing Waltz IV">
+          <if mode="OR" TPLT="65" SpellTargetHPPGT="40">
+            <changespell spell="Curing Waltz III" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+           </else>
+        </if>
+        <elseif Spell="Curing Waltz III">
+          <if mode="OR" TPLT="50" SpellTargetHPPGT="60">
+            <changespell spell="Curing Waltz II" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Curing Waltz II">
+          <if mode="OR" TPLT="35"  SpellTargetHPPGT="80">
+            <changespell spell="Curing Waltz" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Curing Waltz">
+          <if TPLT="20">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Healing Waltz">
+          <if TPLT="20">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <if Spell="Divine Waltz II">
+          <if TPLT="80">
+            <changespell spell="Divine Waltz" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </if>
+        <elseif Spell="Divine Waltz">
+          <if TPLT="40">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+      </else>
+    </elseif>
+    <!-- Steps-->
+    <elseif spell="*step">
+      <!-- Step AF Swap -->
+      <if Spell="Quickstep">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </if>
+      <elseif Spell="Box Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+      <elseif Spell="Stutter Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+      <elseif Spell="Feather Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+    </elseif>
+    <!-- Sambas -->
+    <elseif spell="*Samba*">
+      <!-- Samba AF Swap -->
+      <if Spell="Drain Samba">
+        <if TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+      </if>
+      <elseif Spell="Drain Samba II">
+        <if TPLT="25">
+          <changespell spell="Drain Samba"/>
+        </if>
+      </elseif>
+      <elseif Spell="Drain Samba III">
+        <if TPLT="40">
+          <changespell spell="Drain Samba II"/>
+        </if>
+      </elseif>
+      <elseif Spell="Aspir Samba">
+        <if TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+      </elseif>
+      <elseif Spell="Aspir Samba II">
+        <if TPLT="25">
+          <changespell spell="Aspir Samba"/>
+        </if>
+      </elseif>
+      <elseif Spell="Haste Samba">
+        <if BuffActive="Haste Samba">
+          <cancelspell />
+          <command>input /echo ~ [NOTE] Haste Samba buff already active. ~</command>
+        </if>
+        <elseif TPLT="35">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+      </elseif>
+    </elseif>
+    </elseif>
+    <elseif subjob="DRG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="WHM"/>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

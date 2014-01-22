@@ -1,0 +1,1200 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Carrisa" server="Sylph" description="Feary's SCH Spellcast" job="SCH"/>
+  <config RequireVersion="2.45" Debug="true" ShowGearSwaps="false" ShowSpellInfo="false" />
+  <variables clear="true">
+    <!-- Auto Macro Set = 1=on 0=off 1. Light ARTS - RDM 2. Dark Arts - RDM 3. Light Arts WHM 4. Dark Arts WHM 5. Light Arts BLM 6. Dark Arts BLM 7. Light Arts NIN 8.Dark Arts NIN 9. Tabula Rasa Only -->
+    <var name="AutoMacroSet">1</var>
+    <!-- Auto Echo Drops -->
+    <var Name="AutoEchoDrops">0</var>
+    <!-- Curebot - Auto select spell based on hp of target and mp of caster-->
+    <var name="Curebot">0</var>
+    <!-- Sleep timers, announces to chat when sleep is wearing off. Set to 0 to not use. -->
+    <!-- (note: this is sort of very obvious usage of 3rd party programs, so turn off when around people you dont trust -->
+    <var name="SleepTimers">1</var>
+    <!-- Twilight Cape do you have or use it? -->
+    <var name="TwilightCape">1</var>
+    <!-- Zodiac ring -->
+    <var name="ZodiacRing">1</var>
+    <!-- Argute Loafers - use them under weather effect for precast -->
+    <var name="Arguteloafers">1</var>
+    <!-- Elemental Staffs, input what staff to use for each element here -->
+    <var name="CureStaff">Arka IV</var>
+    <var name="PDTStaff">Earth Staff</var>
+    <var name="Resting Staff">Chatoyant Staff</var>
+    <var name="FireStaff">Atar I</var>
+    <var name="EarthStaff">Terra's Staff</var>
+    <var name="WaterStaff">Chatoyant Staff</var>
+    <var name="WindStaff">Chatoyant Staff</var>
+    <var name="IceStaff">Vourukasha I</var>
+    <var name="ThunderStaff">Apamajas I</var>
+    <var name="LightStaff">Chatoyant Staff</var>
+    <var name="DarkStaff">Chatoyant Staff</var>
+    <!-- Elemental Obi's, set to 1 for the ones you have. -->
+    <var name="DarkObi">1</var>
+    <var name="LightObi">1</var>
+    <var name="ThunderObi">1</var>
+    <var name="IceObi">1</var>
+    <var name="FireObi">1</var>
+    <var name="WindObi">1</var>
+    <var name="WaterObi">0</var>
+    <var name="EarthObi">0</var>
+    <!-- Auto Storm - based on day or weather - cast auspice on yourself-->
+    <var name="AutoStorm">1</var>
+    <!-- Auto Helix - based on day or weather -->
+    <var name="AutoHelix">1</var>
+    <!--Do Not Change-->
+    <var name="MoonPhase">0</var>
+    <var name="StormElement">None</var>
+    <var name="Ice-Obi">hyorin obi</var>
+    <var name="Dark-Obi">Anrin obi</var>
+    <var name="Thunder-Obi">rairin obi</var>
+    <var name="Light-Obi">korin obi</var>
+    <var name="Wind-Obi">furin obi</var>
+    <var name="Fire-Obi">karin obi</var>
+    <var name="Earth-Obi">dorin obi</var>
+    <var name="Water-Obi">suirin obi</var>
+    <var name="Storm-Fire">Firestorm</var>
+    <var name="Storm-Ice">Hailstorm</var>
+    <var name="Storm-Wind">Windstorm</var>
+    <var name="Storm-Earth">Sandstorm</var>
+    <var name="Storm-Thunder">Thunderstorm</var>
+    <var name="Storm-Water">Rainstorm</var>
+    <var name="Storm-Light">Aurorastorm</var>
+    <var name="Storm-Dark">Voidstorm</var>
+    <var name="ModusGo">no</var>
+    <var name="ModusRecast">Ready</var>
+    <var name="Helix-Fire">Pyrohelix</var>
+    <var name="Helix-Ice">Cryohelix</var>
+    <var name="Helix-Wind">Anemohelix</var>
+    <var name="Helix-Earth">Geohelix</var>
+    <var name="Helix-Thunder">Ionohelix</var>
+    <var name="Helix-Water">Hydrohelix</var>
+    <var name="Helix-Light">Luminohelix</var>
+    <var name="Helix-Dark">Noctohelix</var>
+    <!-- Automatic switches, don't need to mess with these -->
+    <var Name="ChangeAddendum">0</var>
+    <var Name="ChangeArt">0</var>
+    <var Name="StratagemPrep">0</var>
+    <var Name="StratagemConserveMP">0</var>
+    <var Name="StratagemFastCast">0</var>
+    <var Name="StratagemAreaEffect">0</var>
+    <var Name="StratagemPotency">0</var>
+    <var Name="StratagemEnmity">0</var>
+    <var Name="StratagemAccuracy">0</var>
+    <var Name="StratagemDuration">0</var>
+    <var Name="AutomaticArts">1</var>
+    <var Name="AutomaticAddendum">1</var>
+    <var Name="QueueStratagems">1</var>
+  </variables>
+  <sets>
+    <group Name="Main" default="Yes" load="yes">
+      <set name="MiscGearCollector" load="yes">
+        <item>Atar I</item>
+        <item>Chatoyant Staff</item>
+        <item>Earth Staff</item>
+        <item>Arka IV</item>
+        <item>Apamajas I</item>
+        <item>Vourukasha I</item>
+        <item>Zodiac Ring</item>
+        <item>Twilight Cape</item>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <head>Svnt. Bonnet +2</head>
+        <body>Savant's Gown +2</body>
+        <hands>Svnt. Bracers +2</hands>
+        <legs>Savant's Pants +2</legs>
+        <feet>Herald's Gaiters</feet>
+      </set>
+      <!-- Movement+ > PDT > Refresh -->
+      <Set name="Standard|Idle" load="yes">
+        <Main>$PDTStaff</Main>
+        <sub>Wise Strap</sub>
+        <Head>Nefer Khat</Head>
+        <neck>Twilight Torque</neck>
+        <body>Heka's Kalasiris</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Stearc Subligar</legs>
+        <feet>Serpentes Sabots</feet>
+        <waist>Cognition Belt</waist>
+        <back>Cheviot Cape</back>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+        <ammo>Savant's Treatise</ammo>
+      </Set>
+      <set name="Sublimation" baseset="Standard" load="yes">
+        <head>Scholar's M.Board</head>
+        <lear>Savant's Earring</lear>
+      </set>
+      <set name="Resting" baseset="Standard" load="yes">
+        <main>$RestingStaff</main>
+        <ammo>Clarus Stone</ammo>
+        <neck>Eidolon Pendant</neck>
+        <body>Heka's Kalasiris</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Stearc Subligar</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <rring>Angha Ring</rring>
+        <rear>Antivenom Earring</rear>
+        <head>Nefer Khat</head>
+      </set>
+      <set name="Fastcast" load="yes">
+        <ammo>Impatiens</ammo>
+        <feet>Argute Loafers +2</feet>
+        <waist>Witful Belt</waist>
+        <back>Swith Cape</back>
+        <lear>Loquac. Earring</lear>
+        <rring>Prolix Ring</rring>
+        <hands>Repartie Gloves</hands>
+      </set>
+      <!-- Healing Magic set-->
+      <set name="Healingmagic" baseset="Fastcast" load="yes">
+        <main>$%SpellElementStaff</main>
+        <neck>Colossus's Torque</neck>
+        <feet>Argute Loafers +2</feet>
+        <hands>Argute Bracers +2</hands>
+        <lring>Haoma's Ring</lring>
+        <rring>Sirona's Ring</rring>
+      </set>
+      <set name="Cure" baseset="Healingmagic" load="yes">
+        <main>$Curestaff</main>
+        <head>Hyksos Khat</head>
+        <neck>Fylgja Torque +1</neck>
+        <body>Heka's Kalasiris</body>
+        <hands>Argute Bracers +2</hands>
+        <legs>Praeco Slacks</legs>
+        <waist>Cascade Belt</waist>
+        <back>Tempered Cape</back>
+        <lring>Haoma's Ring</lring>
+        <rring>Sirona's Ring</rring>
+        <sub>Curatio Grip</sub>
+        <feet>Argute Loafers +2</feet>
+      </set>
+      <!-- Enfeebling Magic sets-->
+      <set name="EnfeeblingMagic" baseset="Fastcast" load="yes">
+        <ammo>Savant's Treatise</ammo>
+        <main>$%SpellElementStaff</main>
+        <neck>Enfeebling Torque</neck>
+        <sub>Macero Grip</sub>
+        <legs>Savant's Pants +2</legs>
+        <hands>Argute Bracers +2</hands>
+        <feet>Rubeus Boots</feet>
+      </set>
+      <set name="EnfeebINT" BaseSet="EnfeeblingMagic" load="yes">
+        <head>Hyksos Khat</head>
+        <neck>Enfeebling Torque</neck>
+        <body>Savant's Gown +2</body>
+        <hands>Savant's Bracers +2</hands>
+        <legs>Savant's Pants +2</legs>
+        <feet>Svnt. Loafers +2</feet>
+        <waist>Cognition Belt</waist>
+        <back>Searing Cape</back>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+        <lear>Hecate's Earring</lear>
+        <rear>Loquac. Earring</rear>
+      </set>
+      <!-- MND Para Slow -->
+      <set name="EnfeebMND" BaseSet="EnfeeblingMagic" load="yes">
+        <head>Hyksos Khat</head>
+        <neck>Enfeebling Torque</neck>
+        <body>Savant's Gown +2</body>
+        <hands>Repartie Gloves</hands>
+        <legs>Savant's Pants +2</legs>
+        <waist>Cascade Belt</waist>
+        <back>Swith Cape</back>
+        <lring>Aquasoul Ring</lring>
+        <rring>Prolix Ring</rring>
+        <feet>Rubeus Boots</feet>
+      </set>
+      <!-- Aspir Drain - Skill > Fast Cast -->
+      <set name="DarkMagic" baseset="Fastcast" load="yes">
+        <main>$%SpellElementStaff</main>
+        <neck>Enfeebling Torque</neck>
+        <body>Anhur Gown</body>
+        <hands>Repartie Gloves</hands>
+        <feet>Svnt. Loafers +2</feet>
+        <back>Merciful Cape</back>
+        <lear>Loquac. Earring</lear>
+        <lring>Prolix Ring</lring>
+        <rring>Icesoul Ring</rring>
+        <head>Hyksos Khat</head>
+      </set>
+      <!-- Stun -->
+      <set name="Stun" baseset="Darkmagic">
+        <waist>Witful Belt</waist>
+        <body>Anhur Robe</body>
+        <hands>Repartie Gloves</hands>
+        <head>Hyksos Khat</head>
+        <ammo>Impatiens</ammo>
+        <feet>Argute Loafers +2</feet>
+        <back>Swith Cape</back>
+      </set>
+      <!-- TargetCap @500 BaseCap @404 Merit +16 = 420 - 500 = 80 From gear-->
+      <set name="EnhancingMagic" Baseset="Fastcast" load="yes">
+        <!-- +4 -->
+        <ammo>Savant's Treatise</ammo>
+        <!-- +10 14-->
+        <head>Svnt. Bonnet +2</head>
+        <!-- +7 21 -->
+        <neck>Colossus's Torque</neck>
+        <hands>Svnt. Bracers +2</hands>
+        <!-- +15 21 = 36 -->
+        <legs>Portent Pants</legs>
+        <!-- 10+ 46 -->
+        <!-- +3 49 -->
+        <waist>Cascade Belt</waist>
+        <!-- +3 52 -->
+        <sub>Fulcio Grip</sub>
+        <!-- +7 59-->
+        <back>Merciful Cape</back>
+        <body>Anhur Robe</body>
+        <feet>Rubeus Boots</feet>
+        <!--
+<main>Kirin's Pole</main>
+<body>Anhur Robe</body>
+<back>Merciful Cape</body>
+-->
+      </set>
+      <!-- @99 Caps with Base Skill and MND-->
+      <set name="Stoneskin" baseset="Fastcast" load="yes">
+        <waist>Siegel Sash</waist>
+        <rear>Earthcry Earring</rear>
+        <neck>Stone Gorget</neck>
+        <legs>Haven Hose</legs>
+        <body>Heka's Kalasiris</body>
+        <hands>Savant's Bracers +2</hands>
+        <rring>Aquasoul Ring</rring>
+        <ammo>Impatiens</ammo>
+        <feet>Argute Loafers +2</feet>
+        <back>Swith Cape</back>
+      </set>
+      <!-- Elelmental Magic-->
+      <set name="FullDamage" load="yes">
+        <main>$%SpellElementStaff</main>
+        <ammo>WitchStone</ammo>
+        <head>Savant's Bonnet +2</head>
+        <neck>Stoicheion Medal</neck>
+        <body>Savant's Gown +2</body>
+        <hands>Quauhpilli Gloves</hands>
+        <legs>Savant's Pants +2</legs>
+        <feet>Svnt. Loafers +2</feet>
+        <waist>Cognition Belt</waist>
+        <back>Twilight Cape</back>
+        <lring>Icesoul ring</lring>
+        <rring>Icesoul ring</rring>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+        <sub>Wise Strap</sub>
+      </set>
+      <set name="HighResist" baseset="Fulldamage" load="yes">
+        <ammo>Savant's Treatise</ammo>
+        <head>Argute M.Board</head>
+      </set>
+      <!-- INT -->
+      <set name="Helix|INT" load="yes">
+        <main>$%SpellElementStaff</main>
+        <head>Svnt. Bonnet +2</head>
+        <neck>Savant's Chain</neck>
+        <body>Savant's Gown +2</body>
+        <hands>Savant's Bracers +2</hands>
+        <legs>Savant's Pants +2</legs>
+        <feet>Svnt. Loafers +2</feet>
+        <waist>Cognition Belt</waist>
+        <back>Searing Cape</back>
+        <lring>Icesoul ring</lring>
+        <rring>Icesoul Ring</rring>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+      </set>
+      <set name="Kaustra" baseset="INT">
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!--Will correct spell target if you're targeting the wrong thing 
+    <if SpellTargetType="MONSTER" NotValidTarget="*Enemy*" ValidTarget="*Self*">
+      <changetarget target="&lt;me&gt;" />
+    </if>
+    <if SpellTargetType="NONE" ValidTarget="*Self*">
+      <changetarget target="&lt;me&gt;" />
+    </if>
+    -->
+    <!-- Autoset -->
+    <if equipmain="$Club">
+      <disable slot="main|sub|range" />
+      <equip when="Resting" set="Resting" />
+      <if status="engaged">
+        <equip when="Engaged|aftercast" set="Standard" />
+      </if>
+      <else>
+        <equip when="Idle|aftercast" set="Standard" />
+      </else>
+    </if>
+    <elseif equipmain="$Staff">
+      <disable slot="main|sub|range" />
+      <equip when="Resting" set="Resting" />
+      <if status="engaged">
+        <equip when="Engaged|aftercast" set="Standard" />
+      </if>
+      <else>
+        <equip when="Idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <else>
+      <enable slot="main|sub|range" />
+      <equip when="Resting" set="Resting" />
+      <if Buffactive="Sublimation: Activated">
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="Standard" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Sublimation" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="Engaged|aftercast" set="Standard" />
+        </if>
+        <else>
+          <equip when="Idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!--Automates strategems for you under 2hr ability 
+    <if Mode="OR" spell="Tabula Rasa" BuffActive="Tabula Rasa">    
+        <if BuffActive="Penury|Parsimony">
+          <if BuffActive="Rapture|Ebullience">
+            <if BuffActive="Light Arts|Addendum: White">
+              <action type="ChangeSpell" Spell="Celerity" />
+            </if>
+            <elseif BuffActive="Dark Arts|Addendum: Black">
+              <action type="ChangeSpell" Spell="Alacrity" />
+            </elseif>
+          </if>
+          <elseif BuffActive="Light Arts|Addendum: White">
+            <action type="ChangeSpell" Spell="Rapture" />
+          </elseif>
+          <elseif BuffActive="Dark Arts|Addendum: Black">
+            <action type="ChangeSpell" Spell="Ebullience" />
+          </elseif>
+        </if>
+        <elseif BuffActive="Light Arts|Addendum: White">
+          <action type="ChangeSpell" Spell="Penury" />
+        </elseif>
+        <elseif BuffActive="Dark Arts|Addendum: Black">
+          <action type="ChangeSpell" Spell="Parsimony" />
+        </elseif>
+    </if>
+    -->
+    <!--Automated arts selection and strategem queueing -->
+    <if Spell="Accession|Alacrity|Celerity|Ebullience|Manifestation|Parsimony|Penury|Rapture|Equanimity|Tranquility|Focalization|Altruism|Immanence|Perpetuance">
+      <if Advanced="$QueueStratagems=1 AND $StratagemPrep=0">
+        <if Spell="Parsimony|Penury">
+          <if Advanced="$StratagemConserveMP=0">
+            <action Type="Var" cmd="set StratagemConserveMP 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Reduces the MP cost of your next spell by 50%.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemConserveMP 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Alacrity|Celerity">
+          <if Advanced="$StratagemFastCast=0">
+            <action Type="Var" cmd="set StratagemFastCast 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Reduces the casting time and recast time of your next spell by 50%.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemFastCast 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Accession|Manifestation">
+          <if Advanced="$StratagemAreaEffect=0">
+            <action Type="Var" cmd="set StratagemAreaEffect 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Extends the effect of your next spell to targets within range. MP cost and recast time are doubled.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemAreaEffect 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Ebullience|Rapture">
+          <if Advanced="$StratagemPotency=0">
+            <action Type="Var" cmd="set StratagemPotency 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Enhances potency of your next spell.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemPotency 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Equanimity|Tranquility">
+          <if Advanced="$StratagemEnmity=0">
+            <action Type="Var" cmd="set StratagemEnmity 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Reduces enmity of your next spell.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemEnmity 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Focalization|Altruism">
+          <if Advanced="$StratagemAccuracy=0">
+            <action Type="Var" cmd="set StratagemAccuracy 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Enhances magic accuracy of your next spell.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemAccuracy 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <if Spell="Immanence|Perpetuance">
+          <if Advanced="$StratagemDuration=0">
+            <action Type="Var" cmd="set StratagemDuration 1"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Enabled] Enhances duration/skillchain properties of your next spell.</action>
+          </if>
+          <else>
+            <action Type="Var" cmd="set StratagemDuration 0"/>
+            <action Type="AddtoChat" Color="121">[Stratagem: Disabled]</action>
+          </else>
+        </if>
+        <action Type="CancelSpell"/>
+      </if>
+    </if>
+    <!-- Job Abilities -->
+    <if type="Jobability">
+      <if BuffActive="Amnesia|Sleep|Stun|Terror|Petrification|Charm">
+        <!-- Cancel WS if unable to cast -->
+        <addtochat Color="1211">Unable to use ability</addtochat>
+        <cancelspell />
+      </if>
+      <else>
+        <if Spell="Sublimation">
+          <equip when="precast" set="Sublimation"/>
+          <cmd when="aftercast">input /p %Spell Just used it.</cmd>
+        </if>
+        <elseif spell="Tabula Rasa">
+          <if advanced='"$AutoMacroset"=="1"'>
+            <cmd when="aftercast">input /macro set 9</cmd>
+          </if>
+        </elseif>
+        <elseif Spell="Rapture|Ebullience">
+          <equip when="precast">
+            <head>Savant's Bonnet +2</head>
+          </equip>
+        </elseif>
+        <elseif Spell="Perpetuance|Immanence">
+          <equip when="precast">
+            <hands>Svnt. Bracers +2</hands>
+          </equip>
+        </elseif>
+        <elseif Spell="Penury|Parsimony">
+          <equip when="precast">
+            <legs>Savant's Pants +2</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Addendum: Black" notbuffactive="Dark Arts">
+          <changespell Spell="Dark Arts" />
+          <cmd when="Aftercast">wait 1;input /p "Addendum: Black" &lt;me&gt;</cmd>
+        </elseif>
+        <elseif spell="Addendum: White" notbuffactive="Light Arts">
+          <changespell Spell="Light Arts" />
+        </elseif>
+        <elseif Spell="Addendum: White|Addendum: Black">
+          <equip when="precast">
+            <body>Savant's Gown +2</body>
+          </equip>
+        </elseif>
+      </else>
+    </if>
+    <!-- Magic -->
+    <elseif type="*magic">
+      <!-- Remove silence with echo drops and retry spell -->
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic">
+        <if Advanced="$AutoEchoDrops=1">
+          <addtochat Color="56">Silenced And Using Echo Drops</addtochat>
+          <action Type="Command">wait 1.5;%Spell %SpellTargetRaw;</action>
+          <action Type="Command">input /item "Echo Drops" me</action>
+          <action Type="CancelSpell"/>
+          <action Type="Return"/>
+        </if>
+        <else>
+          <addtochat Color="56">Silenced</addtochat>
+          <action Type="CancelSpell"/>
+          <action Type="Return"/>
+        </else>
+      </if>
+      <else>
+        <!-- Begins Magic Casts with Fastcast Gear -->
+        <if BuffActive="Addendum: White|Addendum: Black">
+          <equip when="precast" Set="FastCast">
+            <head>Argute M.Board</head>
+            <feet>Scholar Loafers</feet>
+          </equip>
+        </if>
+        <else>
+          <if advanced = '("%SpellElement" = "%Weatherelement" or "%SpellElement" = "$StormElement") and "$ArguteLoafers" = "1"'>
+            <equip when="precast" Set="FastCast">
+              <feet>Argute Loafers</feet>
+            </equip>
+          </if>
+          <else>
+            <equip when="precast" Set="FastCast"/>
+          </else>
+        </else>
+        <!-- Black Stratagems -->
+        <if Type="BlackMagic">
+          <!--Uses to Dark Arts if casting a Black Magic spell-->
+          <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$AutomaticArts=1 AND $ChangeArt=0">
+            <var cmd="set ChangeArt 1" />
+            <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+            <command>Dark Arts</command>
+            <cancelspell />
+            <return />
+          </if>
+          <!--Uses Addendum: Black if required to cast spell-->
+          <if Spell="Sleep*|Dispel|Break|*V" NotBuffActive="Addendum: Black|Enlightenment" Advanced='$AutomaticAddendum=1 AND $ChangeAddendum=0'>
+            <if NotBuffActive="Dark Arts" Advanced="$ChangeArt=0">
+              <var cmd="set ChangeArt 1" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Dark Arts</command>
+              <cancelspell />
+              <return />
+            </if>
+            <var cmd="set ChangeAddendum 1" />
+            <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+            <command>Addendum: Black</command>
+            <cancelspell />
+            <return />
+          </if>
+          <!--Uses Stratagems if they have been added to the queue-->
+          <if Advanced="$QueueStratagems=1">
+            <var cmd="set StratagemPrep 1" />
+            <if Advanced="$StratagemConserveMP=1">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemConserveMP 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Parsimony</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemFastCast=1">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemFastCast 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Alacrity</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemAreaEffect=1" Spell="Absorb*|Aspir|Aspir II|Bind|Bio*|Blind|Dispel|Drain|Break|Klimaform|Poison|Sleep|Sleep II|Stun">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemAreaEffect 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Manifestation</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemPotency=1" Spell="Stone*|Aero*|Blizzard*|Fire*|Water*|Thunder*|*helix|Drain|Aspir*|Bio*|Klaustra">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemPotency 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Ebullience</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemEnmity=1">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemEnmity 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Equanimity</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemAccuracy=1">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemAccuracy 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Focalization</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemDuration=1">
+              <if NotBuffActive="Dark Arts|Addendum: Black" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Dark Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemDuration 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Immanence</command>
+              <cancelspell />
+              <return />
+            </if>
+            <var cmd="set StratagemPrep 0" />
+          </if>
+          <var cmd="set ChangeArt 0" />
+          <var cmd="set ChangeAddendum 0" />
+        </if>
+        <!-- White Stratagems -->
+        <if Type="WhiteMagic">
+          <!--Uses to Light Arts if casting a White Magic spell-->
+          <if NotBuffActive="Light Arts|Addendum: White" Advanced="$AutomaticArts=1 AND $ChangeArt=0">
+            <var cmd="set ChangeArt 1" />
+            <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+            <command>Light Arts</command>
+            <cancelspell />
+            <return />
+          </if>
+          <!--Uses Addendum: White if required to cast spell-->
+          <if Spell="Erase|Raise*|Reraise*|*na" NotBuffActive="Addendum: White|Enlightenment" Advanced='$AutomaticAddendum=1 AND $ChangeAddendum=0'>
+            <if NotBuffActive="Light Arts" Advanced="$ChangeArt=0">
+              <var cmd="set ChangeArt 1" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Light Arts</command>
+              <cancelspell />
+              <return />
+            </if>
+            <var cmd="set ChangeAddendum 1" />
+            <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+            <command>Addendum: White</command>
+            <cancelspell />
+            <return />
+          </if>
+          <!--Uses Stratagems if they have been added to the queue-->
+          <if Advanced="$QueueStratagems=1">
+            <var cmd="set StratagemPrep 1" />
+            <if Advanced="$StratagemConserveMP=1">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemConserveMP 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Penury</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemFastCast=1">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemFastCast 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Celerity</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemAreaEffect=1" Spell="Aquaveil|Bar*|Blink|Cure*|Deodorize|En*|Erase|Invisible|Phalanx|Protect*|Regen*|Shell*|Sneak|Stoneskin|*na|*storm|Adloquium|Animus*|Embrava" NotSpell="*ra">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemAreaEffect 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Accession</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemPotency=1" Spell="Banish*|Cure*|Dia*">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemPotency 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Rapture</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemEnmity=1">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemEnmity 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Tranquility</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemAccuracy=1">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemAccuracy 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Altruism</command>
+              <cancelspell />
+              <return />
+            </if>
+            <if Advanced="$StratagemDuration=1">
+              <if NotBuffActive="Light Arts|Addendum: White" Advanced="$ChangeArt=0">
+                <var cmd="set ChangeArt 1" />
+                <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+                <command>Light Arts</command>
+                <cancelspell />
+                <return />
+              </if>
+              <var cmd="set StratagemDuration 0" />
+              <command>wait 1.5;%Spell %SpellTargetRaw;</command>
+              <command>Perpetuance</command>
+              <cancelspell />
+              <return />
+            </if>
+            <var cmd="set StratagemPrep 0" />
+          </if>
+          <var cmd="set ChangeArt 0" />
+          <var cmd="set ChangeAddendum 0" />
+        </if>
+        <!-- Obi -->
+        <if advanced = '("%SpellElement" = "%weatherelement" or "%SpellElement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$%spellelementobi" = "1"'>
+          <equip when = "midcast">
+            <waist lock = "yes">%SpellElement-Obi</waist>
+            <back lock ="yes">Twilight Cape</back>
+            <rring lock ="yes">Zodiac Ring</rring>
+          </equip>
+        </if>
+        <!-- Healing Magic -->
+        <if skill="Healingmagic">
+          <!-- Cure spells-->
+          <if spell="Cure*|Cura*">
+            <equip when="Midcast" set="Cure" />
+            <if advanced='"$Curebot"=="1"'>
+              <!-- if check if have mp -->
+              <if BuffActive="Light Arts">
+                <if NotBuffActive="Penury">
+                  <if Spell="Cure IV" MPLT="122">
+                    <changespell Spell="Cure III" />
+                  </if>
+                  <elseif Spell="Cure III" MPLT="42">
+                    <changespell Spell="Cure II" />
+                  </elseif>
+                  <elseif Spell="Cure II" MPLT="22">
+                    <cancelspell />
+                    <addtochat color="56">I'm Out of MP</addtochat>
+                  </elseif>
+                  <elseif spell="Cura II" MPLT="40">
+                    <changespell Spell="Cura" />
+                  </elseif>
+                  <elseif spell="Cura" MPLT="47">
+                    <changespell Spell="Curaga II" />
+                  </elseif>
+                  <elseif spell="Curaga IV" MPLT="130">
+                    <changespell Spell="Curaga III" />
+                  </elseif>
+                  <elseif spell="Curaga III" MPLT="90">
+                    <changespell Spell="Curaga II" />
+                  </elseif>
+                  <elseif spell="Curaga II" MPLT="60">
+                    <changespell Spell="Curaga" />
+                  </elseif>
+                  <elseif spell="Curaga" MPLT="30">
+                    <cancelspell />
+                    <addtochat color="121">I'm Out of MP</addtochat>
+                  </elseif>
+                </if>
+                <else>
+                  <!-- Penury is Active - -50% MP Cost -->
+                  <if Spell="Cure IV" MPLT="68">
+                    <changespell Spell="Cure III" />
+                  </if>
+                  <elseif Spell="Cure III" MPLT="23">
+                    <changespell Spell="Cure II" />
+                  </elseif>
+                  <elseif Spell="Cure II" MPLT="12">
+                    <cancelspell />
+                    <addtochat color="56">I'm Out of MP~</addtochat>
+                  </elseif>
+                  <elseif spell="Cura II" MPLT="20">
+                    <changespell Spell="Cura" />
+                  </elseif>
+                  <elseif spell="Cura" MPLT="19">
+                    <changespell Spell="Curaga II" />
+                  </elseif>
+                  <elseif spell="Curaga IV" MPLT="117">
+                    <changespell Spell="Curaga III" />
+                  </elseif>
+                  <elseif spell="Curaga III" MPLT="81">
+                    <changespell Spell="Curaga II" />
+                  </elseif>
+                  <elseif spell="Curaga II" MPLT="54">
+                    <changespell Spell="Curaga" />
+                  </elseif>
+                  <elseif spell="Curaga" MPLT="27">
+                    <cancelspell />
+                    <addtochat color="121">I'm Out of MP</addtochat>
+                  </elseif>
+                </else>
+              </if>
+              <else>
+                <if Spell="Cure IV" MPLT="135">
+                  <changespell Spell="Cure III" />
+                </if>
+                <elseif Spell="Cure III" MPLT="46">
+                  <changespell Spell="Cure II" />
+                </elseif>
+                <elseif Spell="Cure II" MPLT="24">
+                  <cancelspell />
+                  <addtochat color="121">I'm Out of MP</addtochat>
+                </elseif>
+                <elseif spell="Cura II" MPLT="45">
+                  <changespell Spell="Cura" />
+                </elseif>
+                <elseif spell="Cura" MPLT="30">
+                  <changespell Spell="Curaga II" />
+                </elseif>
+                <elseif spell="Curaga IV" MPLT="260">
+                  <changespell Spell="Curaga III" />
+                </elseif>
+                <elseif spell="Curaga III" MPLT="180">
+                  <changespell Spell="Curaga II" />
+                </elseif>
+                <elseif spell="Curaga II" MPLT="120">
+                  <changespell Spell="Curaga" />
+                </elseif>
+                <elseif spell="Curaga" MPLT="60">
+                  <cancelspell />
+                  <addtochat color="121">I'm Out of MP</addtochat>
+                </elseif>
+              </else>
+              <!-- Check if Target HP is Enough -->
+              <if spell="Cure IV">
+                <if SpellTargetHPPGT="30" SpellTargetHPPLT="50">
+                  <changespell spell="Cure IV"/>
+                </if>
+                <elseif SpellTargetHPPGT="50" SpellTargetHPPLT="70">
+                  <changespell spell="Cure IV"/>
+                </elseif>
+                <elseif SpellTargetHPPGT="70" SpellTargetHPPLT="80">
+                  <changespell spell="Cure III"/>
+                </elseif>
+                <elseif SpellTargetHPPGT="80" SpellTargetHPPLT="90">
+                  <changespell spell="Cure II"/>
+                </elseif>
+                <elseif SpellTargetHPPGT="90" SpellTargetHPPLT="95">
+                  <changespell spell="Cure"/>
+                </elseif>
+                <elseif SpellTargetHPPGT="95">
+                  <cancelspell />
+                </elseif>
+              </if>
+            </if>
+          </if>
+          <!-- NA Spells-->
+          <else>
+            <equip when="midcast" set="fastcast"/>
+          </else>
+        </if>
+        <!-- Elemental Magic -->
+        <elseif skill="ElementalMagic">
+          <!-- Elemental DoT-->
+          <if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
+            <!-- equip elemental/INT gear for DoT's -->
+            <equip when="precast|midcast" Set="HighResist" />
+          </if>
+          <!-- Auto Helix-->
+          <elseif spell="*helix">
+            <if advanced='"$AutoHelix"=="1"'>
+              <if advanced='"$ModusRecast"=="Ready"'>
+                <if advanced='"$ModusGo"=="yes"'>
+                  <cmd>Modus Veritas %spelltargetraw</cmd>
+                  <cancelspell />
+                  <return />
+                </if>
+                <addtochat>!!~~ Modus Veritas Ready ~~!!</addtochat>
+                <cmd>sc var set ModusGo yes</cmd>
+                <cmd>wait 13;sc var set ModusGo no</cmd>
+              </if>
+              <if notweatherelement="None">
+                <changespell spell="$Helix-%WeatherElement" />
+              </if>
+              <else>
+                <changespell spell="$Helix-%DayElement" />
+              </else>
+            </if>
+            <equip when="midcast" set="Helix" />
+          </elseif>
+          <!-- A Nuke-->
+          <else>
+            <!-- Normal mob, go full damage gear. -->
+            <equip when="Midcast" Set="FullDamage" />
+          </else>
+          <!-- Handle Elemental -->
+          <if advanced = '("%spellelement" = "%weatherelement" or "%spellelement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$obi%spellelement" = "1"'>
+            <if Advanced='"$TwilightCape" == "1"'>
+              <equip when="midcast">
+                <back lock="true">Twilight Cape</back>
+              </equip>
+            </if>
+            <if Advanced='"$ZodiacRing" == "1"'>
+              <equip when="midcast">
+                <rring lock="true">Zodiac Ring</rring>
+              </equip>
+            </if>
+          </if>
+        </elseif>
+        <!-- Enfeebling Magic -->
+        <elseif skill="EnfeeblingMagic">
+          <if spell="Gravity|Bind|Poison*|Blind*|Sleep*|Silence|Break">
+            <equip when="Midcast" set="EnfeebINT" />
+            <addtochat color="121">INT Enfeebling Set</addtochat>
+          </if>
+          <elseif spell="Paralyze|Slow*|Dia|Dia II|Dia II">
+            <equip when="Midcast" set="EnfeebMND" />
+            <addtochat color="121">MND Enfeebling Set</addtochat>
+          </elseif>
+          <if advanced='"$SleepTimers"="1"'>
+            <if Spell="Sleep II">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</command>
+              <command when="aftercast">wait 75;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 85;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </if>
+            <elseif Spell="Sleep|Sleepga">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 55;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </elseif>
+            <elseif Spell="Break|Breakga">
+              <action type="command" when="aftercast">spellcast var inc breakid;wait 15;input /echo [$breakid:%spell] &lt;%target&gt; Wearing off in 15s</action>
+            </elseif>
+          </if>
+        </elseif>
+        <!-- EnhancingMagic -->
+        <elseif skill="EnhancingMagic">
+          <!-- Phalanx -->
+          <if spell="Phalanx*">
+            <equip when="midcast" set="Enhancingmagic" />
+          </if>
+          <elseif spell="Regen*">
+            <equip when="precast|midcast" set="EnhancingMagic">
+              <Head>Savant's Bonnet +2</Head>
+            </equip>
+          </elseif>
+          <!-- Stoneskin -->
+          <elseif spell="Stoneskin">
+            <equip when="precast" set="Stoneskin" />
+            <midcastdelay delay="4" />
+            <command when="MidCast">cancel 37</command>
+          </elseif>
+          <!-- AutoStorms -->
+          <elseif advanced='"$AutoStorm"=="1"' spell="Auspice">
+            <if buffactive="*storm">
+              <if notweatherelement="light|Dark">
+                <changespell spell="$StormSpell-%weatherelement" />
+              </if>
+              <elseif weatherelement="earth">
+                <changespell spell="$StormSpell-Ice" />
+              </elseif>
+              <else>
+                <changespell spell="$StormSpell-Thunder" />
+              </else>
+            </if>
+            <else>
+              <if weather="* x2" notweatherelement="light|dark">
+                <changespell spell="$StormSpell-%weatherelement" />
+              </if>
+              <elseif notweather="* x2" notweatherelement="none|light|dark" advanced='"$obi%weatherelement"!="0"'>
+                <changespell spell="$Storm-%weatherelement" />
+              </elseif>
+              <elseif notdayelement="light|dark" advanced='"$obi%dayelement"!="0"'>
+                <changespell spell="$Storm-%dayelement" />
+              </elseif>
+              <else>
+                <if dayelement="earth|ice">
+                  <changespell spell="$Storm-Ice" />
+                </if>
+                <else>
+                  <changespell spell="$Storm-Thunder" />
+                </else>
+              </else>
+            </else>
+          </elseif>
+          <else>
+            <equip when="midcast" set="Enhancingmagic" />
+          </else>
+        </elseif>
+        <!-- Dark Magic -->
+        <elseif skill="DarkMagic">
+          <if Spell="Stun">
+            <!-- equip gear that helps stun, and nothing else -->
+            <equip when="precast|Midcast" set="Stun"/>
+            <!-- these codes just print Stun in auto translate into chat. -->
+            <command when="midcast">input /party Stun @ %SpellTarget</command>
+          </if>
+          <else>
+            <equip when="midcast" set="DarkMagic"/>
+          </else>
+        </elseif>
+        <!-- Divine Magic -->
+        <elseif skill="DivineMagic">
+          <equip when="midcast" set="DivineMagic"/>
+        </elseif>
+      </else>
+    </elseif>
+    <!-- Subjob -->
+    <!-- RDM -->
+    <if subjob="RDM">
+      <if advanced='"Automacroset"=="1"'>
+        <if Buffactive="Tabula Rasa">
+          <cmd when="Aftercast">input /macro set 9</cmd>
+        </if>
+        <else>
+          <if buffactive="Light Arts|Addendum: White">
+            <cmd when="aftercast">input /macro set 1</cmd>
+          </if>
+          <elseif buffactive="Dark Arts|Addendum: Black">
+            <cmd when="aftercast">input /macro set 2</cmd>
+          </elseif>
+          <else>
+            <cmd when="aftercast">input /macro set 1</cmd>
+          </else>
+        </else>
+      </if>
+    </if>
+    <!-- WHM -->
+    <elseif subjob="WHM">
+      <if advanced='"Automacroset"=="1"'>
+        <if Buffactive="Tabula Rasa">
+          <cmd when="Aftercast">input /macro set 9</cmd>
+        </if>
+        <else>
+          <if buffactive="Light Arts|Addendum: White">
+            <cmd when="aftercast">input /macro set 3</cmd>
+          </if>
+          <elseif buffactive="Dark Arts|Addendum: Black">
+            <cmd when="aftercast">input /macro set 4</cmd>
+          </elseif>
+          <else>
+            <cmd when="aftercast">input /macro set 3</cmd>
+          </else>
+        </else>
+      </if>
+    </elseif>
+    <!-- BLM-->
+    <elseif subjob="BLM">
+      <if advanced='"Automacroset"=="1"'>
+        <if Buffactive="Tabula Rasa">
+          <cmd when="Aftercast">input /macro set 9</cmd>
+        </if>
+        <else>
+          <if buffactive="Light Arts|Addendum: White">
+            <cmd when="aftercast">input /macro set 5</cmd>
+          </if>
+          <elseif buffactive="Dark Arts|Addendum: Black">
+            <cmd when="aftercast">input /macro set 6</cmd>
+          </elseif>
+          <else>
+            <cmd when="aftercast">input /macro set 5</cmd>
+          </else>
+        </else>
+      </if>
+    </elseif>
+    <!-- NIN-->
+    <elseif subjob="NIN">
+      <if advanced='"Automacroset"=="1"'>
+        <if Buffactive="Tabula Rasa">
+          <cmd when="Aftercast">input /macro set 9</cmd>
+        </if>
+        <else>
+          <if buffactive="Light Arts|Addendum: White">
+            <cmd when="aftercast">input /macro set 7</cmd>
+          </if>
+          <elseif buffactive="Dark Arts|Addendum: Black">
+            <cmd when="aftercast">input /macro set 8</cmd>
+          </elseif>
+          <else>
+            <cmd when="aftercast">input /macro set 7</cmd>
+          </else>
+        </else>
+      </if>
+      <if spell="Sneak">
+        <changespell>Monomi: Ichi</changespell>
+      </if>
+      <if spell ="invisible">
+        <changespell>Tonko: Ni</changespell>
+      </if>
+      <!-- Utsusemi -->
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <!-- Sneak/Invisible -->
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+    </elseif>
+  </rules>
+</spellcast>

@@ -1,0 +1,743 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Derion" server="Sylph" description="Derion's DNC Spellcast" job="DNC"/>
+  <config requireversion="2.45" showgearswaps="False" showspellinfo="False" />
+  <variables clear="true">
+    <!-- Auto macro sets -->
+    <var name="AutoMacroset">1</var>
+    <!-- Announce statues-->
+    <var name="Statuses">0</var>
+    <!-- Lock Evasion gear -->
+    <var name="Evasion">0</var>
+    <!-- Lock Movement Speed in aftercast-->
+    <var name="Movement">1</var>
+  </variables>
+  <sets>
+    <!-- Porter Moogle
+    war hoop
+    etoile tiara
+    Etoile casaque
+    dancers tiara
+    dancers cas
+    dancers shoes
+    -->
+    <group default="yes" name="DNC">
+      <set name="Town" baseset="Standard|Evasion">
+        <head>Charis Tiara +2</head>
+        <body>Charis Casaque +2</body>
+        <hands>Charis bangles +1</hands>
+        <legs>Charis Tights +2</legs>
+        <feet>Charis Shoes +1</feet>
+        <feet>Tandava Crackows</feet>
+      </set>
+      <set name="Standard|Evasion" >
+        <ammo>Charis Feather</ammo>
+        <head>Optical hat</head>
+        <neck>Torero Torque</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Slither Gloves</hands>
+        <legs>Charis Tights +2</legs>
+        <feet>Tandava Crackows</feet>
+        <waist>Scouter's rope</waist>
+        <back>Boxer's Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+        <lear>Musical Earring</lear>
+        <rear>Novia Earring</rear>
+      </set>
+      <set name="PDT" baseset="Standard">
+        <neck>Twilight Torque</neck>
+      </set>
+      <set name="Subtle" baseset="Standard">
+        <body>Charis Casaque +2</body>
+        <rring>Heed Ring</rring>
+      </set>
+      <Set name="TP" baseset="Standard">
+        <head>Charis Tiara +2</head>
+        <neck>Love Torque</neck>
+        <body>Charis Casaque +2</body>
+        <hands>Dusk Gloves</hands>
+        <legs>Charis Tights +2</legs>
+        <feet>Charis Shoes +1</feet>
+        <waist>Twilight belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Brutal earring</lear>
+        <!--<rear>Charis Earring</rear>-->
+        <rear>Aesir Ear Pendant</rear>
+      </Set>
+      <!-- SaberDance TP-->
+      <Set name="SDTP" baseset="Standard">
+        <head>Charis Tiara +2</head>
+        <neck>Love Torque</neck>
+        <body>Charis Casaque +2</body>
+        <hands>Dusk Gloves</hands>
+        <legs>Charis Tights +2</legs>
+        <feet>Charis Shoes +1</feet>
+        <waist>Twilight belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Brutal earring</lear>
+        <!--<rear>Charis Earring</rear>-->
+        <rear>Aesir Ear Pendant</rear>
+      </Set>
+      <!-- Weapon Skills-->
+      <set name="WS" baseset="TP">
+        <head>Maat's Cap</head>
+        <body>Charis Casaque +2</body>
+        <hands>Charis bangles +1</hands>
+        <waist>Anguinus belt</waist>
+        <rear>Aesir Ear Pendant</rear>
+      </set>
+      <set name="Aeolian Edge|Cyclone" Baseset="ws">
+        <!-- Modifer: DEX:29.5% INT:29.5% -->
+        <neck>Artemis' Medal</neck>
+        <lear store = "Mog satchel">Novio Earring</lear>
+        <rear store = "Mog satchel">Hecate's Earring</rear>
+        <rring store = "sack">Demon's ring</rring>
+        <lring store = "sack">Demon's ring</lring>
+        <waist store ="sack">Breeze Belt</waist>
+      </set>
+      <set name="Dancing Edge" BaseSet="WS">
+        <!-- Modifer: DEX:30% ; CHR:40% -->
+        <rear>Pixie Earring</rear>
+        <rring>Airy Ring</rring>
+      </set>
+      <set name="Evisceration" baseset="WS">
+        <!-- Modifer: DEX:30%  -->
+        <rear>Pixie Earring</rear>
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Shark Bite" baseset="WS">
+        <!-- Modifer: DEX:50% -->
+        <lear>Brutal Earring</lear>
+        <rear>Aesir Ear Pendant</rear>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <set name="Pyrrhic Kleos" Baseset="WS">
+        <!-- Modifer: STR:20% DEX:30% -->
+        <rring>Pyrosoul Ring</rring>
+        <neck>Shadow Gorget</neck>
+      </set>
+      <set name="Rudra's Storm" baseset="ws">
+        <legs>Matre Bragezenn</legs>
+      </set>
+      <set name="Exenterator" baseset="ws">
+        <body>Loki's Kaftan</body>
+        <legs>Ambusher's Hose</legs>
+        <waist>Breeze Belt</waist>
+        <rring>Solemn Ring</rring>
+        <rear>Drone Earring</rear>
+      </set>
+      <Set name="Haste" baseset="Evasion">
+        <head>Zelus Tiara</head>
+        <neck>Magoraga Beads</neck>
+        <hands>Dusk gloves</hands>
+        <legs>Charis Tights +2</legs>
+        <feet>Ballerines</feet>
+        <waist>Twilight belt</waist>
+        <lear>Loquac. earring</lear>
+        <rear>Magnetic Earring</rear>
+      </Set>
+      <Set name="resting" />
+      <set name="Ranged" baseset="Standard">
+        <range>War Hoop</range>
+        <head>Optical Hat</head>
+      </set>
+      <set name="Waltz" BaseSet="Enmity">
+        <head>Etoile tiara</head>
+        <body>Dancer's casaque</body>
+      </set>
+      <set name="Jig" BaseSet="Standard">
+        <feet>Dancer's shoes</feet>
+      </set>
+      <!-- Accuracy Gear -->
+      <set name="Step" BaseSet="Standard">
+        <head>Optical hat</head>
+        <neck>Love Torque</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Charis bangles +2</hands>
+        <legs>Matre Bragezenn</legs>
+        <feet>Charis Shoes +1</feet>
+        <waist>Anguinus Belt</waist>
+        <lring>Rajas ring</lring>
+        <rring>Airy Ring</rring>
+        <rear>Pixie Earring</rear>
+      </set>
+      <set name="Enmity" baseset="Standard">
+        <legs>Ocelot Trousers</legs>
+        <lear>Pixie Earring</lear>
+      </set>
+      <set name="EnmityUp" baseset="Standard">
+        <neck>Invidia Torque</neck>
+        <legs>Ocelot Trousers</legs>
+        <rring>Odium Ring</rring>
+      </set>
+      <set name="MiscGearCollector" load="yes">
+        <item>Twashtar</item>
+        <item store = "sack">Dakini</item>
+        <item>War Hoop</item>
+        <item>Etoile tiara</item>
+        <item>Etoile casaque</item>
+        <item>dancer's tiara</item>
+        <item>dancer's casaque</item>
+        <item>dancer's shoes</item>
+      </set>
+    </group>
+    <group name="Voidwatch" inherit="DNC">
+      <!-- High Acc-->
+      <set name="TP">
+
+      </set>
+      <set name="SDTP">
+
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <if buffactive="Voidwatcher" notgroup="Voidwatch">
+      <cmd>sc group Voidwatch</cmd>
+      <addtochat color="121">Voidwatch Group</addtochat>
+    </if>
+    <elseif notgroup="DNC">
+      <cmd>sc group DNC</cmd>
+      <addtochat color="121">Normal Group</addtochat>
+    </elseif>
+    <!--Auto Gear Set -->
+    <equip when="resting" set="resting" />
+    <!-- Auto set -->
+    <if advanced='"$Evasion"=="1"'>
+      <if status="engaged">
+        <equip when="engaged|AfterCast" set="Evasion" />
+      </if>
+      <else>
+        <if advanced='"$Movement"=="1"'>
+          <equip when="idle|AfterCast" set="Standard">
+            <feet>Tandava Crackows</feet>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|AfterCast" set="Standard" />
+        </else>
+      </else>
+    </if>
+    <else>
+      <if buffactive="Sabor Dance">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="SDTP" />
+        </if>
+        <else>
+          <if advanced='"$Movement"=="1"'>
+            <equip when="idle|AfterCast" set="Standard">
+              <feet>Tandava Crackows</feet>
+            </equip>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP" />
+        </if>
+        <else>
+          <if advanced='"$Movement"=="1"'>
+            <equip when="idle|AfterCast" set="Standard">
+              <feet>Tandava Crackows</feet>
+            </equip>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
+        </else>
+      </else>
+    </else>
+    <!-- Ranged Attack -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged"/>
+      <equip when="aftercast">
+        <feet>Tandava Crackows</feet>
+      </equip>
+      <!-- Dynamis -->
+      <if Area="Dynamis*">
+        <!-- City and Snow Zones-->
+        <!-- JA Abilities -->
+        <if spelltarget="*Ranger|*Predator|*Ambusher|*Mason|*Salvager|*Ninja|*Backstabber|*Assassin|*Kusa|*Hitman|*Beastmaster|*Ogresoother|*Hawker|*Beasttender|*Pathfinder|*Monk|*Sentinel|*Grappler|*Militant|*Pitfighter|*Thief|*Pillager|*Liberator|*Purloiner|*Welldigger">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+          </else>
+        </if>
+        <!-- Magic Abilities -->
+        <elseif spelltarget="*Black Mage|*Mesmerizer|*Prelate|*Thaumaturge|*Shaman|*White Mage|*Alchemist|*Amputator|*Priest|*Constable|*Red Mage|*Protector|*Visionary|*Vexer|*Enchanter|*Summoner|*Undertaker|*Oracle|*Dollmaster|*Necromancer|*Bard|*Minstrel|*Chanter|*Bugler|*Maestro">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+          </else>
+        </elseif>
+        <!-- WS Abilities -->
+        <elseif spelltarget="*Paladin|*Armorer|*Trooper|*Exemplar|*Defender|*Dark Knight|*Tinkerer|*Neckchopper|*Inciter|*Vigilante|*Samurai|*Ronin|*Gutslasher|*Persecutor|*Hatamoto|*Warrior|*Smithy|*Footsoldier|*Skirmisher|*Vindicator|*Dragoon|*Dragontamer|*Impaler|*Partisan|*Drakekeeper">
+          <if advanced='"$PullCall"="1"'>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+          </if>
+          <else>
+            <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+          </else>
+        </elseif>
+        <!-- COP Zones -->
+        <elseif spelltarget="*Goobbue|*Manticore|*Treant|*Crab|*Dhalmel|*Scorpion|*Diremite|*Raptor|*Tiger|*Leech|*Worm">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Gaylas|*Kraken|*Roc|*Crawler|*Raven|*Uragnite|*Fly|*Flytrap|*Funguar|*Bugard|*Hornet">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </elseif>
+        </elseif>
+        <elseif spelltarget="*Hippogryph|*Sabotender|*Sheep|*Mandragora|*Eft|*Bunny|*Weapon|*Stirge|*Snoll|*Cluster|*Makara">
+          <if time="0.*|1.*|2.*|3.*|4.*|5.*|6.*|7.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Magic</cmd>
+            </else>
+          </if>
+          <elseif time="8.*|9.*|10.*|11.*|12.*|13.*|14.*|15.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Job Abilities</cmd>
+            </else>
+          </elseif>
+          <elseif time="16.*|17.*|18.*|19.*|20.*|21.*|22.*|23.*">
+            <if advanced='"$PullCall"="1"'>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills &lt;call14&gt;</cmd>
+            </if>
+            <else>
+              <cmd>input /p Fishing >>>>> %spelltargetname - Procs are Weapon Skills</cmd>
+            </else>
+          </elseif>
+        </elseif>
+      </if>
+      <!-- Not in Dynamis-->
+      <else>
+        <if advanced='"$PullCall"="1"'>
+          <cmd>input /p Fishing >>>>> %spelltargetname &lt;call14&gt;</cmd>
+        </if>
+        <else>
+          <cmd>input /p Fishing >>>>> %spelltargetname</cmd>
+        </else>
+      </else>
+      <return/>
+    </if>
+    <!-- Jigs -->
+    <if Spell="*Jig">
+      <!-- Jig AF Swap -->
+      <if Spell="Chocobo Jig">
+        <if BuffActive="Quickening">
+          <cancelspell />
+          <command>input /echo ~ [NOTE] Quickening already active. ~</command>
+        </if>
+        <else>
+          <equip when="Precast" set="Jig" />
+          <command>input /echo [Chocobo Jig] Zoom Xoom Zoom</command>
+          <aftercastdelay delay=".5" />
+        </else>
+      </if>
+      <elseif Spell="Spectral Jig">
+        <command when="Precast">cancel 71</command>
+        <equip when="Precast" set="Jig" />
+        <aftercastdelay delay=".5" />
+      </elseif>
+    </if>
+    <!-- Flourishes -->
+    <elseif spell="*Flourish">
+      <!-- Flourishs -->
+      <if Spell="*Flourish" notBuffActive="Finishing Move">
+        <cancelspell />
+        <addtochat Color="121">WARNING: No Finishing Moves!</addtochat>
+      </if>
+      <elseif spell="Reverse Flourish">
+        <equip when="precast">
+          <hands>Charis Bangles +1</hands>
+        </equip>
+      </elseif>
+      <elseif spell="Violent Flourish">
+        <equip when="precast" set="Step">
+          <body>Etoile Casaque</body>
+        </equip>
+      </elseif>
+      <elseif Spell="Animated Flourish">
+        <equip set="Enmity" />
+        <aftercastdelay delay="1" />
+        <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+          <command When="MidCast">input /echo Animated Snugglage &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+        </if>
+      </elseif>
+      <elseif Spell="Wild Flourish">
+        <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+          <command When="PreCast">input /echo %SpellName &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+        </if>
+      </elseif>
+      <elseif Spell="Climactic Flourish">
+        <equip when="precast">
+          <head>Charis Tiara +2</head>
+        </equip>
+        <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+          <command When="PreCast">input /echo %SpellName &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+        </if>
+      </elseif>
+    </elseif>
+    <!-- Waltz-->
+    <elseif spell="*Waltz*">
+      <!-- Waltz Swap -->
+      <!-- NOTE: If Waltz when !engaged it will default to appropriate Engaged set aftercast-->
+      <if BuffActive="Trance">
+        <equip when="PreCast" set="Waltz" />
+        <aftercastdelay delay=".5" />
+      </if>
+      <else>
+        <!-- Check TP -->
+        <if spell="Curing Waltz V">
+          <if mode="OR" TPLT="80" SpellTargetHPPGT="30">
+            <changespell spell="Curing Waltz IV" />
+          </if>
+          <else>
+            <equip when="precast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </if>
+        <elseif Spell="Curing Waltz IV">
+          <if mode="OR" TPLT="65" SpellTargetHPPGT="40">
+            <changespell spell="Curing Waltz III" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Curing Waltz III">
+          <if mode="OR" TPLT="50" SpellTargetHPPGT="60">
+            <changespell spell="Curing Waltz II" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Curing Waltz II">
+          <if mode="OR" TPLT="35"  SpellTargetHPPGT="80">
+            <changespell spell="Curing Waltz" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Curing Waltz">
+          <if TPLT="20">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <elseif Spell="Healing Waltz">
+          <if TPLT="20">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+        <if Spell="Divine Waltz II">
+          <if TPLT="80">
+            <changespell spell="Divine Waltz" />
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </if>
+        <elseif Spell="Divine Waltz">
+          <if TPLT="40">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </if>
+          <else>
+            <equip when="PreCast" set="Waltz" />
+            <aftercastdelay delay=".5" />
+          </else>
+        </elseif>
+      </else>
+    </elseif>
+    <!-- Steps-->
+    <elseif spell="*step">
+      <!-- Step AF Swap -->
+      <if Spell="Quickstep">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </if>
+      <elseif Spell="Box Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+      <elseif Spell="Stutter Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step" />
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+      <elseif Spell="Feather Step">
+        <if TPLT="10" notBuffActive="Trance">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast" set="Step">
+            <feet>Dancer's Shoes</feet>
+          </equip>
+          <aftercastdelay delay=".5" />
+          <addtochat Color="121">Dancing Dancing DANCING!!!</addtochat>
+        </else>
+      </elseif>
+    </elseif>
+    <!-- Sambas -->
+    <elseif spell="*Samba*">
+      <!-- Samba AF Swap -->
+      <if Spell="Drain Samba">
+        <if TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </if>
+      <elseif Spell="Drain Samba II">
+        <if TPLT="25">
+          <changespell spell="Drain Samba"/>
+        </if>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </elseif>
+      <elseif Spell="Drain Samba III">
+        <if TPLT="40">
+          <changespell spell="Drain Samba II"/>
+        </if>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </elseif>
+      <elseif Spell="Aspir Samba">
+        <if TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </elseif>
+      <elseif Spell="Aspir Samba II">
+        <if TPLT="25">
+          <changespell spell="Aspir Samba"/>
+        </if>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </elseif>
+      <elseif Spell="Haste Samba">
+        <if BuffActive="Haste Samba">
+          <cancelspell />
+          <command>input /echo ~ [NOTE] Haste Samba buff already active. ~</command>
+        </if>
+        <elseif TPLT="35">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+        <else>
+          <equip when="PreCast">
+            <head>Dancer's Tiara</head>
+          </equip>
+          <aftercastdelay delay=".5" />
+        </else>
+      </elseif>
+    </elseif>
+    <!-- Weapon skills -->
+    <if type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 4">
+          <CastDelay Delay=".5"/>
+          <equip when="precast" set="%Spell"/>
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return />
+        </else>
+      </if>
+      <else>
+        <cancelspell />
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return />
+      </else>
+    </if>
+    <!-- Subjob -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="Haste" />
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </if>
+    <elseif subjob="WAR">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="SAM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <!-- If status is active, cancel spell and request removal when applicable to the chat console -->
+    <if advanced='"Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

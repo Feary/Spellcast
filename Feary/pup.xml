@@ -1,0 +1,443 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's PUP Spellcast" job="PUP"/>
+  <config requireversion="2.45" showgearswaps="false" showspellinfo="False" />
+  <variables clear="True">
+    <!-- Auto macro sets 1. NIN 2. War 3. DNC 4. MNK 5. WHM -->
+    <var name="AutoMacroset">1</var>
+    <!-- Announce statues-->
+    <var name="Statuses">0</var>
+    <!-- Modes - Mode 0 = Normal TP Mode 1 = MID ACC build  Mode 2 = HIGH ACC Build-->
+    <var name="Mode">0</var>
+    <!-- Lock to Default Sets-->
+    <!-- 1. Best to set with a macro -->
+    <!--    a. line1 /console sc set pdt -->
+    <!--    b. line2 /console sc var set pdt 1-->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="Evasion">0</var>
+    <!--Weapons-->
+    <var name="H2H">Oatixur|Pugilists|Simian Fists|Mantis</var>
+    <var name="Staff"></var>
+    <var name="Club"></var>
+    <!-- Animator -->
+    <var name="Animator">Alternator</var>
+    <var name="Oil">Automat. Oil +3</var>
+  </variables>
+  <sets>
+    <Group default="Yes" name="PUP">
+      <set name="miscgearcollector">
+        <item>Pup. Dastanas</item>
+        <item>Pup. Churidars</item>
+        <item>Pup. Babouches</item>
+        <item>Pantin Taj +2</item>
+        <item>Pantin Tobe +2</item>
+        <item>Pantin Dastanas +2</item>
+        <item>Ptn. Churidars +2</item>
+        <item>Ptn. Babouches +2</item>
+        <item>Cirque Capello +2</item>
+        <item>Cirque Farsetto +2</item>
+        <item>Cirque Gaunti +2</item>
+        <item>Cirq. Pantaloni +2</item>
+        <item>Cirque Scarpe +2</item>
+        <item>Cirque Necklace</item>
+        <item>Cirque Earring</item>
+    </set>
+      <set name="town" baseset="Standard">
+        <feet>Hermes' Sandals</feet>
+        
+      </set>
+      <set name="Standard|Idle" baseset="PDT">
+        <range>$Animator</range>
+        <head>Pantin Taj +2</head>
+        <feet>Hermes' Sandals</feet>
+        <back>Contriver's Cape</back>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="PDT">
+        <head>Otronif Mask</head>
+        <neck>Twilight Torque</neck>
+        <body>Otronif Harness</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <feet>Thurandaut Boots</feet>
+        <back>Repulse Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Otronif Mask</head>
+        <neck>Twilight Torque</neck>
+        <body>Otronif Harness</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <feet>Thurandaut Boots</feet>
+        <!--<waist>Lieutenant's Sash</waist>-->
+        <back>Engulfer Cape</back>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="Evasion" baseset="Standard">
+
+      </set>
+      <Set name="Recast|Haste" baseset="PDT">       
+        <lear>Loquac. Earring</lear>
+      </Set>
+      <set name="Repair">
+        <feet>Pup. Babouches</feet>
+      </set>
+      <set name="PetNuke">
+        <feet>Ptn. Babouches +2</feet>
+      </set>
+      <set name="PetCure">
+        <legs>Pup. Churidars</legs>
+      </set>
+      <set name="Maneuver">
+        <neck>Buffoon's Collar</neck>
+        <body>Cirque Farsetto +2</body>
+        <hands>Pup. Dastanas</hands>
+        <back>Dispersal Mantle</back>
+      </set>
+      <set name="Ice Maneuver|INT" BaseSet="Maneuver">
+        
+      </set>
+      <set name="Water Maneuver|MND" BaseSet="Maneuver">
+      
+      </set>
+      <set name="Light Maneuver|CHR" BaseSet="Maneuver">
+      
+      </set>
+      <set name="Fire Maneuver|STR" BaseSet="Maneuver">
+      
+      </set>
+      <set name="Thunder Maneuver|DEX" BaseSet="Maneuver">
+       
+      </set>
+      <set name="Wind Maneuver|AGI" BaseSet="Maneuver">
+      
+      </set>
+      <set name="Earth Maneuver|VIT" BaseSet="Maneuver">
+      
+      </set>
+      <set name="Dark Maneuver|None" BaseSet="Maneuver" />    
+      <set name="resting" baseset="PDT">
+       
+      </set>
+      <Set name="TP|Engaged" baseset="PDT">
+        <!-- Otomi Helm -->
+        <head>Uk'uxkaj Cap</head>
+        <!--<neck>Cirque Necklace</neck>-->
+        <neck>Asperity Necklace</neck>
+        <body>Thaumas Coat</body>
+        <hands>Otronif Gloves</hands>
+        <!-- Otronif Brais -->
+        <legs>Manibozho Brais</legs>
+        <!-- Otronif Boots -->
+        <feet>Manibozho Boots</feet>
+        <waist>Windbuffet Belt</waist>
+        <!--<back>Atheling Mantle</back>-->
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+      </Set>
+      <set name="AccTP" baseset="TP">
+        <head>Whirlpool Mask</head>
+        <neck>Asperity Necklace</neck>
+        <body>Thaumas Coat</body>
+        <hands>Otronif Gloves</hands>
+        <!-- Otronif Brais -->
+        <legs>Manibozho Brais</legs>
+        <!-- Otronif Boots -->
+        <feet>Manibozho Boots</feet>
+        <waist>Hurch'lan Sash</waist>
+        <!-- Letalis Mantle-->
+        <!--<back>Atheling Mantle</back>-->
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="WS" baseset="TP">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Justiciar's Torque</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Manibozho Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Anguinus Belt</waist>
+        <!--<back>Atheling Mantle</back>-->
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <set name="Victory Smite" baseset="WS">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Light Gorget</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Manibozho Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Wanion Belt</waist>
+        <!--<back>Atheling Mantle</back>-->
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>      
+      </set>
+      <set name="Stringing Pummel|SP" baseset="WS">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Shadow Gorget</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Nahtirah Trousers</legs>
+        <feet>Otronif Boots</feet>
+        <waist>Prosilio Belt</waist>
+        <!--<back>Rancorous Mantle</back>-->
+        <!--<back>Atheling Mantle</back>-->
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <set name="Shijin Spiral|SS" baseset="WS">
+        <head>Uk'uxkaj Cap</head>
+        <!-- Rancor Collar -->
+        <neck>Justiciar's Torque</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <!-- Otronif Boots-->
+        <feet>Manibozho Boots</feet>
+        <waist>Wanion Belt</waist>
+        <!--<back>Atheling Mantle</back>-->
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+        <lring>Thundersoul Ring</lring>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="Asuran Fists|AS" baseset="WS">
+        <neck>Shadow Gorget</neck>
+        <waist>Shadow Belt</waist>
+        <back>Vespid Mantle</back>
+      </set>
+    </Group>
+  </sets>
+  <rules>
+    <!--Auto Gear Set -->
+    <equip when="resting" set="resting" />
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Gear</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <head lock="true">Tema. Headband</head>
+        <body lock="true">Temachtiani Shirt</body>
+        <hands lock="true">Temachtiani Gloves</hands>
+        <legs lock="true">Temachtiani Pants</legs>
+        <feet lock="true">Temachtiani Boots</feet>
+        <rring lock="true">Prouesse Ring</rring>
+        <lear lock="true">Liminus Earring</lear>
+        <rear lock="true">Terminus Earring</rear>
+      </equip>
+    </if>
+    <!-- Autoset -->
+    <equip when="resting" set="Resting" />
+    <if mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+    </if>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <if advanced='"$Mode"=="1"'>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="AccTP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!-- Job Abilities -->
+    <if type="jobability">
+      <if spell="Repair">
+        <equip when="Precast" set="Repair">
+          <ammo>$Oil</ammo>
+        </equip>
+        <equip when="aftercast">
+          <range>$Animator</range>
+        </equip>
+      </if>
+      <elseif spell="Tactical Switch">
+        <equip when="precast">
+          <feet>Cirque Scarpe +2</feet>
+        </equip>
+      </elseif>
+    </if>
+    <elseif type="PetCommand">
+      <!-- Maneuver -->
+      <if spell="*Maneuver">
+        <equip when="precast">
+          <hands>Pup. Dastanas</hands>
+        </equip>
+        <aftercast delay="1"/>
+      </if>
+    </elseif>
+    <!-- Weapon Skill -->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <if spell="Victory Smite|Shijin Spiral|Asuran Fists|Stringing Pummel">
+            <equip when="precast" set="%Spell"/>
+          </if>
+          <else>
+            <equip when="precast" set="WS"/>
+          </else>         
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return/>
+      </else>
+    </elseif>  
+    <!-- Subjob -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="Recast">
+          <neck>Magoraga Beads</neck>
+        </equip>
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <equip when="Aftercast" set="Standard"/>
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+    </if>
+    <elseif subhob="WAR">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if spell="Warcry">
+        <if buffactive="warcry">
+          <cancelspell/>
+        </if>
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if spell="Sneak|Spectral Jig" SpellTargetType="SELF">
+        <command when="precast">cancel 71</command>
+      </if>
+      <if spell="Curing*">
+        <equip when="precast" set="Waltz"/>
+      </if>
+      <elseif spell="Steps">
+        <equip when="precast" set="Steps"/>
+      </elseif>
+    </elseif>
+    <elseif subjob="MNK">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="WHM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+      <if Spell="Sneak" BuffActive="Sneak" advanced='"%SpellTarget"="%PlayerName" OR "%SpellTarget"="&lt;me&gt;" OR ("%target"="%PlayerName" AND "%SpellTarget"="&lt;t&gt;")'>
+        <command when="midcast">cancel 71</command>
+        <midcastdelay delay="2.3" />
+      </if>
+      <elseif Spell="Stoneskin" BuffActive="Stoneskin">
+        <command when="midcast">cancel 37</command>
+        <midcastdelay delay="5.9" />
+      </elseif>
+      <elseif Spell="Blink" BuffActive="Blink">
+        <command when="midcast">cancel 36</command>
+        <midcastdelay delay="5.2" />
+      </elseif>
+    </elseif>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

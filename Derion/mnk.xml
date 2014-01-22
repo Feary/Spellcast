@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Derion" server="Sylph" description="Feary's MNK Spellcast" job="MNK"/>
+  <config requireversion="2.45" showgearswaps="False" showspellinfo="False" />
+  <variables clear="True">
+    <!-- Auto macro sets -->
+    <var name="AutoMacroset">1</var>
+    <!-- Auto Holy water = Make sure you have Holy waters to use this-->
+    <var name="AutoHolyWater">0</var>
+    <!-- Announce statues-->
+    <var name="Statuses">0</var>
+    <!-- Modes - Mode 0 = Normal TP Mode 1 = MID ACC build  Mode 2 = HIGH ACC Build-->
+    <var name="Mode">0</var>
+    <!-- Lock to Default Sets-->
+    <!-- 1. Best to set with a macro -->
+    <!--    a. line1 /console sc set pdt -->
+    <!--    b. line2 /console sc var set pdt 1-->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="Evasion">0</var>
+    <!--Weapons-->
+    <var name="H2H">Em. Baghnakhs</var>
+    <var name="Staff">Plenitas Virga</var>
+    <var name="Club">Warp Cudgel|Rounsey Wand</var>  
+  </variables>
+  <sets>
+    <group name="MNK" default="yes">
+      <set name="MiscGearCollector" load="yes">
+        <item>Plenitas Virga</item>
+        <item>Temple Crown</item>
+        <item>Temple Gaiters</item>
+        <item>Temple Gloves</item>
+        <body>Tantra Cyclas +2</body>
+      </set>
+      <set name="weapon|w" baseset="TP">
+        <main>$H2H</main>
+      </set>
+      <set name="Town" baseset="Standard">
+        <feet>Hermes' Sandals</feet>
+      </set>
+      <!-- Movement Speed > PDT -->
+      <set name="Standard|Idle" baseset="PDT">
+        <neck>Twilight Torque</neck>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>        
+        <feet>Hermes' Sandals</feet>
+      </set>
+      <set name="PDT">
+        <neck>Twilight Torque</neck>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <neck>Twilight Torque</neck>        
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <!-- Evasion -->
+      <set name="Evasion" baseset="TP">
+        <head>Theia's Hairpin</head>
+        <neck>Torero Torque</neck>
+        <body>Athos's Tabard</body>
+        <hands>Denali Wristbands</hands>
+        <legs>Ocelot Trousers</legs>
+        <feet>Hermes' Sandals</feet>
+        <waist>Scouter's Rope</waist>
+        <back>Boxer's Mantle</back>
+        <lring>Alert Ring</lring>
+        <rring>Heed Ring</rring>
+        <lear>Musical earring</lear>
+        <rear>Novia Earring</rear>
+      </set>
+      <set name="2hour|Hundred Fists|HF" baseset="TP">
+        <body>Tantra Cyclas +2</body>
+        <!-- Shoalin Belt-->
+      </set>
+      <set name="Subtle Blow" baseset="TP">
+        <head>Tantra Crown +2</head>
+        <waist>Black Belt</waist>
+        <lring>Rajas Ring</lring>
+        <rring>Heed Ring</rring>
+      </set>
+      <set name="TP">
+        <ammo>Tantra Tathlum</ammo>
+        <head>Tantra Crown +2</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Tantra Cyclas +2</body>
+        <hands>Tantra Gloves +2</hands>
+        <legs>Tantra Hose +2</legs>
+        <feet>Tantra Gaiters +2</feet>
+        <waist>Black Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Ghillie Earring +1</rear>
+      </set>
+      <!-- Tojil -->
+      <set name="MidAccTP" baseset="TP">
+       
+      </set>
+      <!-- Bee? -->
+      <set name="HighAccTP" baseset="Acctp">
+     
+      </set>
+      <set name="Impetus" Baseset="TP">
+        <body>Tantra Cyclas +2</body>
+      </set>
+      <set name="TP-Vere" Baseset="TP">
+
+      </set>
+      <set name="Imp-Vere" baseset="TP-Vere">
+        <body>Tantra Cyclas +2</body>
+      </set>
+      <!-- Weapon Skill  -->
+      <set name="WS" baseset="TP">
+        <waist>Wanion Belt</waist>
+        <feet>Tantra Gaiters +2</feet>
+        <rring>Epona Ring</rring>
+      </set>
+      <set name="Victory Smite" baseset="WS"/>
+      <set name="Imp-Victory Smite" baseset="Victory Smite">
+        <body>Tantra Cyclas +2</body>
+      </set>
+      <set name="Shijin Spiral" baseset="ws">
+        <head>Oce. Headpiece +1</head>
+        <legs>Byakko's Haidate</legs>
+        <waist>Wanion Belt</waist>
+      </set>
+      <set name="MIDAcc-Shijin Spiral" baseset="WS">
+      
+      </set>
+      <set name="HighAcc-Shijin Spiral" baseset="WS">
+       
+      </set>
+      <!-- VIT-->
+      <set name="Final Heaven" Baseset="WS">
+
+      </set>
+      <!-- str and vit-->
+      <set name="Ascetic's Fury" baseset="ws">
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Asuran Fists" baseset="ws">
+        <waist>Soil Belt</waist>
+      </set>     
+      <!-- Utsusemi -->
+      <set name="Fastcast" base="TP">
+        <neck>Magoraga Beads</neck>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+        <hands>Brego Gloves</hands>
+        <rring>Prolix Ring</rring>
+      </set>
+      <set name="Chakra">
+        <body>Temple Cyclas</body>
+        <hands>Melee Gloves</hands>
+        <ammo>Bibiki SeaShell</ammo>
+      </set>
+      <!-- MND+ -->
+      <set name="Chi Blast">
+        <neck>Morgana's Choker</neck>
+        <lring>Omega Ring</lring>
+        <rring>Solemn Ring</rring>
+      </set>
+      <!-- Guard - Skill + agi -->
+      <set name="Guard">
+        <back>Boxer's Mantle</back>
+        <rring>Solemn ring</rring>
+      </set>
+      <set name="Max HP"/>
+      <set name="Resting" baseset="Standard"/>
+      <!-- Enmity +1-->
+      <set name="Enmity"/>
+      <set name="Ranged" baseset="Guard"/>
+    </group>
+  </sets>
+  <rules>
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Gear</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <head lock="true">Tema. Headband</head>
+        <legs lock="true">Temachtiani Pants</legs>
+        <feet lock="true">Temachtiani Boots</feet>
+        <rring lock="true">Prouesse Ring</rring>
+        <rear lock="true">Terminus Earring</rear>
+      </equip>
+    </if>
+    <!-- Autoset -->
+    <equip when="resting" set="Resting" />
+    <if buffactive="Hundred Fists">
+      <addtochat color="121">Hundred Fists Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="HF" />
+    </if>
+    <elseif mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+    </elseif>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <!-- Set Gear for Verethragna-->
+      <if equipmain="Verethragna">
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="MidAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif advanced='"$Mode"=="2"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="HighAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121">Vere Impetus Set</addtochat>
+              <equip when="engaged|AfterCast" set="Imp-Vere">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP-Vere"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </if>
+      <!-- Set Gear for other H2H-->
+      <elseif EquipMain="$H2H">
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="MidAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif advanced='"$Mode"=="2"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="HighAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121">Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="TP">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </elseif>
+      <!-- Set Gear for Staff-->
+      <elseif EquipMain="$Staff">
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="MidAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif advanced='"$Mode"=="2"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="HighAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121">Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="TP">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </elseif>
+      <else>
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="MidAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif advanced='"$Mode"=="2"'>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="HighAccTP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <if status="engaged">
+            <if buffactive="Impetus">
+              <addtochat color="121">Impetus TP Set</addtochat>
+              <equip when="engaged|AfterCast" set="TP">
+                <body>Tantra Cyclas +2</body>
+              </equip>
+            </if>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </else>
+    </else>
+    <!-- Ranged -->
+    <if spell="ranged" SpellTargetDistanceLT="22">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <!-- VIT -->
+      <if spell="Chakra">
+        <equip when="precast" set="Chakra"/>
+      </if>
+      <!-- Mind -->
+      <elseif spell="Chi Blast">
+        <if  SpellTargetDistanceLT="17">
+          <equip when="precast" set="Chi Blast"/>
+        </if>
+        <else>
+          <cancelspell/>
+        </else>
+      </elseif>
+      <elseif spell="Focus">
+        <equip when="precast">
+          <head>Temple Crown</head>
+        </equip>
+      </elseif>
+      <elseif spell="Dodge">
+        <equip when="precast">
+          <feet>Temple Gaiters</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Boost">
+        <equip when="precast">
+          <hands>Temple Gloves</hands>
+        </equip>
+      </elseif>
+      <elseif spell="Counterstance">
+        <equip when="precast">
+          <feet>Mel. Gaiters +2</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Formless Strikes">
+        <if buffactive="paralysis">
+          <cancelspell/>
+          <cmd>input /p Paralyzed. Cannot Use Formless.</cmd>
+        </if>
+        <else>
+          <addtochat color="121">Formless Strikes</addtochat>
+          <equip when="precast|midcast">
+            <body>Mel. Cyclas +2</body>
+          </equip>
+        </else>
+      </elseif>
+      <elseif spell="Provoke">
+        <if  SpellTargetDistanceLT="16.1">
+          <equip when="precast" set="Enmity"/>
+        </if>
+        <else>
+          <Cancelspell/>
+        </else>
+      </elseif>
+      <elseif spell="Mantra">
+        <cmd when="aftercast">input /p ======= Mantra Just Used It ======</cmd>
+        <equip when="precast">
+          <feet>Mel. Gaiters +2</feet>
+        </equip>
+      </elseif>
+    </if>
+    <!-- WS Rules-->
+    <elseif type="Weaponskill">
+      <!-- Check if you have enough tp -->
+      <if TPGT="99" status="engaged">
+        <!-- check if the distance of the mob is more than 4-->
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <castdelay delay=".2" />
+          <!-- MID ACC-->
+          <if advanced='"$Mode"=="1"'>
+            <equip when="precast|midcast" set="MIDAcc-%Spell"/>
+          </if>
+          <elseif advanced='"$Mode"=="2"'>
+            <equip when="precast|midcast" set="HighAcc-%Spell"/>
+          </elseif>
+          <else>
+            <if buffactive="Impetus" spell="Victory Smite">
+              <equip when="precast|midcast" set="Imp-%Spell" />
+            </if>
+            <else>
+              <equip when="precast|midcast" set="%Spell" />
+            </else>
+          </else>
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">---- %Spelltargetname is Too Far. WS Canceled -----</addtochat>
+          <return />
+        </else>
+      </if>
+      <else>
+        <cancelspell />
+        <addtochat color="121">------ Not Enough TP for WS. Canceled ------ </addtochat>
+        <return/>
+      </else>
+    </elseif>
+    <!-- Subjob Rules -->
+    <if subjob="War">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if mode="and" hpplt="40" buffactive="Berserk">
+        <addtochat color="121">Canceled Berserk. HP is too low.</addtochat>
+        <command>cancel 56</command>
+      </if>
+    </if>
+    <elseif subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <equip when="Aftercast" set="Standard"/>
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if spell="Curing*">
+        <equip when="precast" set="Waltz"/>
+      </if>
+      <elseif spell="Steps">
+        <equip when="precast" set="Steps"/>
+      </elseif>
+    </elseif>
+    <elseif subjob="DRG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="WHM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="RUN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 6</cmd>
+      </if>
+    </elseif>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+    <!-- Tojil -->
+    <if SpellTargetName="Tojil">
+      <if SpellTargetHPPGT="75" Notbuffactive="Formless Strikes">
+        <addtochat color="121"> +++++++++++++ Use Formless Strikes ++++++++++</addtochat>
+      </if>
+      <else>
+        <addtochat color="121">Canceling Formless</addtochat>
+        <cmd>Cancel 341</cmd>
+      </else>
+    </if>
+  </rules>
+</spellcast>

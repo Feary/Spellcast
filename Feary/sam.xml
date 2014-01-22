@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's SAM Spellcast" job="SAM" />
+  <config RequireVersion="2.51" Showgearswaps="false" ShowspellInfo="false"    />
+  <variables clear="True">
+    <!-- Auto Macro set based on Sub 1. Nin 2.War 3.DNC 4.DRG 5.RNG -->
+    <var name="AutoMacroset">1</var>
+    <!-- Tell party of your statues-->
+    <var name="Statuses">0</var>
+    <!-- Options Melee = 1 Ranged = 2 -->
+    <var name="Mode">1</var>
+    <!-- Lock to Default Sets-->
+    <!-- 1. Best to set with a macro -->
+    <!--    a. line1 /console sc set pdt -->
+    <!--    b. line2 /console sc var set pdt 1-->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="Evasion">0</var>
+    <var name="TwilightSet">0</var>
+    <!-- List of Weapons - Equip these weapons will disable main/sub/range-->
+    <var name="GreatKatana">Tsurumaru</var>
+    <var name="Bow">Speleogen Bow</var>
+    <var name="Ammo">Tulfaire Arrow</var>
+    <var name="Polearm">Pitchfork|Quint Spear</var>    
+    <var name="Club">Warp Cudgel</var>
+    <var name="Sword">Forefront Blade</var>
+  </variables>
+  <sets>
+    <group default="yes" name="SAM">
+      <set name="MiscGearCollector" load="yes">
+        <item>unkai domaru +2</item>
+        <hands>Unkai kote +2</hands>
+        <item>Unkai haidate +2</item>
+        <item>unkai sune-ate +2</item>
+        <item>Sao. Kote +2</item>
+      </set>
+      <set name="Town" baseset="Standard">
+        <feet>Danzo Sune-Ate</feet>
+      </set>
+      <set name="Twilight" baseset="Standard">
+        <head>Twilight Helm</head>
+        <body>Twilight Mail</body>
+      </set>
+      <set name="Standard" baseset="PDT" load="yes">
+        <feet>Danzo Sune-Ate</feet>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="PDT">
+        <!--<head>otronif Mask</head>-->
+        <head>Yaoyotl Helm</head>
+        <neck>Twilight Torque</neck> 
+        <!-- <body>otronif harness</body> -->
+        <body>Mekira Meikogai</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <Feet>Whirlpool Greaves</Feet>
+        <waist>Flume Belt</waist>
+        <back>Repulse Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Yaoyotl Helm</head>
+        <neck>Twilight Torque</neck>
+        <body>Mekira Meikogai</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <feet>Whirlpool Greaves</feet>
+        <waist>Nierenschutz</waist>
+        <back>Engulfer Cape</back>
+        <!-- Defending Ring -->
+        <lring>Dark Ring</lring>
+        <rring>Shadow Ring</rring>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="Evasion" baseset="Standard">
+
+      </set>
+      <set name="resting" baseset="tp"/>
+      <!-- Precast -->
+      <set name="Fastcast" baseset="tp">
+        <Rear>Loquac. Earring</Rear>
+        <lear>Magnetic Earring</lear>
+        <waist>Goading Belt</waist>
+      </set>
+      <set name="Recast" baseset="PDT">
+        <body></body>
+      </set>
+      <set name="TP">
+        <ammo>Hagneia Stone</ammo>
+        <!--<head>Otomi Helm</head>-->
+        <head>Yaoyotl Helm</head>
+        <!-- <neck>Ganesha's Mala</neck> -->
+        <neck>Asperity Necklace</neck>
+        <body>Porthos Byrnie</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Unkai Haidate +2</legs>
+        <!--<feet>Otronif Boots</feet> -->
+        <feet>Mikinaak Greaves</feet>
+        <back>Takaha Mantle</back>
+        <!-- Ninurta's Sash -->
+        <waist>Cetl Belt</waist>
+        <lear>Steelflash Earring</lear>
+        <rear>Bladeborn Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>K'ayres Ring</rring>
+        <sub>Pole Grip</sub>
+      </set>
+      <set name="MidAcc-TP" baseset="TP">
+        <waist>Dynamic Belt +1</waist>
+      </set>
+      <set name="HighAcc-TP" baseset="TP">
+      
+      </set>
+      <set name="Bow-TP" baseset="TP">
+        <ammo>$Ammo</ammo>
+      </set>
+      <set name="ws|Weaponskill" baseset="TP">
+        <!--<head>Otomi Helm</head>-->
+        <head>Yaoyotl Helm</head>
+        <neck>Asperity Necklace</neck>
+        <body>Phorcys Korazin</body>
+        <hands>Miki. Gauntlets</hands>       
+        <legs>Mikinaak Cuisses</legs>
+        <feet>Whirlpool Greaves</feet>
+        <waist>Wanion Belt</waist>
+        <back>atheling mantle</back>
+        <lear>Brutal Earring</lear>
+        <rear>moonshade earring</rear>
+        <ammo>thew bomblet</ammo>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <!-- Weaponskills -->
+      <!-- Great Katana-->
+      <set name="Tachi: Shoha" baseset="WS" load="yes">
+        <!-- Shadow Belt -->
+        <neck>Ganesha's Mala</neck>
+        <waist>Windbuffet Belt</waist>
+      </set>
+      <set name="Tachi: Fudo" baseset="WS" load="yes">
+        <!-- TF set, 100% Str but needs attack -->
+        <neck>Light Gorget</neck>
+        <waist>Light belt</waist>
+      </set>
+      <set name="Tachi: Kasha" baseset="WS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light belt</waist>
+      </set>
+      <set name="Tachi: Rana" baseset="WS" load="yes">
+        <neck>Ganesha's Mala</neck>
+        <waist>Windbuffet Belt</waist>
+      </set>
+      <set name="Tachi: Yukikaze" baseset="WS" load="yes">
+        <!-- Snow/Breeze-->
+        <neck>Ganesha's Mala</neck>
+        <waist>Windbuffet Belt</waist>
+      </set>
+      <set name="Tachi: Gekko" baseset="WS" load="yes">
+        <!-- Snow/Aqua Gorget -->
+        <neck>Ganesha's Mala</neck>
+        <waist>Windbuffet Belt</waist>
+      </set>      
+      <!-- Sword -->
+      <set name="Requiescat|req" baseset="ws">
+        <!-- MND + Attack-->
+        <head>Yaoyotl Helm</head>
+        <neck>Shadow Gorget</neck>
+        <body>Miki. Breastplate</body>
+        <hands>Miki. Gauntlets</hands>
+        <legs>Miki. Cuisses</legs>
+        <feet>Whirlpool Greaves</feet>
+        <back>Atheling Mantle</back>
+        <waist>Shadow Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Aquasoul Ring</lring>
+        <rring>Aquasoul Ring</rring>
+        <lear>Steelflash Earring</lear>
+        <rear>Bladeborn Earring</rear>
+      </set>
+      <!-- Ranged -->
+      <set name="RA">
+        
+      </set>
+      <set name="Apex Arrow" baseset="WS" load="yes">
+        <head>Yaoyotl Helm</head>
+        <neck>Light Gorget</neck>
+        <body>Phorcys Korazin</body>
+        <hands>Unkai kote +2</hands>
+        <legs>Mikinaak Cuisses</legs>
+        <feet>Whirlpool Greaves</feet>
+        <waist>Light belt</waist>
+        <back>Terebellum Mantle</back>
+        <lring>Bellona's Ring</lring>
+        <rring>Arewe Ring +1</rring>
+        <lear>clearview earring</lear>
+      </set>
+      <set name="Waltz">
+        
+      </set>
+      <set name="Step" baseset="HighACC-TP">
+        
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Ring</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <rring lock="true">Prouesse Ring</rring>
+      </equip>
+    </if>
+    <!-- Lock Bow -->
+    <if equipRange="$Bow">
+      <addtochat color="121">Bow Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <range lock="true">$Bow</range>
+        <ammo lock="true">$Ammo</ammo>
+      </equip>
+    </if>
+    <if mode='or' advanced='"$TwilightSet"=="1"' buffactive="Weakness" hpplt="30" >
+      <addtochat color="121">Twilight Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT">
+        <head lock="true">Twilight Helm</head>
+        <body lock="True">Twilight Mail</body>
+      </equip>
+    </if> 
+    <!-- Auto sets -->
+    <equip when="resting" set="resting"/>
+    <if mode="OR" advanced='"$PDT"=="1"' buffactive="weak*|Seigan">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+    </if>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <!-- Set gear for Tsurumaru -->
+      <if Equipmain="Tsurumaru">
+        <!-- Mid Acc -->
+        <if advanced='"$Mode"=="1"'>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="MidAcc-TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <!-- High Acc -->
+        <elseif advanced='"$Mode"=="2"'>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="HighAcc-TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </if>
+      <!-- Set gear for Masamune -->
+      <elseif Equipmain="Masamune">
+        <if advanced='"$Mode"=="1"'>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="MidAcc-TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </if>
+        <elseif advanced='"$Mode"=="2"'>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="HighAcc-TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </elseif>
+        <else>
+          <disable slot="Main|Sub|Range|Ammo"/>
+          <if status="engaged">
+            <!-- Auto Hasso on Engage -->
+            <if notbuffactive = "Hasso">
+              <!-- When not in Seigan mode lol-->
+              <if notbuffactive="Seigan">
+                <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+              </if>
+            </if>
+            <if equiprange="$Bow">
+              <equip when="engaged|aftercast" set="Bow-TP"/>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="TP"/>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard" />
+          </else>
+        </else>
+      </elseif>
+      <!-- Set gear for Polearm -->
+      <elseif Equipmain="$Polearm">
+        <disable slot="Main|Sub|Range"/>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP">
+            <sub>Pole Grip</sub>
+            <neck>Love Torque</neck>
+          </equip>
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard">
+            <neck>Love Torque</neck>
+          </equip>
+        </else>
+      </elseif>
+      <!-- Set gear for Club -->
+      <elseif Equipmain="$Club">
+        <disable slot="Main|Sub|Range"/>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+
+      </elseif>
+      <!-- Set gear for Sword -->
+      <elseif Equipmain="$Sword">
+        <disable slot="Main|Sub|Range"/>
+        <if status="engaged">         
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <else>
+        <addtochat color="121">No Weapon Equipped - Defaulting </addtochat>
+        <if status="engaged">
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!-- Ranged Attacks-->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if BuffActive="Sekkanoki">
+      <equip when="precast|midcast|aftercast">
+       <hands lock="t">unkai kote +2</hands>
+      </equip>
+    </if>
+      <!-- If Sengikori is active put on cover gear and lock it so it stays active -->
+    <if Spell="Sengikori">
+      <equip when="precast|midcast|aftercast">
+       <feet lock="t">unkai sune-ate +2</feet>
+      </equip>
+    </if>
+    <if BuffActive="Sengikori">
+      <equip when="precast|midcast|aftercast">
+        <feet lock="t">unkai sune-ate +2</feet>
+      </equip>
+    </if>
+    <if type="jobability">
+      <if spell="Warding Circle">
+        <equip when="precast">
+          <head>Myochin Kabuto</head>
+        </equip>
+      </if>
+      <!-- Make Sure you have above 200 TP when useing Sekkanoki-->
+      <elseif spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </elseif>
+      <elseif Spell="Meditate">
+        <if tpgt="200">
+          <cancelspell/>
+          <addtochat color="121">You have too much tp for that.</addtochat>
+        </if>
+        <else>
+          <equip when="Precast" delay=".2">
+            <head>Myochin Kabuto</head>
+            <hands>Sao. Kote +2</hands>
+          </equip>
+        </else>
+      </elseif>
+      <elseif Spell="Third Eye">
+        <equip when="precast" delay=".2">
+          <legs>Saotome Haidate</legs>
+        </equip>
+        <aftercastdelay delay="1" />
+      </elseif>
+      <elseif spell="Hasso">
+        <equip when="precast">
+          <legs>unkai Haidate +2</legs>
+        </equip>
+      </elseif>
+      <elseif spell="Seigan">
+        <equip when="precast" />
+      </elseif>
+      <elseif spell="Meikyo Shisui">
+        <equip when="precast|midcast|aftercast">
+          <feet>saotome sune-ate +2</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Yaegasumi">
+        
+      </elseif>
+    </if>
+    <!-- Weapon Skills-->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <if spell="Tachi: Fudo|Tachi: Shoha|Apex Arrow|Requiescat">
+            <!-- Mid Acc -->
+            <if advanced='"$Mode"=="1"'>
+              <equip when="precast" set="%Spell"/>
+            </if>
+            <!-- High Acc -->
+            <elseif advanced='"$Mode"=="2"'>
+              <equip when="precast" set="%Spell"/>
+            </elseif>
+            <else>
+              <equip when="precast" set="%Spell"/>
+            </else>          
+          </if>
+          <else>
+            <equip when="precast" set="WS"/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return/>
+      </else>
+    </elseif>
+    <!-- Subjob-->
+    <!-- NIN -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <!-- Cancel Rules -->
+      <if spell="Utsu*">
+        <equip when="precast" set="Recast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <if spell="Monomi*" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+        <midcastdelay delay="1" />
+        <command when="MidCast">cancel 71</command>
+      </if>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </if>
+    <!-- Warrior sub-->
+    <elseif subjob="War">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if mode="and" HPpLT="30" buffactive="Berserk">
+        <command>cancel 56</command>
+      </if>    
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if spell="Curing Waltz*">
+        <equip when="precast" set="Waltz" />
+      </if>
+      <elseif spell="Healing Waltz">
+        <equip when="precast" set="Recast" />
+      </elseif>
+      <elseif spell="*Step">
+        <equip when="precast" set="Step" />
+      </elseif>
+    </elseif>
+    <elseif subjob="DRG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="RNG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+    </elseif>
+    <if advanced='"Statuses"=="1"'>
+      <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </if>
+      <if buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </if>
+      <if buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </if>
+      <if buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

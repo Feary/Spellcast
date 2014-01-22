@@ -1,0 +1,382 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+   <guildwork
+   character="Derion"
+   server="sylph"
+   description="Derion's SAM Spellcast"
+   job="SAM"
+    />
+  <config
+      RequireVersion="2.30"
+      Showgearswaps="false"
+      ShowspellInfo="false"
+        />
+  <variables clear="True">
+    <!-- Auto Macro set based on Sub 1. Nin 2.War 3.DNC 4.DRG 5.RNG -->
+    <var name="AutoMacroset">1</var>
+    <!-- Tell party of your statues-->
+    <var name="Statuses">1</var>
+    <!-- Set mode. option melee tanking fire resist-->
+    <var name="Mode">Melee</var>
+    <!-- List of Weapons - Equip these weapons will disable main/sub/range-->
+    <var name="Polearm">Pitchfork|Quint Spear</var>
+    <var name="GreatKatana">Uchigatana|Kikugosaku|Tachi Of Trials</var>
+    <var name="Club">Warp Cudgel</var>
+  </variables>
+  <sets>
+    <group default="yes" name="SAM">
+      <set name="Town" baseset="Standard">
+        
+      </set>
+      <set name="Standard" baseset="tp">
+        <neck>Twilight Torque</neck>
+      </set>
+      <set name="TP">
+        <head>Zelus Tiara</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Unkai Domaru +1</body>
+        <hands>Perle moufles</hands>
+        <legs>Perle brayettes</legs>
+        <feet>Ace's Leggings</feet>
+        <back>Atheling Mantle</back>
+        <waist>Goading Belt</waist>
+        <lear>Brutal Earring</lear>
+        <rear>Kemas Earring</rear>
+        <lring>Hoard Ring</lring>
+        <rring>Keen Ring</rring>
+      </set>
+      <set name="Resting|HHP">
+      </set>
+      <set name="ws|Weaponskill" baseset="TP">
+        <head>Twilight Helm</head>
+        <body>Twilight Mail</body>
+        <feet>Unkai Sune-ate +1</feet>
+        <waist>Anguinus Belt</waist>
+        <rring>Spiral Ring</rring>       
+      </set>
+      <!-- Weaponskills -->
+      <!-- Great Katana-->
+      <set name="Tachi: Enpi" baseset="WS"/>
+      <set name="Tachi: Gekko|Tachi: Yukikaze" baseset="WS">
+        <waist>Snow Belt</waist>
+      </set>
+      <set name="Tachi: Kasha" baseset="ws">
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Tachi: Rana" baseset="ws">
+        <waist>Snow Belt</waist>
+      </set>
+      <set name="Tachi: Koki" baseset="ws">
+        <neck>Artemis' Medal</neck>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+        <lring>Demon's Ring</lring>
+        <rring>Demon's Ring</rring>
+      </set>     
+      <set name="Tachi: Jinpu" baseset="ws">
+        <neck>Artemis' Medal</neck>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+        <lring>Demon's Ring</lring>
+        <rring>Demon's Ring</rring>
+      </set>
+      <!-- Pole Arm-->
+      <set name="Penta Thrust" baseset="ws"/>
+      <set name="Impluse Drive" baseset="ws">
+        <waist>Snow Belt</waist>
+      </set>
+      <!-- Bow-->
+      <set name="Sidewinder" baseset="ws">
+        <waist>Light Belt</waist>
+      </set>
+      <!-- Club -->
+      <set name="True Strike|Skullbreaker|Judgment" baseset="ws"/>
+      <set name="Seraph Strike" baseset="ws">
+        <neck>Artemis' Medal</neck>
+        <lear>Hecate's Earring</lear>
+        <rear>Moldavite Earring</rear>
+        <lring>Demon's Ring</lring>
+        <rring>Demon's Ring</rring>
+      </set>      
+      <set name="Fastcast" baseset="TP">
+        <Rear>Loquac. Earring</Rear>
+        <lear>Magnetic Earring</lear>
+        <waist>Goading Belt</waist>
+      </set>
+      <set name="Enmity" baseset="tp">
+        <neck>Invidia Torque</neck>
+        <hands>Myochin Kote</hands>
+        <legs>Perle Brayettes</legs>
+        <feet>Myochin Sune-ate</feet>
+        <waist>Warwolf Belt</waist>
+        <back>Cerberus Mantle</back>
+      </set>
+      <set name="ranged">
+      
+      </set>      
+    </group>
+    <group name="Fire" default="no" inherit="Sam">
+      <set name="Fire" baseset="Standard">
+      </set>
+    </group>
+    <group name="Tank" default="no" inherit="Sam">
+      <set name="Tank" baseset="Standard">
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- Auto sets -->
+    <equip when="resting" set="resting"/>
+    <if advanced='"$Mode"=="Melee"'>
+      <!-- Set gear for Polearm -->
+      <if Equipmain="$Polearm">
+        <disable slot="Main|Sub|Range"/>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP">
+            <sub>Pole Grip</sub>
+            <neck>Love Torque</neck>
+          </equip>
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard">
+            <neck>Love Torque</neck>
+          </equip>
+        </else>
+      </if>
+      <!-- Set Gear for Great Katana-->
+      <elseif equipmain="$GreatKatana">
+        <disable slot="Main|Sub|Range"/>
+        <if status="engaged">
+          <equip when="engaged|aftercast" set="TP">
+            <sub>Pole Grip</sub>
+          </equip>
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </elseif>
+      <elseif equipmain="$Club">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+          <!-- Auto Hasso on Engage -->
+          <if notbuffactive = "Hasso">
+            <!-- When not in Seigan mode lol-->
+            <if notbuffactive="Seigan">
+              <Cmd when="engaged">wait 1;input /ja "Hasso" &lt;me&gt;</Cmd>
+            </if>
+          </if>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+        <disable slot="Main|Sub|Range"/>
+      </elseif>
+      <else>
+        <enable slot="Main|Sub|Range"/>
+        <if status="engaged">
+          <equip when="engaged|Aftercast" set="TP">
+            <main>Kikugosaku</main>
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|Aftercast" set="Standard"/>
+        </else>
+      </else>
+    </if>
+    <elseif advanced='"$Mode"=="Tank"'>
+      <if status="engaged">
+        <equip when="engaged|Aftercast" set="TP"/>
+      </if>
+      <else>
+        <equip when="idle|Aftercast" set="Tank"/>
+      </else>
+    </elseif>
+    <elseif advanced='"$Mode"=="Fire"'>
+      <if status="engaged">
+        <equip when="engaged|Aftercast" set="TP"/>
+      </if>
+      <else>
+        <equip when="idle|Aftercast" set="Fire"/>
+      </else>
+    </elseif>
+    <else>
+      <cmd>input //sc var set mode melee</cmd>
+    </else>
+    <!-- Ranged Attacks-->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="jobability">
+      <if spell="Warding Circle">
+        <equip when="precast">
+          <head>Myochin Kabuto</head>
+        </equip>
+      </if>
+      <!-- Make Sure you have above 200 TP when useing Sekkanoki-->
+      <elseif spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </elseif>
+      <elseif Spell="Meditate">
+        <if tpgt="200">
+          <cancelspell/>
+          <addtochat color="121">You have too much tp for that.</addtochat>
+        </if>
+        <else>
+          <equip when="Precast" delay=".2">
+            <head>Myochin Kabuto</head>
+            <hands>Saotome Kote</hands>
+          </equip>
+        </else>
+      </elseif>
+      <elseif Spell="Third Eye">
+        <equip when="precast" delay=".2">
+          <legs>Saotome Haidate</legs>
+        </equip>
+        <aftercastdelay delay="1" />
+      </elseif>
+      <elseif spell="Hasso">
+        <equip when="precast" />
+      </elseif>
+      <elseif spell="Seigan">
+        <equip when="precast" />
+      </elseif>
+    </if>
+    <!-- Weapon Skills-->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <equip when="precast" set="%Spell"/>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You dont have enough tp for that</addtochat>
+        <Return/>
+      </else>
+    </elseif>
+    <!-- Subjob-->
+    <!-- NIN -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <!-- Cancel Rules -->
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <if spell="Monomi*" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+        <midcastdelay delay="1" />
+        <command when="MidCast">cancel 71</command>
+      </if>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+    </if>
+    <!-- Warrior sub-->
+    <elseif subjob="War">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if mode="and" hpplt="40" buffactive="Berserk">
+        <command>cancel 56</command>
+      </if>
+      <!-- Change Berserk if you HP is less than 40 percent-->
+      <if mode="and" spell="Berserk" hpplt="40">
+        <changespell spell="Defender"/>
+        <addtochat color="121">Defense Defense!</addtochat>
+      </if>
+      <if Spell="Provoke">
+        <equip when="Precast" delay=".2" set="Enmity" />
+        <aftercastdelay delay=".5" />
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DRG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="RNG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+    </elseif>
+    <if advanced='"Statuses"=="1"'>
+      <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </if>
+      <if buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </if>
+      <if buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </if>
+      <if buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

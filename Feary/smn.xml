@@ -1,0 +1,1261 @@
+<?xml version="1.0"?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's SMN Spellcast" job="SMN"/>
+  <config RequireVersion="2.45" ShowGearSwaps="true" HideErrors="True" ShowspellInfo="false"/>
+  <variables Clear="True">
+    <!-- Specfic Macroset -->
+    <var name="NoAvatar">1</var>
+    <var name="Carbuncleset">2</var>
+    <var name="Garudaset">3</var>
+    <var name="Titanset">4</var>
+    <var name="Fenrirset">5</var>
+    <var name="Diabolosset">6</var>
+    <var name="Shivaset">7</var>
+    <var name="Ramuhset">8</var>
+    <var name="Leviathanset">9</var>
+    <var name="Ifritset">10</var>
+    <!-- Report Statues to party-->
+    <var name="Statuses">0</var>
+    <!--Set this to your HP before Convert HP to MP equipment and after HP+ equipment-->
+    <var Name="BaseHP">883</var>
+    <!--Set this to amount of time in seconds you want Physical Blood Pact: Rage to be delayed (5 Recommended, 0 Disabled)-->
+    <var Name="CastDelay">0</var>
+    <!-- Always Locked Weapons -->
+    <var name="Staff">Plenitas Virga|Crook|Teiwaz</var>
+    <var name="Club">Warp Cudgel|Rounsey Wand</var>
+    <!-- Set Default -->
+    <!-- Set to 1 to Default PDT Set as Idle -->
+    <set name="RefreshSet">0</set>
+    <!-- Set to 1 to Default/Lock PDT -->
+    <set name="PDT">0</set>
+    <set name="MDT">0</set>
+    <!-- Utility Staves-->
+    <var name="MaccStaff">Soothsayer Staff</var>
+    <var name="CureStaff">Arka IV</var>
+    <var name="RestingStaff">Chatoyant Staff</var>
+    <var name="PDTStaff">Earth Staff</var>
+    <var name="PerpStaff">Chatoyant Staff</var>
+    <!-- Balsam Staff or Yaskomo's Pole -->
+    <var name="BPStaff">Yaskomo's Pole</var>
+    <!-- Precast Staves-->
+    <var name="IceStaff">Vourukasha I</var>
+    <var name="DarkStaff"></var>
+    <var name="ThunderStaff">Apamajas I</var>
+    <var name="LightStaff"></var>
+    <var name="WindStaff"></var>
+    <var name="FireStaff">Atar I</var>
+    <var name="EarthStaff"></var>
+    <var name="WaterStaff"></var>
+    <!-- Precast Magian Staff, set to 1 for the ones you have. -->
+    <var name="IceMagian">1</var>
+    <var name="DarkMagian">0</var>
+    <var name="ThunderMagian">1</var>
+    <var name="LightMagian">0</var>
+    <var name="WindMagian">0</var>
+    <var name="FireMagian">1</var>
+    <var name="EarthMagian">0</var>
+    <var name="WaterMagian">0</var>
+    <!-- Prep Cost Magian Staff, set to 1 for the ones you have. -->
+    <var name="ShivaMagian">0</var>
+    <var name="FenrirMagian">0</var>
+    <var name="DiabolosMagian">0</var>
+    <var name="RamuhMagian">0</var>
+    <var name="CarbuncleMagian">0</var>
+    <var name="GarudaMagian">0</var>
+    <var name="IfritMagian">0</var>
+    <var name="TitanMagian">0</var>
+    <var name="LeviathanMagian">0</var>
+    <!--Set these to 1 if you want to use that piece of equipment, otherwise set to 0-->
+    <var Name="CarbuncleMitts">1</var>
+    <var Name="DiabolosRope">1</var>
+    <var Name="ConjurersRing">1</var>
+    <!-- Show Fenrir BP Stats -->
+    <var name="ShowBPStat">1</var>
+    <!--Do not change anything under this-->
+    <var Name="BPMOON">0</var>
+    <var name="StormElement">None</var>
+    <!-- Elemental Obi -->
+    <var name="Ice-Obi">hyorin obi</var>
+    <var name="Dark-Obi">Anrin obi</var>
+    <var name="Thunder-Obi">rairin obi</var>
+    <var name="Light-Obi">korin obi</var>
+    <var name="Wind-Obi">furin obi</var>
+    <var name="Fire-Obi">karin obi</var>
+    <var name="Earth-Obi">dorin obi</var>
+    <var name="Water-Obi">suirin obi</var>
+    <!-- Precast Staves -->
+    <var name="Ice-Magian">Vourukasha I</var>
+    <var name="Dark-Magian">Xsaeta I</var>
+    <var name="Thunder-Magian">Apamajas I</var>
+    <var name="Light-Magian">Arka II</var>
+    <var name="Wind-Magian">Vayuvata I</var>
+    <var name="Fire-Magian">Atar I</var>
+    <var name="Earth-Magian">Vishrava I</var>
+    <var name="Water-Magian">Haoma I</var>
+    <!-- Magian Per staves -->
+    <var name="Shiva-Magian">Vourukasha III</var>
+    <var name="Fenrir-Magian">Xsaeta III</var>
+    <var name="Diabolos-Magian">Xsaeta III</var>
+    <var name="Ramuh-Magian">Apamajas III</var>
+    <var name="Carbuncle-Magian">Arka III</var>
+    <var name="Garuda-Magian">Vayuvata III</var>
+    <var name="Ifrit-Magian">Atar III</var>
+    <var name="Titan-Magian">Vishrava III</var>
+    <var name="Leviathan-Magian">Haoma III</var>
+    <!-- Elemental Siphon -->
+    <var Name="ElementalSiphon">0</var>
+    <var Name="PreCastDelay">0</var>
+    <var Name="NoneStrength">-1</var>
+    <var Name="LightStrength">-1</var>
+    <var Name="DarkStrength">-1</var>
+    <var Name="FireStrength">6</var>
+    <var Name="IceStrength">5</var>
+    <var Name="WindStrength">4</var>
+    <var Name="EarthStrength">3</var>
+    <var Name="ThunderStrength">2</var>
+    <var Name="WaterStrength">1</var>    
+  </variables>
+  <sets>
+    <group Name="Default" Default="Yes">
+      <set name="MiscGearCollector">
+        <item>Rounsey Wand</item>
+        <item>Conjurer's Ring</item>
+        <item>Carbuncle Mitts</item>
+        <item>Diabolos's Rope</item>
+        <item>Earth Staff</item>
+        <item>Arka IV</item>
+        <item>Apamajas I</item>
+        <item>Atar I</item>
+        <item>Apamajas I</item>
+        <item>Vourukasha I</item>
+        <item>Chatoyant Staff</item>        
+        <item>Kirin's Pole</item>
+        <item>Hvergelmir</item>
+        <!-- Porter Moogle -->
+        <item>Caller's Horn +2</item>
+        <item>Caller's Pendant</item>
+        <item>Call. Doublet +2</item>
+        <item>Call. Bracers +2</item>
+        <item>Caller's Spats +2</item>
+        <item>Caller's Pgch. +2</item>
+        <rear>Caller's Earring</rear>
+        <head>Summoner's Horn</head>
+        <body>Summoner's Dblt.</body>
+        <hands>Summoner's Brcr.</hands>
+        <legs>Summoner's Spats</legs>
+        <feet>Summoner's Pgch.</feet>
+      </set>
+      <set name="Town" baseset="Standard">
+        <feet>Herald's Gaiters</feet>
+      </set>
+      <!-- Movement speed > refresh > PDT -->
+      <set name="Standard|Idle" baseset="PDT">
+        <main>$PDTStaff</main>
+        <head>Caller's Horn +2</head>
+        <body>Hagondes Coat</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <!-- Serpentes Boots -->
+        <feet>Herald's Gaiters</feet>
+        <waist>Diabolos's Rope</waist>
+        <lear>Loquac. Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+      <!--This will be the Standing for all Pets. Recommened Perpetuation and MP equipment-->
+      <set Name="NormalSet" baseset="Standard">
+        <main>$PerpStaff</main>
+        <sub>Vox Grip</sub>
+        <ammo>Dashavatara Sachet</ammo>
+        <head>Caller's Horn +2</head>
+        <neck>Caller's Pendant</neck>
+        <body>Call. Doublet +2</body>
+        <hands>Call. Bracers +2</hands>
+        <legs>Nares Trews</legs>
+        <!--Conv. Pigaches-->
+        <feet>Caller's Pgch. +2</feet>
+        <waist>Diabolos's Rope</waist>
+        <back>Summoner's Cape</back>
+        <lring>Evoker's Ring</lring>
+        <rring>Fervor Ring</rring>
+        <lear>Loquac. Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+      <set name="PDT">
+        <main>$PDTStaff</main>
+        <head>Hagondes Hat</head>
+        <neck>Twilight Torque</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <back>Umbra Cape</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Hagondes Hat</head>
+        <neck>Twilight Torque</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>  
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <!--MP Recovered while healing equipment-->
+      <set Name="Resting" BaseSet="Standard">
+        <main>$RestingStaff</main>
+        <ammo>Clarus Stone</ammo>
+        <head>Caller's Horn +2</head>
+        <neck>Eidolon Pendant</neck>
+        <body>Hagondes Coat</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <lear>Magnetic Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+      <!-- Precast -->
+      <set name="Fastcast" Baseset="Standard">
+        <main>$%SpellElement-Magian</main>
+        <head>Nahtirah hat</head>
+        <body>Anhur Robe</body>
+        <legs>Orvail Pants</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Witful Belt</waist>
+        <back>Swith Cape</back>
+        <lring>Prolix Ring</lring>
+        <lear>Loquac. Earring</lear>
+        <sub>Vivid Strap +1</sub>
+      </set>
+      <set name="Cureprecast" baseset="fastcast">
+        <body>Heka's Kalasiris</body>
+      </set>
+      <!-- For Conjurer's ring-->
+      <set name="minushp" load="yes">
+        <head>Zenith Crown</head>
+        <body>Dalmatica</body>
+        <hands>Zenith Mitts</hands>
+        <legs>Zenith Slacks</legs>
+        <feet>Zenith Pumps</feet>
+        <neck>Morgana's Choker</neck>
+      </set>
+      <!-- Midcast -->
+      <set name="recast" baseset="TP">
+
+      </set>
+      <set name="ConserveMp" baseset="fastcast">
+        
+      </set>
+      <set name="Stoneskin">
+        <!-- Base @99 = 94 MND 139 skill = 33 MND-->
+        <waist>Siegel Sash</waist>
+      </set>
+      <set name="Phanlax">
+
+      </set>
+      <set name="INT" baseset="Standard">
+        <!-- INT Mod -->
+        <head>Nahtirah Hat</head>
+        <!--<neck>Moepapa Pendant</neck>-->
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <waist>Wanion Belt</waist>
+        <back>Refraction Cape</back>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+        <!-- Int Earrings-->
+      </set>
+      <set name="MAB" baseset="INT" load="no">
+        <lear>Novio Earring</lear>
+        <rear>Hecate's Earring</rear>
+      </set>
+      <set name="Cure">
+        <main>$CureStaff</main>
+        <head>Nahtirah Hat</head>
+        <neck>Colossus's Torque</neck>
+        <body>Heka's Kalasiris</body>
+        <hands>Bokwus Gloves</hands>
+        <legs>Bokwus Pants</legs>
+        <feet>Bokwus boots</feet>
+        <waist>Cascade belt</waist>
+        <back>Swith Cape</back>
+        <lring>Aquasoul Ring</lring>
+        <rring>Aquasoul Ring</rring>
+        <lear>Magnetic Earring</lear>
+        <rear>Gifted Earring</rear>
+      </set>
+      <set name="NAspell" baseset="Recast"/>
+      <set name="Macc">
+        <main>$Maccstaff</main>
+        <!-- Buremte Hat-->
+        <head>Nahtirah Hat</head>
+        <!-- Wilke Torque-->
+        <neck>Enfeebling Torque</neck>
+        <body>Bokwus Robe</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Bokwus Slops</legs>
+        <!-- Uk'uxkaj Boots -->
+        <feet>Bokwus Boots</feet>
+        <waist>Demonry Sash</waist>
+        <back>Refraction Cape</back>
+        <lring>Balrahn's ring</lring>
+        <rring>Sangoma Ring</rring>
+        <lear>Lifestorm Earring</lear>
+        <rear>Psystorm Earring</rear>
+        <sub>Mephitis Grip</sub>
+      </set>
+      <set name="MNDPotency" baseset="macc"/>
+      <!--Blood Pact ability delay equipment cap @15-->
+      <set Name="BloodPactDelay">
+        <head>Summoner's Horn</head>
+        <body>Summoner's Dblt.</body>
+        <hands>Summoner's Brcr.</hands>
+        <legs>Summoner's Spats</legs>
+        <feet>Summoner's Pgch.</feet>
+        <rear>Caller's Earring</rear>
+      </set>
+      <!--smn. magic skill equipment-->
+      <set Name="BloodPactWard|skill">
+        <!--<main>Kirin's Pole</main>-->
+        <main>Soulscourge</main>
+        <!-- Marduk head +1 Convoker's Horn -->
+        <head>Caller's Horn +2</head>
+        <neck>Caller's Pendant</neck>
+        <body>Anhur Robe</body>
+        <hands>Summoner's Brcr.</hands>
+        <!-- Marduk Legs +1 or Ngen Seraweels -->
+        <legs>Caller's Spats +2</legs>
+        <feet>Rubeus Boots</feet>
+        <!--<waist>Cimmerian Sash</waist>-->
+        <waist>Diabolos's Rope</waist>
+        <!--<back>Conveyance Cape</back>-->
+        <lring>Evoker's Ring</lring>
+        <rring>Fervor Ring</rring>
+        <!--<lear>Smn. Earring</lear>-->
+        <rear>Gifted Earring</rear>
+      </set>
+      <!--Enhances Avatar attributes equipment-->
+      <!-- Physical -->
+      <set Name="BloodPactRage">
+        <main>$BPStaff</main>
+        <head>Caller's Horn +2</head>
+        <neck>Sacrifice Torque</neck>
+        <body>Call. Doublet +2</body>
+        <hands>Summoner's Brcr.</hands>
+        <legs>Caller's Spats +2</legs>
+        <feet>Summoner's Pgch.</feet>
+        <waist>Diabolos's Rope</waist>
+        <!-- Astute Cape -->
+        <back>Tiresias' Cape</back>
+        <lring>Evoker's Ring</lring>
+        <!--<rring>Fervor Ring</rring> -->
+        <lear>Smn. Earring</lear>
+        <rear>Gifted Earring</rear>
+      </set>
+      <set name="BPRMagical" Baseset="BloodPactRage">
+        <main>$BPStaff</main>
+        <head>Bokwus Circlet</head>
+        <neck>Eidolon Pendant</neck>
+        <body>Call. Doublet +2</body>
+        <hands>Summoner's Brcr.</hands>
+        <legs>Caller's Spats +2</legs>
+        <!-- Hagondes Sabots -->
+        <feet>Caller's Pgch. +2</feet>
+        <waist>Caller's Sash</waist>
+        <!-- Astute Cape -->
+        <back>Tiresias' Cape</back>
+        <lring>Evoker's Ring</lring>
+        <rring>Fervor Ring</rring>
+        <lear>Smn. Earring</lear>
+        <rear>Gifted Earring</rear>
+      </set>
+      <!--Equipment to be used if Astral Flow is active = Skill-->
+      <set Name="AstralFlow" baseset="BloodPactWard">
+        <!--
+        <hands>Summoner's Brcr.</hands>
+        <legs>Evoker's Spats</legs>
+        <feet>Caller's Pgch. +2</feet>
+        -->
+      </set>
+      <!-- Melee -->
+      <set name="TP">
+        <head>Nahtirah hat</head>
+        <neck>Asperity Necklace</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <waist>Hurch'lan Sash</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Mars's Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <set name="WS" baseset="TP">
+        
+      </set>
+      <set name="Shattersoul" baseset="INT">
+        <!-- INT Mod -->
+        <head>Nahtirah Hat</head>
+        <!--<neck>Moepapa Pendant</neck>-->
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <waist>Wanion Belt</waist>
+        <back>Refraction Cape</back>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+       <!-- Int Earrings-->
+      </set>
+    </group>    
+  </sets>
+  <rules>
+    <if Spell="Teleport*|Recall*|Warp*|Escape">
+      <cmd when="Precast">input /p Casting %Spell</cmd>
+      <return/>
+    </if>
+    <if buffactive="quickening">
+      <equip when="aftercast">
+        <feet lock="true">Herald's Gaiters</feet>
+      </equip>
+    </if>
+    <if mode="or" advanced='"%PetName" != "None"' type="Summonerpact">
+      <if spell="Release">
+        <equip when="aftercast">
+          <main lock="true">$PDTStaff</main>
+        </equip>
+      </if>
+      <else>
+        <if advanced='"$%PetNameMagian" = "1"'>
+          <equip when="aftercast">
+            <main lock="true">$%PetName-Magian</main>
+          </equip>
+        </if>
+        <else>
+          <equip when="aftercast">
+            <main lock="true">$PerpStaff</main>
+          </equip>
+        </else>
+      </else>    
+    </if>
+    <!-- Auto set -->
+    <if mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+    </if>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <!-- Melee Sets -->
+      <if equipmain="$Club">
+        <addtochat color="121">%EquipMain Locked - TP Sets Enabled</addtochat>
+        <disable slot="main|sub|range"/>
+        <if advanced='"%PetName" != "None"'>
+          <Addtochat color="121">Pet is valid</Addtochat>
+          <if buffactive="Avatar's Favor">
+            <if type="PetCommand" spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Aftercast" set="Standard" />
+              </else>
+            </if>
+            <else>
+              <if status="Engaged">
+                <equip when="engaged|Aftercast" set="TP" />
+              </if>
+              <else>
+                <equip when="Idle|Aftercast" set="BloodPactWard" />
+              </else>
+            </else>
+          </if>
+          <elseif buffactive="Astral Flow">
+            <addtochat color="121">Astral Flow - Skill Set Locked</addtochat>
+            <equip when="precast|midcast|Idle|engaged|Aftercast" set="BloodPactWard" />
+          </elseif>
+          <else>
+            <if type="PetCommand" spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Aftercast" set="Standard" />
+              </else>
+            </if>
+            <elseif type="Bloodpact*">
+              <if status="Engaged">
+                <equip when="Aftercast" set="TP"/>
+              </if>
+              <else>
+                <!--Equips Carbuncle Mitts for Carbuncle if enabled-->
+                <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                    <hands>Carbuncle Mitts</hands>
+                  </equip>
+                </if>
+                <elseif advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                    <waist>Diabolos's Rope</waist>
+                  </equip>
+                </elseif>
+                <else>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+                </else>
+              </else>
+            </elseif>
+            <else>
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif Advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+              </else>
+            </else>
+          </else>
+        </if>
+        <else>
+          <Addtochat color="121">Pet is not valid</Addtochat>
+          <equip when="resting" set="resting"/>
+          <if type="Summonerpact">
+            <if status="Engaged">
+              <equip when="Aftercast" set="TP"/>
+            </if>
+            <else>
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%Spell" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif Spell="Diabolos" Advanced='"$DiabolosRope"=="1"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                </equip>
+              </else>
+            </else>
+          </if>
+          <else>
+            <if status="engaged">
+              <equip when="engaged|Aftercast" set="TP"/>
+            </if>
+            <else>
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Idle|engaged|Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Idle|engaged|Aftercast" set="Standard" />
+              </else>
+            </else>
+          </else>
+        </else>
+      </if>
+      <elseif equipmain="$Staff">
+        <addtochat color="121">%EquipMain Locked - TP Sets Enabled</addtochat>
+        <disable slot="main|sub|range" />
+        <if advanced='"%PetName" != "None"'>
+          <Addtochat color="121">Pet is valid</Addtochat>
+          <if buffactive="Avatar's Favor">
+            <if type="PetCommand" spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Aftercast" set="Standard" />
+              </else>
+            </if>
+            <else>
+              <if status="Engaged">
+                <equip when="engaged|Aftercast" set="TP" />
+              </if>
+              <else>
+                <equip when="Idle|Aftercast" set="BloodPactWard" />
+              </else>
+            </else>
+          </if>
+          <elseif buffactive="Astral Flow">
+            <addtochat color="121">Astral Flow - Skill Set Locked</addtochat>
+            <equip when="precast|midcast|Idle|engaged|Aftercast" set="BloodPactWard" />
+          </elseif>
+          <else>
+            <if type="PetCommand" spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Aftercast" set="Standard" />
+              </else>
+            </if>
+            <elseif type="Bloodpact*">
+              <if status="Engaged">
+                <equip when="Aftercast" set="TP"/>
+              </if>
+              <else>
+                <!--Equips Carbuncle Mitts for Carbuncle if enabled-->
+                <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                    <hands>Carbuncle Mitts</hands>
+                  </equip>
+                </if>
+                <elseif advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                    <waist>Diabolos's Rope</waist>
+                  </equip>
+                </elseif>
+                <else>
+                  <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+                </else>
+              </else>
+            </elseif>
+            <else>
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif Advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+              </else>
+            </else>
+          </else>
+        </if>
+        <else>
+          <Addtochat color="121">Pet is not valid</Addtochat>
+          <equip when="resting" set="resting"/>
+          <if type="Summonerpact">
+            <if status="Engaged">
+              <equip when="Aftercast" set="TP"/>
+            </if>
+            <else>
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%Spell" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif Spell="Diabolos" Advanced='"$DiabolosRope"=="1"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <main>$%SpellElementStaff</main>
+                </equip>
+              </else>
+            </else>
+          </if>
+          <else>
+            <if status="engaged">
+              <equip when="engaged|Aftercast" set="TP"/>
+            </if>
+            <else>
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Idle|engaged|Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Idle|engaged|Aftercast" set="Standard" />
+              </else>
+            </else>
+          </else>
+        </else>
+      </elseif>
+      <!-- Pet/Kiting -->
+      <else>
+        <addtochat color="121">Main Unlocked - Prep Sets Enabled</addtochat>
+        <enable slot="main|sub|range" />
+        <if advanced='"%PetName" != "None"'>
+          <Addtochat color="121">Pet is valid</Addtochat>
+          <if buffactive="Avatar's Favor">
+            <if spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Idle|engaged|Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Idle|engaged|Aftercast" set="Standard" />
+              </else>
+            </if>
+            <else>
+              <equip when="Idle|engaged|Aftercast" set="BloodPactWard" />
+            </else>
+          </if>
+          <elseif buffactive="Astral Flow">
+            <addtochat color="121">Astral Flow - Skill Set Locked</addtochat>
+            <equip when="Idle|engaged|Aftercast" set="BloodPactWard" />
+          </elseif>
+          <else>
+            <if type="PetCommand" spell="Release">
+              <if advanced='"$Refreshset"=="1"'>
+                <equip when="Idle|engaged|Aftercast" set="PDT"/>
+              </if>
+              <else>
+                <equip when="Idle|engaged|Aftercast" set="Standard" />
+              </else>
+            </if>
+            <elseif type="Bloodpact*">
+              <!--Equips Carbuncle Mitts for Carbuncle if enabled-->
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+              </else>
+            </elseif>
+            <else>
+              <if Advanced='"$CarbuncleMitts"=="1" AND "%PetName" == "Carbuncle"'>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <hands>Carbuncle Mitts</hands>
+                </equip>
+              </if>
+              <elseif Advanced='"$DiabolosRope"=="1" AND "%PetName" == "Diabolos"'>
+                <!--<addtochat color="121">Diabolos AfterCast</addtochat>-->
+                <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                  <waist>Diabolos's Rope</waist>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+              </else>
+            </else>
+          </else>
+        </if>
+        <else>
+          <Addtochat color="121">Pet is not valid</Addtochat>
+          <equip when="resting" set="resting"/>
+          <if type="Summonerpact">
+            <if Advanced='"$CarbuncleMitts"=="1" AND "%Spell" == "Carbuncle"'>
+              <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                <hands>Carbuncle Mitts</hands>
+              </equip>
+            </if>
+            <elseif Spell="Diabolos" Advanced='"$DiabolosRope"=="1"'>
+              <equip when="Engaged|Idle|Aftercast" set="Normalset">
+                <waist>Diabolos's Rope</waist>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="Engaged|Idle|Aftercast" set="Normalset"/>
+            </else>
+          </if>
+          <else>
+            <if advanced='"$Refreshset"=="1"'>
+              <equip when="Idle|engaged|Aftercast" set="PDT"/>
+            </if>
+            <else>
+              <equip when="Idle|engaged|Aftercast" set="Standard" />
+            </else>
+          </else>
+        </else>
+      </else>
+    </else>
+    <!--Equips Conjurer's Ring if Latent effect is active and enabled-->
+    <if Advanced='$ConjurersRing=1 AND "%PetName"!="None" AND %HP&lt;$BaseHP*.76 AND %TP&lt;100'>
+      <equip when="MidCast|AfterCast">
+        <rring>Conjurer's Ring</rring>
+      </equip>
+    </if>
+    <if type="JobAbility">
+      <!--Equips smn. magic skill equipment for Elemental Siphon-->
+      <if Spell="Elemental Siphon">
+        <equip when="Precast|Midcast" Set="BloodPactWard">
+          <feet>Caller's Pgch. +2</feet>
+          <back>Conveyance Cape</back>
+        </equip>
+      </if>
+      <elseif spell="Mana Cede">
+        <equip when="Precast|Midcast">
+          <hands>Call. Bracers +2</hands>
+        </equip>
+      </elseif>
+    </if>
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <if spell="Shattersoul">
+            <equip when="precast" set="%Spell"/>
+          </if>
+          <else>
+            <equip when="precast" set="WS"/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You don't have enough TP for that</addtochat>
+        <Return/>
+      </else>
+    </elseif>
+    <elseif type="PetCommand">
+      <!--Adds a message to the chat log to show Pet Actions, helpful when reviewing a battle-->
+      <if Spell="Assault" Advanced='"%TargetType"="Monster" AND "%PetName"!="None"'>
+        <addtochat Color="121">%PlayerName uses %Spell on the %Target.</addtochat>
+      </if>
+      <if Spell="Retreat|Release" Advanced='"%PetName"!="None"'>
+        <addtochat Color="121">%PlayerName uses %Spell.</addtochat>
+        <if Spell="Release">
+          <cmd when="aftercast">input /macro set $NoAvatar</cmd>
+        </if>
+      </if>
+    </elseif>
+    <!-- Casting Avatar -->
+    <elseif type="SummonerPact">
+      <equip when="precast" set="Fastcast"/>
+      <!-- Astral Flow -->
+      <if BuffActive="AstralFlow" NotSpell="*Spirit">
+        <addtochat color="121">Astral Flow Locked</addtochat>
+        <equip when="midcast" Set="AstralFlow" />
+        <Return/>
+      </if>
+      <!-- Change Macroset Based on Avatar-->
+      <if Spell="Carbuncle">
+        <!--Equips Carbuncle Mitts for Carbuncle if enabled-->
+        <if Advanced='"$CarbuncleMitts"=="1"'>
+          <equip when="midcast">
+            <hands>Carbuncle Mitts</hands>
+          </equip>
+        </if>
+        <cmd when="aftercast">input /macro set $Carbuncleset</cmd>
+      </if>
+      <elseif Spell="Garuda">
+        <cmd when="aftercast">input /macro set $Garudaset</cmd>
+      </elseif>
+      <elseif Spell="Titan">
+        <cmd when="aftercast">input /macro set $Titanset</cmd>
+      </elseif>
+      <elseif Spell="Fenrir">
+        <cmd when="aftercast">input /macro set $Fenrirset</cmd>
+      </elseif>
+      <elseif Spell="Diabolos">
+        <cmd when="aftercast">input /macro set $Diabolosset</cmd>
+      </elseif>
+      <elseif Spell="Shiva">
+        <cmd when="aftercast">input /macro set $Shivaset</cmd>
+      </elseif>
+      <elseif Spell="Ramuh">
+        <cmd when="aftercast">input /macro set $Ramuhset</cmd>
+      </elseif>
+      <elseif Spell="Leviathan">
+        <cmd when="aftercast">input /macro set $Leviathanset</cmd>
+      </elseif>
+      <elseif Spell="Ifrit">
+        <cmd when="aftercast">input /macro set $Ifritset</cmd>
+      </elseif>
+      <!-- Sprits -->
+      <else>
+        <!-- Spirits -->
+        <if Spell="*Spirit" Advanced="$ElementalSiphon=1">
+          <var cmd="set ElementalSiphon 0" />
+          <!--Checks if Air Spirit is best to use for Elemental Siphon-->
+          <if Spell="Air Spirit" Advanced='"%Weather"="Wind x2" OR "%DayElement"!="Ice" AND "%WeatherElement"="Wind" OR "%DayElement"="Wind" AND "%WeatherElement"="None"'/>
+          <else>
+            <!--Checks if Weather Element is stronger than Day Element-->
+            <if Advanced='"%WeatherElement"!="None" AND ("%Weather"="%WeatherElement x2" OR $%WeatherElementStrength!=$%DayElementStrength-1 OR "%WeatherElement"="Fire" AND "%DayElement"!="Water")'>
+              <changespell Spell="%WeatherElement Spirit" />
+            </if>
+            <else>
+              <changespell Spell="%DayElement Spirit" />
+            </else>
+          </else>
+        </if>
+        <!--Equips Summoner's Spats for Spirits if enabled-->
+        <if Advanced="$SummonersSpats=1">
+          <equip when="precast" Set="BloodPactWard">
+            <legs>Summoner's Spats</legs>
+          </equip>
+        </if>
+      </else>
+    </elseif>
+    <elseif Type="Bloodpact*">
+      <!-- Astral Flow -->
+      <if BuffActive="AstralFlow" NotSpell="*Spirit">
+        <equip when="midcast" Set="AstralFlow" />
+        <Return/>
+      </if>
+      <!--Work around to prevent equipment not switching if manually targetting-->
+      <if Advanced='"%SpellTarget"="&lt;lastst&gt;" AND $PreCastDelay=0'>
+        <var cmd="set PreCastDelay 1" />
+        <command>wait .3;input %CommandPrefix %Spell &lt;lastst&gt;</command>
+        <cancelspell />
+        <return />
+      </if>
+      <var cmd="set PreCastDelay 0" />
+      <!-- End workaround-->
+      <if type="BloodpactRage">
+        <if advanced='"$CastDelay"=="0"'>
+          <equip when="Precast" set="BloodPactDelay"/>
+        </if>
+        <else>
+          <equip When="PreCast" Set="BloodPactDelay" />
+          <castdelay Delay="$CastDelay" />
+        </else>
+        <!-- Physical BP-->
+        <if Spell="Poison Nails|Moonlit Charge|Crescent Fang|Eclipse Bite|Punch|Burning Strike|Double Punch|Flaming Crush|Rock Throw|Rock Throw|Mountain Buster|Barracua Dive|Tail Whip|Spinning Dive|Claw|Predator Claws|Axe Kick|Double Slap|Rush|Shock Strike|Chaotic Strike|Camisado">
+          <equip when="midcast" set="BloodpactRage"/>
+        </if>
+        <!-- Magical BP-->
+        <elseif spell="Meteorite|Holy Mist|Lunar Bay|Meteor Strike|Geocrush|Grand Fall|Wind Blade|Heavenly Strike|ThunderStorm|Nether Blast|Night Terror">
+          <equip when="midcast" set="BPRMagical"/>
+        </elseif>
+        <else>
+          <equip when="Midcast" Set="BloodPactDelay" />
+        </else>
+      </if>
+      <elseif type="BloodpactWard">
+        <!--Only uses Blood Pact delay gear if smn. magic skill and Enhance Avatar attributes equipment aren't needed-->
+        <if Spell="Aerial Armor|Dream Shroud|Earthen Ward|Ecliptic Growl|Ecliptic Howl|Glittering Ruby|Healing Ruby*|Noctoshield|Shining Ruby|Spring Water|Whispering Wind|Shock Squall|Sooothing Ruby|Heavenward Howl|Pavor Nocturnus">
+          <equip when="Midcast" Set="BloodPactDelay" />
+        </if>
+        <else>
+          <equip when="midcast" set="BloodpactWard"/>
+        </else>
+        <if spell = "Ecliptic Howl">
+          <if advanced = "%MOONPCT &gt; 89">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 25 - Evasion 1" />
+          </if>
+          <elseif advanced = "%MOONPCT &gt; 74">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 21 - Evasion 5" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 59">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 17 - Evasion 9" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 39">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 13 - Evasion 13" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 24">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 9 - Evasion 17" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 9">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 5 - Evasion 21" />
+          </elseif>
+          <else>
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Howl] Accuracy 1 - Evasion 25" />
+          </else>
+          <if advanced = '%PartyCount &gt; 1 and "$ShowBPStat" = "1"'>
+            <command When = "Precast">input /p $BPMOON</command>
+          </if>
+          <else>
+            <addtochat color = "204">$BPMOON</addtochat>
+          </else>
+        </if>
+        <elseif spell = "Ecliptic Growl">
+          <if advanced = "%MOONPCT &gt; 89">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 7 - INT/MND/CHR/AGI 1" />
+          </if>
+          <elseif advanced = "%MOONPCT &gt; 74">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 6 - INT/MND/CHR/AGI 2" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 59">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 5 - INT/MND/CHR/AGI 3" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 39">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 4 - INT/MND/CHR/AGI 4" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 24">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 3 - INT/MND/CHR/AGI 5" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 9">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 2 - INT/MND/CHR/AGI 6" />
+          </elseif>
+          <else>
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Ecliptic Growl] STR/DEX/VIT 1 - INT/MND/CHR/AGI 7" />
+          </else>
+          <if advanced = '%PartyCount &gt; 1 and "$ShowBPStat" = "1"'>
+            <command When = "Precast">input /p $BPMOON</command>
+          </if>
+          <else>
+            <addtochat color = "204">$BPMOON</addtochat>
+          </else>
+        </elseif>
+        <elseif spell = "Lunar Cry">
+          <if advanced = "%MOONPCT &gt; 89">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 31 - Enemy Eva Down 1" />
+          </if>
+          <elseif advanced = "%MOONPCT &gt; 74">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 26 - Enemy Eva Down 6" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 59">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 21 - Enemy Eva Down 11" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 39">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 16 - Enemy Eva Down 16" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 24">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 11 - Enemy Eva Down 21" />
+          </elseif>
+          <elseif advanced = "%MOONPCT &gt; 9">
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 6 - Enemy Eva Down 26" />
+          </elseif>
+          <else>
+            <var cmd = " Set BPMOON Moon @ %Moonpct% [Lunar Cry] Enemy Acc Down 1 - Enemy Eva Down 31" />
+          </else>
+          <if advanced = '%PartyCount &gt; 1 and "$ShowBPStat" = "1"'>
+            <command When = "Precast">input /p $BPMOON</command>
+          </if>
+          <else>
+            <addtochat color = "121">$BPMOON</addtochat>
+          </else>
+        </elseif>
+      </elseif>
+    </elseif>
+    <elseif type="*Magic">
+      <equip when="precast" set="fastcast"/>
+      <if skill="Healingmagic">      
+        <if Spell="Cure*|Curaga*">
+          <if advanced = '("%spellelement" = "%weatherelement" or "%spellelement" = "%dayelement" or "$SpellElement" = "$StormElement") and "$%spellelementobi" = "1"'>
+            <if element = "light">
+              <equip when = "midcast">
+                <waist lock="yes">korin obi</waist>
+              </equip>
+            </if>
+          </if>
+          <equip when="Precast" set="CurePrecast"/>
+          <equip When="MidCast" set="Cure"/>
+        </if>
+        <elseif spell="Paralyna|Poisona|Blindna|Silena|Cursna|Viruna|Stona">
+          <if spell="Cursna">
+            <equip when="Precast|Midcast" set="Cursna"/>
+          </if>
+          <else>
+            <equip when="Precast|Midcast" set="NaSpell"/>
+          </else>
+        </elseif>
+        <elseif spell="Raise*|Reraise*">
+          <equip when="precast" set="Fastcast"/>
+          <equip when="midcast" set="ConserveMP"/>
+        </elseif>
+        <else>
+          <equip when="Midcast" set="Recast"/>
+        </else>
+      </if>
+      <elseif skill="EnhancingMagic">
+        <if Spell="Stoneskin">
+          <equip When="MidCast" Set="Stoneskin" />
+        </if>
+        <elseif spell="Phalanx">
+          <equip When="MidCast" Set="Phalanx" />
+        </elseif>
+        <elseif spell="*Spikes">
+          <!-- Caps at 250 INT  Base 92 need 158 -->
+          <equip when="midcast" set="INT"/>
+        </elseif>
+        <elseif Spell="Blink">
+          <equip when="midcast" set="Blink" />
+          <if BuffActive="Blink">
+            <command when="midcast">cancel 36</command>
+            <midcastdelay delay="5.2" />
+          </if>
+        </elseif>
+        <elseif spell="Aquaveil">
+          <equip when="midcast" set="Aquaveil" />
+        </elseif>
+        <elseif spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+          <midcastdelay delay="1" />
+          <command when="MidCast">cancel 71</command>
+        </elseif>
+        <elseif spell="Refresh">
+          <equip when="precast" set="fastcast"/>
+          <equip when="midcast" set="ConserveMP">
+            <legs>Estoqueur's Fuseau +2</legs>
+          </equip>
+        </elseif>
+        <else>          
+          <equip when="midcast" set="ConserveMP" />
+        </else>
+      </elseif>
+      <elseif skill="EnfeeblingMagic">
+        <if validtarget="Enemy">
+          <cmd when="midcast">input /p Casting %Spell on [%SpellTargetName]</cmd>
+          <!-- INT Based -->
+          <if spell="Gravity*|Bind|Poison*|Blind*|Sleep*|Dispel|Break">
+            <equip when="Midcast" set="Macc" />
+            <addtochat color="121">Normal Enfeebling Set</addtochat>
+          </if>
+          <!-- MND Based -->
+          <elseif spell="Paralyze*|Slow*|Dia*|Addle|Silence">
+            <if spelltarget="$HighResist">
+              <equip when="Midcast" set="Macc" />
+              <addtochat color="121">Full Macc Set</addtochat>
+            </if>
+            <else>
+              <equip when="Midcast" set="PotencyMND" />
+              <addtochat color="121">Normal Enfeebling Set</addtochat>
+            </else>
+          </elseif>
+          <else>
+            <!-- Incase i forget any spell or a new one is added. Default to Macc gear-->
+            <addtochat color="121">Defaulting to Macc Gear</addtochat>
+            <equip when="midcast" set="Macc"/>
+          </else>
+          <!-- Duration Timers -->
+          <if advanced='"$SleepTimers"="1"'>
+            <if Spell="Sleep II">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</command>
+              <command when="aftercast">wait 75;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 85;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </if>
+            <elseif Spell="Sleep|Sleepga">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 55;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </elseif>
+          </if>
+        </if>
+        <else>
+          <addtochat color="121">Not Valid Target - Canceling Spell</addtochat>
+          <cancelspell/>
+        </else>
+      </elseif>
+      <elseif skill="DivineMagic">
+        <if spell="Repose">
+          <equip when="midcast" set="Macc"/>
+        </if>
+        <elseif spell="Banish*|Holy">
+          <equip when="midcast" set="mab"/>
+        </elseif>
+        <else>
+          <addtochat color="121">No Gear Set</addtochat>
+        </else>
+      </elseif>
+      <elseif skill="ElementalMagic">
+        <if advanced = '("%SpellElement" = "%WeatherElement" or "%SpellElement" = "%DayElement" or "%SpellElement" = "$StormElement") AND "$%SpellElementObi" = "1"'>
+          <if advanced='"$%SpellElementObi" = "1"'>
+            <equip when="midcast">
+              <waist lock="True">$%SpellElement-Obi</waist>
+            </equip>
+          </if>
+        </if>
+        <if validtarget="Enemy">
+          <!-- Determines if you need skill gear over max damage-->
+          <if target="$HighResist">
+            <equip when="midcast" set="MAB" />
+            <addtochat color="121">Elemental Skill Set</addtochat>
+          </if>
+          <else>
+            <equip when="midcast" set="MAB" />
+            <addtochat color="121">Elemental Set</addtochat>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+        </else>
+      </elseif>
+      <else>
+        <addtochat color="121">No Gear Swapped</addtochat>
+      </else>
+    </elseif>
+    <!-- Sub jobs-->
+    <!-- WHMRDMSCH-->
+    <if subjob="WHM|RDM|SCH">
+      <if spell="Convert" notMPPGT="30">
+        <cancelspell/>
+      </if>   
+    </if>
+    <!-- NIN -->
+    <elseif subjob="NIN">
+      <if spell="Utsu*">
+        <equip when="precast" set="Recast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+      <elseif spell="Monomi*" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+        <midcastdelay delay="1" />
+        <command when="MidCast">cancel 71</command>
+      </elseif>
+    </elseif>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </if>
+      <if buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </if>
+      <if buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </if>
+      <if buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

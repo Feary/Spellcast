@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's NIN Spellcast" job="NIN" />
+  <config requireversion="2.45" showgearswaps="false" showspellinfo="False" fishingset="Fishing" />
+  <variables clear="True">
+    <!-- Auto macro sets-->
+    <var name="AutoMacroset">1</var>
+    <!-- Print Status effects to Party chat. -->
+    <var name="Statuses">1</var>    
+    <!-- Auto Echo Drop -->
+    <var name="AutoEchoDrops">0</var>
+    <!-- Use a sound call when using a range attack-->
+    <var name="Pullcall">0</var>
+    <!-- Weapons -->
+    <var name="Boomerang">Ungur Boomerang</var>
+    <var name="Katana">Kaitsuburi</var>
+    <var name="Sub">Kiji</var>
+    <var name="GreatKatana">Kiikanemitsu|Uchigatana</var>
+    <var name="Dagger">Aphotic Kukri</var>
+    <var name="Sword">Halachuinic Sword</var>
+    <var name="Polearm">Pitchfork</var>
+    <var name="Staff">Earth Staff</var>
+    <var name="Club">Rounsey Wand</var>
+    <!-- Ninja Kyahan-->
+    <var name="Affeet">1</var>
+    <!--    b. line2 /console sc var set pdt 1-->
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
+    <var name="Evasion">0</var>
+    <!-- Do Not Edit -->
+    <var name="NightorDay">None</var>
+  </variables>
+  <sets>
+    <group default="yes" name="NIN">
+      <set name="Fishing">
+        <range>Lu Shang's F. Rod</range>
+        <ammo>Rogue Rig</ammo>
+        <body>Fsh. Tunica</body>
+        <hands>Fsh. Gloves</hands>
+        <legs>Fisherman's Hose</legs>
+        <feet>Fisherman's Boots</feet>
+        <lring>Pelican Ring</lring>
+        <rring>Pelican Ring</rring>
+      </set>
+      <set name="MiscGearCollector">
+        <item>Halachuinic Sword</item>
+        <item>Rounsey Wand</item>
+        <item>Earth Staff</item>
+        <item>Pitchfork</item>
+        <item>Aphotic Kukri</item>
+        <item>Uchigatana</item>
+        <item>Kiji</item>
+        <!-- Hachiya Kyahan -->
+        <item>Ninja Kyahan</item>
+        <!-- Kog. Hatsuburi +2-->
+        <item>Koga Hatsuburi</item>
+        <feet>Kog. Tekko +2</feet>
+        <feet>Koga Kyahan</feet>
+        <item>Iga Zukin +2</item>
+        <item>Iga Ningi +2</item>
+        <item>Iga Tekko +2</item>
+        <item>Iga Kyahan +2</item>
+      </set>
+      <set name="weapon|w" baseset="TP">
+        <main>$Katana</main>
+        <sub>$Sub</sub>
+        <range>$Boomerang</range>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <main>$Main</main>
+        <sub>$Sub</sub>
+        <range>Ungur Boomerang</range>
+        <feet>Danzo Sune-ate</feet>
+      </set>
+      <set name="Standard|Idle" baseset="PDT" load="yes">
+        <feet>Danzo Sune-ate</feet>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="Evasion" baseset="PDT">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Torero Torque </neck>
+        <body>Otronif Harness</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <feet>Manibozho Boots</feet>
+        <Waist>Scouter's Rope</Waist>
+        <back>Boxer's Mantle</back>
+        <lear>Musical Earring</lear>
+        <rear>Novia Earring</rear>
+      </set>
+      <set name="PDT">
+        <head>Otronif Mask</head>
+        <neck>Twilight Torque</neck>
+        <body>Otronif Harness</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <waist>Flume Belt</waist>
+        <back>Repulse Mantle</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Otronif Mask</head>
+        <neck>Twilight Torque</neck>
+        <body>Otronif Harness</body>
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif Brais</legs>
+        <!--<feet>Otronif Boots</feet>-->
+        <!--<waist>Lieutenant's Sash</waist>-->
+        <back>Engulfer Cape</back>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="Ranged" baseset="Standard" load="yes">
+        <range lock="true">$Boomerang</range>
+      </set>
+      <!-- Precast -->
+      <set name="Fastcast" baseset="PDT" load="yes">
+        <head>Athos's Chapeau</head>
+        <!--Orunmila's Torque-->
+        <!--<hands>Thaumas Gloves</hands>-->     
+        <rring>Prolix Ring</rring>
+        <lear>Loquac. Earring</lear>       
+      </set>
+      <set name="Elemental|Wheel" baseset="fastcast" load="yes">
+        <!--<head>Kog. Hatsuburi +2</head>-->
+        <head>Koga Hatsuburi</head>
+        <neck>Stoicheion Medal</neck>
+        <!-- Hachiya -->
+        <body>Otronif harness</body>
+        <!-- Hachiya -->
+        <hands>Iga Tekko +2</hands>
+        <!-- Hachiya -->
+        <legs>Otronif Brais</legs>
+        <!-- Hachiya Kyahan -->
+        <feet>Ninja Kyahan</feet>
+        <waist>Wanion Belt</waist>
+        <!--<back>Yokaze Mantle</back>-->
+        <back>Toro Cape</back>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+        <lear>Novio Earring</lear>
+        <rear>Friomisi Earring</rear>
+      </set>
+      <set name="Skill" baseset="fastcast" load="yes">
+        <!--<head>Hachiya Hatsuburi</head>-->
+        <!--<neck>Ninjustu torque</neck>-->
+        <feet>Koga Kyahan</feet>
+        <!--<waist>Cimmerian Sash</waist>-->
+        <!--<back>Astute Cape</back>-->
+        <!--<lear>Stealth Earring</lear>-->
+        <!--<rear>Ninjutsu Earring</rear>-->
+        <!--<rring>Antica Ring</rring>-->
+      </set>
+      <set name="Enfeebs" baseset="skill">
+        <lring>Sangoma Ring</lring>
+        <rring>Balrahn's Ring</rring>
+        <lear>Lifestorm Earring</lear>
+        <rear>Psystorm Earring</rear>
+      </set>
+      <set name="Utsusemi" baseset="PDT">
+        <head>Athos's Chapeau</head>
+        <neck>Magoraga Beads</neck>
+        <!-- Mirke fastcast haste-->
+        <body>Otronif Harness</body>
+        <!--<hands>Thaumas Gloves</hands>-->
+        <hands>Otronif Gloves</hands>
+        <legs>Otronif brais</legs>
+        <feet>Iga Kyahan +2</feet>
+        <waist>Twilight Belt</waist>
+        <!--<back>Mujin Mantle</back>-->
+        <lear>Loquac. Earring</lear>
+        <!--<lring>Veneficium Ring</lring>-->
+        <rring>Prolix Ring</rring>
+        <ammo>Impatiens</ammo>
+      </set>
+      <set name="Enmity" baseset="Standard" load="yes">
+      
+      </set>
+      <set name="Resting" baseset="Standard" load="yes"/>
+      <!-- Midcast -->
+      <set name="TP" baseset="Standard" load="yes">
+        <head>Iga Zukin +2</head>
+        <neck>Rancor Collar</neck>
+        <!-- Hachi. Chain. +1-->
+        <body>Thaumus Coat</body>
+        <hands>Otronif Gloves</hands>
+        <!-- Hachi. Hakama +1 -->
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <!-- Patentia Sash -->
+        <waist>Windbuffet belt</waist>
+        <back>Atheling Mantle</back>       
+        <lear>Dudgeon Earring</lear>
+        <rear>Heartseeker Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="WS" baseset="TP" load="yes">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Rancor Collar</neck>
+        <body>Manibozho Jerkin</body>
+        <!-- Buremte Gloves-->
+        <hands>Manibozho Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Wanion Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <!-- Brutal Earring -->
+        <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
+      </set>
+      <set name="Blade: Hi" baseset="ws">
+        <head>Uk'uxkaj Cap</head>
+        <neck>Hope Torque</neck>
+        <!-- Hachi. Chain. +1-->
+        <body>Iga Ningi +2</body>
+        <!-- Hachi Gloves-->
+        <hands>Manibozho Gloves</hands>
+        <!-- Hachi.-->
+        <legs>Manibozho Brais</legs>
+        <!-- Hachi. Kyahan -->
+        <feet>Thaumas Nails</feet>
+        <waist>Wanion Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <!-- Brutal Earring -->
+        <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
+      </set>
+      <set name="Blade: Jin" baseset="ws" load="yes">
+        <!-- 	STR:30% ; DEX:30% -->
+        <head>Uk'uxkaj Cap</head>
+        <!-- Breeze Gorget -->
+        <neck>Rancor Collar</neck>
+        <!-- Hachi. Chain. +1-->
+        <body>Manibozho Jerkin</body>
+        <!-- Hachi. Tekko +1-->
+        <hands>Manibozho Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Wanion Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <!-- Brutal Earring -->
+        <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
+      </set>    
+      <set name="Blade: Shun" Baseset="ws" load="yes">
+        <!-- DEX -->
+        <head>Uk'uxkaj Cap</head>
+        <neck>Light Gorget</neck>
+        <body>Manibozho Jerkin</body>
+        <!-- Buremte Gloves-->
+        <hands>Manibozho Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Thaumas Nails</feet>
+        <waist>Light Belt</waist>
+        <back>Atheling Mantle</back>
+        <!-- Brutal Earring -->
+        <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
+      </set>
+      <set name="Blade: Kamu" baseset="ws" load="yes">
+        <!-- STR:50% ; INT:50% -->
+        <neck>Shadow Gorget</neck>
+        <waist>Shadow Belt</waist>
+      </set>
+      <set name="Blade: Metsu" baseset="" load="yes">
+        <feet>Thaumas Nails</feet>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- Skill up Ring and Earring -->
+    <if equiprring="Prouesse Ring">
+      <addtochat color="121">Skill Up Ring</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
+        <head lock="true">Tema. Headband</head>
+        <body lock="true">Temachtiani Shirt</body>
+        <hands lock="true">Temachtiani Gloves</hands>
+        <legs lock="true">Temachtiani Pants</legs>
+        <feet lock="true">Temachtiani Boots</feet>
+        <rring lock="true">Prouesse Ring</rring>
+        <lear lock="true">Liminus Earring</lear>
+        <rear lock="true">Terminus Earring</rear>
+      </equip>
+    </if>
+    <!-- Autoset -->
+    <equip when="resting" set="resting" />
+    <if mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+      <addtochat color='121'>PDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="PDT" />
+    </if>
+    <elseif advanced='"$MDT"=="1"'>
+      <addtochat Color="121">MDT Set Locked</addtochat>
+      <equip when="Engaged|Aftercast|idle" set="MDT" />
+    </elseif>
+    <else>
+      <!-- Lock Evasion set -->
+      <if advanced='"$Evasion"=="1"'>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="Evasion" />
+        </if>
+        <!-- Not Engaged-->
+        <else>
+          <if advanced='"$NightorDay"=="Night" AND "$AFfeet"=="1"'>
+            <equip when="idle|AfterCast" set="Evasion">
+              <feet>Ninja Kyahan</feet>
+            </equip>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Evasion">
+              <feet>Danzo Sune-ate</feet>
+            </equip>
+          </else>
+        </else>
+      </if>
+      <!-- Not Evasion locked -->
+      <else>
+        <!-- Engaged-->
+        <if status="engaged">
+          <if advanced='"$NightorDay"=="Night" AND "$AFfeet"=="1"'>
+            <equip when="engaged|AfterCast" set="TP">
+              <hands>Kog. Tekko +2</hands>
+            </equip>
+          </if>
+          <else>
+            <equip when="engaged|AfterCast" set="TP" />
+          </else>
+        </if>
+        <!-- Not Engaged-->
+        <else>
+          <if advanced='"$NightorDay"=="Night"'>
+            <equip when="idle|AfterCast" set="Standard">
+              <feet>Ninja Kyahan</feet>
+            </equip>
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard">
+              <feet>Danzo Sune-ate</feet>
+            </equip>
+          </else>
+        </else>
+      </else>
+    </else>
+    <!-- Ranged Attack -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged"/>
+      <if advanced='"$Pullcall"=="1"'>
+        <cmd>input /p Fishing >>>>> %spelltargetname &lt;call14&gt;</cmd>
+      </if>
+      <return/>
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <if spell="Yonin"/>
+      <elseif spell="Innin"/>
+      <else>
+        <equip when="precast" set="Enmity" />
+      </else>
+    </if>
+    <!-- WS Rules-->
+    <elseif type="Weaponskill">
+      <if buffactive="Amnesia|Sleep|Stun*|petrification|charm|Terror">
+        <cancelspell/>
+        <addtochat color="121">Can't WS</addtochat>
+      </if>
+      <else>
+        <if TPGT="99">
+          <if advanced="%SpellTargetDistance &lt; 5">
+            <CastDelay Delay=".5"/>
+            <if spell="Blade: Jin|Blade: Shun|Blade: Metsu|Blade: Kamu">
+              <equip when="Precast" set="%Spell"/>
+            </if>
+            <else>
+              <equip when="precast" set="WS"/>
+            </else>
+          </if>
+          <else>
+            <cancelspell/>
+            <addtochat color="121">%SpellTargetName is too far.</addtochat>
+            <Return/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">You dont have enough tp for that</addtochat>
+          <Return/>
+        </else>
+      </else>
+    </elseif>
+    <!-- Ninjutsu Rules -->
+    <elseif type="Ninjutsu">
+      <if spell="Utsusemi: Ni">
+        <equip when="precast|Midcast" set="Utsusemi" /> 
+      </if>
+      <elseif spell="Utsusemi: Ichi">
+        <if BuffActive="Copy Image*">
+          <equip when="Precast|Midcast" set="Utsusemi"/>
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </elseif>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+      <elseif spell="Migawari: Ichi">
+        <equip when="precast" set="fastcast">
+          <body>Iga Ningi +2</body>
+        </equip>
+        <equip when="midcast" set="skill">
+          <body>Iga Ningi +2</body>
+        </equip>
+      </elseif>
+      <elseif spell="Katon*|Doton*|Suiton*|Huton*|Hyoton*|Raiton*">
+        <equip when="precast" set="fastcast"/>
+        <equip when="midcast" set="Wheel"/>
+      </elseif>
+      <!-- Ninjutsu Enfeebs-->
+      <else>
+        <equip when="precast" set="fastcast"/>
+        <equip when="midcast" set="Enfeebs" />
+      </else>
+    </elseif>
+    <!-- All Other Magic -->
+    <elseif type="*Magic">
+      <if buffactive="Silence|Mute|Sleep|Stun*|petrification|charm|Terror">
+        <cancelspell/>
+      </if>
+      <else>
+        <!-- Macro savers-->
+        <if spell="Sneak">
+          <changespell>Monomi: Ichi</changespell>
+        </if>
+        <elseif spell="Invisible">
+          <changespell>Tonko: Ni</changespell>
+        </elseif>
+        <else>
+          <equip when="precast|midcast" set="fastcast"/>
+        </else>
+      </else>
+    </elseif>
+    <!-- Subjob -->
+    <!-- Warrior -->
+    <if Subjob="WAR">
+      <!-- Macro set -->
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+    </if>
+    <!-- Dancer -->
+    <elseif subjob="DNC">
+      <!-- Macro set -->
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <!-- Jigs -->
+      <if Spell="Spectral Jig">
+        <equip when="Precast" set="Jig" />
+      </if>
+      <!-- Flourishes -->
+      <elseif spell="*Flourish">
+        <!-- Flourishs -->
+        <if Spell="*Flourish" notBuffActive="Finishing Move">
+          <cancelspell />
+          <addtochat Color="121">WARNING: No Finishing Moves!</addtochat>
+        </if>
+        <elseif Spell="Animated Flourish">
+          <equip set="Enmity" />
+          <aftercastdelay delay="1" />
+          <if PartyCountGT="1" NotArea="Dynamis*|Hazhalm*">
+            <command When="MidCast">input /echo Animated Snugglage &gt;&gt;&gt; [ Mr. %SpellTarget ]</command>
+          </if>
+        </elseif>
+      </elseif>
+      <!-- Waltz-->
+      <elseif spell="*Waltz*">
+        <!-- Waltz Swap -->
+        <!-- NOTE: If Waltz when !engaged it will default to appropriate Engaged set aftercast-->
+        <!-- Check TP and Target HP-->
+        <if Spell="Curing Waltz II">
+          <if mode="OR" TPLT="35"  SpellTargetHPPGT="80">
+            <changespell spell="Curing Waltz" />
+          </if>
+        </if>
+        <elseif Spell="Curing Waltz" TPLT="20">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+        <elseif Spell="Healing Waltz" TPLT="20">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+        <if Spell="Divine Waltz" TPLT="40">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+      </elseif>
+      <!-- Steps-->
+      <elseif spell="*step">
+        <!-- Step AF Swap -->
+        <if Spell="Quickstep" TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <elseif Spell="Box Step" TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+        <elseif Spell="Stutter Step" TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+      </elseif>
+      <!-- Sambas -->
+      <elseif spell="*Samba*">
+        <!-- Samba AF Swap -->
+        <if Spell="Drain Samba" TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </if>
+        <elseif Spell="Drain Samba II" TPLT="25">
+          <changespell spell="Drain Samba"/>
+        </elseif>
+        <elseif Spell="Drain Samba III"  TPLT="40">
+          <changespell spell="Drain Samba II"/>
+        </elseif>
+        <elseif Spell="Aspir Samba" TPLT="10">
+          <cancelspell />
+          <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+        </elseif>
+        <elseif Spell="Haste Samba">
+          <if BuffActive="Haste Samba">
+            <cancelspell />
+            <command>input /echo ~ [NOTE] Haste Samba buff already active. ~</command>
+          </if>
+          <elseif TPLT="35">
+            <cancelspell />
+            <addtochat Color="121">WARNING: Not enough TP.</addtochat>
+          </elseif>
+        </elseif>
+      </elseif>
+    </elseif>
+    <!-- Red mage-->
+    <elseif subjob="RDM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if spell="Convert">
+        <cancelspell/>
+      </if>
+    </elseif>
+    <!-- Status Effects-->
+    <if advanced='"Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <if BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </if>
+      <if BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </if>
+      <if BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </if>
+      <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <if advanced='"AutoEchoDrops"=="1"'>
+          <cancelspell />
+          <cmd>input /item "Echo Drop" &lt;me&gt;</cmd>
+        </if>
+        <else>
+          <command>input /p Silenced...</command>
+        </else>
+      </if>
+      <if BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </if>
+      <if BuffActive="Paralysis">
+        <command>input /p I have Paralysis</command>
+      </if>
+      <if BuffActive="Mute">
+        <command>input /p Mute Cant Cast anything</command>
+      </if>
+      <if buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </if>
+    </if>
+  </rules>
+</spellcast>

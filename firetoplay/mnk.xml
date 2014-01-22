@@ -1,0 +1,392 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Firetoplay" server="Sylph" description="Feary's MNK Spellcast" job="MNK"/>
+  <config requireversion="2.45" showgearswaps="False" showspellinfo="False" />
+  <variables clear="True">
+    <!-- Modes - Melee, Tank, Chi Blast-->
+    <var name="Mode">Melee</var>
+    <!-- Kirin Pole -->
+    <var name="KirinPole">0</var>
+    <!--Weapons-->
+    <var name="H2H">Taurine Cesti</var>
+    <var name="Staff">Diabolos's Pole|Celeritas Pole|Pole of Trials</var>
+    <var name="Club">Warp Cudgel|Rounsey Wand</var>
+  </variables>
+  <sets>
+    <group name="MNK" default="yes">
+      <!-- pimping gear -->
+      <set name="Town" baseset="Standard">
+        <ammo>Tantra Tathlum</ammo>
+        <head>Tantra Crown +2</head>
+        <body>Tantra Cyclas +2</body>
+        <hands>Tantra Gloves +1</hands>
+        <legs>Tantra Hose +2</legs>
+        <waist>Brown Belt</waist>
+        <back>Atheling Mantle</back>
+      </set>
+      <!-- Movement Speed > PDT -->
+      <set name="Standard|PDT" baseset="TP">
+        <neck>Twilight Torque</neck>
+        <!--
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring> -->
+      </set>
+      <set name="TP">
+        <head>Tantra Crown +2</head>
+        <!--<neck>Agasaya's Collar</neck>-->
+        <neck>Chivalrous Chain</neck>
+        <body>Tantra Cyclas +2</body>
+        <hands>Tantra Gloves +1</hands>
+        <legs>Tantra Hose +2</legs>
+        <feet>Tantra Gaiters +2</feet>
+        <back>Atheling Mantle</back>
+        <waist>Brown Belt</waist>
+        <lear>Brutal Earring</lear>
+        <rear>kemas Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+      </set>
+      <!-- Footwork TP-->
+      <set name="footwork" baseset="TP" />
+      <!-- Evasion -->
+      <set name="Evasion" baseset="TP">
+        <neck>Torero Torque</neck>
+        <feet>Hermes's Sandals</feet>
+        <waist>Scouter's Rope</waist>
+        <back>Boxer's Mantle</back>
+        <rring>Solemn Ring</rring>
+        <lear>Musical earring</lear>
+        <rear>Evasion Earring</rear>
+      </set>
+      <set name="Subtle Blow" baseset="TP">
+        <head>Tantra Crown +2</head>
+        <!--<neck>Agasaya's Collar</neck>-->
+        <waist>Brown Belt</waist>
+        <rring>Heed Ring</rring>
+      </set>
+      <set name="WS" baseset="TP">
+        <head>Tantra Crown +2</head>
+        <neck>Chivalrous Chain</neck>
+        <body>Tantra Cyclas +2</body>
+        <hands>Tantra Gloves +1</hands>
+        <legs>Tantra Hose +2</legs>
+        <feet>Tantra Gaiters +2</feet>
+        <waist>Anguinus Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Flame Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Kemas Earring</rear>
+      </set>
+      <!-- No Focus - ACC Gear -->
+      <!-- Acc -->
+      <set name="Asuran Fists" baseset="ws">
+        <neck>Shadow Gorget</neck>
+      </set>
+      <set name="One Inch Punch|Backhand Blow|Shoulder Tackle" baseset="ws" />
+      <set name="Howling Fist" baseset="ws" />
+      <!-- str and vit-->
+      <set name="Ascetic's Fury" baseset="ws">
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+      </set>
+      <set name="Combo|Raging Fists" baseset="ws">
+      </set>
+      <!--  Focus Active - NO ACC Needed-->
+      <set name="focusws" baseset="ws" />
+      <set name="focuswsAsuran Fists" baseset="focusws">
+        <neck>Shadow Gorget</neck>
+      </set>
+      <set name="FocuswsAscetic's Fury" baseset="focusws">
+        <neck>Light Gorget</neck>
+        <waist>Anguinus Belt</waist>
+      </set>
+      <set name="FocuswsHowling Fist" baseset="focusws">
+        <neck>Light Gorget</neck>
+      </set>
+      <!-- Kick Attacks-->
+      <!-- No Focus -->
+      <set name="footworkkick" baseset="ws" />
+      <set name="Dragon Kick" baseset="ws" />
+      <set name="Spinning Kick" baseset="ws" />
+      <set name="Tornado Kick" baseset="ws" />
+      <!-- Focus Active -->
+      <set name="focuskick" baseset="ws" />
+      <set name="FootworkFocusKick" baseset="ws" />
+      <!-- Utsusemi -->
+      <set name="Fastcast" base="TP">
+        <head>Tantra Crown +2</head>
+        <neck>Magoraga Beads</neck>
+        <hands>Tantra Gloves +1</hands>
+        <legs>Tantra Hose +2</legs>
+        <waist>Brown Belt</waist>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+      </set>
+      <!-- MND+ -->
+      <set name="Chi Blast">
+        <head>Maat's Cap</head>
+        <body>Kirin's Osode</body>
+        <neck>Morgana's Choker</neck>
+        <feet>Suzaku's Sune-ate</feet>
+        <waist>Crudelis Belt</waist>
+        <lring>Omega Ring</lring>
+        <rring>Solemn Ring</rring>
+      </set>
+      <!-- Guard - Skill + agi -->
+      <set name="Guard">
+        <head>Tiger Mask</head>
+        <neck>Guarding Torque</neck>
+        <hands>Seiryu's Kote</hands>
+        <legs>Temple Hose</legs>
+        <feet>Melee Gaiters</feet>
+        <back>Boxer's Mantle</back>
+        <rear>Drone Earring</rear>
+        <lear>Drone Earring</lear>
+        <rring>Solemn ring</rring>
+      </set>
+      <set name="Max HP">
+        <head>Melee Crown</head>
+        <!--<body>Melee Cyclas</body>-->
+        <hands>Melee Gloves</hands>
+        <legs>Melee Hose</legs>
+        <feet>Melee Gaiters</feet>
+        <back>Boxer's Mantle</back>
+        <rring>Bomb Queen Ring</rring>
+      </set>
+      <set name="Resting" baseset="Standard"/>
+      <set name="Enmity">
+        <rring>Odium Ring</rring>
+        <neck>Indivus Torque</neck>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- Autoset -->
+    <equip when="resting" set="Resting" />
+    <if advanced='"$Mode"=="Melee"'>
+      <if status="engaged">
+        <if buffactive="Footwork">
+          <equip when="Aftercast" set="Footwork" />
+        </if>
+        <else>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </else>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </if>
+    <elseif advanced='"$Mode"=="Tank"'>
+      <if status="engaged">
+        <if buffactive="Footwork">
+          <equip when="Aftercast" set="Footwork" />
+        </if>
+        <else>
+          <equip when="engaged|AfterCast" set="TP"/>
+        </else>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <elseif advanced='"$Mode"=="Chiblast"'>
+      <if status="engaged">
+        <equip when="engaged|AfterCast" set="TP"/>
+        <if advanced='"$KirinPole"="1"'>
+          <main>Kirin's Pole</main>
+        </if>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <!-- Ranged Attack -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <!-- VIT -->
+      <if spell="Chakra">
+        <equip when="precast">
+          <body>Temple Cyclas</body>
+          <hands>Melee Gloves</hands>
+        </equip>
+      </if>
+      <!-- Mind -->
+      <elseif spell="Chi Blast">
+        <equip when="precast" set="Chi Blast"/>
+      </elseif>
+      <elseif spell="Focus">
+        <equip when="precast">
+          <head>Temple Crown</head>
+        </equip>
+      </elseif>
+      <elseif spell="Dodge">
+        <equip when="precast">
+          <feet>Temple Gaiters</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Boost">
+        <equip when="precast">
+          <hands>Temple Gloves</hands>
+        </equip>
+        <if advanced='"$Mode"=="Chiblast"'>
+          <!-- Add a boost counter and print to chat for ls or p-->
+        </if>
+      </elseif>
+      <elseif spell="Counterstance">
+        <equip when="precast">
+          <feet>Melee Gaiters</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Formless Strikes">
+        <addtochat color="121">Formless Strikes</addtochat>
+      </elseif>
+    </if>
+    <!-- WS Rules-->
+    <if type="Weaponskill">
+      <!-- Check if you have enough tp -->
+      <if TPGT="99">
+        <!-- check if the distance of the mob is more than 4-->
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <castdelay delay=".2" />
+          <!-- Kicking WS-->
+          <if spell="Dragon Kick|Tornado Kick">
+            <!-- Kicking WS Gear with Footwork-->
+            <if buffactive="Footwork">
+              <!-- Account for Focus -->
+              <if buffactive="Focus">
+                <equip when="precast|midcast" set="FootworkFocusKick" />
+                <addtochat color="121">FootworkFocuskick</addtochat>
+              </if>
+              <!-- No Focus -->
+              <else>
+                <equip when="precast|midcast" set="FootworkKick" />
+                <addtochat color="121">FootWork Kick No Focus</addtochat>
+              </else>
+            </if>
+            <!-- Kicking WS without footwork -->
+            <elseif notbuffactive="Footwork">
+              <!-- Account for Focus without Footwork-->
+              <if buffactive="Focus">
+                <equip when="precast|midcast" set="FocusKick" />
+                <addtochat color="121">Kick Attack with Focus</addtochat>
+              </if>
+              <!-- Any kick attack without focus or footwork-->
+              <else>
+                <equip when="precast|midcast" set="%Spell" />
+                <addtochat color="121">No Focus Kick - Acc</addtochat>
+              </else>
+            </elseif>
+          </if>
+          <!-- Your punching WS with sets -->
+          <elseif spell="Asuran Fists|Howling Fist|Ascetic's Fury">
+            <if buffactive="Focus">
+              <equip when="precast|midcast" set="FocusWS%Spell" />
+              <addtochat color="121">Focusws - Full STR</addtochat>
+            </if>
+            <else>
+              <equip when="precast|midcast" set="%Spell"/>
+              <addtochat color="121">No Focus WS - Acc</addtochat>
+            </else>
+          </elseif>
+          <!-- Any other ws equip basic ws Set -->
+          <else>
+            <equip when="Precast|midcast" set="%Spell" />
+            <addtochat color="121">Basic WS Set</addtochat>
+          </else>
+          <!-- endif for spelldistance check-->
+        </if>
+        <else>
+          <cancelspell />
+          <addtochat color="121">---- %Spelltargetname is Too Far. WS Canceled -----</addtochat>
+          <return />
+        </else>
+        <!-- endif for tp check-->
+      </if>
+      <!-- Cancel if you dont have Enough tp -->
+      <else>
+        <cancelspell />
+        <addtochat color="121">------ Not Enough TP for WS. Canceled ------ </addtochat>
+        <return/>
+      </else>
+      <!-- endif for ws -->
+    </if>
+    <!-- Subjob Rules -->
+    <if subjob="War">
+      <if mode="and" hpplt="40" buffactive="Berserk">
+        <command>cancel 56</command>
+      </if>
+    </if>
+    <!-- NIN Subjob-->
+    <elseif subjob="NIN">
+      <!-- Cancel Rules -->
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <if spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </if>
+    </elseif>
+    <elseif subjob="DNC"/>
+    <elseif subjob="DRG"/>
+    <elseif subjob="WHM"/>
+    <!-- Assualt Ring -->
+    <if area="Nyzul*|Lebros*|Ilrusi*|Lebros*|Leu*|Peri*|*Remnants">
+      <equip when="*">
+        <rring lock="t">$AssaultRing</rring>
+      </equip>
+    </if>
+    <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+      <cancelspell />
+      <addtochat Color="29">WARNING: Amnesia</addtochat>
+    </if>
+    <if BuffActive="Stun">
+      <cancelspell />
+      <addtochat Color="29">WARNING: Stunned</addtochat>
+    </if>
+    <if BuffActive="Sleep">
+      <cancelspell />
+      <command>input /p zzz...</command>
+    </if>
+    <if BuffActive="Terror">
+      <cancelspell />
+      <addtochat Color="29">WARNING: Terror</addtochat>
+    </if>
+    <if BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+      <cancelspell />
+      <command>input /p Silenced...</command>
+    </if>
+    <if BuffActive="Defense Down">
+      <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+    </if>
+    <if buffactive="doom">
+      <command>input /p Doomed. Quick Viruna lol</command>
+    </if>
+    <if buffactive="petrification|gradual petrification">
+      <command>input /p Stoned</command>
+    </if>
+    <if buffactive="Charm">
+      <command>input /p Charmed. Quick Sleep me lol</command>
+    </if>
+    <if buffactive="Paralysis">
+      <command>input /p Paralyzed</command>
+    </if>
+    <if buffactive="Blindness">
+      <command>input /p Blinded</command>
+    </if>
+  </rules>
+</spellcast>

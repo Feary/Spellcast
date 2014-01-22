@@ -1,0 +1,607 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Firetoplay" server="Sylph" description="Feary's WAR Spellcast" job="WAR"/>
+  <config RequireVersion="2.40" Debug="False" ShowGearSwaps="False" ShowspellInfo="false"/>
+  <variables clear="true">
+    <!-- Auto Macroset 1.NIN 2.DNC 3.SAM -->
+    <var name="AutoMacroset">1</var>
+    <!-- Announce statues-->
+    <var name="Statuses">0</var>
+    <!-- Which weapons are you useing?  Weapons will be Locked-->
+    <var name="Axe">Skeggiold</var>
+    <var name="GreatAxe">Widowmaker|Sumeru</var>
+    <var name="Polearm">Quint Spear|PitchFork</var>
+    <var name="Scythe">Bounty Sickle|Perdu Sickle</var>
+    <var name="Sword">Dissector|Joyeuse|Wax Sword +1</var>
+    <var name="Staff">Terra's Staff|Pole of Trials</var>
+    <var name="Club">Warp Cudgel|Rounsey Wand</var>
+    <var name="GreatSword">Magnus Claymore|Perdu Sword</var>
+    <var name="Dagger">Twilight Knife</var>
+    <!-- Tomahawk Merit Level - 1 to 5 -->
+    <var name="Tomahawk">5</var>
+  </variables>
+  <sets>
+    <group default="yes" name="War" load="yes">
+      <set name="MiscGearCollector" load="yes">
+        <item store = "mog sack">Widowmaker</item>
+        <item store = "mog sack">Quint Spear</item>
+        <item store = "mog sack">PitchFork</item>
+        <item store = "mog sack">Twilight Knife</item>
+        <item store = "mog sack">Warp Cudgel</item>
+        <item store = "mog sack">Rounsey Wand</item>
+        <item store = "mog sack">Joyeuse</item>
+        <item store = "mog sack">Bounty Sickle</item>
+        <item store = "mog sack">Doom Tabar</item>
+        <item store="mog sack">Pole Grip</item>
+        <item store="mog sack">Thr. Tomahawk</item>
+      </set>
+      <set name="weapon|w" baseset="TP">
+        <main>$Greataxe</main>
+        <sub>Pole grip</sub>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <feet>Hermes' Sandals</feet>
+        <back>Shadow Mantle</back>
+        <lring>Archon Ring</lring>
+        <rring>Shadow Ring</rring>
+      </set>
+      <!-- PDT > Movement Speed-->
+      <set name="Standard|Idle" baseset="TP" load="yes">
+        <head>Ravager's Mask +2</head>
+        <neck>Twilight Torque</neck>
+        <body>Twilight Mail</body>
+        <hands>Rvg. Mufflers +2</hands>
+        <legs>Rvg. Cuisses +1</legs>
+        <feet>Hermes' Sandals</feet>
+        <waist>Nierenschutz</waist>
+        <back>Shadow Mantle</back>
+        <lring>Archon Ring</lring>
+        <rring>Shadow Ring</rring>
+      </set>
+      <!-- Restriant Down -->
+      <set name="TP" load="yes">
+        <head>Walahra Turban</head>
+        <neck>Chivalrous Chain</neck>
+        <body>Rvg. Lorica +2</body>
+        <hands>Rvg. Mufflers +2</hands>
+        <legs>Rvg. Cuisses +1</legs>
+        <feet>Rvg. Calligae +1</feet>
+        <waist>Goading Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Ravager's Earring</rear>
+      </set>
+      <!-- Restraint UP -->
+      <set name="RestraintTP" load="yes">
+        <head>Zelus Tiara</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Rvg. Lorica +2</body>
+        <hands>Rvg. Mufflers +2</hands>
+        <legs>Rvg. Cuisses +2</legs>
+        <feet>Rvg. Calligae +2</feet>
+        <waist>Goading Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+        <lear>Brutal earring</lear>
+        <rear>Ravager's Earring</rear>
+      </set>
+      <set name="WS" baseset="TP" load="yes">
+        <head>Ravager's Mask +2</head>
+        <neck>Agasaya's Collar</neck>
+        <body>Twilight Mail</body>
+        <hands>Rvg. Mufflers +2</hands>
+        <waist>Anguinus Belt</waist>
+        <rring>Spiral Ring</rring>
+        <lear>Brutal Earring</lear>
+        <rear>Ravager's Earring</rear>
+      </set>
+      <set name="Shield Break|Iron Tempest|Sturmwind|Armor Break" baseset="ws"/>
+      <!-- Berserk WS -->
+      <set name="BerserkRaging Rush" baseset="Raging Rush" load="yes"/>
+      <set name="BerserkKing'sJustice" baseset="King's Justice"/>
+      <!-- Great Axe -->
+      <!-- Dex Crit-->
+      <set name="Raging Rush" baseset="ws">
+        <waist>Snow Belt</waist>
+      </set>
+      <set name="Steel Cyclone" baseset="ws">
+        <waist>Snow Belt</waist>
+      </set>
+      <set name="King's Justice" baseset="ws">
+        <waist>Thunder Belt</waist>
+      </set>
+      <set name="Fell Cleave" baseset="WS" load="yes">
+        <waist>Thunder Belt</waist>
+      </set>
+      <!-- Axe -->
+      <set name="Rampage" baseset="ws">
+        <waist>Soil Belt</waist>
+      </set>
+      <set name="Decimation|Mistral Axe|Full Break" baseset="WS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light Gorget</waist>
+      </set>
+      <!-- Polearm -->
+      <set name="Raiden Thrust" baseset="WS" load="yes"/>
+      <set name="Penta Thrust" baseset="ws">
+      </set>
+      <set name="Vorpal Thrust|Impluse Drive" baseset="WS" load="yes"/>
+      <!-- Sword -->
+      <set name="Red Lotus Blade|Seraph Blade" baseset="WS" load="yes"/>
+      <set name="Vorpal Blade|Savage Blade" Baseset="ws" load="yes"/>
+      <!-- Staff -->
+      <set name="Earth Crusher|Sunburst|Cataclysm" baseset="WS" load="yes">
+        <lear>Moldavite Earring</lear>
+        <rear>Hecate's Earring</rear>
+        <lring>Demon's Ring</lring>
+        <rring>Demon's Ring</rring>
+      </set>
+      <set name="Full Swing|Spirit Taker|Heavy Swing|Shell Crusher|retribution" baseset="ws"/>
+      <!-- Club -->
+      <set name="Seraph Strike" baseset="WS" load="yes"/>
+      <set name="Skullbreaker|True Strike|Judgment" baseset="WS" load="yes"/>
+      <set name="Black Halo" baseset="WS" load="yes">
+      </set>
+      <!-- Scythe -->
+      <set name="Shadow of Death" baseset="WS" load="yes"/>
+      <set name="Vorpal Scythe|Spiral Hell" Baseset="ws" load="yes"/>
+      <!-- Great Sword-->
+      <set name="Frostbite|Freezebite|Herculean Slash" baseset="WS" load="yes"/>
+      <set name="Power Slash|Hard Slash|Crescent Moon|Sickle Moon|Spinning Slash|Ground Strike" baseset="WS" load="yes"/>
+      <!-- Dagger -->
+      <set name="Cyclone|Energy Drain" baseset="WS" load="yes"/>
+      <set name="Evisceration" baseset="WS" load="yes"/>
+
+      <set name="Fastcast" load="yes">
+        <head>Zelus Tiara</head>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+        <waist>Goading Belt</waist>
+        <hands>Dusk Gloves</hands>
+        <legs>Rvg. Cuisses +2</legs>
+        <feet>Rvg. Calligae +2</feet>
+      </set>
+      <set name="Enmity" load="yes">
+        <head>Fighter's Mask</head>
+        <neck>Invidia Torque</neck>
+        <body>Fighter's Lorica</body>
+        <hands>Fighter's Mufflers</hands>
+        <legs>Fighter's Cuisses</legs>
+        <feet>Fighter's Calligae</feet>
+        <waist>Warwolf Belt</waist>
+        <back>Cerberus Mantle</back>
+        <rring>Odium Ring</rring>
+      </set>
+      <set name="Ranged" load="yes">
+
+      </set>
+      <set name="Waltz" baseset="Standard">
+
+      </set>
+      <set name="Step" baseset="ws">
+        <head>Ravager's Mask +2</head>
+        <hands>Rvg. Mufflers +2</hands>
+        <rring>Heed Ring</rring>
+      </set>
+    </group>
+    <group name="Voidwatch" inherit="War">
+      <!-- High Acc-->
+      <set name="RestraintTP">
+
+      </set>
+      <set name="TP">
+
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <if buffactive="Voidwatcher" notgroup="Voidwatch">
+      <cmd>sc group Voidwatch</cmd>
+      <addtochat color="121">Voidwatch Group</addtochat>
+    </if>
+    <elseif notgroup="WAR">
+      <cmd>sc group WAR</cmd>
+      <addtochat color="121">Normal Group</addtochat>
+    </elseif>
+    <!-- Auto sets -->
+    <!-- Set gear for Polearm -->
+    <if EquipMain="$Polearm">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </if>
+    <!-- Set Gear for Great Axe -->
+    <elseif EquipMain="$GreatAxe">
+      <if buffactive="Restraint">
+        <if status="Engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear For Scythe -->
+    <elseif EquipMain="$Scythe">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for the Staff -->
+    <elseif EquipMain="$Staff">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for the GreatSword -->
+    <elseif EquipMain="$GreatSword">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <sub>Pole Grip</sub>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for Axe-->
+    <elseif EquipMain="$Axe">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <rear>Suppanomimi</rear>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for the Sword -->
+    <elseif EquipMain="$Sword">
+      <if status="engaged">
+        <equip when="engaged|AfterCast" set="RestraintTP">
+          <rear>Suppanomimi</rear>
+        </equip>
+      </if>
+      <else>
+        <equip when="idle|aftercast" set="Standard" />
+      </else>
+    </elseif>
+    <!-- Set Gear for the Club-->
+    <elseif EquipMain="$Club">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <rear>Suppanomimi</rear>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for the Dagger-->
+    <elseif EquipMain="$Dagger">
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP">
+            <rear>Suppanomimi</rear>
+          </equip>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </elseif>
+    <!-- Set Gear for Everything else-->
+    <else>
+      <enable slot="main|Sub|Range"/>
+      <if buffactive="Restraint">
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="RestraintTP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="engaged|AfterCast" set="TP"/>
+        </if>
+        <else>
+          <equip when="idle|aftercast" set="Standard" />
+        </else>
+      </else>
+    </else>
+    <!-- Ranged -->
+    <if spell="ranged">
+      <equip when="precast" set="Ranged" />
+    </if>
+    <!--Job Ability Rules -->
+    <if type="JobAbility">
+      <if spell="Provoke|Defender">
+        <equip when="precast" set="Enmity" />
+      </if>
+      <elseif spell="Berserk">
+        <equip when="precast" set="Enmity">
+          <feet>Warrior's Calligae</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Warcry">
+        <equip when="precast" set="Enmity">
+          <head>Warrior's Mask</head>
+        </equip>
+      </elseif>
+      <elseif spell="Aggressor">
+        <equip when="precast">
+          <body>Warrior's Lorica</body>
+        </equip>
+      </elseif>
+      <elseif spell="Tomahawk">
+        <equip when="precast">
+          <ammo lock="yes">Thr. Tomahawk</ammo>
+        </equip>
+        <cmd when="aftercast">input /p %Spell Just Used It</cmd>
+        <if advanced='"$Tomahawk"=="0"'>
+          <addtochat color="121">Why do yo have a macro for it? Get Tomahawk!</addtochat>
+        </if>
+        <elseif advanced='"$Tomahawk"=="1"'>
+          <!-- Wait 30 secs and tell party it is off-->
+          <Cmd when="aftercast">wait 30;input /p %Spell has wore off </Cmd>
+        </elseif>
+        <elseif advanced='"$Tomahawk"=="2"'>
+          <Cmd when="aftercast">wait 45;input /p %Spell has wore off </Cmd>
+        </elseif>
+        <elseif  advanced='"$Tomahawk"=="3"'>
+          <Cmd when="aftercast">wait 60;input /p %Spell has wore off </Cmd>
+        </elseif>
+        <elseif  advanced='"$Tomahawk"=="4"'>
+          <Cmd when="aftercast">wait 75;input /p %Spell has wore off </Cmd>
+        </elseif>
+        <elseif  advanced='"$Tomahawk"=="5"'>
+          <Cmd when="aftercast">wait 90;input /p %Spell has wore off </Cmd>
+        </elseif>
+      </elseif>
+      <elseif spell="Warrior's Charge">
+        <equip when="precast" />
+        <cmd when="aftercast">input /p  %spell Just used it.</cmd>
+      </elseif>
+      <elseif spell="Restraint">
+        <equip when="precast" />
+        <cmd when="aftercast">input /p  %spell Just used it.</cmd>
+      </elseif>
+      <elseif spell="Bloodrage">
+        <equip when="precast">
+          <body>Rvg. Lorica +2</body>
+        </equip>
+        <cmd when="aftercast">input /p  %spell Just used it.</cmd>
+      </elseif>
+    </if>
+    <!-- Handle WS Rules-->
+    <elseif type="Weaponskill">
+      <if TPGT="99">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <if buffactive="Berserk|Attack Bonus">
+            <equip when="precast" set="Berserk%spell"/>
+          </if>
+          <else>
+            <equip when="precast" set="%spell"/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You dont have enough TP</addtochat>
+        <Return/>
+      </else>
+    </elseif>
+    <!-- Sub job Rules -->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="Utsu*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Monomi*" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+        <midcastdelay delay="1" />
+        <command when="MidCast">cancel 71</command>
+      </elseif>
+      <!-- Macro savers-->
+      <elseif spell="Sneak">
+        <changespell>Monomi: Ichi</changespell>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell>Tonko: Ni</changespell>
+      </elseif>
+    </if>
+    <elseif subjob="SAM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if mode="and" spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </if>
+      <elseif spell="Meditate" tpgt="200">
+        <cancelspell/>
+        <addtochat color="121">You have too much tp for that.</addtochat>
+      </elseif>
+      <!-- Auto Hasso on Engage -->
+      <if status="engaged" notbuffactive = "Hasso">
+        <Cmd when="engaged">wait 3;input /ja "Hasso" &lt;me&gt;</Cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+      <if Spell="Spectral Jig|Invisible" buffactive="Sneak">
+        <command when="PreCast">cancel 71</command>
+      </if>
+      <elseif spell="Sneak">
+        <changespell>Spectral Jig</changespell>
+      </elseif>
+      <elseif spell="*step">
+        <equip when="precast" set="Step" />
+      </elseif>
+      <elseif spell="violent flourish|desperate*">
+        <equip when="precast" set="Step" />
+      </elseif>
+      <elseif spell="*waltz*">
+        <equip when="precast" set="waltz" />
+      </elseif>
+    </elseif>
+    <elseif subjob="MNK"/>
+    <!-- Statuses-->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="121">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Cursna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned/Petified</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute">
+        <command>input /p Mute</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>

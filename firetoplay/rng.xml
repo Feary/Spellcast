@@ -1,0 +1,682 @@
+<?xml version="1.0" ?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Firetoplay" server="Sylph" description="Feary's RNG Spellcast" job="RNG" />
+  <config Requireversion="2.45" HideErrors="false" ShowGearSwaps="false" Debug="false" ShowSpellInfo="false"/>
+  <Variables clear="true">
+    <!-- AutoMacroSet Based on Sub: Macro Set 1.NIN 2.SAM 3.WAR -->
+    <var name="AutoMacroSet">1</var>
+    <var name="NINMacroSet">1</var>
+    <var name="SamMacroset">2</var>
+    <var name="WARMacroset">3</var>
+    <!-- Markmanship-->
+    <var name="GUNNINMacroSet">4</var>
+    <var name="GUNSamMacroset">5</var>
+    <var name="GUNWARMacroset">6</var>
+    <!-- Type Ranged or Melee-->
+    <var name="Mode">Ranged</var>
+    <!-- Auto Ranged Attack-->
+    <var name="AutoRanged">1</var>
+    <!-- Time to wait before next auto range -->
+    <var name="rangepause">5</var>
+    <!-- Target must be closer than this number -->
+    <var name="maxdistance">21</var>
+    <!-- Target must be farther than this number -->
+    <var name="mindistance">10</var>
+    <!-- Ranged Weapons -->
+    <var name="Bow">Gandiva</var>
+    <var name="Gun">Armageddon</var>
+    <var name="Crossbow">Leo Crossbow</var>
+    <!-- Melee Weapons -->
+    <var name="Dagger">Twilight Dagger|Carabineer's Dagger</var>
+    <var name="Sword">Dissector</var>
+    <var name="Axe"></var>
+    <var name="Club">Rounsey Wand|Kraken Club</var>
+    <var name="Polearm">Pitchfork</var>
+    <!--TP Ammo Shot-->
+    <var name="Arrow">Wooden Arrow</var>
+    <var name="Bullet">Silver Bullet</var>
+    <var name="Bolt">Venom Bolt</var>
+    <!-- WS Ammo -->
+    <var name="WSArrow">Ruszor Arrow</var>
+    <var name="WSBullet">Drk. Adm. Bullet</var>
+    <var name="WSBolt">Venom Bolt</var>
+    <!-- Unlimited Shot-->
+    <var name="UnlimitedArrow">Ruszor Arrow</var>
+    <var name="UnlimitedBullet">Drk. Adm. Bullet</var>
+    <var name="UnlimitedBolt">Venom Bolt</var>
+  </Variables>
+  <sets>
+    <group name="RNG" default="yes">
+      <set name="miscgearcollector">
+        <item>Hunter's Bracers</item>
+        <item>Hunter's Braccae</item>
+        <item>Hunter's Socks</item>
+        <item>Gandiva</item>
+        <item>Armageddon</item>
+        <item>Leo Crossbow</item>
+        <item>Fire Staff</item>
+        <item>Dissector</item>
+        <item>Twilight Knife</item>
+        <item>Rounsey Wand</item>
+        <item>Gatta Strap +1</item>
+        <item>Pitchfork</item>
+      </set>
+      <set name="Town">
+        <head>Sylvan Gapette +2</head>
+        <neck>Sylvan Scarf</neck>
+        <body>Sylvan Caban +2</body>
+        <hands>Syl. Glvltte. +2</hands>
+        <legs>Sylvan Bragues +2</legs>
+        <feet>Trotter Boots</feet>
+        <waist>Buccaneer's Belt</waist>
+        <back>Sylvan Chlamys</back>
+        <lear>Clearview Earring</lear>
+        <rear>Novia Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+      </set>
+      <set name="Recycle" baseset="RATP" load="yes">
+        <head>Scout's Beret</head>
+      </set>
+      <!-- Standing/Idle -->
+      <set name="PDT|Evasion" baseset="Standard">
+        <head>Optical Hat</head>
+        <neck>Twilight Torque</neck>
+        <hands>Slither Gloves</hands>
+        <legs>Ocelot Trousers</legs>
+        <waist>Scouter's Rope</waist>
+        <back>Boxer's Mantle</back>
+        <feet>Trotter Boots</feet>
+        <lear>Musical Earring</lear>
+        <rear>Novia Earring</rear>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="Snapshot">
+        <head>Sylvan Gapette +2</head>
+        <waist>Impluse Belt</waist>
+      </set>
+      <set name="Standard" load="yes">
+        <head>Sylvan Gapette +2</head>
+        <neck>Sylvan Scarf</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Syl. Glvltte. +2</hands>
+        <legs>Sylvan Bragues +2</legs>
+        <feet>Trotter boots</feet>
+        <waist>Goading Belt</waist>
+        <back>Sylvan Chlamys</back>
+        <lear>Clearview Earring</lear>
+        <rear>Volley Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+      </set>
+      <!-- RATP StoreTP-->
+      <set name="RATP" baseset="Standard" load="yes">
+        <!-- Carabinier's Axe-->
+        <!-- Brisk Mask -->
+        <head>Sylvan Gapette +2</head>
+        <neck>Sylvan Scarf</neck>
+        <body>Loki's Kaftan</body>
+        <hands>Syl. Glvltte. +2</hands>
+        <legs>Sylvan Bragues +2</legs>
+        <!-- Gules Leggings +1-->
+        <feet>Sylvan bottln. +2</feet>
+        <waist>Goading Belt</waist>
+        <back>Sylvan Chlamys</back>
+        <lear>Clearview Earring</lear>
+        <rear>Volley Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Hoard Ring</rring>
+      </set>
+      <!-- Holy Bolts-->
+      <set name="MND" baseset="RATP" load="yes">
+        <!--<body>Kirin's Osode</body>-->
+        <legs>Hunter's Braccae</legs>
+        <feet>Suzaku's Sune-ate</feet>
+        <rring>Solemn Ring</rring>
+      </set>
+      <!-- Bloody Bolts-->
+      <set name="INT" baseset="RATP" load="yes">
+        <!--<body>Kirin's Osode</body>-->
+      </set>
+      <!-- Ranged Weaponskills -->
+      <set name="RAWS" bseset="RATP" load="yes">
+        <head>Sylvan Gapette +2</head>
+        <body>Sylvan Caban +2</body>
+        <neck>Sylvan Scarf</neck>
+        <hands>Syl. Glvltte. +2</hands>
+        <legs>Sylvan Bragues +2</legs>
+        <!-- Scout's Socks +2-->
+        <feet>Sylvan Bottln. +2</feet>
+        <waist>Buccaneer's Belt</waist>
+        <back>Sylvan Chlamys</back>
+        <lear>Clearview Earring</lear>
+        <rear>Novia Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <!-- Archery -->
+      <set name="Blast Arrow|Empyreal Arrow" baseset="RAWS"/>
+      <set name="Sidewinder" baseset="RAWS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+        <rear>Volley Earring</rear>
+      </set>
+      <set name="Arching Arrow" baseset="RAWS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+        <rear>Volley Earring</rear>
+      </set>
+      <set name="Refulgent Arrow" baseset="RAWS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+        <rear>Volley Earring</rear>
+      </set>
+      <set name="Trueflight" baseset="RAWS" load="yes">
+        <waist>Thunder Belt</waist>
+      </set>
+      <set name="Jishnu's Radiance" baseset="RAWS" load="yes">
+        <head>Maat's Cap</head>
+        <neck>Light Gorget</neck>
+        <legs>Byakko's Haidate</legs>
+        <waist>Light Belt</waist>
+        <back>Vigilance Mantle+1</back>
+        <rring>Thundersoul Ring</rring>
+        <lear>Delta Earring</lear>
+        <rear>Pixie Earring</rear>
+      </set>
+      <!-- Marksmanships-->
+      <set name="Blast Shot|Heavy Shot" baseset="RAWS"/>
+      <set name="Slug Shot" baseset="RAWS" load="yes">
+        <neck>Light Gorget</neck>
+        <waist>Light Belt</waist>
+        <rear>Volley Earring</rear>
+      </set>
+      <set name="Detonator" baseset="RAWS"/>
+      <set name="Wildfire" baseset="RAWS" load="yes">
+        <hands>Seiryu's Kote</hands>
+        <legs>Ambusher's Hose</legs>
+        <feet>Sylvan Bottln. +2</feet>
+        <waist>Aquiline Belt</waist>
+        <lring>Demon's Ring</lring>
+        <rring>Demon's Ring</rring>
+        <lear>Novio Earring</lear>
+        <rear>Hecate's Earring</rear>
+      </set>
+      <set name="Last Stand" baseset="RAWS">
+        <neck>Light Gorget</neck>
+        <hands>Seiryu's Kote</hands>
+        <waist>Light Belt</waist>
+        <back>Terebellum Mantle</back>
+        <rear>Volley Earring</rear>
+      </set>
+      <set name="Barrage" baseset="RATP" load="yes">
+        <body>Sylvan Caban +2</body>
+        <!-- Hunter +1-->
+        <waist>Buccaneer's Belt</waist>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <set name="Haste" baseset="TP" load="yes">
+        <head>Zelus Tiara</head>
+        <hands>Dusk Gloves</hands>
+        <legs>Byakko's Haidate</legs>
+        <waist>Twilight Belt</waist>
+        <feet>Aurore Gaiters</feet>
+      </set>
+      <!-- Melee -->
+      <!-- Engaged Melee TP -->
+      <set name="TP" baseset="Standard" load="yes">
+        <head>Zelus Tiara</head>
+        <body>Loki's Kaftan</body>
+        <neck>Chivalrous Chain</neck>
+        <hands>Dusk Gloves</hands>
+        <legs>Byakko's Haidate</legs>
+        <feet>Dusk Ledelsens</feet>
+        <waist>Goading Belt</waist>
+        <back>Atheling Mantle</back>
+        <lear>Brutal Earring</lear>
+        <rear>Volley Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+      </set>
+      <set name="WS" baseset="TP">
+        <head>Maat's Cap</head>
+        <neck>Chivalrous Chain</neck>
+        <body>Sylvan Caban +2</body>
+        <waist>Anguinus Belt</waist>
+        <rear>Aesir Ear Pendant</rear>
+        <rring>Pyrosoul Ring</rring>
+      </set>
+      <set name="Raiden Thrust|Cyclone|Energy Drain" baseset="MAB|Wildfire"/>
+      <set name="fastcast" baseset="Haste" load="yes">
+        <neck>Magoraga Beads</neck>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+      </set>
+      <set name="Resting"/>
+    </group>
+    <group name="Voidwatch" inherit="RNG">
+
+    </group>
+  </sets>
+  <rules>
+    <if CommandPrefix="/range|/ra">
+      <!-- Auto Ranged Attack -->
+      <if advanced='"$AutoRanged"=="1"'>
+        <if TargetDistanceLT="$maxdistance" TargetDistanceGT="$mindistance" SpellTargetType="Monster">
+          <command>wait $rangepause; input /range</command>
+        </if>
+      </if>
+      <!-- Check Ammo -->
+      <if equipRange="$Bow">
+        <!-- account for unlimited shot-->
+        <if buffactive="Unlimited Shot">
+          <if notEquipAmmo="$UnlimitedArrow">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$UnlimitedArrow</ammo>
+            </equip>
+          </if>
+        </if>
+        <else>
+          <if notEquipAmmo="$Arrow">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$Arrow</ammo>
+            </equip>
+          </if>
+        </else>
+      </if>
+      <elseif equipRange="$Gun">
+        <if buffactive="Unlimited Shot">
+          <if notEquipAmmo="$UnlimitedBullet">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$UnlimitedBullet</ammo>
+            </equip>
+          </if>
+        </if>
+        <else>
+          <if notEquipAmmo="$Bullet">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$Bullet</ammo>
+            </equip>
+          </if>
+        </else>
+      </elseif>
+      <elseif equipRange="$Crossbow">
+        <if buffactive="Unlimited Shot">
+          <if notEquipAmmo="$UnlimitedBolt">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$UnlimitedBolt</ammo>
+            </equip>
+          </if>
+        </if>
+        <else>
+          <if notEquipAmmo="$Bolt">
+            <equip when="Precast" set="Snapshot">
+              <ammo>$Bolt</ammo>
+            </equip>
+          </if>
+        </else>
+      </elseif>
+      <!-- Barrage -->
+      <if buffactive="Barrage">
+        <addtochat color="121">Barrage Set</addtochat>
+        <equip when="precast" set="Barrage"/>
+      </if>
+      <else>
+        <if equiprange="$Crossbow" advanced='"$Bolt"=="Bloody Bolt"'>
+          <addtochat color="121">Bloody Bolt TP</addtochat>
+          <equip when="midcast" set="INT" />
+        </if>
+        <elseif equiprange="$Crossbow" advanced='"$Bolt"=="Holy Bolt"'>
+          <addtochat color="121">Holy Bolt TP</addtochat>
+          <equip when="midcast" set="MND" />
+        </elseif>
+        <else>
+          <equip when="midcast" set="RATP"/>
+        </else>
+      </else>
+    </if>
+    <if buffactive="Voidwatcher" notgroup="Voidwatch">
+      <cmd>sc group Voidwatch</cmd>
+      <addtochat color="121">Voidwatch Group</addtochat>
+    </if>
+    <elseif notgroup="RNG">
+      <cmd>sc group RNG</cmd>
+      <addtochat color="121">Normal Group</addtochat>
+    </elseif>
+    <!-- Auto Set Rules-->
+    <equip when="Resting" set="Resting" />
+    <!-- Fire Staff - Ranged Attack Mode-->
+    <if equipmain="Fire Staff">
+      <disable slot="Main|Range"/>
+      <if advanced='"$Mode"=="Melee"'>
+        <if status="engaged">
+          <if notSpell="Barrage">
+            <equip when="engaged|aftercast" set="TP"/>
+          </if>
+          <else>
+            <if notSpell="Barrage">
+              <equip when="idle|aftercast" set="PDT"/>
+            </if>
+          </else>
+        </if>
+        <else>
+          <if notbuffactive = "Velocity Shot">
+            <cmd when="engaged">input /ja "Velocity shot" &lt;me&gt;</cmd>
+          </if>
+          <if notspell="Barrage">
+            <equip when="Idle|Engaged|Aftercast" set="RATP">
+              <sub>Gatta Strap +1</sub>
+            </equip>
+          </if>
+        </else>
+      </if>
+      <elseif advanced='"$Mode"=="Ranged"'>
+        <if status="engaged">
+          <if notBuffactive="Barrage">
+            <equip when="engaged|aftercast" set="RATP"/>
+          </if>
+          <else>
+            <if notBuffactive="Barrage">
+              <equip when="idle|aftercast" set="Standard"/>
+            </if>
+          </else>
+        </if>
+        <else>
+          <if notbuffactive = "Velocity Shot">
+            <cmd when="engaged">input /ja "Velocity shot" &lt;me&gt;</cmd>
+          </if>
+          <if notBuffactive="Barrage">
+            <equip when="Idle|Engaged|Aftercast" set="RATP">
+              <sub>Gatta Strap +1</sub>
+            </equip>
+          </if>
+        </else>
+      </elseif>
+      <else>
+        <addtochat color="121">Set Mode To Ranged or Melee</addtochat>
+      </else>
+    </if>
+    <!-- Job Ability Rules-->
+    <if type="jobability">
+      <if spell="Shadowbind">
+        <equip when="precast">
+          <hands>Hunter's Bracers</hands>
+        </equip>
+        <aftercastdelay delay="1.5" />
+      </if>
+      <elseif spell="Barrage">
+        <equip when="precast" set="Barrage"/>
+      </elseif>
+      <elseif spell="Sharpshot">
+        <equip when="precast" delay=".2">
+          <legs>Hunter's Braccae</legs>
+        </equip>
+      </elseif>
+      <elseif spell="Double Shot">
+        <equip when="precast" delay=".2"/>
+      </elseif>
+      <elseif spell="Velocity Shot">
+        <equip when="precast" delay=".2"/>
+      </elseif>
+      <elseif spell="Camoflage">
+        <equip when="precast">
+          <body>Hunter's Jerkin</body>
+        </equip>
+      </elseif>
+      <elseif spell="Scavenge">
+        <equip when="precast">
+          <feet>Hunter's Socks</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Bounty Shot"/>
+    </if>
+    <!-- WS Rules-->
+    <elseif type="Weaponskill">
+      <if status="engaged">
+        <if TPGT="99">
+          <if advanced="%SpellTargetDistance &gt; 17.2" spell="Jishnu's Radiance|Last Stand">
+            <cancelspell/>
+            <addtochat color="121">%SpellTargetName is Too Far for %Spell.</addtochat>
+            <Return/>
+          </if>
+          <elseif advanced="%SpellTargetDistance &gt; 7.1" spell="Numbing Shot">
+            <cancelspell/>
+            <Addtochat color="121">%SpellTargetName is Too Far for %Spell</Addtochat>
+            <Return/>
+          </elseif>
+          <elseif advanced="%SpellTargetDistance &gt; 15.5" spell="Sidewinder|Slug Shot">
+            <cancelspell/>
+            <Addtochat color="121">%SpellTargetName is Too Far for %Spell</Addtochat>
+            <Return/>
+          </elseif>
+          <CastDelay Delay=".5"/>
+          <!-- Archery-->
+          <if EquipRange="$Bow">
+            <if buffactive="Unlimited Shot">
+              <equip when="precast" set="%Spell">
+                <ammo>$UnlimitedArrow</ammo>
+              </equip>
+              <aftercastdelay delay="2.5" />
+            </if>
+            <else>
+              <equip when="precast" set="%Spell">
+                <ammo>$WSArrow</ammo>
+              </equip>
+            </else>
+          </if>
+          <!-- Gun-->
+          <elseif EquipRange="$Gun">
+            <if buffactive="Unlimited Shot">
+              <if spell="Wildfire">
+                <if advanced='("%WeatherElement"="Fire") OR ("%DayElement"="Fire")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$UnlimitedBullet</ammo>
+                </equip>
+              </if>
+              <elseif spell="Trueflight">
+                <if advanced='("%WeatherElement"="Light") OR ("%DayElement"="Light")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$UnlimitedBullet</ammo>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="precast" set="%Spell">
+                  <ammo>$UnlimitedBullet</ammo>
+                </equip>
+              </else>
+              <aftercastdelay delay="2.5" />
+            </if>
+            <else>
+              <if spell="Wildfire">
+                <castdelay delay="0.03" />
+                <if advanced='("%WeatherElement"="Fire") OR ("%DayElement"="Fire")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBullet</ammo>
+                </equip>
+              </if>
+              <elseif spell="Trueflight">
+                <if advanced='("%WeatherElement"="Light") OR ("%DayElement"="Light")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBullet</ammo>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBullet</ammo>
+                </equip>
+              </else>
+            </else>
+          </elseif>
+          <!-- Crossbow -->
+          <elseif EquipRange="$Crossbow">
+            <aftercastdelay delay="2.5" />
+            <if buffactive="Unlimited Shot">
+              <if spell="Trueflight">
+                <if advanced='("%WeatherElement"="Light") OR ("%DayElement"="Light")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$UnlimitedBolt</ammo>
+                </equip>
+              </if>
+              <else>
+                <equip when="precast" set="%Spell">
+                  <ammo>$UnlimitedBolt</ammo>
+                </equip>
+              </else>
+            </if>
+            <else>
+              <if spell="Wildfire">
+                <if advanced='("%WeatherElement"="Fire") OR ("%DayElement"="Fire")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBolt</ammo>
+                </equip>
+              </if>
+              <elseif spell="Trueflight">
+                <if advanced='("%WeatherElement"="Light") OR ("%DayElement"="Light")' >
+                  <equip when="precast">
+                    <waist lock="yes">Karin Obi</waist>
+                  </equip>
+                </if>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBolt</ammo>
+                </equip>
+              </elseif>
+              <else>
+                <equip when="precast" set="%Spell">
+                  <ammo>$WSBolt</ammo>
+                </equip>
+              </else>
+            </else>
+          </elseif>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">You Don't Have Enough TP</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <addtochat color="121">Must be engaged to WS. Engaging</addtochat>
+        <cmd>input /attack</cmd>
+      </else>
+    </elseif>
+    <!-- Subjob Rules -->
+    <!-- NIN -->
+    <if subjob="NIN">
+      <if equiprange="$bow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $NINMacroSet</cmd>
+        </if>
+      </if>
+      <elseif equiprange="$gun|$crossbow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $GUNNINMacroSet</cmd>
+        </if>
+      </elseif>
+      <if spell="Utsusemi*">
+        <equip when="precast" set="fastcast" />
+        <if spell="*Ichi" BuffActive="Copy Image*">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 66</command>
+          <command when="midcast">cancel 445</command>
+          <command when="midcast">cancel 446</command>
+          <command when="midcast">cancel 444</command>
+        </if>
+      </if>
+      <elseif spell="Sneak">
+        <changespell spell="Monomi: Ichi"/>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell spell="Tonko: Ni"/>
+      </elseif>
+      <elseif spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </elseif>
+    </if>
+    <!-- SAM -->
+    <elseif subjob="SAM">
+      <!-- Auto Macro set -->
+      <if equiprange="$bow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $SAMMacroSet</cmd>
+        </if>
+      </if>
+      <elseif equiprange="$gun|$crossbow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $GunSAMMacroSet</cmd>
+        </if>
+      </elseif>
+      <!-- Sekkanoki -->
+      <if spell="Sekkanoki" tplt="150">
+        <cancelspell />
+        <addtochat color="121">You Don't have enough TP for that</addtochat>
+      </if>
+      <!-- Meditate -->
+      <elseif spell="Meditate" tpgt="200">
+        <cancelspell/>
+        <addtochat color="121">You have too much tp for that.</addtochat>
+      </elseif>
+      <!-- Auto Hasso on Engaged -->
+      <if status="engaged" notbuffactive = "Hasso">
+        <Cmd when="engaged">wait 3;input /ja "Hasso" &lt;me&gt;</Cmd>
+      </if>
+    </elseif>
+    <!-- WAR-->
+    <elseif subjob="WAR">
+      <!-- Automacroset-->
+      <if equiprange="$Bow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $WARMacroSet</cmd>
+        </if>
+      </if>
+      <elseif equiprange="$Gun|$Crossbow">
+        <if advanced='"$AutoMacroSet"=="1"'>
+          <cmd when="aftercast">input /macro set $GunWARMacroSet</cmd>
+        </if>
+      </elseif>
+      <if spell="Berserk">
+        <if buffactive="Berserk">
+          <cancelspell/>
+          <addtochat color="121">%spell is already active.</addtochat>
+        </if>
+      </if>
+      <elseif spell="Warcry">
+        <if buffactive="warcry">
+          <cancelspell/>
+          <addtochat color="121">%spell is already active.</addtochat>
+        </if>
+      </elseif>
+      <if status="engaged" notbuffactive ="Berserk">
+        <Cmd when="engaged">wait 3;input /ja "Berserk" &lt;me&gt;</Cmd>
+      </if>
+    </elseif>
+  </rules>
+</spellcast>

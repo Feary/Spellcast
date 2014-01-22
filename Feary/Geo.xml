@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+  <guildwork character="Feary" server="Sylph" description="Feary's Geo Spellcast" job="GEO"/>
+  <config RequireVersion="2.45" debug="false" showgearswaps="false" showspellinfo="False"/>
+  <variables clear="True">
+    <!-- Idle in Refresh Gear vs PDT -->
+    <var name="IR">0</var>
+    <!-- Auto Macro set based on Sub -->
+    <var name="AutoMacroset">1</var>
+    <var name="RDMSub">8</var>
+    <var name="WHMSub">9</var>
+    <var name="BLMSub">8</var>
+    <var name="SCHSub">8</var>
+    <var name="NinSub">8</var>
+    <!-- Add Info to JAs and Spells -->
+    <var name="addtochat">1</var>
+    <!-- Enfeebling Timers -->
+    <var name="SleepTimers">1</var>
+    <!-- Twilight Cape do you have or use it? -->
+    <var name="TwilightCape">1</var>
+    <!-- Zodiac Ring -->
+    <var name="ZodiacRing">1</var>
+    <!-- Lock Weapons -->
+    <var name="Club">Mondaha Cudgel|Warp Cudgel|Roundel Wand</var>
+    <var name="Staff">Teiwaz|Crook</var>
+    <!-- Elemental Staves-->
+    <var name="MaccStaff">Atinian Staff</var>
+    <var name="CureStaff">Arka IV</var>
+    <var name="RestingStaff">Chatoyant Staff</var>
+    <var name="PDTStaff">Earth Staff</var>
+    <var name="NukeStaff">Atinian Staff</var>
+    <!-- Precast Staves-->
+    <var name="IceStaff">Vourukasha I</var>
+    <var name="DarkStaff"></var>
+    <var name="ThunderStaff">Apamajas I</var>
+    <var name="LightStaff"></var>
+    <var name="WindStaff"></var>
+    <var name="FireStaff">Atar I</var>
+    <var name="EarthStaff"></var>
+    <var name="WaterStaff"></var>
+    <!-- Magian Staff, set to 1 for the ones you have. -->
+    <var name="IceMagian">1</var>
+    <var name="DarkMagian">0</var>
+    <var name="ThunderMagian">1</var>
+    <var name="LightMagian">0</var>
+    <var name="WindMagian">0</var>
+    <var name="FireMagian">1</var>
+    <var name="EarthMagian">0</var>
+    <var name="WaterMagian">0</var>
+    <!-- Elemental Obi's, set to 1 for the ones you have. -->
+    <var name="DarkObi">1</var>
+    <var name="LightObi">1</var>
+    <var name="ThunderObi">1</var>
+    <var name="IceObi">1</var>
+    <var name="FireObi">1</var>
+    <var name="WindObi">1</var>
+    <var name="WaterObi">0</var>
+    <var name="EarthObi">0</var>
+    <!-- Do Not Change - Anything below this -->
+    <!-- Obi -->
+    <var name="StormElement">None</var>
+    <var name="Ice-Obi">hyorin obi</var>
+    <var name="Dark-Obi">Anrin obi</var>
+    <var name="Thunder-Obi">rairin obi</var>
+    <var name="Light-Obi">korin obi</var>
+    <var name="Wind-Obi">furin obi</var>
+    <var name="Fire-Obi">karin obi</var>
+    <var name="Earth-Obi">dorin obi</var>
+    <var name="Water-Obi">suirin obi</var>
+    <!-- Damage Magian Staves -->
+    <var name="Ice-Magian">Vourukasha I</var>
+    <var name="Dark-Magian">Xsaeta I</var>
+    <var name="Thunder-Magian">Apamajas I</var>
+    <var name="Light-Magian">Arka I</var>
+    <var name="Wind-Magian">Vayuvata I</var>
+    <var name="Fire-Magian">Atar I</var>
+    <var name="Earth-Magian">Vishrava I</var>
+    <var name="Water-Magian">Haoma I</var>
+    <!-- Geo Stuff -->
+    <var name="Luopan">0</var>
+  </variables>
+  <sets>
+    <group name="GEO" default="yes">
+      <set name="MiscGearCollector">
+        <item>Apamajas I</item>
+        <item>Atar I</item>
+        <item>Arka IV</item>
+        <item>Vourukasha I</item>
+        <item>Chatoyant Staff</item>
+        <item>Earth Staff</item>
+        <item>Karin Obi</item>
+        <item>Hyorin Obi</item>
+        <item>Rairin Obi</item>
+        <item>Zodiac Ring</item>
+        <item>Twilight Cape</item>
+      </set>
+      <set name="Town" baseset="Standard" load="yes">
+        <feet>Geomancy Sandals</feet>
+      </set>
+      <!-- Movement Speed >    -->
+      <set name="Standard" baseset="PDT" load="yes">
+        <main>$PDTStaff</main>
+        <range>Filiae Bell</range>
+        <waist>Austerity Belt</waist>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>        
+      </set>
+      <set name="Idle-Refresh" baseset="PDT">
+        <!--<neck>Chrys. Torque</neck>-->
+        <legs>Nares Trews</legs>
+        <!--<feet>Serpentes Sabots</feet>-->
+        <lear>Loquac. Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+      <set name="Luopon" baseset="Standard">
+        <head>Selenian Cap</head>
+        <hands>Geomancy Mitaines</hands>
+      </set>
+      <set name="PDT">
+        <main>$PDTStaff</main>
+        <head>Hagondes Hat</head>
+        <neck>Twilight Torque</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <back>Umbra Cape</back>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+      </set>
+      <set name="MDT">
+        <head>Hagondes Hat</head>
+        <neck>Twilight Torque</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <lring>Dark Ring</lring>
+        <rring>Dark Ring</rring>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
+      </set>
+      <set name="Resting" baseset="Standard">
+        <main>$RestingStaff</main>
+        <neck>Eidolon Pendant</neck>
+        <body>Hagondes Coat</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <feet>Chelona Boots</feet>
+        <waist>Austerity Belt</waist>
+        <back>Felicitas Cape</back>
+        <lear>Magnetic Earring</lear>
+        <rear>Moonshade Earring</rear>
+      </set>
+      <!-- Magic -->
+      <!-- Precast -->
+      <set name="Fastcast">
+        <main>$%SpellElementStaff</main>
+        <!--<ammo>Impatiens</ammo>-->
+        <head>Nahtirah Hat</head>
+        <body>Anhur Robe</body>
+        <!-- Repartie Gloves-->
+        <legs>Geomancy Pants</legs>
+        <feet>Chelona Boots</feet>
+        <!-- <waist>Witful Belt</waist>-->
+        <back>Lifestream Cape</back>       
+        <lring>Prolix Ring</lring>
+        <rear>Loquac. Earring</rear>        
+      </set>
+      <set name="CurePrecast" baseset="Fastcast" load="yes">
+        <body>Heka's Kalasiris</body>
+        <!--<back>Pahtli Cape</back>-->
+      </set>
+      <!-- Midcast-->
+      <set name="Recast" baseset="PDT">
+        
+      </set>
+      <set name="ConserveMP" baseset="Recast" load="no">
+        <ammo>Clarus Stone</ammo>
+        <!--<head>Nares Cap</head>-->
+        <body>Hedera Cotehardie</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <!--<feet>Aife's Pumps</feet>-->
+        <feet>Serpentes Sabots</feet>
+        <waist>Austerity Belt</waist>
+        <!--<back>Vita Cape</back>-->
+        <lear>Magnetic Earring</lear>
+        <rear>Gifted Earring</rear>
+      </set>
+      <set name="Geomancy">
+        <range>Filiae Bell</range>
+        <hands>Geomancy Mitaines</hands>
+        <back>Lifestream Cape</back>
+      </set>
+      <!--Nukes-->
+      <set name="FullDamage">
+        <!--Zuuxowu Grip -->
+        <sub>Wise Strap</sub>
+        <!-- Dosis Tathlum -->
+        <ammo>Witchstone</ammo>
+        <!--<head>Hagondes Hat</head>-->
+        <head>Nahtirah Hat</head>
+        <neck>Eddy Necklace</neck>
+        <!-- Hagondes Coat -->
+        <body>Bokwus Robe</body>
+        <hands>Yaoyotl Gloves</hands>
+        <legs>Hagondes Pants</legs>
+        <!--<feet>Hagondes Sabots</feet>-->
+        <feet>Bowkus Boots</feet>
+        <!-- Aswang Sash -->
+        <waist>Wanion Belt</waist>
+        <back>Toro Cape</back>
+        <lear>Friomisi Earring</lear>
+        <rear>Novio Earring</rear>
+        <!-- Strendu Ring-->
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+      </set>
+      <set name="HighResist" Baseset="FullDamage">
+        <head>Geomancy Galero</head>
+        <rear>Strophadic Earring</rear>
+      </set>
+      <set name="DarkMagic" baseset="Macc">
+        <head>Appetence Crown</head>
+        <neck>Aesir Torque</neck>
+        <body>Geomancy Tunic</body>
+        <legs>Portent Pants</legs>
+        <back>Merciful Cape</back>
+      </set>
+      <set name="EnfeeblingMagic|Macc" baseset="ConserveMP" load="yes">
+        <main>$Maccstaff</main>
+        <!-- Buremte Hat-->
+        <head>Nahtirah Hat</head>
+        <!-- Wilke Torque-->
+        <neck>Eddy Necklace</neck>
+        <body>Bokwus Robe</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Bokwus Slops</legs>
+        <!-- Uk'uxkaj Boots -->
+        <feet>Bokwus Boots</feet>
+        <waist>Demonry Sash</waist>
+        <back>Lifestream Cape</back>
+        <lring>Balrahn's ring</lring>
+        <rring>Sangoma Ring</rring>
+        <lear>Lifestorm Earring</lear>
+        <rear>Psystorm Earring</rear>
+        <sub>Mephitis Grip</sub>
+      </set>
+      <set name="INT" baseset="Macc">
+        <!-- Goal 150 INT-->
+        <Head>Geomancy Galero</Head>
+        <neck>Aesir Torque</neck>
+        <body>Bokwus Robe</body>
+        <hands>Yaoyotl Gloves</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
+        <waist>Wanion Belt</waist>
+        <back>Refraction Cape</back>
+        <lring>Icesoul Ring</lring>
+        <rring>Icesoul Ring</rring>
+      </set>
+      <set name="MND" baseset="Macc">
+
+      </set>  
+      <!-- Healing Magic -->
+      <set name="Cure">
+        <main>$CureStaff</main>
+        <neck>Colossus's Torque</neck>
+        <body>Heka's Kalasiris</body>
+        <hands>Bokwus Gloves</hands>
+        <legs>Nares Trews</legs>
+        <feet>Bokwus Boots</feet>
+        <waist>Cascade Belt</waist>
+        <back>Refraction Cape</back>
+        <lring>Aquasoul Ring</lring>
+        <rring>Aquasoul Ring</rring>
+      </set>
+      <set name="EnhancingMagic">
+        <neck>Colossus's Torque</neck>
+        <hands>Ayao's Gages</hands>
+        <legs>Portent Pants</legs>
+        <waist>Cascade Belt</waist>
+        <back>Merciful Cape</back>
+      </set>
+      <set name="Stoneskin" baseset="recast">
+        <waist>Siegel Sash</waist>
+      </set>
+      <!--Melee-->
+      <set name="TP"/>
+      <set name="WS" baseset="TP"/>
+      <set name="Hexa Strike" baseset="ws">
+        <head>Nahtirah Hat</head>
+        <!--<neck>Light Gorget</neck>-->
+        <body>Hagondes Coat</body>
+        <hands>Yaoyotl Gloves</hands>
+        <legs>Hagondes Cuffs</legs>
+        <feet>Hagondes Sabots</feet>
+        <waist>Prosilio Belt</waist>
+        <back>Vespid Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <lear>Steelflash Earring</lear>
+        <rear>Bladeborn Earring</rear>
+      </set>
+      <set name="Realmrazer" baseset="ws">
+        
+      </set>
+      <set name="Shattersoul" baseset="ws">
+        
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
+      <return />
+    </if>
+    <!-- Autoset -->
+    <if equipmain="$Club">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP" />
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="PDT" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </if>
+    <elseif equipmain="$Staff">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP">
+          <sub>Pole Grip</sub>
+        </equip>
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="PDT" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </elseif>
+    <else>
+      <enable slot="main|sub|range" />
+      <equip when="resting" set="resting"/>
+      <if advanced='"$IR"=="1"'>
+        <if status="engaged">
+          <equip when="Idle|Aftercast" set="TP"/>
+        </if>
+        <else>
+          <addtochat color="121">===== Idle-Refresh =====</addtochat>
+          <equip when="Idle|Aftercast" set="Idle-Refresh"/>
+        </else>
+      </if>
+      <else>
+        <if status="engaged">
+          <equip when="Idle|Aftercast" set="TP"/>
+        </if>
+        <else>
+          <addtochat color="121">===== Idle-PDT =====</addtochat>
+          <equip when="Idle|Aftercast" set="Standard"/>
+        </else>
+      </else>
+    </else>
+    <if type="JobAbility">
+      <if spell="Full circle">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">Releasing Luopan - Returning some MP </addtochat>
+        </if>
+        <var cmd="set Luopan 0"/>
+      </if>
+      <elseif spell="Lasting Emanation">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Decreases HP Consumed</addtochat>
+        </if>
+        <command when="precast">wait 120;input /echo [%spell]/[Ecliptic Attrition]  Ready in 3 Minutes</command>
+        <command when="precast">wait 240;input /echo [%spell]/[Ecliptic Attrition]  Ready in 1 Minutes</command>
+        <command when="precast">wait 300;input /echo [%spell]/[Ecliptic Attrition]  Ready!</command>
+      </elseif>
+      <elseif spell="Ecliptic Attrition">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Loupon Potency +25%</addtochat>
+        </if>
+        <command when="precast">wait 120;input /echo [%spell]/[Lasting Emanation] Ready in 3 Minutes</command>
+        <command when="precast">wait 240;input /echo [%spell]/[Lasting Emanation] Ready in 1 Minutes</command>
+        <command when="precast">wait 300;input /echo [%spell]/[Lasting Emanation] Ready!</command>
+      </elseif>
+      <elseif spell="Collimated Fervor">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Enhances Nukes by Direction Job trait</addtochat>
+        </if>
+        <equip when="precast">
+          <head>Geomancy Galero</head>
+        </equip>
+      </elseif>
+      <elseif spell="Life Cycle">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Distributes one fourth of your HP to heal your luopan. </addtochat>
+        </if>
+        <equip when="precast">
+          <body>Geomancy Tunic</body>
+        </equip>
+        <cmd when="aftercast">wait 1;input /ma "Cure IV" &lt;me&gt;</cmd>
+      </elseif>
+      <elseif spell="Blaze of Glory">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Loupon Potency +50% </addtochat>
+        </if>
+      </elseif>
+      <elseif spell="Dematerialize">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">Loupon DT</addtochat>
+        </if>
+      </elseif>
+      <elseif spell="Theurgic Focus">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Increases next Nuke by +50 MAB </addtochat>
+        </if>
+      </elseif>
+      <elseif spell="Concentric Pulse">
+        <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">%Spell - Dismiss Loupon  and Deals Damage</addtochat>
+        </if>
+      </elseif>
+      <elseif spell="Mending Halation">
+        <castdelay delay="3"/>
+        <cmd>input /p Casting %Spell - HP Return in 3 secs. Gather together!</cmd>
+        <command when="precast">wait 120;input /echo [%spell] Ready in 3 Minutes</command>
+        <command when="precast">wait 240;input /echo [%spell] Ready in 1 Minutes</command>
+        <command when="precast">wait 300;input /echo [%spell] Ready!</command>
+      </elseif>
+      <elseif spell="Radial Arcana">
+        <castdelay delay="3"/>
+        <cmd>input /p Casting %Spell - MP Return in 3 secs. Gather together!</cmd> 
+        <command when="precast">wait 120;input /echo [%spell] Ready in 3 Minutes</command>
+        <command when="precast">wait 240;input /echo [%spell] Ready in 1 Minutes</command>
+        <command when="precast">wait 300;input /echo [%spell] Ready!</command>
+      </elseif>
+    </if>
+    <!-- Weapon Skill -->
+    <elseif type="Weaponskill">
+      <if TPGT="99" status="Engaged">
+        <if advanced="%SpellTargetDistance &lt; 5">
+          <CastDelay Delay=".5"/>
+          <if spell="Hexa Strike|Realmrazer|Shattersoul">
+            <equip when="precast" set="%Spell"/>
+          </if>
+          <else>
+            <equip when="precast" set="WS"/>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <Return/>
+        </else>
+      </if>
+      <else>
+        <cancelspell/>
+        <addtochat color="121">You must be Engaged and have 100+ TP</addtochat>
+        <Return/>
+      </else>
+    </elseif>
+    <!-- Geomancy -->
+    <elseif type="Geomancy">
+      <equip when="precast" set="fastcast"/>
+      <equip when="midcast" set="Geomancy"/>
+      <if buffactive="Lasting Emanation"/>      
+      <if buffactive="Ecliptic Attrition"/>
+      <if buffactive="Collimated Fervor"/>
+      <if buffactive="Dematerialize"/>
+      <if buffactive="Bolster"/>
+      <if spell="Indi*">
+        <if validtarget="SELF">
+          <if advanced='"$Addtochat"="1"'>
+            <addtochat color="121">===== Self AOE =====</addtochat>
+          </if>
+          <defaulttarget Target="&lt;me&gt;"/>
+        </if>
+      </if>
+      <elseif spell="Geo*">
+        <if advanced='"$PetisValid"=="true"'>
+          <changespell spell="Full Cycle"/>
+        </if>
+        <if validtarget="Self, Party">
+          <if advanced='"$Addtochat"="1"'>
+          <addtochat color="121">Cast %Spell on a Party Member to make Loupon at this location</addtochat>
+            </if>
+          <defaulttarget Target="&lt;stpc&gt;"/>
+        </if>
+        <else>
+          <if advanced='"$Addtochat"="1"'>
+            <addtochat color="121">Cast %Spell on a Monster to make Loupon at his location</addtochat>
+          </if>
+          <defaulttarget Target="&lt;stnpc&gt;"/>
+        </else>
+       </elseif>
+    </elseif>
+    <!-- Magic -->
+    <elseif type="*Magic*">
+      <equip when="precast" set="Fastcast"/>
+      <if skill="ElementalMagic">
+        <!-- Elemental DOTS-->
+        <if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
+          <!-- equip elemental/INT gear for DoT's -->
+          <equip when="midcast" Set="INT" />
+        </if>
+        <elseif spell="Impact">
+          <equip when="precast" set="fastcast">
+            <body lock="true">Twilight Cloak</body>
+          </equip>
+          <equip when="precast" set="Macc">
+            <body lock="true">Twilight Cloak</body>
+          </equip>
+          <cmd>wait 180;input /p Impact has worn off.</cmd>
+        </elseif>
+        <else>
+          <!-- Handle Elemental Gear -->
+          <if advanced = '("%SpellElement" = "%WeatherElement" or "%SpellElement" = "%DayElement" or "%SpellElement" = "$StormElement")'>
+            <if advanced='"$%SpellElementObi" = "1"'>
+              <equip when="midcast">
+                <waist lock="True">$%SpellElement-Obi</waist>
+              </equip>
+            </if>
+            <if advanced='"$TwilightCape" == "1"'>
+              <equip when="midcast">
+                <back lock="True">Twilight Cape</back>
+              </equip>
+            </if>
+            <if Advanced='"$ZodiacRing" == "1"'>
+              <equip when="midcast">
+                <rring lock="true">Zodiac Ring</rring>
+              </equip>
+            </if>
+          </if>
+          <equip when="midcast" Set="FullDamage">
+            <main lock="true">$NukeStaff</main>
+          </equip>
+        </else>
+      </if>
+      <elseif skill="HealingMagic">
+        <if spell="Cure*|Curag*">
+          <equip when="precast" set="CurePrecast"/>
+          <equip when="midcast" set="Cure"/>
+        </if>
+        <else>
+          <equip when="midcast" set="fastcast"/>
+        </else>
+      </elseif>
+      <elseif skill="EnhancingMagic">
+        <if Spell="Stoneskin" BuffActive="Stoneskin">
+          <equip when="midcast" set="Stoneskin"/>
+          <command when="midcast">cancel 37</command>
+          <midcastdelay delay="4.8" />
+        </if>
+        <elseif Spell="Blink" BuffActive="Blink">
+          <command when="midcast">cancel 36</command>
+          <midcastdelay delay="4.5" />
+        </elseif>
+        <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
+        <elseif Spell="Sneak" BuffActive="Sneak" SpellTargetType="Self">
+          <command when="midcast">cancel 71</command>
+          <midcastdelay delay="1.8" />
+        </elseif>
+        <elseif spell="Phalanx">
+          <equip when="midcast" set="%Skill"/>
+        </elseif>
+        <else>
+          <equip when="midcast" set="ConserveMP"/>
+        </else>
+      </elseif>
+      <elseif skill="EnfeeblingMagic">
+        <if spell="Bind">
+          <equip when="midcast" set="INT"/>
+        </if>
+        <else>
+          <equip when="midcast" set="%Skill"/>
+        </else>
+        <!-- Timers for when sleep is wearing off. -->
+        <if advanced='"$SleepTimers"="1"'>
+          <if Spell="Sleep II|Sleepga II">
+            <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</command>
+            <command when="aftercast">wait 75;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+            <command when="aftercast">wait 85;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+          </if>
+          <elseif Spell="Sleep|Sleepga">
+            <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+            <command when="aftercast">wait 55;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+          </elseif>
+        </if>
+      </elseif>
+      <elseif skill="DarkMagic">
+        <if Spell="Stun">
+          <!-- these codes just print Stun in auto translate into chat. -->
+          <if advanced='"$PrintChat"=="1"'>
+            <command>input /p Stun &gt;&gt; &lt;%SpellTarget&gt;</command>
+          </if>
+          <equip when="midcast" set="DarkMagic"/>
+        </if>       
+        <else>
+          <equip when="midcast" set="%Skill"/>
+        </else>
+      </elseif>
+      <else>
+        <!-- for any other type of spell, just equip matching set name. -->
+        <equip when="precast|midcast" Set="Standard|%Skill" />
+      </else>
+    </elseif>
+     <!-- Subjob -->
+    <if Subjob="RDM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $RDMSub</cmd>
+      </if>
+    </if>
+    <elseif subjob="WHM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $WHMSub</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="BLM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $BLMSub</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="SCH">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $SCHSub</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $NinSub</cmd>
+      </if>
+    </elseif>
+  </rules>
+</spellcast>

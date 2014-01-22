@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" ?>
+<spellcast xmlns:xi = "http://www.w3.org/2001/XInclude">
+  <guildwork
+        character="Derion"
+        server="Sylph"
+        description="Derion's RDM Spellcast"
+        job="RDM"
+    />
+  <config
+      requireversion="2.30"
+      showgearswaps="false"
+      showspellinfo="False"
+        />
+  <variables>
+    <!-- Print To Chat -->
+    <var name="Printtochat">0</var>
+    <!-- Auto Macro set based on Sub -->
+    <var name="AutoMacroset">1</var>
+    <!-- Enfeebling Timers -->
+    <var name="SleepTimers">1</var>
+    <var name="EnfeeblingTimers">1</var>
+    <var name="DarkTimers">0</var>
+    <!-- Tell party about your status effects-->
+    <var name="Statuses">0</var>
+    <!-- Auto Elelmental Buff Cycle -->
+    <var name="EleBuff">0</var>
+    <!--Healing Mode ie: Meriting-->
+    <var name="MainHeal">0</var>
+    <!-- use Ugg Pendant or not? set to 0 if you do not have it. -->
+    <var name="UggPendant">1</var>
+    <!-- Twilight Cape do you have or use it? -->
+    <var name="TwilightCape">1</var>
+    <!-- Zodiac ring -->
+    <var name="ZodiacRing">1</var>
+    <!-- Weapons -->
+    <var name="Club">Warp Cudgel|Roundel Wand</var>
+    <var name="Staff">Teiwaz</var>
+    <var name="Sword">Dissector</var>
+    <var name="Dagger">Mandau|Twilight Knife</var>
+    <!-- Elemental Staves -->
+    <var name="IceStaff">Vourukasha I</var>
+    <var name="WindStaff">Iridal Staff</var>
+    <var name="EarthStaff">Iridal Staff</var>
+    <var name="ThunderStaff">Apamajas I</var>
+    <var name="WaterStaff">Iridal Staff</var>
+    <var name="FireStaff">Agni's Staff +2</var>
+    <var name="DarkStaff">Iridal Staff</var>
+    <var name="LightStaff">Iridal Staff</var>
+    <var name="PDTStaff">Earth Staff</var>
+    <var name="RestingStaff">Iridal Staff</var>
+    <var name="CureStaff">Arka IV</var>
+    <!-- Elemental Grips -->
+    <var name="LightGrip">Bugard Strap +1</var>
+    <var name="DarkGrip">Bugard Strap +1</var>
+    <var name="ThunderGrip">Bugard Strap +1</var>
+    <var name="IceGrip">Bugard Strap +1</var>
+    <var name="FireGrip">Bugard Strap +1</var>
+    <var name="WindGrip">Bugard Strap +1</var>
+    <var name="WaterGrip">Bugard Strap +1</var>
+    <var name="EarthGrip">Bugard Strap +1</var>
+    <!-- Elemental Obi's, set to 1 for the ones you have. -->
+    <var name="obidark">1</var>
+    <var name="obilight">1</var>
+    <var name="obithunder">1</var>
+    <var name="obiice">1</var>
+    <var name="obifire">1</var>
+    <var name="obiwind">1</var>
+    <var name="obiwater">0</var>
+    <var name="obiearth">0</var>
+    <!-- Do not edit -->
+    <!-- elemental buffs saver-->
+    <var name="EleDeBuffCycle">1</var>
+    <var name="MoonPhase">0</var>
+  </variables>
+  <sets>
+    <group name="Red Mage" default="yes">
+      <set name="Town" Baseset="Standard" load="yes">
+        <main store = "mog satchel">$CureStaff</main>
+        <head store = "mog satchel">Estq. Chappel +1</head>
+        <body store = "mog satchel">Estq. Sayon +1</body>
+        <hands store = "mog satchel">Estq. Ganthrt. +1</hands>
+        <legs store = "mog satchel">Estqr. Fuseau +1</legs>
+        <feet store = "mog satchel">Estq. Houseaux +1</feet>
+      </set>
+      <set name="Standard" load="yes">
+        <main store = "mog satchel">$PDTStaff</main>
+        <sub store = "mog satchel">Raptor Strap +1</sub>
+        <head store = "mog satchel">Duelist's Chapeau</head>
+        <body store = "mog satchel">Estq. Sayon +1</body>
+        <neck store = "mog satchel">Morgana's Choker</neck>
+        <hands store = "mog satchel">Zenith Mitts</hands>
+        <!-- Crimson Cuisses -->
+        <legs store = "mog satchel">Goliard Trews</legs>
+        <feet store = "mog satchel">Estq. Houseaux +1</feet>
+        <waist store = "mog satchel">Austerity Belt</waist>
+        <back store = "mog satchel">Altruistic Cape</back>
+        <lring store = "mog satchel">Tamas Ring</lring>
+        <rring store = "mog satchel">Bifrost Ring</rring>
+        <lear store = "mog satchel">Loquac. Earring</lear>
+        <rear store = "mog satchel">Magnetic Earring</rear>
+      </set>
+      <set name="DmgDown|PDT" Baseset="Standard" load="yes">
+        <main store = "mog satchel">$PDTStaff</main>
+        <neck store = "mog satchel">Twilight Torque</neck>
+        <!--
+        <head store = "mog satchel">Darksteel Cap</head>
+        <body store = "mog satchel">Darksteel Harness</body>
+        <hands store = "mog satchel">Darksteel Mittens</hands>
+        <legs store = "mog satchel">Tatsu. Sitagoromo</legs>
+        <feet store = "mog satchel">Dst. Leggings</feet>
+        <back store = "mog satchel">Cheviot Cape</back>
+        <lring store = "mog satchel">Patronus Ring</lring>      
+        -->
+      </set>
+      <set name="Resting" Baseset="standard" load="yes">
+        <main store = "mog satchel">$RestingStaff</main>
+        <ammo store ="mog satchel">Clarus Stone</ammo>
+        <head store = "mog satchel">Goliard Chapeau</head>
+        <neck store = "mog satchel">Eidolon pendant</neck>
+        <body store = "mog satchel">Errant Hpl.</body>
+        <legs store = "mog satchel">Sagacity Lappas</legs>
+        <waist store = "mog satchel">Austerity Belt</waist>
+        <back store = "mog satchel">Felicitas Cape</back>
+        <lear store = "mog satchel">Magnetic Earring</lear>
+        <rear store = "mog satchel">Antivenom Earring</rear>        
+      </set>
+      <set name="Cure" BaseSet="Fastcast" load="yes">
+        <main store = "mog satchel">$CureStaff</main>
+        <head store = "mog satchel">Estq. Chappel +1</head>
+        <body store = "mog satchel">Augur's Jaseran</body>
+        <lring store = "mog satchel">Tamas Ring</lring>
+        <rring store = "mog satchel">Sirona's Ring</rring>
+        <waist store = "mog satchel">Penitent's Rope</waist>
+        <back store = "mog satchel">Estoqueur's Cape</back>
+        <legs store = "mog satchel">Warlock's Tights</legs>
+        <hands store="mog satchel">Augur's Gloves</hands>
+        <feet store = "mog satchel">Estq. Houseaux +1</feet>
+      </set>
+      <set name="Enmity|CureIV" BaseSet="Cure" load="yes"/>
+      <set name="Enhancing" BaseSet="Fastcast" load="yes">
+        <hands store="mog satchel">Augur's Gloves</hands>
+        <legs store = "mog satchel">Warlock's Tights</legs>
+        <feet store = "mog satchel">Estq. Houseaux +1</feet>
+        <back store = "mog satchel">Estoqueur's Cape</back>
+      </set>
+      <set name="Stoneskin" BaseSet="Standard" load="yes"/>
+      <set name="FastCast" BaseSet="Standard" load="yes">
+        <head store = "mog satchel">Warlock's Chapeau</head>
+        <lear store = "mog satchel">Loquac. Earring</lear>
+      </set>
+      <set name="Enfeebling" basese="standard" load="yes">
+        <head store = "mog satchel">Duelist's Chapeau</head>
+        <body store = "mog satchel">Warlock's Tabard</body>
+        <rring store = "mog satchel">Omega Ring</rring>
+      </set>
+      <set name="EnfeebINT" BaseSet="Enfeebling" load="yes">
+        <lear store = "mog satchel">Morion Earring</lear>
+        <hands store = "mog satchel">Teal Cuffs</hands>
+        <lring store = "mog satchel">Tamas Ring</lring>
+        <rring store = "mog satchel">Omega Ring</rring>
+        <waist store = "mog satchel">Penitent's Rope</waist>
+        <legs store = "mog satchel">Estqr. Fuseau +1</legs>
+        <ammo store = "mog satchel">Snow Sachet</ammo>
+      </set>
+      <set name="EnfeebMND" BaseSet="Enfeebling" load="yes">
+        <hands store="mog satchel">Augur's Gloves</hands>
+        <lring store = "mog satchel">Tamas Ring</lring>
+        <rring store = "mog satchel">Omega Ring</rring>
+        <waist store = "mog satchel">Penitent's Rope</waist>
+        <back store = "mog satchel">Estoqueur's Cape</back>
+        <legs store = "mog satchel">Sagacity Lappas</legs>
+        <feet store = "mog satchel">Estq. Houseaux +1</feet>
+      </set>
+      <set name="PotencyMND" BaseSet="EnfeebMND" load="yes"/>
+      <set name="Elemental" BaseSet="Standard" load="yes">
+        <ammo store = "mog satchel">Snow Sachet</ammo>
+        <head store = "mog satchel">Estq. Chappel +1</head>
+        <body store = "mog satchel">Augur's Jaseran</body>        
+        <hands store = "mog satchel">Zenith Mitts</hands>
+        <legs store = "mog satchel">Estqr. Fuseau +1</legs>
+        <waist store = "mog satchel">Penitent's Rope</waist>
+        <lring store = "mog satchel">Tamas Ring</lring>
+        <rring store = "mog satchel">Omega Ring</rring>
+        <lear store = "mog satchel">Moldavite Earring</lear>
+        <rear store = "mog satchel">Hecate's Earring</rear>        
+      </set>
+      <set name="ElementalSkill" BaseSet="Elemental" load="yes"/>
+      <set name="Dark" BaseSet="FastCast" load="yes">
+        <body store = "mog satchel">Estq. Sayon +1</body>
+        <hands store = "mog satchel">Estq. Ganthrt. +1</hands>
+        <legs store = "mog satchel">Estqr. Fuseau +1</legs>
+        <rring store = "mog satchel">Omega Ring</rring>
+        <lring store = "mog satchel">Tamas Ring</lring>
+      </set>
+      <set name="CSStun" BaseSet="Dark" load="yes">
+        <waist store = "mog satchel">Penitent's Rope</waist>
+      </set>
+      <set name="Fastcast" load="yes">
+        <head store="mog satchel">Warlock's Chapeau</head>
+      </set>
+      <set name="Haste" baseset="Fastcast" load="yes">
+        <head store="mog satchel">Zelus Tiara</head>        
+        <neck store="sack">Magoraga Beads</neck>
+        <waist store ="sack">Goading Belt</waist>
+      </set>
+      <set name="Engaged" load="yes"/>
+      <set name="MiscGearCollector" load="yes">
+        <item store = "mog satchel">Korin Obi</item>
+        <item store = "mog satchel">Agni's Staff +2</item>
+        <item store = "mog satchel">Dark Staff</item>
+        <item store = "mog satchel">Water Staff</item>
+        <item store = "mog satchel">Wind Staff</item>
+        <item store = "mog satchel">Earth Staff</item>
+        <item store = "mog satchel">Surya's Staff +2</item>
+        <item store = "mog satchel">Indra's Staff +2</item>
+        <item store = "mog satchel">Varuna's Staff +2</item>
+        <item store = "mog satchel">Crm. Scale Mail</item>
+        <item store = "mog satchel">Virtue Stone</item>
+        <item store = "mog satchel">Joyeuse</item>
+        <item store = "mog satchel">Justice Sword</item>
+        <item store = "mog satchel">Genbu's Shield</item>
+        <item store = "mog satchel">Twilight Cape</item>
+      </set>
+    </group>
+  </sets>
+  <rules>
+    <!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
+    <if SpellTargetType="NONE" ValidTarget="*Self*">
+      <changetarget target="&lt;me&gt;" />
+    </if>
+    <if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
+      <return />
+    </if>
+    <!-- Auto set-->
+    <!-- Engaged -->
+    <if equipmain="$Club">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP" />
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="Standard" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </if>
+    <elseif equipmain="$Staff">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP" />
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="Standard" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </elseif>
+    <elseif equipmain="$Dagger">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP" />
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="Standard" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </elseif>
+    <elseif equipmain="$Sword">
+      <disable slot="main|sub|range" />
+      <if status="Engaged">
+        <equip when="Engaged|Aftercast" set="TP" />
+      </if>
+      <!-- Not Engaged -->
+      <else>
+        <equip when="Idle|Aftercast" set="Standard" />
+      </else>
+      <equip when="resting" set="resting"/>
+    </elseif>
+    <else>
+      <enable slot="main|sub|range" />
+      <equip when="resting" set="resting">
+        <main>$RestingStaff</main>
+      </equip>
+      <equip when="Idle|Aftercast" set="Standard">
+        <main>$PDTStaff</main>
+      </equip>
+    </else>
+    <!-- Job abilities-->
+    <if type="jobability">
+      <if spell="Composure"/>
+      <elseif spell="Saboteur">
+        <equip when="precast">
+          <hands Lock="true">Estq. Ganthrt. +1</hands>
+        </equip>
+      </elseif>
+      <elseif spell="Convert">
+        <cmd when="aftercast">wait 2;input /ma "Cure IV" &lt;me&gt;</cmd>
+      </elseif>
+    </if>
+    <elseif type="*magic">
+      <!-- Equip Staff and strap for Element -->
+      <if notstatus="Engaged" NotSpell="Refresh|Haste|Stoneskin|Phalanx*|Stoneskin">
+        <equip>
+          <main>$%SpellElementStaff</main>
+          <sub>$%SpellElementGrip</sub>
+        </equip>
+      </if>
+      <!-- Handle Elemental Obi's -->
+      <if advanced = '("%spellelement" = "%weatherelement" or "%spellelement" = "%dayelement") and "$obi%spellelement" = "1"'>
+        <if Advanced='"$TwilightCape" == "1"'>
+          <equip when="midcast">
+            <back lock="true">Twilight Cape</back>
+          </equip>
+        </if>
+        <if Advanced='"$ZodiacRing" == "1"'>
+          <equip when="midcast">
+            <rring lock="true">Zodiac Ring</rring>
+          </equip>
+        </if>
+        <if element = "dark">
+          <equip when = "midcast">
+            <waist lock = "yes">anrin obi</waist>
+          </equip>
+        </if>
+        <elseif element = "light">
+          <equip when = "midcast">
+            <waist lock = "yes">korin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "thunder">
+          <equip when = "midcast">
+            <waist lock = "yes">rairin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "ice">
+          <equip when = "midcast">
+            <waist lock = "yes">hyorin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "fire">
+          <equip when = "midcast">
+            <waist lock = "yes">karin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "wind">
+          <equip when = "midcast">
+            <waist lock = "yes">furin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "water">
+          <equip when = "midcast">
+            <waist lock = "yes">suirin obi</waist>
+          </equip>
+        </elseif>
+        <elseif element = "earth">
+          <equip when = "midcast">
+            <waist lock = "yes">dorin obi</waist>
+          </equip>
+        </elseif>
+      </if>
+      <!-- Healing Magic -->
+      <if skill="HealingMagic">
+        <if buffactive="Composure" />
+        <if spell="Cure II|Cure III|Cure IV|Cure V" spelltargetHPPgt="97">
+          <cancelspell />
+          <addtochat color="121">%spelltarget HP is Full</addtochat>
+        </if>
+        <elseif spell="Cure IV" MPLT="88">
+          <changespell Spell="Cure III" />
+        </elseif>
+        <elseif spell="Cure III" MPLT="46">
+          <changespell Spell="Cure II" />
+        </elseif>
+        <elseif spell="Cure II" MPLT="24">
+          <changespell Spell="Cure" />
+        </elseif>
+        <elseif spell="Cure*" notspell="Cure IV" notbuffactive="Divine Seal">
+          <equip when="precast" set="Cure" />
+        </elseif>
+        <elseif spell="Cure IV" notbuffactive="Divine Seal">
+          <equip when="precast" set="Enmity" />
+        </elseif>
+        <elseif spell="Raise*">
+          <if validtarget="corpse">
+            <equip when="precast" set="Fastcast"/>
+            <if zone="Abyssea*">
+              <cmd when="precast">input /p Casting %spell on %spelltargetname</cmd>
+            </if>
+            <elseif zone="Dynamis*|Einherjar">
+              <cmd when="precast">input /l Casting %spell on %spelltargetname</cmd>
+            </elseif>
+          </if>
+          <else>
+            <cancelspell/>
+          </else>
+        </elseif>
+      </if>
+      <!-- Enhancing Magic -->
+      <elseif skill="EnhancingMagic">
+        <if spell="Phalanx*|Bar*">
+          <equip when="precast" set="Enhancing" />
+        </if>
+        <elseif spell="Tele*|Warp*">
+          <return/>
+        </elseif>
+        <elseif spell="Stoneskin">
+          <equip when="precast" set="Stoneskin" />
+          <midcastdelay delay="3" />
+          <command when="MidCast">cancel 37</command>
+        </elseif>
+        <elseif spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+          <midcastdelay delay="1" />
+          <command when="MidCast">cancel 71</command>
+        </elseif>
+        <elseif spell="Refresh*|Haste|Erase|Regen*|*Spikes|Utsus*">
+          <equip when="precast" set="FastCast" />
+          <equip when="midcast" set="Standard" />
+        </elseif>
+        <else>
+          <equip when="precast" set="Enhancing" />
+        </else>
+      </elseif>
+      <!-- Enfeebling Magic-->
+      <elseif skill="EnfeeblingMagic">
+        <!-- Print to Chat-->
+        <if validtarget="Enemy">
+          <if advanced='"$Printtochat"=="1"'>
+            <if zone="Dynamis*|Einherjar">
+              <cmd when="midcast">input /l Casting %spell on %Spelltargetname</cmd>
+            </if>
+            <else>
+              <cmd when="midast">input /p Casting %spell on [%spelltargetname]</cmd>
+            </else>
+          </if>
+          <if buffactive="Saboteur">
+            <equip when="midcast">
+              <hands Lock="true">Estq. Ganthrt. +1</hands>
+            </equip>
+          </if>
+          <!-- INT Based -->
+          <if spell="Gravity|Bind|Poison*|Blind*|Sleep*|Silence|Break">
+            <if target="Genbu|Suzaku|Seiryu|Byakko|Kirin|Tiamat|Ouryu|Vrtra|Jormungand|Serket|*Behemoth|Adamantoise|Aspidochelone|Fafnir|Nighogg||King Vinegarroon|Jailor*|Cerberus|Khimaira|Hydra|Sandworm|Dark Ixion|Tuchulcha|Phantom Puk|Proto-Omega">
+              <equip when="Precast" set="EnfeebINT" />
+              <addtochat color="121">Enfeeb Skill/INT Set</addtochat>
+            </if>
+            <else>
+              <equip when="Precast" set="EnfeebINT" />
+              <addtochat color="121">Normal Enfeebling Set</addtochat>
+            </else>
+          </if>
+          <elseif spell="Paralyze*|Slow*|Dia*|Addle">
+            <if target="Genbu|Suzaku|Seiryu|Byakko|Kirin|Tiamat|Ouryu|Vrtra|Jormungand|Serket|*Behemoth|Adamantoise|Aspidochelone|Fafnir|Nighogg||King Vinegarroon|Jailor*|Cerberus|Khimaira|Hydra|Sandworm|Dark Ixion|Tuchulcha|Phantom Puk|Proto-Omega">
+              <equip when="Precast" set="EnfeebMND" />
+              <addtochat color="121">Enfeeb Skill/MND Set</addtochat>
+            </if>/
+            <else>
+              <equip when="Precast" set="EnfeebMND" />
+              <addtochat color="121">Normal Enfeebling Set</addtochat>
+            </else>
+          </elseif>
+          <!-- Duration Timers -->
+          <if advanced='"$SleepTimers"="1"'>
+            <if Spell="Sleep II">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</command>
+              <command when="aftercast">wait 75;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 85;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </if>
+            <elseif Spell="Sleep|Sleepga">
+              <command when="aftercast">spellcast var inc sleepid;wait 45;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 55;input /echo [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+            </elseif>
+          </if>
+          <elseif advanced='"$EnfeeblingTimers"="1"'>
+            <if Spell="Gravity">
+              <command when="aftercast">spellcast var inc Gravityid;wait 15;input /echo [$gravityid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 25;input /echo [$Gravityid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec Gravityid;</command>
+            </if>
+            <elseif Spell="Bind">
+              <command when="aftercast">spellcast var inc Bindid;wait 15;input /echo [$Bindid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 25;input /echo [$Bindid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec bindid;</command>
+            </elseif>
+            <elseif spell="Paralyze II">
+              <command when="aftercast">spellcast var inc Paralyzeid;wait 15;input /echo [$Paralyzeid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+              <command when="aftercast">wait 25;input /echo [$Paralyzeid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec Paralyzeid;</command>
+            </elseif>
+          </elseif>
+        </if>
+        <else>
+          <cancelspell/>
+        </else>
+      </elseif>
+      <!-- Dark Magic -->
+      <elseif skill="DarkMagic">
+        <if buffActive="Chainspell" spell="Stun">
+          <equip when="precast" set="CSStun" />
+        </if>
+        <else>
+          <equip when="precast" set="Dark" />
+        </else>
+        <if advanced='"$DarkTimers"="1"'>
+          <if Spell="Stun">
+            <command when="aftercast">spellcast var inc Stunid;wait 15;input /echo [$Stunid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+            <command when="aftercast">wait 25;input /echo [$Stunid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec Stunid;</command>
+          </if>
+          <if Spell="Bio III">
+            <command when="aftercast">spellcast var inc Bioid;wait 15;input /echo [$Bioid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+            <command when="aftercast">wait 25;input /echo [$Bioid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec Bioid;</command>
+          </if>
+        </if>
+      </elseif>
+      <!-- Elemental Magic-->
+      <elseif skill="ElementalMagic">
+        <if validtarget="Enemy">
+          <if advanced='"$printtochat"=="1"'>
+            <cmd when="midcast">input /p Casting %spell on [%spelltargetname]</cmd>
+          </if>
+          <!-- Determines if you need skill gear over max damage-->
+          <if target="Genbu|Suzaku|Seiryu|Byakko|Kirin|Tiamat|Ouryu|Vrtra|Jormungand|Serket|*Behemoth|Adamantoise|Aspidochelone|Fafnir|Nighogg||King Vinegarroon|Jailor*|Cerberus|Khimaira|Hydra|Sandworm|Dark Ixion|Tuchulcha|Phantom Puk|Proto-Omega
+                        Proto-Ultima|Aura Statue">
+            <equip when="midcast" set="ElementalSkill" />
+            <addtochat color="121">Elemental Skill Set</addtochat>
+          </if>
+          <else>
+            <equip when="midcast" set="Elemental" />
+            <addtochat color="121">Elemental Set</addtochat>
+            <!-- If mp is less than 50% and i have an ugg pendant-->
+            <if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
+              <!-- if moon phase is greater than 4 -->
+              <if advanced = '$MoonPhase &gt; 4'>
+                <equip when = "midcast">
+                  <neck lock = "yes">Artemis' Medal</neck>
+                </equip>
+              </if>
+              <!-- if not use ugg pendant -->
+              <else>
+                <equip when = "midcast">
+                  <neck lock = "yes">Uggalepih Pendant</neck>
+                </equip>
+              </else>
+            </if>
+            <!-- if mp is greater than 50%-->
+            <elseif advanced = '$MoonPhase &gt; 2'>
+              <equip when = "midcast">
+                <neck lock = "yes">Artemis' Medal</neck>
+              </equip>
+            </elseif>
+          </else>
+        </if>
+        <else>
+          <cancelspell/>
+        </else>
+      </elseif>
+    </elseif>
+    <!-- Sub job-->
+    <!-- Ninja-->
+    <if subjob="nin">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 3</cmd>
+      </if>
+      <if spell="Monomi*|Tonko*">
+        <equip when="Precast|midcast" set="fastcast" />
+        <if Spell="Monomi*" BuffActive="Sneak">
+          <midcastdelay delay="2.5" />
+          <command when="midcast">cancel 71</command>
+        </if>
+      </if>
+      <elseif spell="Utsusemi*">
+        <equip when="precast" set="Haste" />
+        <midcastdelay delay="2" />
+        <command when="midcast">cancel 66</command>
+        <command when="midcast">cancel 445</command>
+        <command when="midcast">cancel 446</command>
+        <command when="midcast">cancel 444</command>
+      </elseif>
+      <elseif spell="Sneak">
+        <changespell>Monomi: Ichi</changespell>
+      </elseif>
+      <elseif spell="Invisible">
+        <changespell>Tonko: Ni</changespell>
+      </elseif>
+    </if>
+    <elseif subjob="BLM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 2</cmd>
+      </if>
+    </elseif>
+    <!-- WHM -->
+    <elseif subjob="WHM">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
+      <if spell="*na">
+        <equip when="Precast" set="Fastcast" />
+        <if advanced='"$Printtochat"=="1"'>
+          <if zone="Abyssea*">
+            <cmd when="midcast">input /p Casting %spell on %spelltargetname</cmd>
+          </if>
+          <elseif zone="Dynamis*|Hazhalm*">
+            <cmd when="midcast">input /l Casting %spell on %spelltargetname</cmd>
+          </elseif>
+        </if>
+      </if>
+      <elseif spell="Convert" notbuffactive="Divine Seal">
+        <changespell spell="Divine Seal"/>
+        <cmd when="aftercast">wait 3;input /ja "Convert" &lt;me&gt;</cmd>
+      </elseif>
+      <elseif spell="Convert">
+        <cmd when="aftercast">wait 2;input /ma "Cure IV" &lt;me&gt;</cmd>
+      </elseif>
+    </elseif>
+    <!-- SCH -->
+    <elseif subjob="SCH">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 5</cmd>
+      </if>
+    </elseif>
+    <!-- If status is active, cancel spell and reguest removal when applicable to the chat console -->
+    <if advanced='"$Statuses"=="1"'>
+      <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Amnesia</addtochat>
+      </if>
+      <elseif BuffActive="Stun">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Stunned</addtochat>
+      </elseif>
+      <elseif BuffActive="Sleep">
+        <cancelspell />
+        <command>input /p zzz...</command>
+      </elseif>
+      <elseif BuffActive="Terror">
+        <cancelspell />
+        <addtochat Color="29">WARNING: Terror</addtochat>
+      </elseif>
+      <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
+        <cancelspell />
+        <command>input /p Silenced...</command>
+      </elseif>
+      <elseif BuffActive="Defense Down">
+        <command>input /p &lt;&lt;&lt; Def Down. &gt;_&lt;</command>
+      </elseif>
+      <elseif buffactive="doom">
+        <command>input /p Doomed. Quick Viruna lol</command>
+      </elseif>
+      <elseif buffactive="petrification|gradual petrification">
+        <command>input /p Stoned</command>
+      </elseif>
+      <elseif buffactive="Charm">
+        <command>input /p Charmed. Quick Sleep me lol</command>
+      </elseif>
+      <elseif buffactive="Paralysis">
+        <command>input /p Paralyzed</command>
+      </elseif>
+      <elseif buffactive="Blindness">
+        <command>input /p Blinded</command>
+      </elseif>
+      <elseif buffactive="Mute" commandprefex="/ma|/magic|/ninjutsu">
+        <command>Input /p Muted Can't Cast =(</command>
+      </elseif>
+    </if>
+  </rules>
+</spellcast>
