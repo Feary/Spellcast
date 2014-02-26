@@ -5,16 +5,17 @@
   <variables clear="True">
     <!-- Auto Macroset -->
     <var name="AutoMacroset">1</var>
-    <var name="WHMMacroset">1</var>
+    <var name="DNCMacroset">1</var>
     <var name="NINMacroset">2</var>
     <var name="RNGMacroset">3</var>
-    <var name="BRDMacroset">4</var>
-    <var name="DNCMacroset">5</var>
-    <!-- Luzaf Ring  Augments Phantom Roll Distance from 8 to 16 -->
+    <var name="WHMMacroset">4</var>
+    <var namm="SCHMacroset">6</var>
+    <var name="BRDMacroset">5</var>
+    <!-- Luzaf Ring - Expands Phantom Roll Distance from 8 to 16 -->
     <var name="Luzaf">1</var>
     <!-- Mode -->
-    <!-- 1 DD(sword) COR 2 Range (Dagger) 3 Racc (Dagger) 4 QD  -->
-    <var name="Mode">1</var>
+    <!-- Lock Acc Set -->
+    <var name="Mode">0</var>
     <!-- Lock to Default Sets-->
     <!-- 1. Best to leave at 0 and set with a macro. Example below-->
     <!--    a. line1 /console sc set pdt -->
@@ -22,29 +23,37 @@
     <var name="PDT">0</var>
     <var name="MDT">0</var>
     <!-- Gun -->
-    <var name="Gun">Armageddon|Surefire Arquebus</var>
+    <var name="Gun">Armageddon|Eminent Gun|Surefire Arquebus</var>
     <var name="QDStaff">Chatoyant Staff</var>
     <!-- Ammo -->
-    <var name="TPBullet">Orichalc. Bullet</var>
-    <var name="WSBullet">Orichalc. Bullet</var>
+    <var name="TPBullet">Adlivun Bullet</var>
+    <var name="WSBullet">Adlivun Bullet</var>
     <var name="QDBullet">Animikii Bullet</var>
     <!-- Locked Weapons -->
+    <!-- 1 DD(sword) COR 2 Range(Dagger) 3 Racc(Dagger) 4 QD(Staff) -->
     <var name="Dagger">Aphotic Kukri</var>
     <var name="Sword">Halachuinic Sword</var>
     <var name="Staff">Chatoyant Staff</var>
     <var name="Polearm">Pitchfork</var>
     <!-- Elemental Obi's, set to 1 for the ones you have. -->
-    <var name="obidark">1</var>
-    <var name="obilight">1</var>
-    <var name="obithunder">1</var>
-    <var name="obiice">1</var>
-    <var name="obifire">1</var>
-    <var name="obiwind">1</var>
-    <var name="obiwater">0</var>
-    <var name="obiearth">0</var>
-    <!-- Do not Edit -->
-    <var name="DiceVar">init</var>
-    <var name="RollType">ALL</var>
+    <var name="DarkObi">1</var>
+    <var name="LightObi">1</var>
+    <var name="ThunderObi">1</var>
+    <var name="IceObi">1</var>
+    <var name="FireObi">1</var>
+    <var name="WindObi">1</var>
+    <var name="WaterObi">0</var>
+    <var name="EarthObi">0</var>
+    <!--Do Not Change-->
+    <var name="StormElement">None</var>
+    <var name="Ice-Obi">hyorin obi</var>
+    <var name="Dark-Obi">Anrin obi</var>
+    <var name="Thunder-Obi">rairin obi</var>
+    <var name="Light-Obi">korin obi</var>
+    <var name="Wind-Obi">furin obi</var>
+    <var name="Fire-Obi">karin obi</var>
+    <var name="Earth-Obi">dorin obi</var>
+    <var name="Water-Obi">suirin obi</var>
   </variables>
   <sets>
     <group name="COR" default="yes">
@@ -55,7 +64,6 @@
         <item>Halachuinic Sword</item>
         <item>Surefire Arquebus</item>
         <item>Armageddon</item>
-        <item>Bullet</item>
         <item>acinaces</item>
         <item>Karin Obi</item>
         <item>Zodiac Ring</item>
@@ -79,29 +87,27 @@
       <!-- Idle-->
       <set name="Standard|idle" baseset="PDT">
         <feet>Hermes' Sandals</feet>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
       </set>
       <set name="PDT">
-        <!-- Ituli head -->
-        <head>Uk'uxkaj Cap</head>
+        <!-- Iuitl headgear -->
+        <head>Whirlpool Mask</head>
         <neck>Twilight Torque</neck>
-        <!-- Iuitl Body -->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
-        <lear>Musical Earring</lear>
-        <rear>Novia Earring</rear>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
       </set>
       <set name="MDT">
-        <!-- Ituli head -->
+        <!-- Iuitl headgear -->
         <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
-        <!-- Iuitl Body -->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
@@ -121,98 +127,31 @@
         <head>Comm. Tricorne +2</head>
         <hands>Nvrch. Gants +2</hands>
       </set>
-      <!-- Midcast -->
-      <!-- Melee TP Gear -->
-      <set name="Melee|TP" baseset="Standard">
-        <head>Uk'uxkaj Cap</head>
-        <neck>Asperity Necklace</neck>
-        <body>Thaumas Coat</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Iuitl Tights</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Twilight Belt</waist>
-        <back>Atheling Mantle</back>
-        <lring>Rajas Ring</lring>
-        <rring>Epona's Ring</rring>
-        <lear>Bladeborn Earring</lear>
-        <rear>Steelflash Earring</rear>
-      </set>
-      <!-- Melee Weaponskill-->
-      <set name="WS" baseset="TP" load="no">
-        <head>Whirlpool Mask</head>
-        <neck>Asperity Necklace</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <!-- quiahuiz Legs -->
-        <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Shadow Belt</waist>
-        <back>Atheling Mantle</back>
-        <lring>Rajas Ring</lring>
-        <rring>Pyrosoul Ring</rring>
-        <lear>Bladeborn Earring</lear>
-        <rear>Steelflash Earring</rear>
-      </set>
-      <set name="Requiescat" baseset="ws">
-        <head>Whirlpool Mask</head>
-        <neck>Shadow Gorget</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <!-- quiahuiz Legs -->
-        <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Shadow Belt</waist>
-        <back>Atheling Mantle</back>
-        <lring>Aquasoul Ring</lring>
-        <rring>Aquasoul Ring</rring>
-        <lear>Bladeborn Earring</lear>
-        <rear>Steelflash Earring</rear>
-      </set>
-      <set name="Exenterator" baseset="WS">
-        <head>Whirlpool Mask</head>
-        <neck>Breeze Gorget</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <!-- quiahuiz Legs -->
-        <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Breeze Belt</waist>
-        <back>Atheling Mantle</back>
-        <lring>Stormsoul Ring</lring>
-        <rring>Epona's Ring</rring>
-        <lear>Bladeborn Earring</lear>
-        <rear>Steelflash Earring</rear>
-      </set>
       <!-- Ranged Attacks-->
       <!--Precast-->
       <set name="Snapshot" baseset="RATP">
-        <hands>Comm. Gants +2</hands>
+        <head>Nvrch. Tricorne +2</head>
+        <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <waist>Impulse Belt</waist>
         <back>Navarch's Mantle</back>
       </set>
       <set name="fastcast" baseset="TP">
         <head>Athos's Chapeau</head>
-        <neck>Magoraga Beads</neck>
         <lear>Loquac. earring</lear>
         <rear>Magnetic earring</rear>
         <rring>Prolix Ring</rring>
       </set>
-      <set name="Recast" baseset="TP">
-        
-      </set>
-      <set name="MND" baseset="Standard">
-        
-      </set>
       <!-- Midcast -->
+      <set name="Recast" baseset="TP"/>
       <!-- Ranged TP Gearsets -->
       <set name="RATP" baseset="Standard">
         <!--  Store TP Need 21 STP -->
         <!-- Rose Strap -->
         <head>Whirlpool Mask</head>
         <neck>Ocachi Gorget</neck>
-        <!-- Iuitl Vest - Laksamana Frac  -->
-        <body>Nvrch. Frac +2</body>
+        <!-- Laksamana Frac  -->
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nvrch. Culottes +2</legs>
         <feet>Iuitl Gaiters</feet>
@@ -225,16 +164,16 @@
         <rring>Arewe Ring +1</rring>
       </set>
       <!-- Ranged Acc for Delve NMs -->
-      <set name="RAACC" baseset="RATP">
+      <set name="RaACC" baseset="RATP">
         <!-- Iuitl Headgear -->
         <head>Nvrch. Tricorne +2</head>
         <neck>Ocachi Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Nvrch. Frac +2</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Thurandaut tights</legs>
         <feet>Iuitl Gaiters</feet>
         <waist>Buccaneer's Belt</waist>
+        <!-- Gunslinger's Mantle -->
         <back>Terebellum Mantle</back>
         <lear>Clearview Earring</lear>
         <rear>Volley Earring</rear>
@@ -290,15 +229,14 @@
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
-        <waist>Aquiline Belt</waist>  
+        <waist>Aquiline Belt</waist>
         <!-- Gunslinger's Mantle -->
         <back>Toro Cape</back>
         <lring>Stormsoul Ring</lring>
         <rring>Stormsoul Ring</rring>
         <lear>Novio Earring</lear>
-        <!-- Friomisi Earring -->
-        <rear>Hecate's Earring</rear>
-      </set>    
+        <rear>Friomisi Earring</rear>
+      </set>
       <!-- light/Dark Quick Draw Gear focused on Macc/AGI -->
       <set name="QDAGI|QDACC">
         <head>Whirlpool Mask</head>
@@ -331,7 +269,7 @@
         <back>Toro Cape</back>
         <lring>Demon's Ring</lring>
         <rring>Demon's Ring</rring>
-        <lear>Hecate's Earring</lear>
+        <lear>Friomisi Earring</lear>
         <rear>Novio earring</rear>
       </set>
       <!-- Need Total of 21 or 6 /sam for 5 hit Arma-->
@@ -341,6 +279,88 @@
         <lring>Rajas Ring</lring>
         <rring>K'ayres Ring</rring>
       </set>
+      <!-- Melee TP Gear -->
+      <set name="Melee|TP" baseset="Standard">
+        <head>Whirlpool Mask</head>
+        <neck>Asperity Necklace</neck>
+        <body>Thaumas Coat</body>
+        <hands>Iuitl Wristbands</hands>
+        <!-- Quiahuiz Leggings -->
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Cetl Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Dudgeon Earring</lear>
+        <rear>Heartseeker Earring</rear>
+      </set>
+      <!-- Melee ACC-->
+      <set name="TPACC" baseset="TP">
+        <head>Whirlpool Mask</head>
+        <hands>Buremte Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Hurch'lan Sash</waist>
+        <lring>Mars's Ring</lring>
+      </set>
+      <!-- Melee Weaponskill-->
+      <set name="WS" baseset="TP" load="no">
+        <head>Whirlpool Mask</head>
+        <neck>Asperity Necklace</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Buremte Gloves</hands>
+        <!-- quiahuiz Legs -->
+        <legs>Nahtirah Trousers</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Shadow Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Pyrosoul Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <set name="Requiescat" baseset="WS">
+        <head>Whirlpool Mask</head>
+        <neck>Shadow Gorget</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Buremte Gloves</hands>
+        <!-- quiahuiz Legs -->
+        <legs>Nahtirah Trousers</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Shadow Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Aquasoul Ring</lring>
+        <rring>Aquasoul Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <set name="Exenterator" baseset="WS">
+        <head>Whirlpool Mask</head>
+        <neck>Breeze Gorget</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Buremte Gloves</hands>
+        <!-- quiahuiz Legs -->
+        <legs>Nahtirah Trousers</legs>
+        <feet>Iuitl Gaiters</feet>
+        <waist>Breeze Belt</waist>
+        <back>Atheling Mantle</back>
+        <lring>Stormsoul Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <set name="Waltz" baseset="PDT">
+        <hands>Buremte Gloves</hands>
+      </set>
+      <set name="Steps" baseset="TPAcc">
+        
+      </set>
+      <set name="Flourish" baseset="Steps">
+        
+      </set>
+      <!-- Cures -->
+      <set name="MND" baseset="Standard"/>
     </group>
   </sets>
   <rules>
@@ -354,6 +374,7 @@
     <equip when="resting" set="Resting" />
     <!-- Brew -->
     <if Buffactive="Transcendency">
+      <cmd>input /macro set 7</cmd>
       <addtochat color="121">Brew Gear Locked</addtochat>
       <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="Brew"/>
       <Return/>
@@ -371,45 +392,53 @@
     </elseif>
     <else>
       <!-- DD -->
-      <if advanced='"$Mode"=="1"'>
+      <if equipmain="$Sword|empty">
         <disable slot="Main|Sub|Ranged"/>
-        <if notequipmain="$Sword">
-          <equip>
-            <main>$Sword</main>
-          </equip>
-        </if>
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP" />
+        <!-- Acc-->
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <equip when="engaged|AfterCast" set="TPACC" />
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
         </if>
         <else>
-          <equip when="idle|AfterCast" set="Standard" />
+          <if status="engaged">
+            <equip when="engaged|AfterCast" set="TP" />
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
         </else>
       </if>
       <!-- Range-->
-      <elseif advanced='"$Mode"=="2"'>
+      <elseif equipmain="$Dagger">
         <disable slot="Main|Sub|Ranged"/>
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="RATP" />
+        <!-- Acc-->
+        <if advanced='"$Mode"=="1"'>
+          <if status="engaged">
+            <equip when="engaged|AfterCast" set="RaACC" />
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
         </if>
         <else>
-          <equip when="idle|AfterCast" set="Standard" />
+          <if status="engaged">
+            <equip when="engaged|AfterCast" set="RATP" />
+          </if>
+          <else>
+            <equip when="idle|AfterCast" set="Standard" />
+          </else>
         </else>
-      </elseif>
-      <!-- Racc -->
-      <elseif advanced='"$Mode"=="3"'>
-        <disable slot="Main|Sub|Ranged"/>
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="RaAcc" />
-        </if>
-        <else>
-          <equip when="idle|AfterCast" set="Standard" />
-        </else>
+        
       </elseif>
       <!-- QD-->
-      <elseif advanced='"$Mode"=="4"'>
+      <elseif equipmain="$Staff">
         <enable slot="Main|Sub"/>
         <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP">
+          <equip when="engaged|AfterCast" set="TPAcc">
             <main>$QDStaff</main>
           </equip>
         </if>
@@ -420,182 +449,86 @@
         </else>
       </elseif>
       <else>
-        <cmd>sc var set mode 1</cmd>
+        <addtochat color="121">Unknown Weapon</addtochat>
       </else>
-    </else>   
+    </else>
     <!-- Ranged Attack -->
-    <if spell="Ranged">
+    <if CommandPrefix="/range|/ra">
       <!-- Check Ammo-->
       <if notEquipAmmo="$TPBullet">
         <equip when="Precast">
           <ammo>$TPBullet</ammo>
         </equip>
       </if>
+      <if EquipAmmo="$QDBullet">
+        <cancelspell/>
+        <addtochat color="121">Wrong Ammo</addtochat>
+        <equip when="Precast">
+          <ammo>$TPBullet</ammo>
+        </equip>
+      </if>
+      <if buffactive="Barrage">
+        <addtochat color="121">Barrage Set</addtochat>
+        <equip when="precast" set="RATP"/>
+      </if>
       <else>
-        <if buffactive="Barrage">
-          <addtochat color="121">Barrage Set</addtochat>
-          <equip when="precast" set="RATP"/>
+        <equip when="precast" set="Snapshot"/>
+        <if advanced='"$Mode"=="1"'>
+          <midcastdelay delay="0.5"/>
+          <equip when="midcast" set="RaACC"/>
+          <addtochat color="121">RaAcc Set</addtochat>
         </if>
         <else>
-          <equip when="precast" set="Snapshot"/>
           <equip when="midcast" set="RATP"/>
+          <midcastdelay delay="0.5"/>
+          <addtochat color="121">RATP Set</addtochat>
         </else>
       </else>
     </if>
     <if type="CorsairRoll">
       <equip when="Precast" set="PhantomRoll"/>
+      <!-- Account for Luzaf's Ring-->
       <if advanced='"$Luzaf"=="1"'>
-        <if spell="Corsair's Roll">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %Spell only: Lucky 5 - Unlucky 9</addtochat>
-        </if>
-        <elseif spell="Choral*|Samurai*|Scholar*|Magus*">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 2 - Unlucky 6</addtochat>
-        </elseif>
-        <elseif spell="Healer*|Monk*|Drachen*|Gallant*|Dancer*">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 3 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Ninja*|Hunter*|Chaos*|Puppet*|Beast*|Warlock*">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 4 - Unlucky 8</addtochat>
-        </elseif>
-        <elseif spell="Wizard*|Evoker*|Fighter*|Rogue*">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 5 - Unlucky 9</addtochat>
-        </elseif>
-        <elseif spell="Bolter*|Courser*">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 3 - Unlucky 9</addtochat>
-          <equip when="precast">
-            <feet>Nvrch. Bottes +2</feet>
-          </equip>
-        </elseif>
-        <elseif spell="Caster's Roll">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 2 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Blitzer's Roll">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 2 - Unlucky 7</addtochat>
-          <equip when="precast">
-            <head>Nvrch. Tricorne +2</head>
-          </equip>
-        </elseif>
-        <elseif spell="Tactician's Roll">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 5 - Unlucky 8</addtochat>
-          <equip when="precast">
-            <body>Nvrch. Frac +2</body>
-          </equip>
-        </elseif>
-        <elseif spell="Allies' Roll">
-          <addtochat color="121">Luzaf's Ring is ACTIVE for %spell:  Lucky 3 - Unlucky 10</addtochat>
-          <equip when="precast">
-            <hands>Nvrch. Gants +2</hands>
-          </equip>
-        </elseif>
-        <elseif spell="Miser's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 5 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Companion's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 2 - Unlucky 10</addtochat>
-        </elseif>
-        <elseif spell="Avenger's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 4 - Unlucky 8</addtochat>
-        </elseif>
+        <equip when="precast">
+          <rring lock="true">Luzaf's Ring</rring>
+        </equip>
+        <addtochat color="121">Luzaf's Ring is ACTIVE</addtochat>
       </if>
-      <!-- No Luzaf's Ring-->
+      <!-- Account for No Luzaf's Ring-->
       <else>
-        <if spell="Corsair's Roll">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell only: Lucky 5 - Unlucky 9</addtochat>
-        </if>
-        <elseif spell="Choral*|Samurai*|Scholar*|Magus*">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 2 - Unlucky 6</addtochat>
-        </elseif>
-        <elseif spell="Healer*|Monk*|Drachen*|Gallant*|Dancer*">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 3 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Ninja*|Hunter*|Chaos*|Puppet*|Beast*|Warlock*">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 4 - Unlucky 8</addtochat>
-        </elseif>
-        <elseif spell="Wizard*|Evoker*|Fighter*|Rogue*">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 5 - Unlucky 9</addtochat>
-        </elseif>
-        <elseif spell="Bolter*|Courser*">
-          <addtochat color="121">Luzaf's Ring is  NOT ACTIVE for %spell:  Lucky 3 - Unlucky 9</addtochat>
-          <equip when="precast">
-            <feet>Nvrch. Bottes +2</feet>
-          </equip>
-        </elseif>
-        <elseif spell="Caster's Roll">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 2 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Blitzer's Roll">
-          <addtochat color="121">Luzaf's Ring is NOT ACTIVE for %spell:  Lucky 2 - Unlucky 7</addtochat>
-          <equip when="precast">
-            <head>Nvrch. Tricorne +2</head>
-          </equip>
-        </elseif>
-        <elseif spell="Tactician's Roll">
-          <addtochat color="121">Luzaf's Ring is Not ACTIVE for %spell:  Lucky 5 - Unlucky 8</addtochat>
-          <equip when="precast">
-            <body>Nvrch. Frac +2</body>
-          </equip>
-        </elseif>
-        <elseif spell="Allies' Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 3 - Unlucky 10</addtochat>
-          <equip when="precast">
-            <hands>Nvrch. Gants +2</hands>
-          </equip>
-        </elseif>
-        <elseif spell="Miser's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 5 - Unlucky 7</addtochat>
-        </elseif>
-        <elseif spell="Companion's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 2 - Unlucky 10</addtochat>
-        </elseif>
-        <elseif spell="Avenger's Roll">
-          <addtochat color="121">Luzaf's Ring is Not active for %spell:  Lucky 4 - Unlucky 8</addtochat>
-        </elseif>
+        <addtochat color="121">Luzaf's Ring is NOT ACTIVE</addtochat>
       </else>
+      <!-- Roll Enchancements -->
+      <if spell="Courser*">
+        <equip when="precast">
+          <feet>Nvrch. Bottes +2</feet>
+        </equip>
+      </if>
+      <elseif spell="Blitzer's Roll">
+        <equip when="precast">
+          <head>Nvrch. Tricorne +2</head>
+        </equip>
+      </elseif>
+      <elseif spell="Tactician's Roll">
+        <equip when="precast">
+          <body>Nvrch. Frac +2</body>
+        </equip>
+      </elseif>
+      <elseif spell="Allies' Roll">
+        <equip when="precast">
+          <hands>Nvrch. Gants +2</hands>
+        </equip>
+      </elseif>
     </if>
     <!-- Quick Draw -->
     <elseif type="CorsairShot">
       <!-- Handle Elemental Obi's -->
-      <if advanced = '("%spellelement" = "%weatherelement" or "%spellelement" = "%dayelement") and "$obi%spellelement" = "1"'>
-        <if element = "dark">
-          <equip when = "midcast">
-            <waist lock = "yes">anrin obi</waist>
+      <if advanced = '("%SpellElement" = "%WeatherElement" or "%SpellElement" = "%DayElement" or "%SpellElement" = "$StormElement")'>
+        <if advanced='"$%SpellElementObi" = "1"'>
+          <equip when="midcast">
+            <waist lock="True">$%SpellElement-Obi</waist>
           </equip>
         </if>
-        <elseif element = "light">
-          <equip when = "midcast">
-            <waist lock = "yes">korin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "thunder">
-          <equip when = "midcast">
-            <waist lock = "yes">rairin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "ice">
-          <equip when = "midcast">
-            <waist lock = "yes">hyorin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "fire">
-          <equip when = "midcast">
-            <waist lock = "yes">karin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "wind">
-          <equip when = "midcast">
-            <waist lock = "yes">furin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "water">
-          <equip when = "midcast">
-            <waist lock = "yes">suirin obi</waist>
-          </equip>
-        </elseif>
-        <elseif element = "earth">
-          <equip when = "midcast">
-            <waist lock = "yes">dorin obi</waist>
-          </equip>
-        </elseif>
       </if>
       <if spell="Light*|Dark*">
         <equip when="PreCast" set="QDACC" />
@@ -603,6 +536,45 @@
       <else spell="Ice*|Wind*|Earth*|Thunder*|Water*|Fire*">
         <equip when="PreCast" set="QDMAB" />
       </else>
+    </elseif>
+    <elseif type="JobAbility">
+      <if spell="Fold">
+        <equip when="precast">
+          <hands>Comm. Gants +2</hands>
+        </equip>
+      </if>
+      <elseif spell="Wild Card">
+        <equip when="precast">
+          <feet>Comm. Bottes +2</feet>
+        </equip>
+      </elseif>
+      <elseif spell="Random Deal">
+        <equip when="precast">
+          <body>Commodore Frac +2</body>
+        </equip>
+      </elseif>
+      <elseif spell="Snake Eye">
+        <equip when="precast">
+          <legs>Comm. Culottes +2</legs>
+        </equip>
+      </elseif>
+      <elseif spell="Cutting Cards">
+      </elseif>
+      <elseif spell="Triple Shot">
+        <equip when="precast">
+          <body>Nvrch. Frac +2</body>
+        </equip>
+      </elseif>
+      <elseif spell="Double-Up">
+        <equip when="Precast" set="PhantomRoll"/>
+        <!-- Account for Luzaf's Ring-->
+        <if advanced='"$Luzaf"=="1"'>
+          <equip when="precast">
+            <rring lock="true">Luzaf's Ring</rring>
+          </equip>
+          <addtochat color="121">Luzaf's Ring is ACTIVE</addtochat>
+        </if>
+      </elseif>
     </elseif>
     <!--Weapons Skills-->
     <elseif type="Weaponskill">
@@ -630,31 +602,31 @@
             </elseif>
             <!-- Add more ws-->
             <if spell="Wildfire">
-              <equip when="precast" set="%Spell">
+              <equip when="precast|midcast" set="%Spell">
                 <ammo>$WSBullet</ammo>
               </equip>
               <castdelay delay="0.03" />
-              <!-- Account for Fire Obi -->
+              <!-- Account for Fire Obi and Zodiac Ring -->
               <if advanced='("%WeatherElement"="Fire") OR ("%DayElement"="Fire") OR ("$StormElement"="Fire")' >
                 <equip when="precast|midcast">
                   <waist lock="yes">Karin Obi</waist>
                   <lring lock="yes">Zodiac Ring</lring>
-                </equip>                
+                </equip>
               </if>
               <!-- Account for Athos Gloves-->
               <if advanced='("%DAY"="DarksDay") OR ("%DAY"="Earthsday")'>
                 <equip when="precast|midcast">
                   <hands lock="yes">Athos's Gloves</hands>
                 </equip>
-              </if>           
+              </if>
             </if>
             <elseif spell="Last Stand">
-              <equip when="precast" set="%Spell">
+              <equip when="precast|midcast" set="%Spell">
                 <ammo>$WSBullet</ammo>
               </equip>
             </elseif>
             <else>
-              <equip when="precast" set="RAWS">
+              <equip when="precast|midcast" set="RAWS">
                 <ammo>$WSBullet</ammo>
               </equip>
             </else>
@@ -675,7 +647,7 @@
               </elseif>
               <else>
                 <equip when="precast" set="WS"/>
-              </else>              
+              </else>
             </else>
           </else>
         </if>
@@ -689,10 +661,9 @@
         <cmd>input /attack</cmd>
       </else>
     </elseif>
-    <!-- Sub jobs -->
-    <!-- WHM Subjob-->
-    <if subjob="whm">
-      <if spell="Cure*|Curaga*">
+    <elseif type="*Magic">
+      <if spell="Cure*">
+        <equip when="precast" set="Fastcast"/>
         <equip when="midcast" set="MND"/>
       </if>
       <elseif spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
@@ -704,15 +675,29 @@
         <midcastdelay delay="3" />
         <command when="MidCast">cancel 37</command>
       </elseif>
-      <!-- All other spells-->
-      <else>
-        <equip when="midcast" set="Standard" />
-      </else>
+      <elseif spell="Sleep">
+        <changespell>Light Shot</changespell>
+      </elseif>
+      <elseif spell="Dispel">
+        <changespell>Dark Shot</changespell>
+      </elseif>
+    </elseif>
+    <!-- Sub jobs -->
+    <!-- WHM Subjob-->
+    <if subjob="whm">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $WHMMacroset</cmd>
+      </if> 
     </if>
     <!-- NIN Subjob-->
     <elseif subjob="NIN">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $NINMacroset</cmd>
+      </if>
       <if spell="Utsusemi*">
-        <equip when="precast" set="fastcast" />
+        <equip when="precast" set="fastcast">
+          <neck>Magoraga Beads</neck>
+        </equip>
         <if spell="*Ichi" BuffActive="Copy Image*">
           <midcastdelay delay="2.5" />
           <command when="midcast">cancel 66</command>
@@ -733,6 +718,35 @@
           <midcastdelay delay="2.5" />
           <command when="midcast">cancel 71</command>
         </if>
+      </if>
+    </elseif>
+    <elseif subjob="RNG">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $RNGMacroset</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="BRD">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $BRDMacroset</cmd>
+      </if>
+    </elseif>
+    <elseif subjob="DNC">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $DNCMacroset</cmd>
+      </if>
+      <if spell="Curing*">
+        <equip when="precast" set="Waltz"/>
+      </if>
+      <elseif spell="*Step">
+        <equip when="precast" set="Steps"/>
+      </elseif>
+      <elseif spell="*Flourish">
+        <equip when="precast" set="Flourish"/>
+      </elseif>
+    </elseif>
+    <elseif subjob="SCH">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set $SCHMacroset</cmd>
       </if>
     </elseif>
   </rules>

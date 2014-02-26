@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
   <guildwork character="Feary" server="Sylph" description="Feary's THF Spellcast" job="THF"  />
-  <config RequireVersion="2.45" Debug="false" ShowGearSwaps="false" fishingset="Fishing" />
+  <config RequireVersion="2.45" Debug="false" ShowGearSwaps="true" fishingset="Fishing" />
   <!-- 
     ===================================================
     ||
@@ -15,15 +15,16 @@
     ||
     || If you have any questions - Please Message me on Guildwork.
     ===================================================
-    --> 
+    -->
   <variables clear="true">
-    <!-- Auto macro sets -->
+    <!-- Auto macro sets Set 1 = NIN 2. War 3. DNC 4. Drk -->
+    <!-- 1 for On == 0 for Off -->
     <var name="AutoMacroset">1</var>
     <!-- Sub Dagger-->
     <var name="SubDagger">Aphotic Kukri</var>
     <!-- Announce statues-->
     <var name="Statuses">0</var>
-    <!-- Adds a call to chat-->
+    <!-- Adds a call14 to party chat on range attack-->
     <var name="pullcall">0</var>
     <!-- Lock to Default Sets-->
     <!-- 1. Best to set with a macro -->
@@ -33,6 +34,10 @@
     <var name="MDT">0</var>
     <!-- Lock Evasion gear -->
     <var name="Evasion">0</var>
+    <!-- Use Acc sets -->
+    <var name="Acc">0</var>
+    <!-- Alliance buffs -->
+    <var name="Buff">0</var>
     <!-- Do not change -->
     <!-- Lock TH Gear during SA/TA-->
     <var name="TH">0</var>
@@ -47,41 +52,30 @@
         <legs>Fisherman's Hose</legs>
         <feet>Fisherman's Boots</feet>
         <lring>Pelican Ring</lring>
-        <rring>Pelican Ring</rring>    
+        <rring>Pelican Ring</rring>
       </set>
       <set name="miscgearcollector">
         <item>Mandau</item>
-        <item>Twashtar</item>
-        <item>Thief's Knife</item>
         <item>Izhikoh</item>
-        <item>Asn. Armlets +2</item>     
+        <item>Thief's Knife</item>
+        <item>Asn. Armlets +2</item>
         <item>Raid. Poulaines +2</item>
       </set>
       <set name="weapon|W">
         <main>Mandau</main>
         <range>Raider's Bmrng.</range>
-        <sub>$SubDagger</sub>       
+        <sub>$SubDagger</sub>
       </set>
-      <set name="Town" baseset="Evasion" load="yes">
-        <feet>Fajin Boots</feet>
+      <set name="Town" baseset="Standard" load="yes">
+        <feet>Pillager's Poulaines</feet>
       </set>
       <!-- Idle-->
       <set name="Standard|Idle" baseset="PDT" load="yes">
-        <head>Uk'uxkaj Cap</head>
-        <neck>Torero Torque</neck>
-        <body>Manibozho Jerkin</body> 
-        <hands>Manibozho Gloves</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Manibozho Boots</feet>
-        <waist>Scouter's Rope</waist>  
-        <!-- Canny's Cape -->
-        <back>Boxer's Mantle</back>
-        <!-- Defending Ring -->
-        <lring>Dark Ring</lring>
-        <rring>Dark Ring</rring>
+        <!-- Pill. Poulaines +1 -->
+        <feet>Pill. Poulaines</feet>
         <lear>Musical Earring</lear>
         <rear>Novia Earring</rear>
-      </set>    
+      </set>
       <set name="PDT" load="yes">
         <head>Iuitl Headgear</head>
         <neck>Twilight Torque</neck>
@@ -92,7 +86,7 @@
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
         <lring>Dark Ring</lring>
-        <rring>Dark Ring</rring>        
+        <rring>Dark Ring</rring>
       </set>
       <set name="MDT" load="yes">
         <head>Iuitl Headgear</head>
@@ -104,12 +98,12 @@
         <!--<waist>Lieutenant's Sash</waist>-->
         <back>Engulfer Cape</back>
         <lear>Merman's Earring</lear>
-        <rear>Merman's Earring</rear>       
+        <rear>Merman's Earring</rear>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
       </set>
-      <set name="Evasion" load="Yes">
-        <head>Iuitl Headgear</head>
+      <set name="Evasion" baseset="TP" load="Yes">
+        <head>Uk'uxkaj Cap</head>
         <neck>Torero Torque</neck>
         <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
@@ -124,52 +118,8 @@
         <lear>Dudgeon Earring</lear>
         <rear>Heartseeker Earring</rear>
       </set>
-      <set name="Ranged" baseset="TA" load="No">
-        <head>Iuitl Headgear</head>
-        <neck>Twilight Torque</neck>
-        <body>Iuitl Vest</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Iuitl Tights</legs>
-        <feet>Iuitl Gaiters</feet>
-      </set>
-      <set name="TH" baseset="TP">
-        <hands>Asn. Armlets +2</hands>
-        <feet>Raid. Poulaines +2</feet>
-        <waist>Twilight Belt</waist>
-      </set>
-      <set name="TP" baseset="Evasion" load="yes">
-        <ammo>Raider's Bmrng.</ammo>
-        <!-- Iuitl Headgear-->
-        <head>Uk'uxkaj Cap</head>
-        <neck>Asperity Necklace</neck>
-        <body>Thaumas Coat</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Iuitl Tights</legs>
-        <feet>Manibozho Boots</feet>
-        <back>Atheling Mantle</back>
-        <!-- Patentia Sash -->
-        <waist>Twilight Belt</waist>
-        <lring>Rajas Ring</lring>
-        <rring>Epona's Ring</rring>
-        <lear>Dudgeon Earring</lear>
-        <rear>Heartseeker Earring</rear>
-      </set>
-      <set name="AccTP" baseset="Evasion" load="yes">
-        <head>Whirlpool Mask</head>
-        <!-- Rancor Collar -->
-        <neck>Asperity Necklace</neck>
-        <!-- Iuitl Vest -->
-        <body>Thaumas Coat</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Hurch'lan Sash</waist>
-        <!-- Aife's Mantle -->
-        <back>Atheling Mantle</back>
-        <lring>Rajas Ring</lring>
-        <rring>Epona's Ring</rring>
-        <lear>Dudgeon Earring</lear>
-        <rear>Heartseeker Earring</rear>
+      <set name="Ranged" baseset="TP" load="No">
+
       </set>
       <set name="Recast" baseset="PDT" load="yes">
         <head>Athos's Chapeau</head>
@@ -182,7 +132,53 @@
         <lear>Magnetic Earring</lear>
         <rear>Loquac. Earring</rear>
       </set>
-      <!-- Solo SA -->
+      <!-- Treasure Hunter -->
+      <set name="TH" baseset="TP">
+        <hands>Asn. Armlets +2</hands>
+        <feet>Raid. Poulaines +2</feet>
+        <waist>Twilight Belt</waist>
+      </set>
+      <!-- Solo TP -->
+      <set name="TP" baseset="PDT" load="yes">
+        <ammo>Raider's Bmrng.</ammo>
+        <head>Whirlpool Mask</head>
+        <neck>Asperity Necklace</neck>
+        <body>Thaumas Coat</body>
+        <!--Pill. Armlets +1-->
+        <hands>Pillager's Armlets</hands>
+        <!-- Pill. Culottes +1 -->
+        <legs>Pillager's Culottes</legs>
+        <feet>Plun. Poulaines</feet>
+        <back>Atheling Mantle</back>
+        <!-- Patentia Sash -->
+        <waist>Windbuffet Belt</waist>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Dudgeon Earring</lear>
+        <rear>Heartseeker Earring</rear>
+      </set>
+      <!-- ACC TP -->
+      <set name="AccTP" baseset="TP" load="yes">
+        <head>Whirlpool Mask</head>
+        <neck>Asperity Necklace</neck>
+        <body>Manibozho Jerkin</body>
+        <hands>Buremte Gloves</hands>
+        <legs>Manibozho Brais</legs>
+        <feet>Manibozho Boots</feet>
+        <waist>Hurch'lan Sash</waist>
+        <back>Atheling Mantle</back>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
+        <lear>Dudgeon Earring</lear>
+        <rear>Heartseeker Earring</rear>
+      </set>
+      <!-- Allianced High Buffed TP -->
+      <set name="ATP" baseset="AccTP" load="yes">
+        <waist>Windbuffet Belt</waist>
+        <lear>Bladeborn Earring</lear>
+        <rear>Steelflash Earring</rear>
+      </set>
+      <!-- Solo SA FOR TH -->
       <set name="Sneak Attack|SA" BaseSet="TP" load="yes">
         <head>Uk'uxkaj Cap</head>
         <neck>Love Torque</neck>
@@ -196,9 +192,9 @@
         <lear>Dudgeon Earring</lear>
         <rear>Heartseeker Earring</rear>
         <lring>Thundersoul Ring</lring>
-        <rring>Epona's Ring</rring>       
+        <rring>Epona's Ring</rring>
       </set>
-      <!-- Solo TA -->
+      <!-- Solo TA FOR TH -->
       <set name="Trick Attack|TA" BaseSet="TP" load="yes">
         <head>Uk'uxkaj Cap</head>
         <!-- Houyi's Gorget-->
@@ -217,83 +213,71 @@
         <lring>Stormsoul Ring</lring>
         <rring>Stormsoul Ring</rring>
       </set>
-      <!-- Weapon SKills -->
+      <!-- Weapon Skills -->
       <!-- Mercy Stroke -->
-      <set name="Mercy Stroke|MS" baseset="Sneak Attack" load="yes">
+      <set name="Mercy Stroke|MS" load="yes">
         <!-- Modifer: STR:60%  -->
-        <head>Whirlpool Mask</head>
+        <head>Pillager's Bonnet</head>
         <neck>Shadow Gorget</neck>
-        <!-- Khepri Jacket -->
-        <body>Manibozho Jerkin</body>
-        <hands>Raid. Armlets +2</hands>
-        <legs>Manibozho Brais</legs>
-        <!-- Iuitl Gaiters -->
-        <feet>Manibozho Boots</feet>
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
         <waist>Prosilio Belt</waist>
-        <!-- Vespid Mantle -->
-        <back>Atheling Mantle</back>
-        <!-- Flame Pearl -->
+        <back>Vespid Mantle</back>
+        <!-- Tati Earring  -->
         <lear>Steelflash Earring</lear>
-        <!-- Flame Pearl -->
+        <!-- Tati Earring -->
         <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
         <rring>Pyrosoul Ring</rring>
       </set>
       <set name="SA-Mercy Stroke" baseset="SA" load="yes">
         <!-- Modifer: STR:60%  -->
-        <head>Whirlpool Mask</head>
+        <head>Pillager's Bonnet</head>
         <neck>Shadow Gorget</neck>
-        <!-- Khepri Jacket -->
-        <body>Manibozho Jerkin</body>
+        <body>Pillager's Vest</body>
         <hands>Raid. Armlets +2</hands>
-        <legs>Manibozho Brais</legs>
-        <!-- Iuitl Gaiters -->
-        <feet>Manibozho Boots</feet>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
         <waist>Prosilio Belt</waist>
-        <!-- Vespid Mantle -->
-        <back>Atheling Mantle</back>
-        <!-- Flame Pearl -->
+        <back>Vespid Mantle</back>
+        <!-- Tati Earring  -->
         <lear>Steelflash Earring</lear>
-        <!-- Flame Pearl -->
+        <!-- Tati Earring -->
         <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
         <rring>Pyrosoul Ring</rring>
       </set>
       <set name="TA-Mercy Stroke" baseset="TA" load="yes">
         <!-- Modifer: STR:60%  -->
-        <head>Whirlpool Mask</head>
+        <head>Pillager's Bonnet</head>
         <neck>Shadow Gorget</neck>
-        <!-- Khepri Jacket -->
-        <body>Manibozho Jerkin</body>
-        <!-- Hct. Mittens +1-->
-        <hands>Raid. Armlets +2</hands>
-        <legs>Nahtirah Trousers</legs>
-        <!-- Iuitl Gaiters -->
-        <feet>Manibozho Boots</feet>
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
         <waist>Prosilio Belt</waist>
-        <!-- Vespid Mantle -->
-        <back>Atheling Mantle</back>
-        <!-- Flame Pearl -->
+        <back>Vespid Mantle</back>
+        <!-- Tati Earring  -->
         <lear>Steelflash Earring</lear>
-        <!-- Flame Pearl -->
+        <!-- Tati Earring -->
         <rear>Bladeborn Earring</rear>
+        <!-- Pyrosoul Ring-->
         <lring>Rajas Ring</lring>
         <rring>Pyrosoul Ring</rring>
       </set>
       <!-- Exenterator -->
-      <set name="Exenterator" baseset="TA" load="yes">       
+      <set name="Exenterator" baseset="TA" load="yes">
+        <!-- Felistris Mask -->
         <head>Whirlpool Mask</head>
-        <!-- Breeze Gorget -->
         <neck>Justiciar's Torque</neck>
-        <!-- Iuitl Vest -->
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>        
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <!-- Elanid Belt -->
-        <waist>Anguinus Belt</waist>
-        <!-- Canny Cape -->
-        <back>Atheling Mantle</back>
+        <feet>Pillager's Poulaines</feet>
+        <waist>Prosilio Belt</waist>
+        <back>Vespid Mantle</back>
         <lear>Steelflash Earring</lear>
         <rear>Bladeborn Earring</rear>
         <lring>Stormsoul Ring</lring>
@@ -302,192 +286,117 @@
       <set name="ACC-Exenterator" baseset="TA" load="yes">
         <head>Whirlpool Mask</head>
         <neck>Justiciar's Torque</neck>
-        <!-- Iuitl Vest -->
         <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <!-- Elanid Belt -->
-        <waist>Anguinus Belt</waist>
-        <!-- Vespid Mantle -->
-        <back>Atheling Mantle</back>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
+        <waist>Prosilio Belt</waist>
+        <back>Vespid Mantle</back>
         <lear>Steelflash Earring</lear>
         <rear>Bladeborn Earring</rear>
         <lring>Stormsoul Ring</lring>
         <rring>Epona's Ring</rring>
-      </set>
-      <set name="SA-Exenterator" baseset="Exenterator">
-        <!-- Moepapa Medal-->        
-        <legs>Manibozho Brais</legs>
-      </set>
-      <set name="TA-Exenterator" baseset="Exenterator">
-        <!-- Breeze Gorget -->
-        <lring>Stormsoul Ring</lring>
-        <rring>Stormsoul Ring</rring>
-        <!-- Elanid Belt -->
-        <!-- Canny Cape -->
       </set>
       <!-- Evisveration -->
       <set name="Evisceration" baseset="Sneak Attack" load="yes">
         <!-- Modifer: DEX:30%  -->
-        <head>Uk'uxkaj Cap</head>
+        <head>Pillager's Bonnet</head>
         <!-- Nefarious Collar -->
-        <neck>Love Torque</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Raid. Armlets +2</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Manibozho Boots</feet>
-        <!-- Iuitl Gaiters -->
+        <neck>Asperity Necklace</neck>
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Iuitl Gaiters</feet>
         <waist>Wanion Belt</waist>
-        <back>Atheling Mantle</back>
-        <lear>Steelflash Earring</lear>
-        <rear>Bladeborn Earring</rear>
-        <lring>Rajas Ring</lring>
-        <rring>Thundersoul Ring</rring>
-      </set>
-      <set name="ACC-Evisceration" baseset="Sneak Attack" load="yes">
-        <!-- Modifer: DEX:30%  -->
-        <head>Uk'uxkaj Cap</head>
-        <!-- Nefarious Collar -->
-        <neck>Love Torque</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Manibozho Brais</legs>
-        <!-- Iuitl Gaiters -->
-        <feet>Manibozho Boots</feet>
-        <waist>Anguinus Belt</waist>
         <!-- Rancorous Mantle -->
         <back>Atheling Mantle</back>
+        <!-- Tati Earring -->
         <lear>Steelflash Earring</lear>
-        <rear>Jupiter's Earring</rear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
-        <rring>Thundersoul Ring</rring>
+        <rring>Epona's Ring</rring>
       </set>
-      <set name="SA-Evisceration" baseset="Sneak Attack" load="yes">
-        <neck>Shadow Gorget</neck>
-        <body>Iuitl Vest</body>
-        <hands>Iuitl Wristbands</hands>
-        <!--<waist>Cuchulian's Belt</waist>-->
+      <set name="ACC-Evisceration" baseset="Evisceration" load="yes">
+        <head>Whirlpool Mask</head>
+        <!-- Nefarious Collar -->
+        <neck>Asperity Necklace</neck>
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Manibozho Boots</feet>
         <waist>Wanion Belt</waist>
-        <!-- Thundersoul Ring -->        
-      </set>
-      <set name="TA-Evisceration" baseset="Sneak Attack" load="yes">
-        <!-- Rancor Collar-->
-        <!-- Shadow Belt -->
+        <!-- Rancorous Mantle -->
+        <back>Atheling Mantle</back>
+        <!-- Tati Earring -->
+        <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
+        <rear>Bladeborn Earring</rear>
+        <lring>Rajas Ring</lring>
+        <rring>Epona's Ring</rring>
       </set>
       <set name="Rudra's Storm" Baseset="Sneak Attack" load="yes">
         <!-- Modifer: DEX:30% -->
         <head>Whirlpool Mask</head>
-        <neck>Love Torque</neck>
-        <body>Manibozho Jerkin</body>
-        <!-- Khep Jacket -->
-        <hands>Iuitl Wristbands</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Wanion Belt</waist>
-        <back>Vespid Mantle</back>
-        <lear>Steelflash Earring</lear>
-        <rear>Bladeborn Earring</rear>
-        <!-- Thundersoul Ring -->
-        <lring>Rajas Ring</lring>
-        <rring>Thundersoul Ring</rring>        
-      </set>
-      <set name="SA-Rudra's Storm" baseset="Sneak Attack">
-        <head>Whirlpool Mask</head>
-        <neck>Love Torque</neck>
-        <body>Manibozho Jerkin</body>
-        <!-- Khep Jacket -->
-        <hands>Iuitl Wristbands</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Wanion Belt</waist>
-        <back>Vespid Mantle</back>
-        <lear>Steelflash Earring</lear>
-        <rear>Bladeborn Earring</rear>
-        <!-- Thundersoul Ring -->
-        <lring>Rajas Ring</lring>
-        <rring>Thundersoul Ring</rring>
-      </set>
-      <set name="TA-Rudra's Storm" baseset="Sneak Attack">
-        <head>Uk'uxkaj Cap</head>
-        <neck>Justiciar's Torque</neck>
-        <body>Manibozho Jerkin</body>
-        <hands>Raid. Armlets +2</hands>
-        <legs>Manibozho Brais</legs>
-        <feet>Manibozho Boots</feet>
+        <neck>Shadow Gorget</neck>
+        <body>Pillager's Vest</body>
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
         <waist>Prosilio Belt</waist>
-        <back>Atheling Mantle</back>
+        <back>Vespid Mantle</back>
+        <!-- Brutal Earring -->
         <lear>Steelflash Earring</lear>
+        <!-- Moonshade Earring -->
         <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
         <rring>Thundersoul Ring</rring>
-      </set>      
-      <set name="Aeolian Edge|Cyclone|Wasp Sting" baseset="Sneak Attack">
-        <!-- Modifer: DEX:29.5% INT:29.5% 
-        <head>Seiokona Beret</head>
-        <neck>Stoicheion Medal</neck>
-        <waist>Breeze Belt</waist>
-        <lear>Novio Earring</lear>
-        <rear>Hecate's Earring</rear>
-        <lring>Demon's ring</lring>
-        <rring>Demon's ring</rring>-->      
       </set>
-      <set name="Dancing Edge|Shadowstitch" BaseSet="Sneak Attack" load="yes">
-        <!-- Modifer: DEX:30% ; CHR:40% -->
+      <set name="SA-Rudra's Storm" baseset="Rudra's Storm"/>
+      <set name="TA-Rudra's Storm" baseset="Rudra's Storm"/>
+      <set name="Aeolian Edge" baseset="Sneak Attack">
+
       </set>
-      <set name="Shark Bite" baseset="Sneak Attack" load="yes">
-        <!-- Modifer: DEX:50% -->
-        <lear>Steelflash Earring</lear>
-        <rear>Bladeborn Earring</rear>
-        <rring>Epona's Ring</rring>
-      </set>
-      <set name="Mandalic Stab" Baseset="Sneak Attack" load="yes">
-        <!-- Modifer: DEX:30% -->
-        <lear>Steelflash Earring</lear>
-        <rear>Bladeborn Earring</rear>
-        <rring>Epona's Ring</rring>       
-      </set>
-      <set name="Viper Bite" baseset="Mercy Stroke">
-        
-      </set>      
-      <set name="Energy Drain|Energy Steal" baseset="Aeolian Edge"/>
-      <set name="True Strike" baseset="Mercy Stoke"/>    
       <!-- JA -->
       <set name="Steal">
-        <feet>Rogue's Poulaines</feet>
-        <!--<head>Rogue's Bonnet</head>
-        <hands>Thief's Kote</hands>
-        <legs>Assassin's Culottes</legs>        
         <neck>Rabbit Charm</neck>-->
+        <hands>Pillager's Armlets</hands>
+        <legs>Pillager's Culottes</legs>
+        <feet>Pillager's Poulaines</feet>
+      </set>
+      <set name="Mug">
+        <head>Assassin's Bonnet</head>
+      </set>
+      <set name="Waltz" baseset="PDT">
+        <!-- VIT/CHR -->
+        <hands>Buremte Gloves</hands>
+        <waist>Chuq'aba Belt</waist>
+      </set>
+      <set name="Step" baseset="AccTP">
+        <!-- Accuracy-->
+
+      </set>
+      <set name="Stun" baseset="TP">
+        <!-- Macc-->
       </set>
     </group>
   </sets>
   <rules>
-    <!-- Remove Doom with Holy Water and retry spell -->
-    <if BuffActive="Doom">
-      <if Advanced="$AutoHolyWater=1">
-        <addtochat Color="121">Doomed. Useing Holy Water</addtochat>
-        <action Type="Command">wait 1.5;%Spell %SpellTargetRaw;</action>
-        <action Type="Command">input /item "Holy Water" &lt;me&gt;</action>
-        <action Type="CancelSpell"/>
-        <action Type="Return"/>
-      </if>
+    <if spell="Sneak Attack" buffactive="Trick Attack">
+      <cancelspell/>
+      <addtochat color="121">Canceled - Don't Stack SA and TA</addtochat>
+      <return/>
     </if>
-    <!-- Remove Silence with Echo Drops and recast spell-->
-    <elseif BuffActive="Silence" CommandPrefix="/ma|/magic|/ninjutsu">
-      <if advanced='"AutoEchoDrops"=="1"'>
-        <cancelspell />
-        <cmd>input /item "Echo Drop" &lt;me&gt;</cmd>
-      </if>
-      <else>
-        <command>input /p Silenced...</command>
-      </else>
-    </elseif>
+    <if spell="Trick Attack" buffactive="Sneak Attack">
+      <cancelspell/>
+      <addtochat color="121">Canceled - Don't Stack SA and TA</addtochat>
+      <return/>
+    </if>
     <!--Auto sets-->
     <!-- im fleeing! I Don't need anything but my flee Shoes-->
     <if mode="OR" buffactive="Flee" Spell="Flee">
       <equip when="precast|aftercast|Idle" set="Standard">
-        <feet>Rogue's Poulaines</feet>
+        <feet>Pillager's Poulaines</feet>
       </equip>
       <return/>
     </if>
@@ -495,7 +404,7 @@
     <elseif spell="ranged">
       <equip when="precast" set="Ranged"/>
       <equip when="aftercast">
-        <feet>Fajin Boots</feet>
+        <feet>Pillager's Poulaines</feet>
       </equip>
       <!-- Dynamis -->
       <if Area="Dynamis*">
@@ -608,14 +517,14 @@
         </elseif>
       </if>
       <!-- Not in Dynamis-->
-      <else>       
+      <else>
         <if advanced='"$PullCall"="1"'>
           <cmd>input /p Fishing >>>>> %spelltargetname &lt;call14&gt;</cmd>
         </if>
         <else>
           <cmd>input /p Fishing >>>>> %spelltargetname</cmd>
         </else>
-      </else>      
+      </else>
       <return/>
     </elseif>
     <!--Trick Attack-->
@@ -634,9 +543,6 @@
           <!-- Reset TH Varible-->
           <cmd when="aftercast">sc var set TH 0</cmd>
         </if>
-        <else>
-          <equip when="precast" set="TA"/>
-        </else>
       </else>
       <return/>
     </elseif>
@@ -656,13 +562,11 @@
           <!-- Reset TH Varible-->
           <cmd when="aftercast">sc var set TH 0</cmd>
         </if>
-        <else>
-          <equip when="precast" set="SA"/>
-        </else>        
-      </else>      
+      </else>
       <!-- Do nothing and use your in game macros-->
       <return/>
     </elseif>
+    <!-- Feint -->
     <elseif spell="Feint">
       <if notstatus="engaged">
         <cancelspell/>
@@ -671,28 +575,7 @@
       <else>
         <cmd>input /p Feint Just Used it &lt;call14&gt;</cmd>
         <if advanced='"$TH"=="1"'>
-          <equip when="precast">
-            <sub>Thief's Knife</sub>      
-            <hands>Assassin's Armlets +2</hands>
-            <feet>Raid. Poulaines +2</feet>
-          </equip>
-          <!-- Reset TH Varible-->
-          <cmd when="aftercast">sc var set TH 0</cmd>
-        </if>
-      </else>
-      <!-- Do nothing and use your in game macros-->
-      <return/>
-    </elseif>
-    <else>
-      <!-- Lock Evasion Gear -->
-      <if advanced='"$Evasion"=="1"'>
-        <equip when="Idle|engaged|aftercast" set="Evasion">
-          <range>Ungur Boomerang</range>
-        </equip>
-      </if>
-      <elseif status="engaged">
-        <if advanced='"$TH"=="1"'>
-          <equip when="engaged" set="TP">
+          <equip when="precast" set="AccTP">
             <sub>Thief's Knife</sub>
             <hands>Assassin's Armlets +2</hands>
             <feet>Raid. Poulaines +2</feet>
@@ -701,76 +584,206 @@
           <cmd when="aftercast">sc var set TH 0</cmd>
         </if>
         <else>
-          <equip when="engaged|aftercast" set="TP">
-            <sub>$SubDagger</sub>
-          </equip>
-        </else>       
+          <equip when="precast" set="AccTP"/>
+        </else>
+      </else>
+      <!-- Do nothing and use your in game macros-->
+      <return/>
+    </elseif>
+    <else>
+      <!-- Lock Evasion Gear -->
+      <if advanced='"$Evasion"=="1"'>
+        <equip when="Idle|engaged|aftercast" set="Evasion"/>
+      </if>
+      <elseif mode="OR" advanced='"$PDT"=="1"' buffactive="weak*">
+        <addtochat color='121'>PDT Set Locked</addtochat>
+        <equip when="Engaged|Aftercast|idle" set="PDT" />
+      </elseif>
+      <elseif advanced='"$MDT"=="1"'>
+        <addtochat Color="121">MDT Set Locked</addtochat>
+        <equip when="Engaged|Aftercast|idle" set="MDT" />
       </elseif>
       <else>
-        <equip when="idle|aftercast" set="Standard">
-          <feet>Fajin Boots</feet>
-        </equip>
+        <if advanced='"$Acc"=="1"'>
+          <if status="engaged">
+            <if advanced='"$TH"=="1"'>
+              <equip when="engaged" set="AccTP">
+                <sub>Thief's Knife</sub>
+                <hands>Assassin's Armlets +2</hands>
+                <feet>Raid. Poulaines +2</feet>
+              </equip>
+              <!-- Reset TH Varible-->
+              <cmd when="aftercast">sc var set TH 0</cmd>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="AccTP">
+                <sub>$SubDagger</sub>
+              </equip>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard">
+              <feet>Pillager's Poulaines</feet>
+            </equip>
+          </else>
+        </if>
+        <elseif advanced='"$Buff"=="1"'>
+          <if status="engaged">
+            <if advanced='"$TH"=="1"'>
+              <equip when="engaged" set="ATP">
+                <sub>Thief's Knife</sub>
+                <hands>Assassin's Armlets +2</hands>
+                <feet>Raid. Poulaines +2</feet>
+              </equip>
+              <!-- Reset TH Varible-->
+              <cmd when="aftercast">sc var set TH 0</cmd>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="ATP">
+                <sub>$SubDagger</sub>
+              </equip>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard">
+              <feet>Pillager's Poulaines</feet>
+            </equip>
+          </else>
+        </elseif>
+        <else>
+          <if status="engaged">
+            <if advanced='"$TH"=="1"'>
+              <equip when="engaged" set="TP">
+                <sub>Thief's Knife</sub>
+                <hands>Assassin's Armlets +2</hands>
+                <feet>Raid. Poulaines +2</feet>
+              </equip>
+              <!-- Reset TH Varible-->
+              <cmd when="aftercast">sc var set TH 0</cmd>
+            </if>
+            <else>
+              <equip when="engaged|aftercast" set="TP">
+                <sub>$SubDagger</sub>
+              </equip>
+            </else>
+          </if>
+          <else>
+            <equip when="idle|aftercast" set="Standard">
+              <feet>Pillager's Poulaines</feet>
+            </equip>
+          </else>
+        </else>
       </else>
     </else>
     <!--Job Abilites-->
-    <if type="jobability">
-      <if spell="Steal">
-        <equip when="precast" set="Steal" />
+    <if mode="OR" type="jobability" CommandPrefix="/ja|/jobability">
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror|Charm*">
+        <addtochat color="121">======= Canceled JA =======</addtochat>
+        <cancelspell/>
       </if>
-      <elseif spell="Despoil">
-        <equip when="precast">
-          <legs>Raid. Culottes +2</legs>
-          <feet>Raid. Poulaines +2</feet>
-        </equip>
-      </elseif>
-      <elseif spell="Mug">
-        <equip when="precast">
-          <head>Assassin's Bonnet</head>
-        </equip>
-      </elseif>
-      <elseif spell="Hide">
-        <equip when="precast" set="Evasion">
-          <head>Rogue's Vest</head>
-        </equip>
-      </elseif>
-      <elseif spell="Conspirator">
-        <equip when="precast">
-          <head>Raider's Vest +2</head>
-        </equip>
-      </elseif>
-      <elseif spell="Collaborator|Accomplice">
-        <equip when="precast">
-          <head>Raid. Bonnet +2</head>
-        </equip>
-      </elseif>
+      <else>
+        <if Spell="Spectral Jig">
+          <command when="precast">cancel 71</command>
+        </if>
+        <elseif spell="*Step">
+          <equip when="precast" set="Step" />
+        </elseif>
+        <elseif spell="violent flourish|desperate*">
+          <equip when="precast" set="Stun" />
+        </elseif>
+        <elseif spell="Curing Waltz*">
+          <addtochat color="121">Waltz</addtochat>
+          <equip when="precast" set="Waltz" />
+        </elseif>
+        <elseif spell="Perfect Dodge">
+          <equip when="precast">
+            <legs>Assassin's Culottes</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Steal">
+          <equip when="precast" set="Steal" />
+        </elseif>
+        <elseif spell="Despoil">
+          <equip when="precast">
+            <legs>Raid. Culottes +2</legs>
+            <feet>Raid. Poulaines +2</feet>
+          </equip>
+        </elseif>
+        <elseif spell="Mug">
+          <equip when="precast" set="Mug"/>
+        </elseif>
+        <elseif spell="Hide">
+          <equip when="precast" set="Evasion">
+            <head>Pillager's Vest</head>
+          </equip>
+        </elseif>
+        <elseif spell="Conspirator">
+          <equip when="precast">
+            <head>Raider's Vest +2</head>
+          </equip>
+        </elseif>
+        <elseif spell="Collaborator|Accomplice">
+          <equip when="precast">
+            <head>Raid. Bonnet +2</head>
+          </equip>
+        </elseif>
+      </else>
     </if>
     <!--Weapon Skills-->
     <elseif type="Weaponskill">
-      <if TPGT="99">
-        <if advanced="%SpellTargetDistance &lt; 5">
-          <CastDelay Delay=".5"/>
-          <equip when="precast" set="%Spell"/>
-          <addtochat color="121">%Spell Set</addtochat>
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror|Charm*">
+        <addtochat color="121">======= Canceled JA =======</addtochat>
+        <cancelspell/>
+      </if>
+      <else>
+        <if TPGT="99">
+          <if advanced="%SpellTargetDistance &lt; 5">
+            <CastDelay Delay=".5"/>
+            <if spell="Mercy Stroke|Rudra's Storm">
+              <if buffactive="Sneak Attack">
+                <equip when="precast" set="SA-%Spell"/>
+              </if>
+              <elseif buffactive="Trick Attack">
+                <equip when="precast" set="TA-%Spell"/>
+              </elseif>
+              <else>
+                <cancelspell/>
+                <addtochat color="121">Canceled %Spell - Need to Stack with Sneak Attack or Trick Attack</addtochat>
+              </else>
+            </if>
+            <elseif spell="Exenterator|Eviseration">
+              <if advanced='"$Acc"=="1"'>
+                <equip when="precast" set="Acc-%Spell"/>
+              </if>
+              <else>
+                <equip when="precast" set="%Spell"/>
+              </else>
+            </elseif>
+            <elseif spell="Aeolian's Edge">
+              <equip when="precast" set="%Spell"/>
+            </elseif>
+            <else>
+              <equip when="precast" set="Mercy Stroke"/>
+            </else>
+          </if>
+          <else>
+            <cancelspell />
+            <addtochat color="121">%SpellTargetName is too far.</addtochat>
+            <Return />
+          </else>
         </if>
         <else>
           <cancelspell />
-          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <addtochat color="121">You dont have enough tp for that</addtochat>
           <Return />
         </else>
-      </if>
-      <else>
-        <cancelspell />
-        <addtochat color="121">You dont have enough tp for that</addtochat>
-        <Return />
       </else>
     </elseif>
-    <!-- Sub Job-->
-    <if subjob="NIN">
-      <if advanced='"$AutoMacroSet"=="1"'>
-        <cmd when="aftercast">input /macro set 1</cmd>
-      </if>     
+    <elseif type="Ninjutsu">
       <if spell="Utsu*">
-        <equip when="precast" set="fastcast" />
+        <equip when="precast" set="fastcast">
+          <neck>Magoraga Beads</neck>
+        </equip>
         <if spell="*Ichi" BuffActive="Copy Image">
           <midcastdelay delay="2.5" />
           <command when="midcast">cancel 66</command>
@@ -787,39 +800,36 @@
           <command when="midcast">cancel 71</command>
         </if>
       </elseif>
+    </elseif>
+    <elseif type="*Magic">
       <elseif spell="Sneak">
         <changespell spell="Monomi: Ichi"/>
       </elseif>
       <elseif spell="Invisible">
         <changespell spell="Tonko: Ni"/>
       </elseif>
+    </elseif>
+    <!-- Sub Job-->
+    <if subjob="NIN">
+      <if advanced='"$AutoMacroSet"=="1"'>
+        <cmd when="aftercast">input /macro set 1</cmd>
+      </if>
     </if>
     <elseif subjob="WAR">
       <if advanced='"$AutoMacroset"=="1"'>
         <cmd when="aftercast">input /macro set 2</cmd>
-      </if>
-      <if mode="and" hpplt="40" buffactive="Berserk">
-        <command>cancel 56</command>
       </if>
     </elseif>
     <elseif subjob="DNC">
       <if advanced='"$AutoMacroset"=="1"'>
         <cmd when="aftercast">input /macro set 3</cmd>
       </if>
-      <if Spell="Spectral Jig">
-        <command when="PreCast">cancel 71</command>
-      </if>
-      <elseif spell="*step">
-        <equip when="precast" set="SA" />
-      </elseif>
-      <elseif spell="violent flourish|desperate*">
-        <equip when="precast" set="SA" />
-      </elseif>
-      <elseif spell="*waltz*">
-        <equip when="precast" set="waltz" />
-      </elseif>
     </elseif>
-    <elseif subjob="DRK"/>
+    <elseif subjob="DRK">
+      <if advanced='"$AutoMacroset"=="1"'>
+        <cmd when="aftercast">input /macro set 4</cmd>
+      </if>
+    </elseif>
     <!-- Statuses-->
     <if advanced='"$Statuses"=="1"'>
       <if BuffActive="Amnesia" CommandPrefix="/ja|/jobability|/ws|/weaponskill">
@@ -863,6 +873,6 @@
       <elseif buffactive="Mute">
         <command>input /p Mute</command>
       </elseif>
-     </if>
-  </rules> 
+    </if>
+  </rules>
 </spellcast>

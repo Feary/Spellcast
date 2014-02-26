@@ -58,24 +58,24 @@
     <var name="EarthStaff">Felibre's Dague</var>
     <var name="WaterStaff">Felibre's Dague</var>
     <!-- Elemental Obi's, set to 1 for the ones you have. -->
-    <var name="obidark">1</var>
-    <var name="obilight">1</var>
-    <var name="obithunder">1</var>
-    <var name="obiice">1</var>
-    <var name="obifire">1</var>
-    <var name="obiwind">1</var>
-    <var name="obiwater">0</var>
-    <var name="obiearth">0</var>
+    <var name="DarkObi">1</var>
+    <var name="LightObi">1</var>
+    <var name="ThunderObi">1</var>
+    <var name="IceObi">1</var>
+    <var name="FireObi">1</var>
+    <var name="WindObi">1</var>
+    <var name="WaterObi">0</var>
+    <var name="EarthObi">0</var>
     <!-- Do not change -->
     <var name="StormElement">None</var>
-    <var name="IceObi">hyorin obi</var>
-    <var name="DarkObi">Anrin obi</var>
-    <var name="ThunderObi">rairin obi</var>
-    <var name="LightObi">korin obi</var>
-    <var name="WindObi">furin obi</var>
-    <var name="FireObi">karin obi</var>
-    <var name="EarthObi">dorin obi</var>
-    <var name="WaterObi">suirin obi</var>
+    <var name="Ice-Obi">hyorin obi</var>
+    <var name="Dark-Obi">Anrin obi</var>
+    <var name="Thunder-Obi">rairin obi</var>
+    <var name="Light-Obi">korin obi</var>
+    <var name="Wind-Obi">furin obi</var>
+    <var name="Fire-Obi">karin obi</var>
+    <var name="Earth-Obi">dorin obi</var>
+    <var name="Water-Obi">suirin obi</var>
     <var name="CC">0</var>
     <var name="Nightinggale">midcast</var>
   </variables>
@@ -179,13 +179,13 @@
         <hands>Ad. Mnchtte. +2</hands>
         <legs>Aoidos' Rhing. +2</legs>
         <feet>Aoidos' Cothrn. +2</feet>
+		<back>Balladeer's Cape</back>
         <lear>Musical Earring</lear>
-        <back>Balladeer's Cape</back>
         <lring>Minstrel's Ring</lring>
         <rring>K'ayres Ring</rring>
       </set>
       <!-- BuffSongs that needs gear to cap Skill - Scherzo 800-->
-      <set name="UnCappedSkill|SkillSong" baseset="Standard" load="yes">
+      <set name="UnCappedSkill|SkillSong" baseset="Buffsong" load="yes">
         <main>$PDTStaff</main>
         <body>Aoidos' hngrln. +2</body>
         <legs>Aoidos' rhing. +2</legs>

@@ -209,14 +209,12 @@
         <sub>Wise Strap</sub>
         <!-- Dosis Tathlum -->
         <ammo>Witchstone</ammo>
-        <!--<head>Hagondes Hat</head>-->
-        <head>Nahtirah Hat</head>
+        <head>Hagondes Hat</head>
         <neck>Eddy Necklace</neck>
         <!-- Hagondes Coat -->
         <body>Bokwus Robe</body>
         <hands>Yaoyotl Gloves</hands>
         <legs>Hagondes Pants</legs>
-        <!--<feet>Hagondes Sabots</feet>-->
         <feet>Bokwus Boots</feet>
         <!-- Aswang Sash -->
         <waist>Wanion Belt</waist>
@@ -242,7 +240,6 @@
         <main>$Maccstaff</main>
         <!-- Buremte Hat-->
         <head>Nahtirah Hat</head>
-        <!-- Wilke Torque-->
         <neck>Eddy Necklace</neck>
         <body>Bokwus Robe</body>
         <hands>Hagondes Cuffs</hands>
@@ -250,7 +247,7 @@
         <!-- Uk'uxkaj Boots -->
         <feet>Bokwus Boots</feet>
         <waist>Demonry Sash</waist>
-        <back>Refraction Cape</back>
+        <back>Bane Cape</back>
         <lring>Balrahn's ring</lring>
         <rring>Sangoma Ring</rring>
         <lear>Lifestorm Earring</lear>
@@ -436,13 +433,14 @@
               <equip when="midcast" Set="INT" />
             </if>
             <elseif spell="Impact">
+              <disable slot="head"/>
               <equip when="precast" set="fastcast">
                 <body lock="true">Twilight Cloak</body>
               </equip>
-              <equip when="precast" set="Macc">
+              <equip when="midcast|aftercast" set="Macc">
                 <body lock="true">Twilight Cloak</body>
               </equip>
-              <cmd>wait 180;input /p Impact has worn off.</cmd>
+              <cmd when="aftercast">sc enable head;wait 180;input /p Impact has worn off.;sc set standard</cmd>
             </elseif>
             <else>
               <!-- Handle Elemental Gear -->

@@ -76,8 +76,7 @@
         <!--<head>Iuitl Headgear</head>-->
         <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
-        <!--<body>Iuitl Vest</body>-->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
@@ -90,8 +89,7 @@
         <!--<head>Iuitl Headgear</head>-->
         <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
-        <!--<body>Iuitl Vest</body>-->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
@@ -105,12 +103,7 @@
       <set name="Evasion" baseset="TP">
        
       </set>
-      <set name="Recast" baseset="TP" load="yes">
-        <!--<neck>Orunmila's Torque</neck>-->
-        <waist>Twilight Belt</waist>
-        <rear>Loquac. Earring</rear>
-        <lear>Magnetic Earring</lear>
-      </set>
+      <!-- Precast -->
       <set name="Charm" load="yes">
         <head>Beast Helm</head>
         <body>Beast jackcoat</body>

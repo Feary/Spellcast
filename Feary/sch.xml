@@ -5,10 +5,6 @@
   <variables clear="true">
     <!-- Auto Macro Set = 1=on 0=off 1. Light ARTS - RDM 2. Dark Arts - RDM 3. Light Arts WHM 4. Dark Arts WHM 5. Light Arts BLM 6. Dark Arts BLM 7. Light Arts NIN 8.Dark Arts NIN 9. Tabula Rasa Only -->
     <var name="AutoMacroSet">1</var> 
-    <!-- Auto Echo Drops -->
-    <var Name="AutoEchoDrops">0</var>
-    <!-- Curebot - Auto select spell based on hp of target and mp of caster-->
-    <var name="Curebot">0</var>
     <!-- Sleep timers, announces to chat when sleep is wearing off. Set to 0 to not use. -->
     <!-- (note: this is sort of very obvious usage of 3rd party programs, so turn off when around people you dont trust -->
     <var name="SleepTimers">1</var>
@@ -16,20 +12,36 @@
     <var name="TwilightCape">1</var>
     <!-- Zodiac ring -->
     <var name="ZodiacRing">1</var>
-    <!-- Argute Loafers - use them under weather effect for precast -->
-    <var name="Arguteloafers">1</var>
+    <!-- SCH Stun mode -->
+    <var name="Stun">0</var>
+    <!-- Auto Storm - based on day or weather - cast auspice on yourself-->
+    <var name="AutoStorm">1</var>
+    <!-- Auto Helix - based on day or weather -->
+    <var name="AutoHelix">1</var>
     <!-- Elemental Staffs, input what staff to use for each element here -->
     <var name="CureStaff">Arka IV</var>
     <var name="PDTStaff">Earth Staff</var>
-    <var name="Resting Staff">Chatoyant Staff</var>
-    <var name="FireStaff">Atar I</var>
-    <var name="EarthStaff">Terra's Staff</var>
-    <var name="WaterStaff">Chatoyant Staff</var>
-    <var name="WindStaff">Chatoyant Staff</var>
+    <var name="RestingStaff">Chatoyant Staff</var>
+    <var name="MaccStaff">Atinian Staff</var>
+    <var name="NukeStaff">Atinian Staff</var>
+    <!-- Recast Staves-->
     <var name="IceStaff">Vourukasha I</var>
+    <var name="DarkStaff"></var>
     <var name="ThunderStaff">Apamajas I</var>
-    <var name="LightStaff">Chatoyant Staff</var>
-    <var name="DarkStaff">Chatoyant Staff</var>
+    <var name="LightStaff"></var>
+    <var name="WindStaff"></var>
+    <var name="FireStaff">Atar I</var>
+    <var name="EarthStaff"></var>
+    <var name="WaterStaff"></var>
+    <!-- Damage Magian Staff, set to 1 for the ones you have. -->
+    <var name="IceMagian">1</var>
+    <var name="DarkMagian">0</var>
+    <var name="ThunderMagian">1</var>
+    <var name="LightMagian">0</var>
+    <var name="WindMagian">0</var>
+    <var name="FireMagian">1</var>
+    <var name="EarthMagian">0</var>
+    <var name="WaterMagian">0</var>
     <!-- Elemental Obi's, set to 1 for the ones you have. -->
     <var name="DarkObi">1</var>
     <var name="LightObi">1</var>
@@ -39,12 +51,7 @@
     <var name="WindObi">1</var>
     <var name="WaterObi">0</var>
     <var name="EarthObi">0</var>
-    <!-- Auto Storm - based on day or weather - cast auspice on yourself-->
-    <var name="AutoStorm">1</var>
-    <!-- Auto Helix - based on day or weather -->
-    <var name="AutoHelix">1</var>
     <!--Do Not Change-->
-    <var name="MoonPhase">0</var>
     <var name="StormElement">None</var>
     <var name="Ice-Obi">hyorin obi</var>
     <var name="Dark-Obi">Anrin obi</var>
@@ -53,7 +60,17 @@
     <var name="Wind-Obi">furin obi</var>
     <var name="Fire-Obi">karin obi</var>
     <var name="Earth-Obi">dorin obi</var>
-    <var name="Water-Obi">suirin obi</var>   
+    <var name="Water-Obi">suirin obi</var>
+    <!-- Damage Magian Staves -->
+    <var name="Ice-Magian">Vourukasha I</var>
+    <var name="Dark-Magian">Xsaeta I</var>
+    <var name="Thunder-Magian">Apamajas I</var>
+    <var name="Light-Magian">Arka I</var>
+    <var name="Wind-Magian">Vayuvata I</var>
+    <var name="Fire-Magian">Atar I</var>
+    <var name="Earth-Magian">Vishrava I</var>
+    <var name="Water-Magian">Haoma I</var>
+    <!-- Auto Storm-->
     <var name="Storm-Fire">Firestorm</var>
     <var name="Storm-Ice">Hailstorm</var>
     <var name="Storm-Wind">Windstorm</var>
@@ -64,6 +81,7 @@
     <var name="Storm-Dark">Voidstorm</var>  
     <var name="ModusGo">no</var>
     <var name="ModusRecast">Ready</var>
+    <!-- Auto Helix -->
     <var name="Helix-Fire">Pyrohelix</var>
     <var name="Helix-Ice">Cryohelix</var>
     <var name="Helix-Wind">Anemohelix</var>
@@ -90,54 +108,59 @@
   <sets>
     <group Name="Main" default="Yes" load="yes">
       <set name="MiscGearCollector" load="yes">
-        <item>Atar I</item>
-        <item>Chatoyant Staff</item>
-        <item>Earth Staff</item>
         <item>Arka IV</item>
         <item>Apamajas I</item>
         <item>Vourukasha I</item>
+        <item>Atar I</item>
+        <item>Chatoyant Staff</item>
+        <item>Earth Staff</item>
         <head>Plenitas Virga</head>
         <item>Tamaxchi</item>
         <item>Zodiac Ring</item>
         <item>Twilight Cape</item>
+        <!-- Porter Moogles -->
+        <item>Savant's Treatise</item>
+        <item>Svnt. Bonnet +2</item>
+        <item>Svnt. Bracers +2</item>
+        <item>Savant's Pants +2</item>
+        <item>Argute Gown +2</item>
+        <item>Argute Loafers +2</item>
       </set>
       <set name="Town" baseset="Standard" load="yes">
         <feet>Herald's Gaiters</feet>
       </set>
       <!-- Movement+ > PDT > Refresh -->
-      <Set name="Standard|Idle" load="yes">
-        <Main>$PDTStaff</Main>
-        <sub>Pax Grip</sub>
-        <Head>Svnt. Bonnet +2</Head>
-        <neck>Twilight Torque</neck>
-        <body>Savant's Gown +2</body>
-        <hands>Svnt. Bracers +2</hands>
-        <!-- Nares Trews-->
-        <legs>Tatsu. Sitagoromo</legs>
+      <Set name="Standard|Idle" baseset="PDT" load="yes">
+        <legs>Nares Trews</legs>
         <feet>Herald's Gaiters</feet>
-        <waist>Austerity Belt</waist>
-        <back>Umbra Cape</back>
-        <lear>Loquac. Earring</lear>
-        <rear>Moonshade earring</rear>
-        <lring>Dark Ring</lring>
-        <rring>Dark Ring</rring>
+        <waist>Witful Belt</waist>
+        <lear>Merman's Earring</lear>
+        <rear>Merman's Earring</rear>
       </Set>
       <set name="Sublimation" baseset="Standard" load="yes">
         <head>Scholar's M.Board</head>
-        <body>Argute Gown</body>
+        <body>Argute Gown +2</body>
         <lear>Savant's Earring</lear>
       </set>
       <set name="PDT">
         <main>$PDTStaff</main>
+        <head>Hagondes Hat</head>
         <neck>Twilight Torque</neck>
-        <legs>Tatsu. Sitagoromo</legs>
-        <waist>Flume Belt</waist>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
         <back>Umbra Cape</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>        
       </set>
       <set name="MDT">
+        <head>Hagondes Hat</head>
         <neck>Twilight Torque</neck>
+        <body>Hagondes Coat</body>
+        <hands>Hagondes Cuffs</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
         <lear>Merman's Earring</lear>
@@ -147,95 +170,95 @@
         <main>$RestingStaff</main>
         <ammo>Clarus Stone</ammo>
         <neck>Eidolon Pendant</neck>
-        <body>Savant's Gown +2</body>
+        <body>Hagondes Coat</body>
         <hands>Serpentes Cuffs</hands>
-        <!-- Nares Trews-->
-        <legs>Sagacity Lappas</legs>
-        <feet>Numerist Pumps</feet>
+        <legs>Nares Trews</legs>
+        <feet>Chelona Boots</feet>
         <waist>Austerity Belt</waist>
         <back>Felicitas Cape</back>
         <lear>Magnetic Earring</lear>
         <rear>Moonshade Earring</rear>              
       </set>
-      <set name="Fastcast" load="yes">
+      <!-- Precast -->
+      <set name="Fastcast" baseset="Standard" load="yes">
         <head>Argute M.Board</head>
         <body>Anhur Robe</body>
-        <feet>Rostrum Pumps</feet>
+        <hands>Gendewitha Gages</hands>
+        <feet>Argute Loafers +2</feet>
         <waist>Witful Belt</waist>
         <back>Swith Cape</back>
         <lear>Loquac. Earring</lear>
         <rring>Prolix Ring</rring>
       </set>
+      <set name="CurePrecast" baseset="Fastcast">
+        <body>Heka's Kalairis</body>
+        <!--<back>Pahtli Cape</back>-->
+      </set>
+      <!-- Midcast -->
+      <set name="Recast" baseset="fastcast">
+        <main>$%SpellElementStaff</main>
+      </set>
+      <set name="ConserveMP" baseset="Recast">
+        <ammo>Clarus Stone</ammo>
+        <!--<head>Nares Cap</head>-->
+        <body>Hedera's Cotehardie</body>
+        <hands>Serpentes Cuffs</hands>
+        <legs>Nares Trews</legs>
+        <!--<feet>Aife's Pumps</feet>-->
+        <feet>Serpentes Sabots</feet>
+        <waist>Austerity Belt</waist>
+        <!--<back>Vita Cape</back>-->
+        <lear>Magnetic Earring</lear>
+        <rear>Gifted Earring</rear>
+      </set>
       <!-- Healing Magic set-->
-      <set name="Healingmagic" baseset="Fastcast" load="yes">
-        <main>$%SpellElementStaff</main>        
+      <set name="Healingmagic" baseset="Recast" load="yes">
+         
       </set>
       <set name="Cure" baseset="Healingmagic" load="yes">
-        <main>$Curestaff</main>
-        <head>Maat's Cap</head>
+        <main>$CureStaff</main>
+        <head>Gende. Caubeen</head>
         <neck>Colossus's Torque</neck>
         <body>Heka's Kalasiris</body>
-        <hands>Augur's Gloves</hands>
-        <!-- Nares Trews-->
-        <legs>Tethyan Trews +3</legs>
-        <feet>Argute Loafers</feet>
+        <hands>Bokwus Gloves</hands>
+        <legs>Scholar's Pants</legs>
+        <feet>Argute Loafers +2</feet>
         <waist>Cascade Belt</waist>
         <back>Swith Cape</back>
         <lring>Aquasoul Ring</lring>
         <rring>Aquasoul Ring</rring>
         <lear>Magnetic Earring</lear>
         <rear>Lifestorm Earring</rear>
-        <sub>Pax Grip</sub>
       </set>
        <!-- Enfeebling Magic sets-->
-       <set name="EnfeeblingMagic" baseset="Fastcast" load="yes">
-        <ammo>Savant's Treatise</ammo>
-         <sub>Mephitis Grip</sub>
-        <main>$%SpellElementStaff</main>
-        <neck>Enfeebling Torque</neck>
-        <Hands>Argute Bracers</Hands>
-        <legs>Savant's Pants +2</legs>
-        <lear>Lifestorm Earring</lear>
-        <rear>Psystorm Earring</rear>       
+       <set name="EnfeeblingMagic|Macc" baseset="Fastcast" load="yes">
+         <main>$MaccStaff</main>
+         <!-- Buremte Hat-->
+         <head>Nahtirah Hat</head>
+         <neck>Eddy Necklace</neck>
+         <body>Hagondes Coat</body>
+         <hands>Hagondes Cuffs</hands>
+         <legs>Bokwus Slops</legs>
+         <!-- Uk'uxkaj Boots -->
+         <feet>Bokwus Boots</feet>
+         <waist>Demonry Sash</waist>
+         <back>Refraction Cape</back>
+         <lring>Balrahn's Ring</lring>
+         <rring>Sangoma Ring</rring>
+         <lear>Lifestorm Earring</lear>
+         <rear>Psystorm Earring</rear>
+         <sub>Mephitis Grip</sub> 
       </set>
-      <set name="EnfeebINT" BaseSet="EnfeeblingMagic" load="yes">
-        <head>Rubeus Bandeau</head>
-        <neck>Enfeebling Torque</neck>
-        <body>Savant's Gown +2</body>
-        <hands>Rubeus Gloves</hands>
-        <legs>Savant's Pants +2</legs>
-        <feet>Rubeus Boots</feet>
-        <waist>Wanion Belt</waist>
-        <back>Refraction Cape</back>
-        <lring>Icesoul Ring</lring>
-        <rring>Icesoul Ring</rring>
-        <lear>Lifestorm Earring</lear>
-        <rear>Psystorm Earring</rear>        
-      </set>
-      <!-- MND Para Slow -->
-      <set name="EnfeebMND" BaseSet="EnfeeblingMagic" load="yes">
-        <head>Rubeus Bandeau</head>
-        <neck>Enfeebling Torque</neck>
-        <body>Savant's Gown +2</body>
-        <hands>Rubeus Gloves</hands>
-        <legs>Savant's Pants +2</legs>
-        <feet>Bokwus Boots</feet>     
-        <waist>Cascade Belt</waist>       
-        <back>Refraction Cape</back>
-        <lring>Aquasoul Ring</lring>
-        <rring>Aquasoul Ring</rring>
-        <lear>Lifestorm Earring</lear>
-        <rear>Psystorm Earring</rear>
-      </set>
+      <set name="EnfeebINT" BaseSet="EnfeeblingMagic" load="yes"/>
+      <set name="EnfeebMND" BaseSet="EnfeeblingMagic" load="yes"/>
       <!-- Aspir Drain - Skill > Fast Cast -->
       <set name="DarkMagic" baseset="Fastcast" load="yes">
-        <main>$%SpellElementStaff</main>
-        <head>Appetence Crown</head>
+        <main>$MaccStaff</main>
+        <head>Nahtirah Hat</head>
         <neck>Aesir Torque</neck>
-        <!-- Argute Gown +2-->
-        <body>Scholar's Gown</body>
-        <hands>Rubeus Gloves</hands>
-        <legs>Argute Pants</legs>
+        <body>Argute Gown +2</body>
+        <hands>Gendewitha Gages</hands>
+        <legs>Bokwus Slops</legs>
         <feet>Svnt. Loafers +2</feet>
         <waist>Wanion Belt</waist>
         <!--Bookworm's Cape-->
@@ -248,51 +271,51 @@
       </set>
       <!-- Stun -->
       <set name="Stun" baseset="Darkmagic">
+        <main>Atinian Staff</main>
+        <head>Nahtirah Hat</head>
+        <neck>Eddy Necklace</neck>
+        <body>Hedera Cotehardie</body>
+        <hands>Gendwitha Gages</hands>
+        <legs>Bokwus Slops</legs>
+        <feet>Argute Loafers +2</feet>
         <waist>Witful Belt</waist>
+        <back>Swith Cape</back>
+        <lear>Lifestorm Earring</lear>
+        <rear>Psystorm Earring</rear>
+        <lring>Balrahn's Ring</lring>
+        <rear>Sangoma Ring</rear>
       </set>
       <!-- TargetCap @500  BaseCap @404 Merit +16 = 420 - 500 = 80 From gear-->
       <set name="EnhancingMagic" Baseset="Fastcast" load="yes">
-        <!-- +4 -->
-        <ammo>Savant's Treatise</ammo>        
-        <!-- +10 14-->
-        <head>Svnt. Bonnet +2</head>
-        <!-- +7 21 -->
-        <neck>Colossus's Torque</neck>        
-        <hands>Svnt. Bracers +2</hands>
-        <!-- +15 21 = 36 -->
-        <!-- Portent Pants-->
-        <legs>Scholar's Pants</legs>
-        <!-- 10+ 46 -->
-        <feet>Rubeus Boots</feet>
-        <!-- +3  49 -->
-        <waist>Cascade Belt</waist>
-        <!-- +3  52 -->
-        <sub>Fulcio Grip</sub>
-        <!-- +7 59-->
-        <body>Argute Gown</body> 
         <main>Kirin's Pole</main>
-        <!--
-        <main>Kirin's Pole</main>        
-        <body>Anhur Robe</body>
-        <back>Merciful Cape</body> 
-        -->
+        <ammo>Savant's Treatise</ammo>        
+        <head>Svnt. Bonnet +2</head>
+        <neck>Colossus's Torque</neck>
+        <body>Argute Gown +2</body>
+        <hands>Svnt. Bracers +2</hands>
+        <!-- Acad. Pants +1 -->
+        <legs>Scholar's Pants</legs>
+        <feet>Rubeus Boots</feet>
+        <waist>Cascade Belt</waist>
+        <back>Merciful Cape</back>
+        <sub>Fulcio Grip</sub>
       </set>
       <!-- @99 Caps with Base Skill and MND-->
       <set name="Stoneskin" baseset="Fastcast" load="yes">
         <waist>Siegel Sash</waist>
       </set>
      <!-- Elelmental Magic-->
-      <set name="FullDamage" load="yes">
-        <main>$%SpellElementStaff</main>
+      <set name="FullDamage" baseset="Macc" load="yes">
+        <main>$NukeStaff</main>
         <ammo>WitchStone</ammo>       
-        <head>Rubeus Bandeau</head>
-        <neck>Stoicheion Medal</neck>
-        <body>Savant's Gown +2</body>
-        <hands>Quauhpilli Gloves</hands>
-        <legs>Rubeus Spats</legs>
-        <feet>Svnt. Loafers +2</feet>
+        <head>Hagondes Hat</head>
+        <neck>Eddy Necklace</neck>
+        <body>Bokwus Robe</body>
+        <hands>Yaoyotl Gloves</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
         <waist>Wanion Belt</waist>
-        <back>Searing Cape</back>
+        <back>Toro Cape</back>
         <lring>Icesoul ring</lring>
         <rring>Icesoul ring</rring>       
         <lear>Novio Earring</lear>
@@ -300,28 +323,22 @@
         <sub>Wise Strap</sub>
       </set>
       <set name="HighResist" baseset="Fulldamage" load="yes">
-        <ammo>Savant's Treatise</ammo>
-        <head>Argute M.Board</head>
-        <neck>Aesir Torque</neck>
         <lear>Lifestorm Earring</lear>
         <rear>Psystorm Earring</rear>
       </set>
-      
       <!-- INT -->
-      <set name="Helix|INT" load="yes">
-        <main>$%SpellElementStaff</main>
-        <head>Svnt. Bonnet +2</head>
-        <neck>Stoicheion Medal</neck>
-        <body>Savant's Gown +2</body>
-        <hands>Quauhpilli Gloves</hands>
-        <legs>Rubeus Spats</legs>
-        <feet>Svnt. Loafers +2</feet>
+      <set name="Helix|INT" baseset="Macc" load="yes">
+        <main>$NukeStaff</main>
+        <head>Nahtirah Hat</head>
+        <neck>Eddy Necklace</neck>
+        <body>Hagondes Coat</body>
+        <hands>Yaoyotl Gloves</hands>
+        <legs>Hagondes Pants</legs>
+        <feet>Hagondes Sabots</feet>
         <waist>Wanion Belt</waist>
-        <back>Searing Cape</back>
+        <back>Refraction Cape</back>
         <lring>Icesoul ring</lring>
         <rring>Icesoul Ring</rring>
-        <lear>Novio Earring</lear>
-        <rear>Strophadic Earring</rear>
       </set>
       <set name="Kaustra" baseset="INT">
         
@@ -529,38 +546,13 @@
     <!-- Magic -->
     <elseif type="*magic">
       <!-- Remove silence with echo drops and retry spell -->
-      <if BuffActive="Silence" CommandPrefix="/ma|/magic">
-        <if Advanced="$AutoEchoDrops=1">
-          <addtochat Color="56">Silenced And Using Echo Drops</addtochat>
-          <action Type="Command">wait 1.5;%Spell %SpellTargetRaw;</action>
-          <action Type="Command">input /item "Echo Drops" me</action>
-          <action Type="CancelSpell"/>
-          <action Type="Return"/>
-        </if>
-        <else>
-          <addtochat Color="56">Silenced</addtochat>
-          <action Type="CancelSpell"/>
-          <action Type="Return"/>
-        </else>
+      <if BuffActive="Silence|Sleep|Stun|Terror|Petrification|Charm|Mute">
+        <!-- Cancel WS if unable to cast -->
+        <addtochat Color="1211">Unable to use ability</addtochat>
+      <cancelspell />
       </if>
       <else>
-        <!-- Begins Magic Casts with Fastcast Gear -->
-        <if BuffActive="Addendum: White|Addendum: Black">
-          <equip when="precast" Set="FastCast">
-            <head>Argute M.Board</head>
-            <feet>Scholar Loafers</feet>
-          </equip>
-        </if>
-        <else>
-          <if advanced = '("%SpellElement" = "%Weatherelement" or "%SpellElement" = "$StormElement") and "$ArguteLoafers" = "1"'>
-            <equip when="precast" Set="FastCast">
-              <feet>Argute Loafers</feet>
-            </equip>
-          </if>
-          <else>
-            <equip when="precast" Set="FastCast"/>
-          </else>          
-        </else>
+        <equip when="precast" Set="FastCast"/>
         <!-- Black Stratagems -->
         <if Type="BlackMagic">
           <!--Uses to Dark Arts if casting a Black Magic spell-->
@@ -823,138 +815,136 @@
           <var cmd="set ChangeArt 0" />
           <var cmd="set ChangeAddendum 0" />
         </if>
-        <!-- Obi -->
-        <if advanced = '("%SpellElement" = "%weatherelement" or "%SpellElement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$%spellelementobi" = "1"'>
-          <equip when = "midcast">
-            <waist lock = "yes">%SpellElement-Obi</waist>
-            <back lock ="yes">Twilight Cape</back>
-            <rring lock ="yes">Zodiac Ring</rring>
-          </equip>
-        </if>
         <!-- Healing Magic -->
         <if skill="Healingmagic">
           <!-- Cure spells-->
           <if spell="Cure*|Cura*">
+            <if advanced = '("%SpellElement" = "Light" OR "%DayElement" = "Light" OR "%WeatherElement" = "Light") AND "$%SpellElementObi" = "1"'>
+              <equip when = "midcast">
+                <main lock ="yes">Chatoyant Staff</main>
+                <waist lock = "yes">%SpellElement-Obi</waist>
+                <back lock = "yes">Twilight Cape</back>
+              </equip>
+            </if>
+            <equip when="precast" set="CurePrecast"/>
             <equip when="Midcast" set="Cure" />
-            <if advanced='"$Curebot"=="1"'>
-              <!-- if check if have mp -->
-              <if BuffActive="Light Arts">
-                <if NotBuffActive="Penury">
-                  <if Spell="Cure IV" MPLT="122">
-                    <changespell Spell="Cure III" />
-                  </if>
-                  <elseif Spell="Cure III" MPLT="42">
-                    <changespell Spell="Cure II" />
-                  </elseif>
-                  <elseif Spell="Cure II" MPLT="22">
-                    <cancelspell />
-                    <addtochat color="56">I'm Out of MP</addtochat>
-                  </elseif>
-                  <elseif spell="Cura II" MPLT="40">
-                    <changespell Spell="Cura" />
-                  </elseif>
-                  <elseif spell="Cura" MPLT="47">
-                    <changespell Spell="Curaga II" />
-                  </elseif>
-                  <elseif spell="Curaga IV" MPLT="130">
-                    <changespell Spell="Curaga III" />
-                  </elseif>
-                  <elseif spell="Curaga III" MPLT="90">
-                    <changespell Spell="Curaga II" />
-                  </elseif>
-                  <elseif spell="Curaga II" MPLT="60">
-                    <changespell Spell="Curaga" />
-                  </elseif>
-                  <elseif spell="Curaga" MPLT="30">
-                    <cancelspell />
-                    <addtochat color="121">I'm Out of MP</addtochat>
-                  </elseif>
-                </if>
-                <else>
-                  <!-- Penury is Active - -50% MP Cost -->
-                  <if Spell="Cure IV" MPLT="68">
-                    <changespell Spell="Cure III" />
-                  </if>
-                  <elseif Spell="Cure III" MPLT="23">
-                    <changespell Spell="Cure II" />
-                  </elseif>
-                  <elseif Spell="Cure II" MPLT="12">
-                    <cancelspell />
-                    <addtochat color="56">I'm Out of MP~</addtochat>
-                  </elseif>
-                  <elseif spell="Cura II" MPLT="20">
-                    <changespell Spell="Cura" />
-                  </elseif>
-                  <elseif spell="Cura" MPLT="19">
-                    <changespell Spell="Curaga II" />
-                  </elseif>
-                  <elseif spell="Curaga IV" MPLT="117">
-                    <changespell Spell="Curaga III" />
-                  </elseif>
-                  <elseif spell="Curaga III" MPLT="81">
-                    <changespell Spell="Curaga II" />
-                  </elseif>
-                  <elseif spell="Curaga II" MPLT="54">
-                    <changespell Spell="Curaga" />
-                  </elseif>
-                  <elseif spell="Curaga" MPLT="27">
-                    <cancelspell />
-                    <addtochat color="121">I'm Out of MP</addtochat>
-                  </elseif>
-                </else>
-              </if>
-              <else>
-                <if Spell="Cure IV" MPLT="135">
+            <!-- if check if have mp -->
+            <if BuffActive="Light Arts">
+              <if NotBuffActive="Penury">
+                <if Spell="Cure IV" MPLT="122">
                   <changespell Spell="Cure III" />
                 </if>
-                <elseif Spell="Cure III" MPLT="46">
+                <elseif Spell="Cure III" MPLT="42">
                   <changespell Spell="Cure II" />
                 </elseif>
-                <elseif Spell="Cure II" MPLT="24">
+                <elseif Spell="Cure II" MPLT="22">
+                  <cancelspell />
+                  <addtochat color="56">I'm Out of MP</addtochat>
+                </elseif>
+                <elseif spell="Cura II" MPLT="40">
+                  <changespell Spell="Cura" />
+                </elseif>
+                <elseif spell="Cura" MPLT="47">
+                  <changespell Spell="Curaga II" />
+                </elseif>
+                <elseif spell="Curaga IV" MPLT="130">
+                  <changespell Spell="Curaga III" />
+                </elseif>
+                <elseif spell="Curaga III" MPLT="90">
+                  <changespell Spell="Curaga II" />
+                </elseif>
+                <elseif spell="Curaga II" MPLT="60">
+                  <changespell Spell="Curaga" />
+                </elseif>
+                <elseif spell="Curaga" MPLT="30">
                   <cancelspell />
                   <addtochat color="121">I'm Out of MP</addtochat>
                 </elseif>
-                <elseif spell="Cura II" MPLT="45">
+              </if>
+              <else>
+                <!-- Penury is Active - -50% MP Cost -->
+                <if Spell="Cure IV" MPLT="68">
+                  <changespell Spell="Cure III" />
+                </if>
+                <elseif Spell="Cure III" MPLT="23">
+                  <changespell Spell="Cure II" />
+                </elseif>
+                <elseif Spell="Cure II" MPLT="12">
+                  <cancelspell />
+                  <addtochat color="56">I'm Out of MP~</addtochat>
+                </elseif>
+                <elseif spell="Cura II" MPLT="20">
                   <changespell Spell="Cura" />
                 </elseif>
-                <elseif spell="Cura" MPLT="30">
+                <elseif spell="Cura" MPLT="19">
                   <changespell Spell="Curaga II" />
                 </elseif>
-                <elseif spell="Curaga IV" MPLT="260">
+                <elseif spell="Curaga IV" MPLT="117">
                   <changespell Spell="Curaga III" />
                 </elseif>
-                <elseif spell="Curaga III" MPLT="180">
+                <elseif spell="Curaga III" MPLT="81">
                   <changespell Spell="Curaga II" />
                 </elseif>
-                <elseif spell="Curaga II" MPLT="120">
+                <elseif spell="Curaga II" MPLT="54">
                   <changespell Spell="Curaga" />
                 </elseif>
-                <elseif spell="Curaga" MPLT="60">
+                <elseif spell="Curaga" MPLT="27">
                   <cancelspell />
                   <addtochat color="121">I'm Out of MP</addtochat>
                 </elseif>
               </else>
-              <!-- Check if Target HP is Enough -->
-              <if spell="Cure IV">
-                <if SpellTargetHPPGT="30" SpellTargetHPPLT="50">
-                  <changespell spell="Cure IV"/>
-                </if>
-                <elseif SpellTargetHPPGT="50" SpellTargetHPPLT="70">
-                  <changespell spell="Cure IV"/>
-                </elseif>
-                <elseif SpellTargetHPPGT="70" SpellTargetHPPLT="80">
-                  <changespell spell="Cure III"/>
-                </elseif>
-                <elseif SpellTargetHPPGT="80" SpellTargetHPPLT="90">
-                  <changespell spell="Cure II"/>
-                </elseif>
-                <elseif SpellTargetHPPGT="90" SpellTargetHPPLT="95">
-                  <changespell spell="Cure"/>
-                </elseif>
-                <elseif SpellTargetHPPGT="95">
-                  <cancelspell />
-                </elseif>
+            </if>
+            <else>
+              <if Spell="Cure IV" MPLT="135">
+                <changespell Spell="Cure III" />
               </if>
+              <elseif Spell="Cure III" MPLT="46">
+                <changespell Spell="Cure II" />
+              </elseif>
+              <elseif Spell="Cure II" MPLT="24">
+                <cancelspell />
+                <addtochat color="121">I'm Out of MP</addtochat>
+              </elseif>
+              <elseif spell="Cura II" MPLT="45">
+                <changespell Spell="Cura" />
+              </elseif>
+              <elseif spell="Cura" MPLT="30">
+                <changespell Spell="Curaga II" />
+              </elseif>
+              <elseif spell="Curaga IV" MPLT="260">
+                <changespell Spell="Curaga III" />
+              </elseif>
+              <elseif spell="Curaga III" MPLT="180">
+                <changespell Spell="Curaga II" />
+              </elseif>
+              <elseif spell="Curaga II" MPLT="120">
+                <changespell Spell="Curaga" />
+              </elseif>
+              <elseif spell="Curaga" MPLT="60">
+                <cancelspell />
+                <addtochat color="121">I'm Out of MP</addtochat>
+              </elseif>
+            </else>
+            <!-- Check if Target HP is Enough -->
+            <if spell="Cure IV">
+              <if SpellTargetHPPGT="30" SpellTargetHPPLT="50">
+                <changespell spell="Cure IV"/>
+              </if>
+              <elseif SpellTargetHPPGT="50" SpellTargetHPPLT="70">
+                <changespell spell="Cure IV"/>
+              </elseif>
+              <elseif SpellTargetHPPGT="70" SpellTargetHPPLT="80">
+                <changespell spell="Cure III"/>
+              </elseif>
+              <elseif SpellTargetHPPGT="80" SpellTargetHPPLT="90">
+                <changespell spell="Cure II"/>
+              </elseif>
+              <elseif SpellTargetHPPGT="90" SpellTargetHPPLT="95">
+                <changespell spell="Cure"/>
+              </elseif>
+              <elseif SpellTargetHPPGT="95">
+                <cancelspell />
+              </elseif>
             </if>
           </if>
           <!-- NA Spells-->
@@ -964,6 +954,14 @@
         </if>
         <!-- Elemental Magic -->
         <elseif skill="ElementalMagic">
+          <!-- Obi -->
+          <if advanced = '("%SpellElement" = "%weatherelement" or "%SpellElement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$%spellelementobi" = "1"'>
+            <equip when = "midcast">
+              <waist lock = "yes">%SpellElement-Obi</waist>
+              <back lock ="yes">Twilight Cape</back>
+              <rring lock ="yes">Zodiac Ring</rring>
+            </equip>
+          </if>
           <!-- Elemental DoT-->
           <if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
             <!-- equip elemental/INT gear for DoT's -->
@@ -971,9 +969,11 @@
           </if>
           <elseif spell="Impact">
             <equip when="precast" set="fastcast">
+              <head></head>
               <body lock="true">Twilight Cloak</body>
             </equip>
-            <equip when="precast" set="Macc">
+            <equip when="midcast" set="Macc">
+              <head></head>
               <body lock="true">Twilight Cloak</body>
             </equip>
             <cmd>wait 180;input /p Impact has worn off.</cmd>
@@ -981,46 +981,50 @@
           <!-- Auto Helix-->
           <elseif spell="*helix">
             <if advanced='"$AutoHelix"=="1"'>
-            <if advanced='"$ModusRecast"=="Ready"'>
-              <if advanced='"$ModusGo"=="yes"'>
-                <cmd>Modus Veritas %spelltargetraw</cmd>
-                <cancelspell />
-                <return />
+              <if advanced='"$ModusRecast"=="Ready"'>
+                <if advanced='"$ModusGo"=="yes"'>
+                  <cmd>Modus Veritas %spelltargetraw</cmd>
+                  <cancelspell />
+                  <return />
+                </if>
+                <addtochat>!!~~ Modus Veritas Ready ~~!!</addtochat>
+                <cmd>sc var set ModusGo yes</cmd>
+                <cmd>wait 13;sc var set ModusGo no</cmd>
               </if>
-              <addtochat>!!~~ Modus Veritas Ready ~~!!</addtochat>
-              <cmd>sc var set ModusGo yes</cmd>
-              <cmd>wait 13;sc var set ModusGo no</cmd>
-            </if>
-            <if notweatherelement="None">
-              <changespell spell="$Helix-%WeatherElement" />
-            </if>
-            <else>
-              <changespell spell="$Helix-%DayElement" />
-            </else>
+              <if notweatherelement="None">
+                <changespell spell="$Helix-%WeatherElement" />
+              </if>
+              <else>
+                <changespell spell="$Helix-%DayElement" />
+              </else>
             </if>
             <equip when="midcast" set="Helix" />
           </elseif>
-          <!-- A Nuke-->
+          <!-- Nuke-->
           <else>
-            <!-- Normal mob, go full damage gear. -->
-            <equip when="Midcast" Set="FullDamage" />
+            <!-- Equip Magian Staff -->
+            <if advanced = '"$%SpellElementMagian" = "1"'>
+              <addtochat color="121">Magian Staff - Full Damage</addtochat>
+              <equip when="midcast" Set="FullDamage">
+                <main lock="true">$%SpellElement-Magian</main>
+              </equip>
+            </if>
+            <else>
+              <equip when="midcast" Set="FullDamage">
+                <addtochat color="121">$NukeStaff - Full Damage</addtochat>
+                <main lock="true">$NukeStaff</main>
+              </equip>
+            </else>
           </else>
-          <!-- Handle Elemental -->
-          <if advanced = '("%spellelement" = "%weatherelement" or "%spellelement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$obi%spellelement" = "1"'>
-            <if Advanced='"$TwilightCape" == "1"'>
-              <equip when="midcast">
-                <back lock="true">Twilight Cape</back>
-              </equip>
-            </if>
-            <if Advanced='"$ZodiacRing" == "1"'>
-              <equip when="midcast">
-                <rring lock="true">Zodiac Ring</rring>
-              </equip>
-            </if>
-          </if>
         </elseif>
         <!-- Enfeebling Magic -->
         <elseif skill="EnfeeblingMagic">
+          <!-- Obi -->
+          <if advanced = '("%SpellElement" = "%weatherelement" or "%SpellElement" = "%dayelement" or "%SpellElement" = "$StormElement") and "$%spellelementobi" = "1"'>
+            <equip when = "midcast">
+              <waist lock = "yes">%SpellElement-Obi</waist>
+            </equip>
+          </if>
           <if spell="Gravity|Bind|Poison*|Blind*|Sleep*|Silence|Break">
             <equip when="Midcast" set="EnfeebINT" />
             <addtochat color="121">INT Enfeebling Set</addtochat>
@@ -1048,7 +1052,7 @@
         <elseif skill="EnhancingMagic">
           <!-- Phalanx -->
           <if spell="Phalanx*">
-            <equip when="midcast" set="Enhancingmagic" />
+            <equip when="midcast" set="EnhancingMagic" />
           </if>
           <elseif spell="Regen*">
             <equip when="precast|midcast" set="EnhancingMagic">
@@ -1057,7 +1061,7 @@
           </elseif>
           <!-- Stoneskin -->
           <elseif spell="Stoneskin">
-            <equip when="precast" set="Stoneskin" />
+            <equip when="midcast" set="Stoneskin" />
             <midcastdelay delay="4" />
             <command when="MidCast">cancel 37</command>
           </elseif>

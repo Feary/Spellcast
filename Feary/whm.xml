@@ -35,7 +35,7 @@
     <var name="obiwind">1</var>
     <var name="obiwater">0</var>
     <var name="obiearth">0</var>
-    <!-- DO not Change -->
+    <!-- Do not Change -->
     <var name="StormElement">None</var>
     <var name="Ice-Obi">hyorin obi</var>
     <var name="Dark-Obi">Anrin obi</var>
@@ -64,7 +64,6 @@
         <feet>Herald's Gaiters</feet>
       </set>
       <set name="Standard|Idle" baseset="PDT" load="yes">
-        <main>$PDTStaff</main>
         <!-- Nefer Khat-->
         <body>Heka's Kalasiris</body>
         <hands>Serpentes Cuffs</hands>
@@ -76,11 +75,10 @@
         <main>$PDTStaff</main>
         <!-- Gendewitha Caubeen -->
         <neck>Twilight Torque</neck>
-        <!-- Gendewitha Bliaut -->
+		<body>Gendewitha Bliaut</body>
         <hands>Gendewitha Gages</hands>
         <legs>Gendewitha Spats</legs>
         <!-- Gendewitha Galoshes -->
-        <waist>Flume Belt</waist>
         <back>Umbra Cape</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
@@ -92,16 +90,14 @@
         <hands>Gendewitha Gages</hands>
         <legs>Gendewitha Spats</legs>
         <!-- Gendewitha Galoshes -->
-        <back>Engulfer Cape</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
         <lear>Merman's Earring</lear>
         <rear>Merman's Earring</rear>
       </set>
-      <set name="Resting" BaseSet="PDT" load="yes">
+      <set name="Resting" BaseSet="Standard" load="yes">
         <main>$RestingStaff</main>
         <!-- <head>Nefer Khat</head>-->
-        <head>Nefer Khat</head>
         <neck>Eidolon Pendant</neck>
         <!-- Chelona Blazer -->
         <body>Heka's Kalasiris</body>
@@ -175,7 +171,6 @@
         <head>Orison Cap +2</head>
         <neck>Colossus's Torque</neck>
         <body>Orison Bliaud +2</body>
-        <!-- MND Path -->
         <hands>Bokwus Gloves</hands>
         <legs>Orsn. Pantaln. +2</legs>
         <feet>Rubeus Boots</feet>
@@ -257,7 +252,7 @@
       </set>
       <set name="Cura" baseset="Cureprecast">
         <main>$CureStaff</main>
-        <!-- Gende. Caubeen -->
+        <!---->
         <head>Orison Cap +2</head>
         <neck>Phalaina Locket</neck>
         <body>Hedera Cotehardie</body>

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
   <guildwork character="Feary" server="Sylph" description="Feary's PLD Spellcast" job="PLD"/>
-  <config RequireVersion="2.40" Showgearswaps="true" ShowspellInfo="false"/>
+  <config RequireVersion="2.40" Showgearswaps="false" ShowspellInfo="false"/>
   <variables clear="true">
     <!-- AutoMacroSet Based on Sub: Macro Set 1.NIN 2.WAR 3.RDM 4.BLU 5.DNC-->
     <var name="AutoMacroSet">0</var>
@@ -54,11 +54,9 @@
         <!-- Cizin Helm-->
         <head>Yaoyotl Helm</head>
         <neck>Twilight Torque</neck>
-        <!-- Reverence Surcoat -->
-        <body>Mekira Meikogai</body>
+        <body>Reverence Surcoat</body>
         <hands>Cizin Mufflers</hands>
-        <!-- Cizin Breeches -->
-        <legs>Miki. Cuisses</legs>
+        <legs>Cizin Breeches</legs>
         <Feet>Cizin Greaves</Feet>
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
@@ -72,7 +70,7 @@
         <head>Yaoyotl Helm</head>
         <neck>Twilight Torque</neck>
         <!-- Reverence Surcoat -->
-        <body>Mekira Meikogai</body>
+        <body>Reverence Surcoat</body>
         <hands>Cizin Mufflers</hands>
         <!-- Cizin Breeches -->
         <legs>Gorney Brayettes</legs>

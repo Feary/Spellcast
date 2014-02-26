@@ -83,7 +83,7 @@
         <body>Otronif Harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
-        <!--<feet>Otronif Boots</feet>-->
+        <feet>Otronif Boots</feet>
         <feet>Manibozho Boots</feet>
         <Waist>Scouter's Rope</Waist>
         <back>Boxer's Mantle</back>
@@ -96,7 +96,7 @@
         <body>Otronif Harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
-        <!--<feet>Otronif Boots</feet>-->
+        <feet>Otronif Boots</feet>
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
         <lring>Dark Ring</lring>
@@ -108,7 +108,7 @@
         <body>Otronif Harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
-        <!--<feet>Otronif Boots</feet>-->
+        <feet>Otronif Boots</feet>
         <!--<waist>Lieutenant's Sash</waist>-->
         <back>Engulfer Cape</back>
         <lear>Merman's Earring</lear>
@@ -279,9 +279,15 @@
         <neck>Shadow Gorget</neck>
         <waist>Shadow Belt</waist>
       </set>
-      <set name="Blade: Metsu" baseset="" load="yes">
+      <set name="Blade: Metsu" baseset="ws" load="yes">
         <feet>Thaumas Nails</feet>
       </set>
+	  <set name="Waltz" baseset="PDT">
+	  </set>
+	  <set name="step" baseset="PDT">
+	  </set>
+	  <set name="Jig" baseset="PDT">
+	  </set>
     </group>
   </sets>
   <rules>

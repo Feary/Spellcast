@@ -24,7 +24,7 @@
     <var name="Club">Mondaha Cudgel|Warp Cudgel|Roundel Wand</var>
     <var name="Staff">Crook|Teiwaz</var>
     <!-- Utility Staves-->
-    <var name="MaccStaff">Soothsayer Staff</var>
+    <var name="MaccStaff">Atinian Staff</var>
     <var name="CureStaff">Arka IV</var>
     <var name="RestingStaff">Chatoyant Staff</var>
     <var name="PDTStaff">Earth Staff</var>
@@ -104,17 +104,17 @@
       <set name="Standard|Idle" baseset="PDT" load="yes">
         <main>$PDTStaff</main>
         <ammo>Witchstone</ammo>
-        <head>Nefer Khat</head>
+        <head>Nahtirah Hat</head>
         <neck>Twilight Torque</neck>
-        <body>Heka's Kalasiris</body>
+        <body>Bokwus Robe</body>
         <hands>Serpentes Cuffs</hands>
-        <legs>Stearc Subligar</legs>
-        <feet>Serpentes Sabots</feet>
-        <lring>Icesoul Ring</lring>
+        <legs>Nares Trews</legs>
+        <feet>Herald's Gaiters</feet>
         <back>Umbra Cape</back>
-        <waist>Austerity Belt</waist>
+        <waist>Aswang Sash</waist>
         <lear>Friomisi Earring</lear>
         <rear>Novio Earring</rear>
+		<lring>Icesoul Ring</lring>
         <rring>Icesoul Ring</rring>
         <sub>Wise Grip</sub>
       </set>
@@ -144,7 +144,7 @@
       <set name="MinusHP" load="no">
         <head>Zenith Crown</head>
         <neck>Morgana's Choker</neck>
-        <body>Dalmatica</body>
+        <body>Dalamatica</body>
         <hands>Zenith Mitts</hands>
         <legs>Zenith Slacks</legs>
         <feet>Zenith Pumps</feet>
@@ -152,16 +152,16 @@
       </set>
       <set name="Resting" BaseSet="Standard" load="yes">
         <ammo>Clarus Stone</ammo>
+		<head>Nefer Khat</head>
         <neck>Eidolon Pendant</neck>
         <body>Heka's Kalasiris</body>
         <hands>Serpentes Cuffs</hands>
-        <legs>Stearc Subligar</legs>
+        <legs>Nares Trews</legs>
         <feet>Chelona Boots</feet>
         <waist>Austerity Belt</waist>
         <back>Felicitas Cape</back>
         <rear>Antivenom Earring</rear>
         <rring>Angha Ring</rring>
-        <head>Nefer Khat</head>
         <main>$RestingStaff</main>
       </set>
       <!-- Precast -->
@@ -174,7 +174,7 @@
         <lring>Prolix Ring</lring>
         <body>Anhur Robe</body>
         <hands>Repartie Gloves</hands>
-        <head>Hyksos Khat</head>
+        <head>Nahtirah Hat</head>
         <neck>Jeweled Collar</neck>
         <sub>Vivid Strap</sub>
         <legs>Orvail Pants +1</legs>
@@ -184,7 +184,7 @@
       </set>
       <set name="CurePrecast" baseset="Fastcast" load="yes">
         <body>Heka's Kalasiris</body>
-        <!--<back>Pahtli Cape</back>-->
+        <back>Pahtli Cape</back>
       </set>
       <!-- Midcast -->
       <set name="Recast" baseset="Standard" load="yes">
@@ -216,19 +216,19 @@
         <sub>Wise Strap</sub>
         <ammo>Witchstone</ammo>
         <head>Goetia Petasos +2</head>
+		<neck>Eddy Necklace</neck>
         <body>Goetia Coat +2</body>
-        <hands>Goetia Gloves +2</hands>
+        <hands>Yaoyotl Gloves</hands>
         <legs>Goet. Chausses +2</legs>
         <feet>Goetia Sabots +2</feet>
         <!-- Strendu Ring-->
         <lring>Icesoul Ring</lring>
         <rring>Icesoul Ring</rring>
-        <waist>Cognition Belt</waist>
-        <back>Searing Cape</back>
+        <waist>Aswang Sash</waist>
+        <back>Toro Cape</back>
         <lear>Friomisi Earring</lear>
         <rear>Novio Earring</rear>
-        <neck>Stoicheion Medal</neck>
-      </set>
+        </set>
       <set name="HighResist|ElementalDOT" BaseSet="FullDamage" load="yes">
         <neck>Aesir Torque</neck>
         <feet>Rubeus Boots</feet>
@@ -241,16 +241,17 @@
         <feet>Goetia Sabots +2</feet>
       </set>
       <set name="EnfeeblingMagic|MACC" Baseset="Recast" load="yes">
-        <head>Xux Hat</head>
-        <neck>Enfeebling Torque</neck>
-        <sub>Mephitis Grip</sub>
+        <main>Atinian Staff</main>
+		<sub>Mephitis Grip</sub>
+		<head>Nahtirah Hat</head>
+        <neck>Eddy Necklace</neck>
+        <hands>Yaoyotl Gloves</hands>
         <legs>Portent Pants</legs>
-        <hands>Quauhpilli Gloves</hands>
         <feet>Rubeus Boots</feet>
         <lear>Lifestorm Earring</lear>
         <rear>Psystorm Earring</rear>
-        <lring>Mediator's Ring</lring>
-        <rring>Angha Ring</rring>
+        <lring>Sangoma Ring</lring>
+        <rring>Mediator's Ring</rring>
         <back>Refraction Cape</back>
       </set>
       <set name="INT" baseset="Macc" load="yes">
@@ -265,7 +266,7 @@
         <neck>Fylgja Torque +1</neck>
         <body>Heka's Kalasiris</body>
         <hands>Bokwus Gloves</hands>
-        <legs>Praeco Slacks</legs>
+        <legs>Nares Trews</legs>
         <back>Tempered Cape</back>
         <waist>Cascade Belt</waist>
         <lring>Haoma's Ring</lring>
@@ -319,9 +320,6 @@
   </sets>
   <rules>
     <!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
-    <if SpellTargetType="NONE" ValidTarget="*Self*">
-      <changetarget target="&lt;me&gt;" />
-    </if>
     <if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
       <return />
     </if>

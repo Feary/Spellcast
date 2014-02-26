@@ -7,8 +7,8 @@
     <var name="AutoMacroset">1</var>
     <!-- Tell party of your statues-->
     <var name="Statuses">0</var>
-    <!-- Options Melee = 1 Ranged = 2 -->
-    <var name="Mode">1</var>
+    <!-- Options Midacc = 1 HighAcc = 2 -->
+    <var name="Mode">0</var>
     <!-- Lock to Default Sets-->
     <!-- 1. Best to set with a macro -->
     <!--    a. line1 /console sc set pdt -->
@@ -47,14 +47,13 @@
         <rear>Merman's Earring</rear>
       </set>
       <set name="PDT">
-        <!--<head>otronif Mask</head>-->
+        <head>Otronif Mask</head>
         <head>Yaoyotl Helm</head>
-        <neck>Twilight Torque</neck> 
-        <!-- <body>otronif harness</body> -->
-        <body>Mekira Meikogai</body>
+        <neck>Twilight Torque</neck>
+        <body>Otronif harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
-        <!--<feet>Otronif Boots</feet>-->
+        <feet>Otronif Boots</feet>
         <Feet>Whirlpool Greaves</Feet>
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
@@ -87,7 +86,6 @@
         <waist>Goading Belt</waist>
       </set>
       <set name="Recast" baseset="PDT">
-        <body></body>
       </set>
       <set name="TP">
         <ammo>Hagneia Stone</ammo>
@@ -98,8 +96,7 @@
         <body>Porthos Byrnie</body>
         <hands>Otronif Gloves</hands>
         <legs>Unkai Haidate +2</legs>
-        <!--<feet>Otronif Boots</feet> -->
-        <feet>Mikinaak Greaves</feet>
+        <feet>Otronif Boots</feet>
         <back>Takaha Mantle</back>
         <!-- Ninurta's Sash -->
         <waist>Cetl Belt</waist>
@@ -472,7 +469,7 @@
     <if type="jobability">
       <if spell="Warding Circle">
         <equip when="precast">
-          <head>Myochin Kabuto</head>
+          <head>Wakido Kabuto</head>
         </equip>
       </if>
       <!-- Make Sure you have above 200 TP when useing Sekkanoki-->
@@ -487,7 +484,7 @@
         </if>
         <else>
           <equip when="Precast" delay=".2">
-            <head>Myochin Kabuto</head>
+            <head>Wakido Kabuto</head>
             <hands>Sao. Kote +2</hands>
           </equip>
         </else>

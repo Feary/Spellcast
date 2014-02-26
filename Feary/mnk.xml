@@ -52,21 +52,19 @@
         <body>Otronif Harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
-        <!--<feet>Otronif Boots</feet>-->
-        <feet>Thurandaut Boots</feet>
+        <feet>Otronif Boots</feet>
         <waist>Black Belt</waist>
         <back>Repulse Mantle</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
       </set>
       <set name="MDT" baseset="TP">
-        <head>Whirlpool Mask</head>
+        <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
         <body>Manibozho Jerkin</body>
         <hands>Otronif Gloves</hands>
         <legs>Nahtirah Trousers</legs>
-        <!--<feet>Otronif Boots</feet>-->
-        <feet>Manibozho Boots</feet>
+        <feet>Otronif Boots</feet>
         <back>Engulfer Cape</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
@@ -291,7 +289,7 @@
         <body>Manibozho Jerkin</body>
         <hands>Otronif Gloves</hands>
         <legs>Manibozho Brais</legs>
-        <feet>Thurandaut Boots</feet>
+        <feet>Manibozho Boots</feet>
         <waist>Black Belt</waist>
         <back>Repulse Mantle</back>
         <rring>Prolix Ring</rring>
@@ -302,21 +300,21 @@
       <set name="Chakra" baseset="PDT">
         <head>Whirlpool Mask</head>
         <!-- <neck>Fortitude Torque</neck>-->
-        <!--<body>Temple Cyclas</body>-->
-        <body>Manibozho Jerkin</body>
+        <body>Anchorite's Cyclas</body>
         <hands>Mel. Gloves +2</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Thurandaut Boots</feet>
+        <feet>Otronif Boots</feet>
+        <back>Anchoret's Mantle</back>
         <ammo>Tantra Tahtlum</ammo>
       </set>
       <!-- MND+ -->
       <set name="Chi Blast" baseset="PDT">
         <head>Uk'uxkaj Cap</head>
         <neck>Morgana's Choker</neck>
-        <body>Manibozho Jerkin</body>
+        <body>Otronif Harness</body>
         <hands>Otronif Gloves</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Thurandaut Boots</feet>
+        <feet>Anchorite's Gaiters</feet>
         <lring>Aquasoul Ring</lring>
         <rring>Aquasoul Ring</rring>
         <lear>Lifestorm Earring</lear>
@@ -345,12 +343,17 @@
         <rring>K'ayres Ring</rring>
       </set>
       <set name="Resting" baseset="Standard" load="no">
-        <head>Oce. headpiece +1</head>
-        <body>Mel. Cyclas +2</body>
-        <back>Melee cape</back>
+       
       </set>
       <set name="Enmity" baseset="PDT" load="no">
         <legs>Manibozho Brais</legs>
+      </set>
+	    <set name="Waltz" baseset="PDT"/>
+      <set name="Steps" baseset="TP">
+
+      </set>
+      <set name="Flourish" baseset="Steps">
+
       </set>
       <set name="Ranged" baseset="Guard"/>
     </group>
@@ -597,11 +600,14 @@
         <cancelspell/>
       </if>
       <else>
-        <!-- VIT -->
         <if spell="Chakra">
           <equip when="precast" set="Chakra"/>
         </if>
-        <!-- Mind -->
+        <elseif spell="Hundred Fists">
+          <equip when="precast">
+            <legs>Melee Hose +2</legs>
+          </equip>
+        </elseif>
         <elseif spell="Chi Blast">
           <if  SpellTargetDistanceLT="17">
             <equip when="precast" set="Chi Blast"/>
@@ -612,17 +618,17 @@
         </elseif>
         <elseif spell="Focus">
           <equip when="precast">
-            <head>Temple Crown</head>
+            <head>Anchorite's Crown</head>
           </equip>
         </elseif>
         <elseif spell="Dodge">
           <equip when="precast">
-            <feet>Temple Gaiters</feet>
+            <feet>Anchorite's Gaiters</feet>
           </equip>
         </elseif>
         <elseif spell="Boost">
           <equip when="precast">
-            <hands>Temple Gloves</hands>
+            <hands>Anchorite's Gloves</hands>
           </equip>
         </elseif>
         <elseif spell="Counterstance">
@@ -714,7 +720,9 @@
         <cmd when="aftercast">input /macro set 2</cmd>
       </if>
       <if spell="Utsu*">
-        <equip when="precast" set="fastcast" />
+        <equip when="precast" set="fastcast">
+          <neck>Magoraga Beads</neck>
+        </equip>
         <if spell="*Ichi" BuffActive="Copy Image">
           <midcastdelay delay="2.5" />
           <command when="midcast">cancel 66</command>
@@ -745,8 +753,11 @@
       <if spell="Curing*">
         <equip when="precast" set="Waltz"/>
       </if>
-      <elseif spell="Steps">
+      <elseif spell="*Step">
         <equip when="precast" set="Steps"/>
+      </elseif>
+      <elseif spell="*Flourish">
+        <equip when="precast" set="Flourish"/>
       </elseif>
     </elseif>
     <elseif subjob="DRG">
