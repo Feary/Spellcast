@@ -5,15 +5,13 @@
   <variables clear="true">
     <!-- AutoMacroSet Based on Sub: Macro Set 1.NIN 2.WAR 3.RDM 4.BLU 5.DNC-->
     <var name="AutoMacroSet">0</var>
-    <!-- Announce statues-->
+    <!-- Announce statues to party Chat -->
     <var name="Statuses">0</var>
-    <!-- Mode -->
+    <!-- Modes Kite AccTP Hybrid -->
     <var name="Mode">None</var>
-    <var name="LockTP">0</var>
     <var name="TwilightSet">0</var>
-    <var name="LockPDT">0</var>
-    <!-- use hp down set for self cures-->
-    <var name="Curekit">0</var>    
+    <var name="PDT">0</var>
+    <var name="MDT">0</var>
     <!-- Weapons -->
     <var name="Sword">Buramenk'ah</var>
     <var name="Dagger">Twilight Dagger</var>
@@ -22,226 +20,80 @@
     <var name="Staff">Earth Staff</var>
     <var name="GreatSword">Kaquljaan|Caladbolg</var>
     <var name="MagicalShield">Aegis</var>
-    <var name="PhysicalShield">Ochain</var>    
+    <var name="PhysicalShield">Ochain</var>
   </variables>
   <sets>
     <group default="yes" name="PLD">
       <set name="MiscGearCollector" load="yes">
-        <item>Almace</item>
-        <item>Buramenk'ah</item>        
-        <item>Vlr. Breeches +2</item>
-        <item>Vlr. Leggings +2</item>
-        <item>Knightly Earring</item>      
+        <item>Buramenk'ah</item>
+        <!-- Porter Moogle-->
+		<item>Gallant Coronet</item>
+        <item>Reverence Surcoat</item>
+        <item>Reverence Leggings</item>
+        <item>Cab. Coronet</item>
+        <item>Caballarius Surcoat</item>
+        <item>Cab. Gauntlets</item>
+        <item>Cab. Breeches</item>
+        <item>Cab. Leggings</item>
+        <item>Creed Earring</item>
       </set>
       <set name="Town" baseset="Standard">
-         <legs>Blood Cuisses</legs>
+        <legs>Blood Cuisses</legs>
       </set>
-      <set name="Twilight" baseset="Standard"> 
+      <set name="Twilight" baseset="Standard">
         <head>Twilight Helm</head>
         <body>Twilight Mail</body>
       </set>
       <set name="weapon|w" baseset="TP">
         <main>Buramenk'ah</main>
-        <ammo>Impatiens</ammo>
-        <sub>Ochain</sub>
+        <sub>$PhysicalShield</sub>
       </set>
-      <!-- Kiting -->
       <set name="Standard|Idle" baseset="PDT">
         <legs>Blood Cuisses</legs>
       </set>
-      <!-- Goal: 50%  @ 36 -->
       <set name="PDT" Baseset="TP">
-        <!-- Cizin Helm-->
+        <!-- Reverence Coronet +1 -->
         <head>Yaoyotl Helm</head>
         <neck>Twilight Torque</neck>
-        <body>Reverence Surcoat</body>
+        <body>Cab. Surcoat</body>
         <hands>Cizin Mufflers</hands>
-        <legs>Cizin Breeches</legs>
-        <Feet>Cizin Greaves</Feet>
+        <legs>Cab. Breeches</legs>
+        <Feet>Rev. Leggings</Feet>
         <waist>Flume Belt</waist>
         <back>Repulse Mantle</back>
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
+        <!-- Ethereal Earring -->
         <lear>Creed Earring</lear>
         <rear>Knightly Earring</rear>
+        <ammo>Angha Gem</ammo>
       </set>
-      <!-- Goal: 87.5% - Aegis 45% = 37.5 Goal @ 35% + MDB + 2 -->
       <set name="MDT" Baseset="Standard">
         <head>Yaoyotl Helm</head>
         <neck>Twilight Torque</neck>
-        <!-- Reverence Surcoat -->
-        <body>Reverence Surcoat</body>
+        <body>Cab. Surcoat</body>
         <hands>Cizin Mufflers</hands>
-        <!-- Cizin Breeches -->
-        <legs>Gorney Brayettes</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Nierenschutz</waist>
+        <legs>Cab. Breeches</legs>
+        <feet>Cab. Leggings</feet>
+        <waist>Creed Baudrier</waist>
         <back>Engulfer Cape</back>
         <!-- Defending Ring -->
         <lring>Dark Ring</lring>
         <rring>Shadow Ring</rring>
         <lear>Merman's Earring</lear>
         <rear>Merman's Earring</rear>
+        <ammo>Demonry Stone</ammo>
       </set>
-      <set name="Shield|Skill" baseset="PDT" load="yes">
-        <!-- Goal +21 Skill with merits-->
-        <!-- Reverence Leggings -->
-        <feet>Gallant leggings</feet>
-        <lear>Buckler Earring</lear>
-        <rear>Creed Earring</rear>
-      </set>
-      <!-- HP-->
-      <set name="HP|HPPlus|HPUP" baseset="Fastcast" load="yes">
-        <!-- Reverence Surcoat -->
-        <body>Creed Cuirass +2</body>
-        <legs>Gorney Brayettes</legs>
-        <feet>Gorney Sollerets</feet>
-        <waist>Creed Baudrier</waist>
-        <lring>K'ayres Ring</lring>
-        <rring>Meridian Ring</rring>
-      </set>
-      <set name="HPDown|HPMinus" baseset="Fastcast" load="no">
-      </set>
-      <set name="Enmity" baseset="Standard">
-        <!-- Max Enmity-->
-        <head>Hero's Galea</head>
-        <neck>Creed Collar</neck>
-        <body>Creed Cuirass +2</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Vlr. Breeches +2</legs>
-        <feet>Vlr. Leggings +2</feet>
-        <waist>Creed Baudrier</waist>
-        <!--<back>Valor Cape</back>-->
-        <rring>Hercules' Ring</rring>
-      </set>
-      <set name="Recast|haste" baseset="Enmity">
-        <head>Yaoyotl Helm</head>
-        <body>Creed Cuirass +2</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Gorney Brayettes</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Zoran's Belt</waist>
-        <lear>Magnetic Earring</lear>
-        <rear>Knightly Earring</rear>
-        <ring>Prolix Ring</ring>
-      </set>     
-      <set name="Refresh" baseset="Standard" load="no">
-        <neck>Creed Collar</neck>
-        <body>Twilight Mail</body>
-        <rear>Moonshade Earring</rear>
-      </set>
-      <!-- Fast Cast > Spell Interup-->
-      <set name="Fastcast" baseset="haste" load="yes">
-        <head>Cizin Helm</head>
-        <rring>Prolix Ring</rring>
-        <lear>Loquac. Earring</lear>
-        <rear>Magnetic Earring</rear>        
-      </set>
-      <set name="DivineMagic" baseset="fastcast" load="no">
-        <body>Gallant Surcoat</body>
-        <rear>Moonshade Earring</rear>
-      </set>
-      <set name="EnhancingMagic" baseset="fastcast" load="no">
-        <waist>Siegel Sash</waist>
-      </set>
-      <set name="HealingMagic" baseset="fastcast">
-        <head>Yaoyotl Helm</head>
-        <neck>Twilight Torque</neck>
-        <!--<body>Cizin Mail</body>-->
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Miki. Cuisses</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Flume Belt</waist>
-        <back>Repulse Mantle</back>
-        <lear>Magnetic Earring</lear>
-        <rear>Knightly Earring</rear>
-        <lring>Aquasoul Ring</lring>
-        <rring>Aquasoul Ring</rring>
-      </set>
-      <!-- Cures -->
-      <set name="Cure" baseset="fastcast">
-        <head>Yaoyotl Helm</head>
-        <neck>Phalaina Locket</neck>
-        <!--<body>Cizin Mail</body>-->
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Vlr. Breeches +2</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Flume Belt</waist>
-        <back>Repulse Mantle</back>
-        <lear>Magnetic Earring</lear>
-        <rear>Knightly Earring</rear>
-        <lring>Aquasoul Ring</lring>
-        <rring>Aquasoul Ring</rring>
-        <ammo>Impatiens</ammo>
-      </set>
-      <!-- Job Abilities-->
-      <set name="Chivalry|MND" baseset="Standard">
-        <head>Yaoyotl Helm</head>
-        <neck>Morgana's Choker</neck>
-        <!--<body>Cizin Mail</body>-->
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Miki. Cuisses</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Cascade Belt</waist>
-        <lring>Aquasoul Ring</lring>
-        <rring>Aquasoul Ring</rring>
-        <rear></rear>
-      </set>
-      <set name="Rampart|VIT" baseset="Enmity">
-        <head>Yaoyotl Helm</head>
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Miki. Cuisses</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Flume Belt</waist>
-        <back>Valor Cape</back>
-      </set>
-      <!-- Acc > DEX > Enmity Gear -->
-      <set name="Step" baseset="Enmity">
-        <head>Yaoyotl Helm</head>
-        <neck></neck>
-        <body>Miki. Breastplate</body>
-        <hands>Miki. Gauntlets</hands>
-        <legs>Miki. Cuisses</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Dynamic Belt +1</waist>
-        <lring>Rajas Ring</lring>
-        <rring>Thundersoul Ring</rring>
-        <lear>Steelflash Earring</lear>
-      </set>
-      <!-- Waltz VIT CHR -->
-      <set name="Waltz" baseset="VIT">
-        <head>Yaoyotl Helm</head>
-        <neck>Phalaina Locket</neck>
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <legs>Miki. Cuisses</legs>
-        <feet>Whirlpool Greaves</feet>
-        <waist>Flume Belt</waist>
-        <back>Repulse Mantle</back>
-        <lring>Dark Ring</lring>
-        <rring>Dark Ring</rring>
-      </set>
-      <set name="Resting" baseset="standard" load="no">
-        <neck>Creed Collar</neck>
-        <head>Twilight Helm</head>
-        <body>Twilight Mail</body>
-        <lear>Magnetic earring</lear>
-        <rear>Moonshade earring</rear>
-      </set>
+      <!-- Capped Accuracy-->
       <set name="TP">
+        <!-- Otomi Helm -->
         <head>Yaoyotl Helm</head>
         <neck>Asperity Necklace</neck>
-        <!-- Enif Breastplate -->
         <body>Pak Corselet</body>
-        <hands>Cizin Mufflers</hands>
-        <!-- Cizin Breeches-->
-        <legs>Phorcys Dirs</legs>
+        <hands>Cab. Gauntlets</hands>
+        <legs>Cizin Breeches</legs>
         <feet>Whirlpool Greaves</feet>
-        <waist>Zoran's Belt</waist>
+        <waist>Windbuffet Belt</waist>
         <back>Atheling Mantle</back>
         <lring>Rajas Ring</lring>
         <rring>K'ayres Ring</rring>
@@ -249,27 +101,87 @@
         <rear>Bladeborn Earring</rear>
       </set>
       <set name="ACCTP" baseset="TP">
-        <body>Miki. Breastplate</body>
-        <hands>Miki Gauntlets</hands>
+        <head>Yaoyotl Helm</head>
+        <neck>Ziel Charm</neck>
+        <body>Pak Corselet</body>
+        <hands>Buremte Gloves</hands>
+        <legs>Miki. Cuisses</legs>
+        <feet>Whirlpool Greaves</feet>
         <waist>Dynamic Belt +1</waist>
-        <rring>Mars's Ring</rring>
+        <!-- Letalis Mantle -->
+        <back>Atheling Mantle</back>
+        <!-- Patricius RIng-->
+        <lring>Rajas Ring</lring>
+        <!--Mars's Ring-->
+        <rring>Thundersoul Ring</rring>
+        <lear>Steelflash Earring</lear>
+        <rear>Bladeborn Earring</rear>
       </set>
       <!-- Haste/PDT Hybrid-->
       <set name="Hybrid|HTP" baseset="TP">
         <head>Yaoyotl Helm</head>
+        <!-- Agitator's Collar -->
         <neck>Twilight Torque</neck>
-        <body>Miki. Breastplate</body>
-        <hands>Cizin Mufflers</hands>
-        <!-- Cizin Breeches -->
-        <legs>Gorney Brayettes</legs>
+        <body>Cab. Surcoat</body>
+        <hands>Buremte Gloves</hands>
+        <legs>Cizin Breeches</legs>
         <feet>Cizin Greaves</feet>
-        <waist>Zoran's Belt</waist>
+        <waist>Dynamic Belt +1</waist>
+        <!-- Weald Mantle -->
         <back>Repulse Mantle</back>
+        <!-- Patricius Ring-->
         <lring>Dark Ring</lring>
+        <!-- Defending Ring -->
         <rring>Dark Ring</rring>
         <lear>Steelflash Earring</lear>
-        <!-- Ethereal Earring -->
         <rear>Bladeborn Earring</rear>
+      </set>
+      <set name="Enmity" baseset="PDT">
+        <head>Cab. Coronet</head>
+        <body>Cab. Surcoat</body>
+        <hands>Cab. Gauntlets</hands>
+        <legs>Cab. Breeches</legs>
+        <feet>Cab. Leggings</feet>
+        <waist>Creed Baudrier</waist>
+        <back>Valor Cape</back>
+      </set>
+      <!-- Precast -->
+      <set name="Fastcast" baseset="Enmity">
+        <head>Cizin Helm</head>
+        <rring>Prolix Ring</rring>
+        <lear>Loquac. Earring</lear>
+        <rear>Magnetic Earring</rear>
+      </set>
+      <set name="HPDown" baseset="PDT">
+        <head>Cizin Helm</head>
+        <rring>Prolix Ring</rring>
+        <lear>Loquac. Earring</lear>
+      </set>
+      <!-- Midcast -->
+      <set name="Recast" baseset="TP">
+        
+      </set>
+      <!-- Self Cures-->
+      <set name="Cure" baseset="Recast">
+        <!-- Revernence Coronet +1-->
+        <head>Yaoyotl Helm</head>
+        <neck>Phalaina Locket</neck>
+        <body>Reverence Surcoat</body>
+        <hands>Buremte Gloves</hands>
+        <legs>Cab. Breeches</legs>
+        <feet>Cab. Leggings</feet>
+        <waist>Creed Baudrier</waist>
+        <!-- Weald Mantle-->
+        <back>Valor Cape</back>
+        <lear>Creed Earring</lear>
+        <lring>Meridian Ring</lring>
+        <rring>K'ayres Ring</rring>
+      </set>
+      <set name="DivineMagic" baseset="recast" load="no">
+        <body>Reverence Surcoat</body>
+      </set>
+      <set name="EnhancingMagic" baseset="Recast" load="no">
+        
       </set>
       <!-- Weapon Skills-->
       <set name="WS" baseset="TP">
@@ -279,18 +191,12 @@
         <hands>Miki. Gauntlets</hands>
         <legs>Miki. Cuisses</legs>
         <feet>Whirlpool Greaves</feet>
-        <waist>Wanion Belt</waist>
+        <waist>Zoran's Belt</waist>
         <back>Atheling Mantle</back>
         <lear>Steelflash Earring</lear>
         <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
         <rring>Pyrosoul Ring</rring>
-      </set>
-      <!-- Sword -->
-      <!-- Enmity Gear -->
-      <set name="Atonement" baseset="Enmity" load="no">
-        <neck>Light Gorget</neck>
-        <waist>Light Belt</waist>
       </set>
       <set name="Requiescat|req" baseset="ws">
         <!-- MND + Attack-->
@@ -350,8 +256,34 @@
         <lear>Steelflash Earring</lear>
         <rear>Bladeborn Earring</rear>
       </set>
-      <!-- Dagger -->
-      <set name="Aeolian Edge" Baseset="ws"/>
+      <set name="Chivalry|MND" baseset="PDT">
+        <head>Yaoyotl Helm</head>
+        <body>Cab. Surcoat</body>
+        <hands>Cab. Gauntlets</hands>
+        <legs>Cab. Breeches</legs>
+        <feet>Whirlpool Greaves</feet>
+        <lring>Aquasoul Ring</lring>
+        <rring>Aquasoul Ring</rring>
+      </set>
+      <set name="Rampart|VIT" baseset="Enmity">
+        <head>Cab. Coronet</head>
+        <body>Cab. Surcoat</body>
+        <hands>Cab. Gauntlets</hands>
+        <legs>Cab. Breeches</legs>
+        <feet>Whirlpool Greaves</feet>
+        <waist>Flume Belt</waist>
+        <back>Valor Cape</back>
+      </set>
+      <!-- Acc > DEX > Enmity Gear -->
+      <set name="Step" baseset="ACCTP">
+       
+      </set>
+      <!-- Waltz VIT CHR -->
+      <set name="Waltz" baseset="PDT">
+        <hands>Buremte Gloves</hands>
+        <waist>Chuq'aba Belt</waist>
+      </set>
+      <set name="Resting" baseset="Standard" load="no"/>
     </group>
   </sets>
   <rules>
@@ -372,32 +304,6 @@
       </if>
       <return/>
     </if>
-    <if mode='or' advanced='"$TwilightSet"=="1"' buffactive="Weakness" hpplt="10" >
-      <addtochat color="121">Twilight Gear Locked</addtochat>
-      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT">
-        <head lock="true">Twilight Helm</head>
-        <body lock="True">Twilight Mail</body>
-      </equip>
-    </if>
-    <if mode='or' advanced='"$LockPDT"="1"'>
-      <addtochat color="121">PDT Gear Locked</addtochat>
-      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT"/>       
-      <Return/>
-    </if>   
-    <!-- Skill up Ring and Earring -->
-    <if equiprring="Prouesse Ring">
-      <addtochat color="121">Skill Up Gear</addtochat>
-      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged">
-        <head lock="true">Tema. Headband</head>
-        <body lock="true">Temachtiani Shirt</body>
-        <hands lock="true">Temachtiani Gloves</hands>
-        <legs lock="true">Temachtiani Pants</legs>
-        <feet lock="true">Temachtiani Boots</feet>
-        <rring lock="true">Prouesse Ring</rring>
-        <lear lock="true">Liminus Earring</lear>
-        <rear lock="true">Terminus Earring</rear>
-      </equip>
-    </if>
     <!-- Powder Boots-->
     <if equipfeet="Powder Boots">
       <addtochat color="121">Powder Boots</addtochat>
@@ -408,508 +314,439 @@
     <!-- Cover -->
     <if mode="or" spell="Cover" buffactive="Cover">
       <equip when="precast|midcast|aftercast">
-        <head lock="true">Gallant Coronet</head>
-        <body lock="true">Valor Surcoat</body>
+        <head lock="true">Reverence Coronet</head>
+        <body lock="true">Cab. Surcoat</body>
       </equip>
     </if>
-    <!-- Auto sets -->
-    <equip when="resting" set="resting"/>
-    <!-- Physical -->
-    <if EquipSub="$PhysicalShield" Advanced='"$LockTP"=="0"'>
-      <!-- Kite Mode-->
-      <if Advanced='"$Mode"=="Kite"'>
-        <addtochat color="121">Kite Mode - Physical</addtochat>
-        <!-- Engaged -->
-        <if status="engaged">
-          <!-- Reprisal-->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield|PDT"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged" set="PDT">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="PDT">
-              <legs>Blood Cuisses</legs>
-            </equip>
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <!-- Reprisal-->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="idle|AfterCast" set="PDT">
-              <legs>Blood Cuisses</legs>
-            </equip>
-          </else>
-        </else>
-      </if>
-      <elseif advanced='"$Mode"=="Hybrid"'>
-        <!-- Engaged -->
-        <if status="engaged">
-          <addtochat color="121">Hybrid Engaged - Non Kite - Physical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged" set="HTP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="HTP"/>
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <addtochat color="121"> Not Hybrid Engaged - Non Kite - Physical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <else>
-            <equip when="idle|AfterCast" set="Standard"/>
-          </else>
-        </else>
-      </elseif>
-      <elseif advanced='"$Mode"=="AccTP"'>
-        <if status="engaged">
-          <addtochat color="121">ACCTP Engaged - Non Kite - Physical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged|Aftercast" set="ACCTP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="ACCTP"/>
-          </else>
-        </if>
-      </elseif>
-      <!-- Not Kite Mode-->
-      <else>
-        <!-- Engaged -->
-        <if status="engaged">
-          <addtochat color="121">TP Engaged - Non Kite - Physical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged|Aftercast" set="TP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="TP"/>
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <addtochat color="121"> Not Engaged - Non Kite - Physical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <else>
-            <equip when="idle|AfterCast" set="Standard"/>
-          </else>
-        </else>
-      </else>      
+    <!-- Twilight-->
+    <if mode='or' advanced='"$TwilightSet"=="1"' buffactive="Weakness" hpplt="30" >
+      <addtochat color="121">Twilight Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT">
+        <head lock="true">Twilight Helm</head>
+        <body lock="True">Twilight Mail</body>
+      </equip>
     </if>
-    <!-- Magical -->
-    <elseif EquipSub="$MagicalShield" Advanced='"$LockTP"=="0"'>
-      <!-- Kite Mode-->
-      <if Advanced='"$Mode"=="Kite"'>
-        <!-- Engaged -->
-        <if status="engaged">
-          <addtochat color="121">Engaged - Kite - Magical</addtochat>
-          <!-- Reprisal-->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield|PDT"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged|aftercast" set="PDT">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="PDT">
-              <legs>Blood Cuisses</legs>
-            </equip>            
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <addtochat color="121"> Not Engaged - Kite - Magical</addtochat>
-          <!-- Reprisal-->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <else>
-            <equip when="idle|AfterCast" set="PDT">
-              <legs>Blood Cuisses</legs>
-            </equip>
-          </else>
-        </else>
-      </if>
-      <!-- Hybrid  Mode-->
-      <elseif advanced='"$Mode"=="Hybrid"'>
-        <!-- Engaged -->
-        <if status="engaged">
-          <addtochat color="121">Hybrid Engaged - Non Kite - Magical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged" set="HTP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="HTP"/>
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <addtochat color="121"> Not Hybrid Engaged - Non Kite - Magical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <else>
-            <equip when="idle|AfterCast" set="Standard"/>
-          </else>
-        </else>
-      </elseif>
-      <elseif advanced='"$Mode"=="AccTP"'>
-        <if status="engaged">
-          <addtochat color="121">ACCTP Engaged - Non Kite - Magical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged|Aftercast" set="ACCTP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="ACCTP"/>
-          </else>
-        </if>
-      </elseif>
-      <else>
-        <!-- Engaged -->
-        <if status="engaged">
-          <addtochat color="121">Engaged - Non Kite - Magical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast|aftercast" set="Shield"/>
-          </if>
-          <!-- Cover -->
-          <elseif Buffactive="Cover">
-            <equip when="engaged" set="TP">
-              <head>Gallant Coronet</head>
-              <body>Valor Surcoat</body>
-            </equip>
-          </elseif>
-          <else>
-            <equip when="engaged|AfterCast" set="TP"/>
-          </else>
-        </if>
-        <!-- Not Engaged-->
-        <else>
-          <addtochat color="121"> Not Engaged - Non Kite - Magical</addtochat>
-          <!-- Reprisal -->
-          <if mode="or" buffactive="Reprisal" spell="Reprisal">
-            <equip when="Engaged|precast" set="Shield"/>
-          </if>
-          <else>
-            <equip when="idle|AfterCast" set="Standard"/>
-          </else>
-        </else>
-      </else>
+    <if advanced='"$PDT"="1"'>
+      <addtochat color="121">PDT Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="PDT"/>
+    </if>
+    <elseif advanced='"$MDT"="1"'>
+      <addtochat color="121">MDT Gear Locked</addtochat>
+      <equip when="precast|midcast|Aftercast|Idle|Resting|Engaged" set="MDT"/>      
     </elseif>
-    <!-- Locked TP Gear-->
-    <!-- DD/Procing -->
     <else>
-      <if Equipmain="$Greatsword">
-        <addtochat color="121">Greatsword - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP">
-            <sub>$Sub</sub>
-          </equip>
+      <if EquipSub="$PhysicalShield">
+        <!-- Kite Mode-->
+        <if Advanced='"$Mode"=="Kite"'>
+          <addtochat color="121">Kite Mode - Physical</addtochat>
+          <!-- Engaged -->
+          <if status="engaged">
+            <!-- Reprisal-->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="PDT"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged" set="PDT">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="PDT">
+                <legs>Blood Cuisses</legs>
+              </equip>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <!-- Reprisal-->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="PDT"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="idle|AfterCast" set="PDT">
+                <legs>Blood Cuisses</legs>
+              </equip>
+            </else>
+          </else>
         </if>
+        <!-- Hybrid -->
+        <elseif advanced='"$Mode"=="Hybrid"'>
+          <!-- Engaged -->
+          <if status="engaged">
+            <addtochat color="121">Hybrid Engaged - Non Kite - Physical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="PDT"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged" set="HTP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="HTP"/>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <addtochat color="121"> Hybrid NotEngaged - Non Kite - Physical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="Shield"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="Standard"/>
+            </else>
+          </else>
+        </elseif>
+        <!-- Acc TP -->
+        <elseif advanced='"$Mode"=="AccTP"'>
+          <if status="engaged">
+            <addtochat color="121">ACCTP Engaged - Non Kite - Physical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged|Aftercast" set="ACCTP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="ACCTP"/>
+            </else>
+          </if>
+        </elseif>
+        <!-- TP -->
         <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
+          <!-- Engaged -->
+          <if status="engaged">
+            <addtochat color="121">TP Engaged - Non Kite - Physical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged|Aftercast" set="TP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <addtochat color="121"> Not Engaged - Non Kite - Physical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="Shield"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="Standard"/>
+            </else>
+          </else>
         </else>
       </if>
-      <elseif Equipmain="$Polearm">
-        <addtochat color="121">Polearm - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP">
-            <sub>$Sub</sub>
-          </equip>
+      <!-- Magical -->
+      <elseif EquipSub="$MagicalShield" Advanced='"$LockTP"=="0"'>
+        <!-- Kite Mode -->
+        <if Advanced='"$Mode"=="Kite"'>
+          <!-- Engaged -->
+          <if status="engaged">
+            <addtochat color="121">Engaged - Kite - Magical</addtochat>
+            <!-- Reprisal-->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield|PDT"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged|aftercast" set="PDT">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="PDT">
+                <legs>Blood Cuisses</legs>
+              </equip>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <addtochat color="121"> Not Engaged - Kite - Magical</addtochat>
+            <!-- Reprisal-->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="Shield"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="PDT">
+                <legs>Blood Cuisses</legs>
+              </equip>
+            </else>
+          </else>
         </if>
+        <!-- Hybrid-->
+        <elseif advanced='"$Mode"=="Hybrid"'>
+          <!-- Engaged -->
+          <if status="engaged">
+            <addtochat color="121">Hybrid Engaged - Non Kite - Magical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged" set="HTP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="HTP"/>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <addtochat color="121"> Not Hybrid Engaged - Non Kite - Magical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="Shield"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="Standard"/>
+            </else>
+          </else>
+        </elseif>
+        <!-- AccTP -->
+        <elseif advanced='"$Mode"=="AccTP"'>
+          <if status="engaged">
+            <addtochat color="121">ACCTP Engaged - Non Kite - Magical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged|Aftercast" set="ACCTP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="ACCTP"/>
+            </else>
+          </if>
+        </elseif>
+        <!-- TP -->
         <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
-        </else>
-      </elseif>
-      <elseif Equipmain="$Dagger">
-        <addtochat color="121">Dagger - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP"/>
-        </if>
-        <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
-        </else>
-      </elseif>
-      <elseif Equipmain="$Club">
-        <addtochat color="121">Club - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP"/>
-        </if>
-        <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
-        </else>
-      </elseif>
-      <elseif Equipmain="$Staff">
-        <addtochat color="121">Staff - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP">
-            <sub>$Sub</sub>
-          </equip>
-        </if>
-        <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
-        </else>
-      </elseif>
-      <elseif Equipmain="$Sword">
-        <addtochat color="121">Sword - Locked Main/Sub/Ranged</addtochat>
-        <disable slot="main|sub|range" />
-        <if status="engaged">
-          <equip when="engaged|AfterCast" set="TP"/>
-        </if>
-        <else>
-          <equip when="idle|AfterCast" set="Standard">
-            <legs>Blood Cuisses</legs>
-          </equip>
+          <!-- Engaged -->
+          <if status="engaged">
+            <addtochat color="121">Engaged - Non Kite - Magical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast|aftercast" set="Shield"/>
+            </if>
+            <!-- Cover -->
+            <elseif Buffactive="Cover">
+              <equip when="engaged" set="TP">
+                <head>Reverence Coronet</head>
+                <body>Cab. Surcoat</body>
+              </equip>
+            </elseif>
+            <else>
+              <equip when="engaged|AfterCast" set="TP"/>
+            </else>
+          </if>
+          <!-- Not Engaged-->
+          <else>
+            <addtochat color="121"> Not Engaged - Non Kite - Magical</addtochat>
+            <!-- Reprisal -->
+            <if mode="or" buffactive="Reprisal" spell="Reprisal">
+              <equip when="Engaged|precast" set="Shield"/>
+            </if>
+            <else>
+              <equip when="idle|AfterCast" set="Standard"/>
+            </else>
+          </else>
         </else>
       </elseif>
     </else>
-    <if type="JobAbility">
-      <if buffactive="amnesia|Terror|Stun|Sleep|petrification">
+    <if type="JobAbility" CommandPrefix="/ja|/jobability">
+      <if buffactive="Amnesia|Terror|Stun|Sleep|petrification">
+        <addtochat color="121">%Spell Canceled</addtochat>
         <cancelspell/>
-        <return/>
       </if>
-      <if spell="Chivalry">
-        <equip when="precast" set="Chivalry" />
-      </if>
-      <elseif spell="Rampart">
-        <equip when="precast" set="Enmity">
-          <head>Valor Coronet</head>
-        </equip>
-      </elseif>
-      <elseif spell="Shield Bash">
-        <equip when="precast" set="Shield">
-          <hands>Valor Gauntlets</hands>
-          <rear>Knightly Earring</rear>
-        </equip>
-      </elseif>
-      <elseif spell="Sentinel">
-        <equip when="precast" set="Enmity">
-          <feet>Vlr. Leggings +2</feet>
-        </equip>
-      </elseif>
-      <elseif Spell="Holy Circle">
-        <equip when="PreCast" set="Enmity">
-          <feet>Glt. Leggings</feet>
-        </equip>
-      </elseif>
-      <elseif Spell="Fealty">
-        <equip when="PreCast" set="Enmity">
-          <body>Vlr. Surcoat +2</body>
-        </equip>
-      </elseif>
-      <elseif Spell="Invincible">
-        <equip when="PreCast" set="Enmity">
-          <legs>Vlr. Breeches +2</legs>
-        </equip>
-      </elseif>
       <else>
-        <equip when="precast" set="Enmity" />
-      </else>      
+        <if spell="Chivalry">
+          <equip when="precast" set="Chivalry" />
+        </if>
+        <elseif spell="Rampart">
+          <equip when="precast" set="Enmity">
+            <head>Cab. Coronet</head>
+          </equip>
+        </elseif>
+        <elseif spell="Shield Bash">
+          <equip when="precast" set="Shield">
+            <hands>Cab. Gauntlets</hands>
+            <rear>Knightly Earring</rear>
+          </equip>
+        </elseif>
+        <elseif spell="Sentinel">
+          <equip when="precast" set="Enmity">
+            <feet>Cab. Leggings</feet>
+          </equip>
+        </elseif>
+        <elseif Spell="Holy Circle">
+          <equip when="PreCast" set="Enmity">
+            <feet>Rev. Leggings</feet>
+          </equip>
+        </elseif>
+        <elseif Spell="Fealty">
+          <equip when="PreCast" set="Enmity">
+            <body>Cab. Surcoat</body>
+          </equip>
+        </elseif>
+        <elseif Spell="Invincible">
+          <equip when="PreCast" set="Enmity">
+            <legs>Cab. Breeches</legs>
+          </equip>
+        </elseif>
+        <elseif Spell="*Waltz*">
+          <if NotSpell="Healing Waltz">
+            <equip when="Precast" set="Waltz" />
+          </if>
+          <else>
+            <equip when="Precast" set="Recast" />
+          </else>
+        </elseif>
+        <elseif Spell="Spectral Jig">
+          <command when="PreCast">cancel 71</command>
+        </elseif>
+        <elseif spell="*Step">
+          <equip when="precast" set="Step" />
+        </elseif>
+        <elseif spell="*Flourish">
+          <equip when="precast" set="Macc" />
+        </elseif>
+        <elseif spell="Convert">
+          <Cancelspell/>
+        </elseif>
+        <else>
+          <equip when="precast" set="Enmity" />
+        </else>
+      </else>
     </if>
     <elseif type="Weaponskill">
       <if buffactive="Amnesia|Terror|Stun|Sleep|petrification">
+        <addtochat color="121">%Spell Canceled</addtochat>
         <cancelspell/>
-        <return/>
       </if>
-      <if TPGT="99" status="Engaged">
-        <if advanced="%SpellTargetDistance &lt; 5">
-          <CastDelay Delay=".5"/>
-          <if spell="Atonement|Requiescat|Chant du Cygne|Aeolian Edge">
-            <if advanced='"$Mode"=="AccTP"'>
-              <equip when="precast" set="Acc-%Spell"/>
+      <else>
+        <if TPGT="99" status="Engaged">
+          <if advanced="%SpellTargetDistance &lt; 5">
+            <CastDelay Delay=".5"/>
+            <if spell="Requiescat|Chant du Cygne">
+              <if advanced='"$Mode"=="AccTP"'>
+                <equip when="precast" set="Acc-%Spell"/>
+              </if>
+              <else>
+                <equip when="precast" set="%Spell"/>
+              </else>
             </if>
             <else>
-              <equip when="precast" set="%Spell"/>
+              <equip when="precast" set="WS"/>
             </else>
           </if>
           <else>
-            <equip when="precast" set="WS"/>
+            <cancelspell />
+            <addtochat color="121">%SpellTargetName is too far.</addtochat>
+            <Return />
           </else>
         </if>
         <else>
           <cancelspell />
-          <addtochat color="121">%SpellTargetName is too far.</addtochat>
+          <addtochat color="121">You Need to be Engaged and have 100+ TP.</addtochat>
           <Return />
         </else>
-      </if>
-      <else>
-        <cancelspell />
-        <addtochat color="121">You Need to be Engaged and have 100+ TP.</addtochat>
-        <Return />
       </else>
     </elseif>
     <elseif type="*Magic">
       <if buffactive="Terror|Stun|Sleep|petrification|Mute|Silence">
         <cancelspell/>
-        <return/>
-      </if>      
+        <addtochat color="121">%Spell Canceled</addtochat>
+      </if>
       <if Skill="Healingmagic">
-        <if advanced='"$CureKit"=="1"'>
-          <if Spell="Cure II">
-            <if SpellTargetType="SELF">
-              <addtochat color="121">Using Cure Kit for Cure 2</addtochat>
-              <equip when="Precast" set="HP" />
-              <equip when="Midcast" delay="0.75" set="HP" />
-            </if>
-            <else>
-              <equip when="Midcast" set="Enmity|HealingMagic" />
-            </else>
+        <if spell="Cure*">
+          <if SpellTargetType="Self">
+            <addtochat color="121">Self Cure</addtochat>
+            <equip when="precast" set="HPDown"/>
+            <equip when="midcast" set="Cure"/>
           </if>
-          <elseif Spell="Cure III">
-            <if SpellTargetType="SELF">
-              <addtochat color="121">Using Cure Kit for Cure 3</addtochat>
-              <MidCastDelay delay="0.9" />
-              <equip when="Precast" set="HP" />
-              <equip when="Midcast" delay="0.75" set="HP" />
-            </if>
-            <else>
-              <equip when="Midcast" set="Enmity|HealingMagic" />
-            </else>
-          </elseif>
-          <elseif Spell="Cure IV">
-            <if SpellTargetType="SELF">
-              <addtochat color="121">Using Cure Kit for Cure 4</addtochat>
-              <MidCastDelay delay="1.0" />
-              <equip when="Precast" set="HP" />
-              <equip when="Midcast" delay="0.75" set="HP" />
-            </if>
-            <else>
-              <equip when="Midcast" set="Enmity|HealingMagic" />
-            </else>
-          </elseif>
           <else>
-            <equip when="Midcast" set="Enmity|HealingMagic" />
+            <equip when="precast" set="fastcast"/>
+            <equip when="midcast" set="Recast"/>
           </else>
         </if>
-        <else>
-          <equip when="precast" set="Fastcast"/>
-          <if Spell="Cure II|Cure III|Cure IV">
-            <if SpellTargetType="SELF">
-              <equip when="Midcast" set="Cure" />
-            </if>
-            <else>
-              <equip when="Midcast" set="Enmity|HealingMagic" />
-            </else>
-          </if>
-        </else>       
       </if>
       <elseif Skill="DivineMagic">
         <equip when="precast" set="Fastcast"/>
         <if spell="Flash">
-          <equip when="midcast" set="Enmity"/>
+          <equip when="midcast" set="Fastcast"/>
         </if>
-        <elseif spell="Enlight">
-          <equip when="midcast" set="Haste"/>
-        </elseif> 
         <else>
-          <equip when="midcast" set="DivineMagic" />
-        </else>        
+          <equip when="midcast" set="Recast" />
+        </else>
       </elseif>
       <elseif Skill="EnhancingMagic">
         <equip when="precast" set="Fastcast"/>
         <if spell="Reprisal">
-          <equip when="midcast" set="haste"/>
+          <equip when="midcast" set="Recast"/>
         </if>
         <elseif spell="Phalanx">
-          <equip when="midcast" set="haste|EnhancingMagic"/>
+          <equip when="midcast" set="Recast|EnhancingMagic"/>
+        </elseif>
+        <elseif spell="Sneak">
+          <if BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
+            <midcastdelay delay="1" />
+            <command when="MidCast">cancel 71</command>
+          </if>
+          <if subjob="NIN">
+            <changespell>Monomi: Ichi</changespell>
+          </if>
+          <elseif subjob="DNC">
+            <changespell>Spectral Jig</changespell>
+          </elseif>
+          <else>
+            <equip when="midcast" set="Recast"/>
+          </else>
+        </elseif>
+        <elseif spell="Invisible">
+          <if subjob="NIN">
+            <changespell>Tonko: Ni</changespell>
+          </if>
         </elseif>
         <else>
           <equip when="midcast" set="EnhancingMagic" />
-        </else>        
+        </else>
       </elseif>
-    </elseif>    
-    <!-- Subjob -->
-    <if subjob="nin">
-      <!-- AutoMacroset-->
-      <if advanced='"$AutoMacroset"=="1"'>
-        <if  Equipsub="$PhysicalShield">
-          <cmd when="aftercast">input /macro set 1</cmd>
-        </if>
-        <else Equipsub="$MagicalShield">
-          <cmd when="aftercast">input /macro set 2</cmd>
-        </else>       
-      </if>      
+    </elseif>
+    <elseif type="Ninjutsu">
       <!-- Usustemi -->
       <if spell="Utsu*">
         <equip when="precast" set="fastcast" />
@@ -927,80 +764,6 @@
           <midcastdelay delay="1.5" />
           <command when="midcast">cancel 71</command>
         </if>
-      </elseif>
-      <elseif spell="Sneak">
-        <changespell>Monomi: Ichi</changespell>
-      </elseif>
-      <elseif spell="Invisible">
-        <changespell>Tonko: Ni</changespell>
-      </elseif>    
-    </if>
-    <elseif subjob="WAR">
-      <!-- AutoMacroset-->
-      <if advanced='"$AutoMacroset"=="1"'>
-        <if  Equipsub="$PhysicalShield">
-          <cmd when="aftercast">input /macro set 3</cmd>
-        </if>
-        <else Equipsub="$MagicalShield">
-          <cmd when="aftercast">input /macro set 4</cmd>
-        </else>
-      </if>
-    </elseif>
-    <elseif subjob="RDM">
-      <!-- AutoMacroset-->
-      <if advanced='"$AutoMacroset"=="1"'>
-        <if  Equipsub="$PhysicalShield">
-          <cmd when="aftercast">input /macro set 5</cmd>
-        </if>
-        <else Equipsub="$MagicalShield">
-          <cmd when="aftercast">input /macro set 6</cmd>
-        </else>
-      </if>
-      <if spell="Sneak" BuffActive="Sneak" advanced='"%target"="&lt;me&gt;"'>
-        <midcastdelay delay="1" />
-        <command when="MidCast">cancel 71</command>
-      </if>
-      <if spell="Convert">
-        <Cancelspell/>
-      </if>
-    </elseif>
-    <elseif subjob="BLU">
-      <!-- AutoMacroset-->
-      <if advanced='"$AutoMacroset"=="1"'>
-        <if  Equipsub="$PhysicalShield">
-          <cmd when="aftercast">input /macro set 7</cmd>
-        </if>
-        <else Equipsub="$MagicalShield">
-          <cmd when="aftercast">input /macro set 8</cmd>
-        </else>
-      </if>
-    </elseif>
-    <elseif subjob="DNC">
-      <!-- AutoMacroset-->
-      <if advanced='"$AutoMacroset"=="1"'>
-        <if  Equipsub="$PhysicalShield">
-          <cmd when="aftercast">input /macro set 9</cmd>
-        </if>
-        <else Equipsub="$MagicalShield">
-          <cmd when="aftercast">input /macro set 10</cmd>
-        </else>
-      </if>
-      <if Spell="*Waltz*">
-        <if NotSpell="Healing Waltz">
-          <AfterCastDelay Delay="0.5" />
-          <if TargetType="Self">
-            <equip when="Precast" set="Waltz" />
-          </if>
-          <else>
-            <equip when="Precast" set="Waltz" />
-          </else>
-        </if>
-      </if>
-      <elseif Spell="Spectral Jig">
-        <command when="PreCast">cancel 71</command>
-      </elseif>
-      <elseif spell="*step|violent flourish|desperate*">
-        <equip when="precast" set="step" />
       </elseif>
     </elseif>
     <!-- Statuses-->

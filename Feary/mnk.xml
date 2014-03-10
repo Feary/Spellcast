@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
   <guildwork character="Feary" server="Sylph" description="Feary's MNK Spellcast" job="MNK"/>
-  <config requireversion="2.51" showgearswaps="False" showspellinfo="False"/>
+  <config requireversion="2.51" showgearswaps="true" showspellinfo="False"/>
   <variables clear="True">
     <!-- Auto macro sets -->
     <var name="AutoMacroset">1</var>
@@ -29,10 +29,16 @@
     <group name="MNK" default="yes">
       <set name="MiscGearCollector" load="yes">
         <item>Plenitas Virga</item>
-        <item>Temple Crown</item>
-        <item>Temple Gaiters</item>
-        <item>Temple Gloves</item>
-        <body>Tantra Cyclas +2</body>
+		<!-- Porter Moogle -->
+        <item>Anchorite's Crown</item>
+		<item>Anchorite's Cyclas</item>
+        <item>Anchorite's Gloves</item>
+		<item>Anchorite's Gaiters</item>
+		<item>Melee Cyclas +2</item>
+		<item>Melee Gloves +2</item>
+		<item>Melee Hose +2</item>
+		<item>Hes. Gaiters</item>
+        <item>Tantra Cyclas +2</item>
       </set>
       <set name="weapon|w" baseset="TP">
         <main>$H2H</main>
@@ -90,20 +96,21 @@
         <body>Tantra Cyclas +2</body>
         <!-- Shoalin Belt-->
       </set>
+	  <set name="ACCHF" baseset="HF">
+	    <body>Tantra Cyclas +2</body>
+	  </set>
       <set name="Subtle Blow" baseset="TP" load="no">
         <head>Whirlpool Mask</head>
         <waist>Black Belt</waist>
         <lring>Rajas Ring</lring>
       </set>
       <set name="TP">
-        <!-- Otomi Helm -->
         <head>Uk'uxkaj Cap</head>
         <neck>Asperity Necklace</neck>
         <body>Thaumas Coat</body>
         <hands>Otronif Gloves</hands>
         <!-- Otronif Brais -->
         <legs>Manibozho Brais</legs>
-        <!-- Otronif Boots -->
         <feet>Manibozho Boots</feet>
         <waist>Windbuffet Belt</waist>
         <back>Atheling Mantle</back>
@@ -113,18 +120,15 @@
         <rring>Epona's Ring</rring>
         <ammo>Hagneia Stone</ammo>
       </set>
-      <!-- Tojil -->
+      <!-- Tojil/ACC-->
       <set name="MidAccTP" baseset="TP">
-        <!-- Otronif Mask -->
-        <head>Uk'uxkaj Cap</head>
+        <head>Whirlpool Mask</head>
         <neck>Asperity Necklace</neck>
         <body>Thaumas Coat</body>
         <hands>Otronif Gloves</hands>
-        <!-- Otronif Brais -->
         <legs>Manibozho Brais</legs>
-        <!-- Otronif Boots -->
         <feet>Manibozho Boots</feet>
-        <waist>Hurch'lan Sash</waist>
+        <waist>Windbuffet Belt</waist>
         <!-- Letalis Mantle-->
         <back>Atheling Mantle</back>
         <lear>Bladeborn Earring</lear>
@@ -138,9 +142,9 @@
         <head>Whirlpool Mask</head>
         <neck>Asperity Necklace</neck>
         <body>Thaumas Coat</body>
+		<!-- Melee Gloves +2 -->
         <hands>Otronif Gloves</hands>
         <legs>Manibozho Brais</legs>
-        <!-- Otronif Boots -->
         <feet>Manibozho Boots</feet>
         <waist>Hurch'lan Sash</waist>
         <!-- Letalis Mantle-->
@@ -152,26 +156,16 @@
         <ammo>Honed Tathlum</ammo>
       </set>
       <set name="Impetus" Baseset="TP">
-        <body>Tantra Cyclas +2</body>
-        <waist>Twilight Belt</waist>
-        <ammo>Hagneia Stone</ammo>
+        
       </set>
-      <set name="MidAcc-Impetus" baseset="Impetus">
-        <body>Tantra Cyclas +2</body>
-        <waist>Hurch'lan Sash</waist>
-        <ammo>Honed Tathlum</ammo>
+      <set name="MidAcc-Impetus" baseset="MidAccTP">
       </set>
-      <set name="HighAcc-Impetus" baseset="Impetus">
-        <head>Whirlpool Mask</head>
-        <body>Tantra Cyclas +2</body>
-        <waist>Hurch'lan Sash</waist>
-        <!--<back>Letalis Mantle</back>-->
-        <ammo>Honed Tathlum</ammo>
+      <set name="HighAcc-Impetus" baseset="HighAccTP">
+      
       </set>
       <!-- Vere TP sets-->
       <set name="TP-Vere" Baseset="TP"/>
       <set name="Imp-Vere" baseset="TP-Vere">
-        <body>Tantra Cyclas +2</body>
       </set>
       <!-- Weaponskills -->
       <set name="WS" baseset="TP">
@@ -206,7 +200,6 @@
         <ammo>Honed Tathlum</ammo>
       </set>
       <set name="Imp-Victory Smite" baseset="Victory Smite">
-        <body>Tantra Cyclas +2</body>
       </set>
       <!-- DEX -->
       <set name="Shijin Spiral" baseset="WS">
@@ -301,7 +294,7 @@
         <head>Whirlpool Mask</head>
         <!-- <neck>Fortitude Torque</neck>-->
         <body>Anchorite's Cyclas</body>
-        <hands>Mel. Gloves +2</hands>
+        <hands>Hes. Gloves</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Otronif Boots</feet>
         <back>Anchoret's Mantle</back>
@@ -335,7 +328,7 @@
       <set name="Max HP" load="no">
         <head>Melee Crown</head>
         <body>Mel. Cyclas +2</body>
-        <hands>Mel. Gloves +2</hands>
+        <hands>Hes. Gloves</hands>
         <legs>Mel. Hose +2</legs>
         <feet>Mel. Gaiters +2</feet>
         <back>Boxer's Mantle</back>
@@ -391,9 +384,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="MidAccTP"/>
@@ -407,9 +398,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="HighAccTP"/>
@@ -423,9 +412,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121">Vere Impetus Set</addtochat>
-              <equip when="engaged|AfterCast" set="Imp-Vere">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="Imp-Vere"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="TP-Vere"/>
@@ -442,9 +429,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="MidAccTP"/>
@@ -458,9 +443,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="HighAccTP"/>
@@ -474,9 +457,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121">Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="TP">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="TP"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="TP"/>
@@ -493,9 +474,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="MidAccTP"/>
@@ -509,9 +488,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="HighAccTP"/>
@@ -525,9 +502,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121">Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="TP">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="TP"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="TP"/>
@@ -543,9 +518,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> MidAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="MidAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="MidAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="MidAccTP"/>
@@ -559,9 +532,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121"> HighAcc Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="HighAcc-Impetus">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="HighAcc-Impetus"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="HighAccTP"/>
@@ -575,9 +546,7 @@
           <if status="engaged">
             <if buffactive="Impetus">
               <addtochat color="121">Impetus TP Set</addtochat>
-              <equip when="engaged|AfterCast" set="TP">
-                <body>Tantra Cyclas +2</body>
-              </equip>
+              <equip when="engaged|AfterCast" set="TP"/>
             </if>
             <else>
               <equip when="engaged|AfterCast" set="TP"/>
@@ -631,9 +600,14 @@
             <hands>Anchorite's Gloves</hands>
           </equip>
         </elseif>
+		<elseif spell="Invigorate">
+		  <equip when="precast">
+		  </equip>
+			<hands>Hes. Gloves</hands>
+		</elseif>
         <elseif spell="Counterstance">
           <equip when="precast">
-            <feet>Mel. Gaiters +2</feet>
+            <feet>Hes. Gaiters</feet>
           </equip>
         </elseif>
         <elseif spell="Formless Strikes">

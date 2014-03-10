@@ -68,19 +68,27 @@
         <item>Karin Obi</item>
         <item>Zodiac Ring</item>
         <!-- Porter Moogle -->
-        <item>Comm. Tricorne +2</item>
-        <item>Comm. Frac +2</item>
-        <item>Comm. Gants +2</item>
-        <item>Comm. Culottes +2</item>
-        <item>Comm. Bottes +2</item>
+        <item>Lak. Tricorne +1</item>
+        <item>Lak. Frac +1</item>
+        <item>Lak. Trews +1</item>
+        <item>Lak. Bottes +1</item>
+        <item>Lanun Tricorne</item>
+        <item>Lanun Frac</item>
+        <item>Lanun Gants</item>
+        <item>Lanun Culottes</item>
+        <item>Lanun Bottes</item>
+        <item>Nvrch. Tricorne +2</item>
+        <item>Nvrch. Frac +2</item>
         <item>Nvrch. Gants +2</item>
+        <item>Nvrch. Culottes +2</item>
+        <item>Nvrch. Bottes +2</item>
       </set>
       <set name="Town" baseset="Standard">
         <feet>Hermes' Sandals</feet>
       </set>
       <set name="Brew" baseset="Wildfire">
         <head>Seiokona Beret</head>
-        <feet>Comm. Bottes +2</feet>
+        <feet>Lanun Bottes</feet>
         <lring>Demon's Ring</lring>
         <rring>Demon's Ring</rring>
       </set>
@@ -124,15 +132,17 @@
       </set>
       <!-- Precast -->
       <set name="PhantomRoll" baseset="PDT">
-        <head>Comm. Tricorne +2</head>
+        <head>Lanun Tricorne</head>
         <hands>Nvrch. Gants +2</hands>
       </set>
       <!-- Ranged Attacks-->
       <!--Precast-->
-      <set name="Snapshot" baseset="RATP">
+      <set name="Snapshot|preshot" baseset="RATP">
         <head>Nvrch. Tricorne +2</head>
-        <hands>Iuitl Wristbands</hands>
+        <!--<body>Skopos Jerkin</body>-->
+        <hands>Lanun Gants</hands>
         <legs>Nahtirah Trousers</legs>
+        <!-- Wurrukatte Boots-->
         <waist>Impulse Belt</waist>
         <back>Navarch's Mantle</back>
       </set>
@@ -146,7 +156,7 @@
       <set name="Recast" baseset="TP"/>
       <!-- Ranged TP Gearsets -->
       <set name="RATP" baseset="Standard">
-        <!--  Store TP Need 21 STP -->
+        <!-- Store TP Need 21 STP -->
         <!-- Rose Strap -->
         <head>Whirlpool Mask</head>
         <neck>Ocachi Gorget</neck>
@@ -165,13 +175,17 @@
       </set>
       <!-- Ranged Acc for Delve NMs -->
       <set name="RaACC" baseset="RATP">
-        <!-- Iuitl Headgear -->
+        <!-- Lak. Tricorne +1 -->
         <head>Nvrch. Tricorne +2</head>
+        <!-- Faith Torque -->
         <neck>Ocachi Gorget</neck>
+        <!-- Lak. Frac +1-->
         <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
-        <legs>Thurandaut tights</legs>
+        <legs>Thur. tights +1</legs>
+        <!-- Vanir Boots-->
         <feet>Iuitl Gaiters</feet>
+        <!-- Elanid Belt -->
         <waist>Buccaneer's Belt</waist>
         <!-- Gunslinger's Mantle -->
         <back>Terebellum Mantle</back>
@@ -185,7 +199,7 @@
         <neck>Ocachi Gorget</neck>
         <body>Nvrch. Frac +2</body>
         <hands>Iuitl Wristbands</hands>
-        <legs>Thurandaut Tights</legs>
+        <legs>Thur. tights +1</legs>
         <feet>Iuitl Gaiters</feet>
         <waist>Buccaneer's Belt</waist>
         <back>Terebellum Mantle</back>
@@ -208,27 +222,33 @@
         <waist>Light Belt</waist>
       </set>
       <set name="Last Stand" baseset="RAWS">
-        <head>Whirlpool Mask</head>
+        <head>Lanun Tricorne</head>
         <neck>Light Gorget</neck>
         <!-- Laksamana Frac -->
         <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
+        <!-- Lak. Boots +1-->
         <feet>Iuitl Gaiters</feet>
         <waist>Light Belt</waist>
         <back>Terebellum Mantle</back>
+        <!-- Auster Earring -->
         <lear>Clearview Earring</lear>
+        <!-- Moonshade Earring-->
         <rear>Volley Earring</rear>
         <lring>Stormsoul Ring</lring>
+        <!-- Moepapap Ring -->
         <rring>Stormsoul RIng</rring>
       </set>
       <set name="Wildfire|Leaden Salute" baseset="RAWS">
-        <head>Whirlpool Mask</head>
+        <head>Lanun Tricorne</head>
         <neck>Stoicheion Medal</neck>
-        <body>Iuitl Vest</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Lanun Frac</body>
+        <hands>Thur. Gloves +1</hands>
+        <!-- Lak. Trews +1 -->
         <legs>Iuitl Tights</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Lanun Boots</feet>
+        <!-- Elanid Belt -->
         <waist>Aquiline Belt</waist>
         <!-- Gunslinger's Mantle -->
         <back>Toro Cape</back>
@@ -245,7 +265,8 @@
         <!-- Mirke Wardecors -->
         <body>Nvrch. Frac +2</body>
         <hands>Schutzen Mittens</hands>
-        <legs>Nahtirah Trousers</legs>
+        <legs>Thur. Tights +1</legs>
+        <!-- Lak. Bottes-->
         <feet>Iuitl Gaiters</feet>
         <waist>Aquiline Belt</waist>
         <!--  Gunslinger's cape -->
@@ -262,8 +283,9 @@
         <!-- Mirke Wardecors -->
         <body>Nvrch. Frac +2</body>
         <hands>Schutzen Mittens</hands>
+        <!-- Lak. Trews +1-->
         <legs>Iuitl Tights</legs>
-        <feet>Nvrch. Bottes +2</feet>
+        <feet>Lanun Boots</feet>
         <waist>Aquiline Belt</waist>
         <!--  Gunslinger's cape -->
         <back>Toro Cape</back>
@@ -540,22 +562,22 @@
     <elseif type="JobAbility">
       <if spell="Fold">
         <equip when="precast">
-          <hands>Comm. Gants +2</hands>
+          <hands>Lanun Gants</hands>
         </equip>
       </if>
       <elseif spell="Wild Card">
         <equip when="precast">
-          <feet>Comm. Bottes +2</feet>
+          <feet>Lanun Bottes</feet>
         </equip>
       </elseif>
       <elseif spell="Random Deal">
         <equip when="precast">
-          <body>Commodore Frac +2</body>
+          <body>Lanun Frac</body>
         </equip>
       </elseif>
       <elseif spell="Snake Eye">
         <equip when="precast">
-          <legs>Comm. Culottes +2</legs>
+          <legs>Lanun Culottes</legs>
         </equip>
       </elseif>
       <elseif spell="Cutting Cards">

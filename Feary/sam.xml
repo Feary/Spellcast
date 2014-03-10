@@ -28,11 +28,16 @@
   <sets>
     <group default="yes" name="SAM">
       <set name="MiscGearCollector" load="yes">
-        <item>unkai domaru +2</item>
-        <hands>Unkai kote +2</hands>
+		    <!-- Porter Moogle-->
+        <item>Wakido Kabuto</item>
+        <item>Wakido Domaru</item>
+        <item>Wakido Kote</item>
+        <item>Wakido Haidate</item>
+        <item>Sakonji Kabuto</item>
+        <item>Sakonji Kote</item>
+        <item>Sakonji Sune-ate</item>
+        <item>Unkai kote +2</item>
         <item>Unkai haidate +2</item>
-        <item>unkai sune-ate +2</item>
-        <item>Sao. Kote +2</item>
       </set>
       <set name="Town" baseset="Standard">
         <feet>Danzo Sune-Ate</feet>
@@ -47,7 +52,6 @@
         <rear>Merman's Earring</rear>
       </set>
       <set name="PDT">
-        <head>Otronif Mask</head>
         <head>Yaoyotl Helm</head>
         <neck>Twilight Torque</neck>
         <body>Otronif harness</body>
@@ -67,7 +71,6 @@
         <hands>Otronif Gloves</hands>
         <legs>Otronif Brais</legs>
         <feet>Whirlpool Greaves</feet>
-        <waist>Nierenschutz</waist>
         <back>Engulfer Cape</back>
         <!-- Defending Ring -->
         <lring>Dark Ring</lring>
@@ -78,33 +81,31 @@
       <set name="Evasion" baseset="Standard">
 
       </set>
-      <set name="resting" baseset="tp"/>
+      <set name="resting" baseset="PDT"/>
       <!-- Precast -->
-      <set name="Fastcast" baseset="tp">
-        <Rear>Loquac. Earring</Rear>
-        <lear>Magnetic Earring</lear>
-        <waist>Goading Belt</waist>
+      <set name="Fastcast" baseset="PDT">
+        <lear>Loquac. Earring</lear>
       </set>
+      <!-- Midcast -->
       <set name="Recast" baseset="PDT">
+        <waist>Cetl Belt</waist>
       </set>
       <set name="TP">
         <ammo>Hagneia Stone</ammo>
-        <!--<head>Otomi Helm</head>-->
-        <head>Yaoyotl Helm</head>
+        <head>Otomi Helm</head>
         <!-- <neck>Ganesha's Mala</neck> -->
         <neck>Asperity Necklace</neck>
-        <body>Porthos Byrnie</body>
-        <hands>Otronif Gloves</hands>
+        <body>Wakido Domaru</body>
+        <hands>Wakido Kote</hands>
         <legs>Unkai Haidate +2</legs>
         <feet>Otronif Boots</feet>
         <back>Takaha Mantle</back>
-        <!-- Ninurta's Sash -->
         <waist>Cetl Belt</waist>
         <lear>Steelflash Earring</lear>
         <rear>Bladeborn Earring</rear>
         <lring>Rajas Ring</lring>
         <rring>K'ayres Ring</rring>
-        <sub>Pole Grip</sub>
+        <sub>Duplus Grip</sub>
       </set>
       <set name="MidAcc-TP" baseset="TP">
         <waist>Dynamic Belt +1</waist>
@@ -116,8 +117,7 @@
         <ammo>$Ammo</ammo>
       </set>
       <set name="ws|Weaponskill" baseset="TP">
-        <!--<head>Otomi Helm</head>-->
-        <head>Yaoyotl Helm</head>
+        <head>Otomi Helm</head>
         <neck>Asperity Necklace</neck>
         <body>Phorcys Korazin</body>
         <hands>Miki. Gauntlets</hands>       
@@ -455,67 +455,98 @@
        <hands lock="t">unkai kote +2</hands>
       </equip>
     </if>
-      <!-- If Sengikori is active put on cover gear and lock it so it stays active -->
-    <if Spell="Sengikori">
-      <equip when="precast|midcast|aftercast">
-       <feet lock="t">unkai sune-ate +2</feet>
-      </equip>
-    </if>
+    <!-- If Sengikori is active put on cover gear and lock it so it stays active -->
     <if BuffActive="Sengikori">
       <equip when="precast|midcast|aftercast">
         <feet lock="t">unkai sune-ate +2</feet>
       </equip>
     </if>
-    <if type="jobability">
-      <if spell="Warding Circle">
-        <equip when="precast">
-          <head>Wakido Kabuto</head>
-        </equip>
+    <if mode="or" type="JobAbility" CommandPrefix="/ja|/jobability">
+      <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror|Charm*">
+        <addtochat color="121">======= Canceled JA =======</addtochat>
+        <cancelspell/>
       </if>
-      <!-- Make Sure you have above 200 TP when useing Sekkanoki-->
-      <elseif spell="Sekkanoki" tplt="150">
-        <cancelspell />
-        <addtochat color="121">You Don't have enough TP for that</addtochat>
-      </elseif>
-      <elseif Spell="Meditate">
-        <if tpgt="200">
-          <cancelspell/>
-          <addtochat color="121">You have too much tp for that.</addtochat>
-        </if>
-        <else>
-          <equip when="Precast" delay=".2">
+      <else>
+        <if spell="Warding Circle">
+          <equip when="precast">
             <head>Wakido Kabuto</head>
-            <hands>Sao. Kote +2</hands>
           </equip>
-        </else>
-      </elseif>
-      <elseif Spell="Third Eye">
-        <equip when="precast" delay=".2">
-          <legs>Saotome Haidate</legs>
-        </equip>
-        <aftercastdelay delay="1" />
-      </elseif>
-      <elseif spell="Hasso">
-        <equip when="precast">
-          <legs>unkai Haidate +2</legs>
-        </equip>
-      </elseif>
-      <elseif spell="Seigan">
-        <equip when="precast" />
-      </elseif>
-      <elseif spell="Meikyo Shisui">
-        <equip when="precast|midcast|aftercast">
-          <feet>saotome sune-ate +2</feet>
-        </equip>
-      </elseif>
-      <elseif spell="Yaegasumi">
-        
-      </elseif>
+        </if>
+        <!-- Make Sure you have above 200 TP when useing Sekkanoki-->
+        <elseif spell="Sekkanoki">
+          <if tplt="150">
+            <cancelspell />
+            <addtochat color="121">You Don't have enough TP for that</addtochat>
+          </if>
+        </elseif>
+        <elseif Spell="Meditate">
+          <if tpgt="200">
+            <cancelspell/>
+            <addtochat color="121">Don't Use %Spell with Over 200 TP</addtochat>
+          </if>
+          <else>
+            <equip when="Precast" delay=".2">
+              <head>Wakido Kabuto</head>
+              <hands>Sakonji Kote</hands>
+            </equip>
+          </else>
+        </elseif>
+        <elseif Spell="Third Eye">
+          <equip when="precast" delay=".2">
+            <legs>Saotome Haidate</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Hasso">
+          <equip when="precast">
+            <hands>Wakido Kote</hands>
+            <legs>Unkai Haidate +2</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Seigan">
+          <equip when="precast">
+            <head>Unkai Kabuto +2</head>
+          </equip>
+        </elseif>
+        <elseif spell="Sengikori">
+          <if buffactive="Meikyo Shisui">
+            <cancelspell/>
+          </if>
+          <else>
+            <equip when="precast|midcast|Aftercast">
+              <feet lock="true">Unkai Sune-ate +2</feet>
+            </equip>
+          </else>
+        </elseif>
+        <elseif spell="Hagakore">
+          
+        </elseif>
+        <elseif spell="Konzen-ittai">
+          
+        </elseif>
+        <elseif spell="Blade Bash">
+          <equip when="precast">
+            <hands>Sakonji Kote</hands>
+          </equip>
+        </elseif>
+        <elseif spell="Meikyo Shisui">
+          <equip when="precast|midcast|aftercast">
+            <feet lock="true">Sakonji Sune-ate</feet>
+          </equip>
+        </elseif>
+        <elseif spell="Yaegasumi">
+
+        </elseif>
+      </else>
     </if>
     <!-- Weapon Skills-->
     <elseif type="Weaponskill">
       <if TPGT="99">
         <if advanced="%SpellTargetDistance &lt; 5">
+          <if buffactive="Meikyo Shisui">
+            <equip when="precast">
+              <feet lock="true">Sakonji Sune-ate</feet>
+            </equip>
+          </if>
           <if spell="Tachi: Fudo|Tachi: Shoha|Apex Arrow|Requiescat">
             <!-- Mid Acc -->
             <if advanced='"$Mode"=="1"'>

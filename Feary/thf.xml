@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
   <guildwork character="Feary" server="Sylph" description="Feary's THF Spellcast" job="THF"  />
-  <config RequireVersion="2.45" Debug="false" ShowGearSwaps="true" fishingset="Fishing" />
+  <config RequireVersion="2.45" Debug="false" ShowGearSwaps="false" fishingset="Fishing" />
   <!-- 
     ===================================================
     ||
@@ -20,8 +20,8 @@
     <!-- Auto macro sets Set 1 = NIN 2. War 3. DNC 4. Drk -->
     <!-- 1 for On == 0 for Off -->
     <var name="AutoMacroset">1</var>
-    <!-- Sub Dagger-->
-    <var name="SubDagger">Aphotic Kukri</var>
+    <!-- Sub Dagger Aphotic Kukri Izhiikoh-->
+    <var name="SubDagger">Izhiikoh</var>
     <!-- Announce statues-->
     <var name="Statuses">0</var>
     <!-- Adds a call14 to party chat on range attack-->
@@ -58,7 +58,7 @@
         <item>Mandau</item>
         <item>Izhikoh</item>
         <item>Thief's Knife</item>
-        <item>Asn. Armlets +2</item>
+        <item>Plun. Armlets</item>
         <item>Raid. Poulaines +2</item>
       </set>
       <set name="weapon|W">
@@ -109,7 +109,8 @@
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
-        <waist>Nusku's Sash</waist>
+		<!-- Nusku's Sash -->
+        <waist>Twilight Belt</waist>
         <!-- <back>Canny Cape</back>-->
         <back>Boxer's Mantle</back>
         <!-- Defending Ring -->
@@ -134,7 +135,7 @@
       </set>
       <!-- Treasure Hunter -->
       <set name="TH" baseset="TP">
-        <hands>Asn. Armlets +2</hands>
+        <hands>Plun. Armlets</hands>
         <feet>Raid. Poulaines +2</feet>
         <waist>Twilight Belt</waist>
       </set>
@@ -197,8 +198,7 @@
       <!-- Solo TA FOR TH -->
       <set name="Trick Attack|TA" BaseSet="TP" load="yes">
         <head>Uk'uxkaj Cap</head>
-        <!-- Houyi's Gorget-->
-        <neck>Asperity Necklace</neck>
+        <neck>Houyi's Gorget</neck>
         <!-- Skadi's Cuirie +1-->
         <body>Manibozho Jerkin</body>
         <hands>Iuitl Wristbands</hands>
@@ -206,8 +206,7 @@
         <feet>Iuitl Gaiters</feet>
         <!-- Patentia Sash-->
         <waist>Twilight Belt</waist>
-        <!-- Vespid Mantle -->
-        <back>Atheling Mantle</back>
+        <back>Vespid Mantle</back>
         <lear>Dudgeon Earring</lear>
         <rear>Bladeborn Earring</rear>
         <lring>Stormsoul Ring</lring>
@@ -365,7 +364,7 @@
         <feet>Pillager's Poulaines</feet>
       </set>
       <set name="Mug">
-        <head>Assassin's Bonnet</head>
+        <head>Plun. Bonnet</head>
       </set>
       <set name="Waltz" baseset="PDT">
         <!-- VIT/CHR -->
@@ -537,7 +536,7 @@
         <if advanced='"$TH"=="1"'>
           <equip when="precast" set="TA">
             <sub>Thief's Knife</sub>
-            <hands>Assassin's Armlets +2</hands>
+            <hands>Plun. Armlets</hands>
             <feet>Raid. Poulaines +2</feet>
           </equip>
           <!-- Reset TH Varible-->
@@ -556,7 +555,7 @@
         <if advanced='"$TH"=="1"'>
           <equip when="precast" set="SA">
             <sub>Thief's Knife</sub>
-            <hands>Assassin's Armlets +2</hands>
+            <hands>Plun. Armlets</hands>
             <feet>Raid. Poulaines +2</feet>
           </equip>
           <!-- Reset TH Varible-->
@@ -577,7 +576,7 @@
         <if advanced='"$TH"=="1"'>
           <equip when="precast" set="AccTP">
             <sub>Thief's Knife</sub>
-            <hands>Assassin's Armlets +2</hands>
+            <hands>Plun. Armlets</hands>
             <feet>Raid. Poulaines +2</feet>
           </equip>
           <!-- Reset TH Varible-->
@@ -609,7 +608,7 @@
             <if advanced='"$TH"=="1"'>
               <equip when="engaged" set="AccTP">
                 <sub>Thief's Knife</sub>
-                <hands>Assassin's Armlets +2</hands>
+                <hands>Plun. Armlets</hands>
                 <feet>Raid. Poulaines +2</feet>
               </equip>
               <!-- Reset TH Varible-->
@@ -632,7 +631,7 @@
             <if advanced='"$TH"=="1"'>
               <equip when="engaged" set="ATP">
                 <sub>Thief's Knife</sub>
-                <hands>Assassin's Armlets +2</hands>
+                <hands>Plun. Armlets</hands>
                 <feet>Raid. Poulaines +2</feet>
               </equip>
               <!-- Reset TH Varible-->
@@ -655,7 +654,7 @@
             <if advanced='"$TH"=="1"'>
               <equip when="engaged" set="TP">
                 <sub>Thief's Knife</sub>
-                <hands>Assassin's Armlets +2</hands>
+                <hands>Plun. Armlets</hands>
                 <feet>Raid. Poulaines +2</feet>
               </equip>
               <!-- Reset TH Varible-->
@@ -675,7 +674,7 @@
         </else>
       </else>
     </else>
-    <!--Job Abilites-->
+    <!--Job Abilities -->
     <if mode="OR" type="jobability" CommandPrefix="/ja|/jobability">
       <if buffactive="Sleep|Amnesia|Stun*|Petrication|Terror|Charm*">
         <addtochat color="121">======= Canceled JA =======</addtochat>
@@ -697,11 +696,18 @@
         </elseif>
         <elseif spell="Perfect Dodge">
           <equip when="precast">
-            <legs>Assassin's Culottes</legs>
+            <hands>Plun. Armlets</hands>
+           </equip>
+        </elseif>
+        <elseif spell="Feint">
+          <equip when="precast">
+            <legs>Plun. Culottes</legs>
           </equip>
         </elseif>
         <elseif spell="Steal">
-          <equip when="precast" set="Steal" />
+          <equip when="precast" set="Steal">
+			<head>Plun. Bonnet</head>
+		  </equip>
         </elseif>
         <elseif spell="Despoil">
           <equip when="precast">
@@ -727,7 +733,17 @@
             <head>Raid. Bonnet +2</head>
           </equip>
         </elseif>
-      </else>
+		<elseif spell="Assassin's Charge">
+			<equip when="precast">
+				<feet>Plun. Poulaines</feet>
+			</equip>
+		</elseif>
+		<elseif spell="Ambush">
+			<equip when="precast">
+				<body>Plunderer's Vest</body>
+			</equip>
+		</elseif>
+	  </else>
     </if>
     <!--Weapon Skills-->
     <elseif type="Weaponskill">

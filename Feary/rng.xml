@@ -59,14 +59,16 @@
   <sets>
     <group name="RNG" default="yes">
       <set name="miscgearcollector">
-        <!-- Orion Bracers +1-->
-        <item>Hunter's Bracers</item>
-        <!-- Orion Braccae +1-->
-        <item>Hunter's Braccae</item>
-        <!-- Orion Socks +1-->
-        <item>Hunter's Socks</item>
-        <item>Sct. Beret +2</item>
+        <!-- Porter Moogle-->
         <item>Athos's Gloves</item>
+        <!-- Orion Beret -->
+        <item>Orion Jerkin</item>
+        <item>Orion Bracers</item>
+        <item>Orion Braccae</item>
+        <item>Orion Socks</item>
+        <item>Arcadian Beret</item>
+        <item>Arcadian Braccae</item>
+        <item>Arcadian Socks</item>
         <item>Sylvan Gapette +2</item>
         <item>Sylvan Caban +2</item>
         <item>Syl. Glvltte. +2</item>
@@ -74,24 +76,23 @@
         <item>Sylvan Chlamys</item>
         <item>Sylvan Earring</item>
       </set>
-      <set name="Town" baseset="Standard">
-        <feet>Fajin Boots</feet>
+      d<set name="Town" baseset="Standard">
+        <feet>Orion Socks</feet>
       </set>
       <set name="Standard|Idle" baseset="PDT">
-        <feet>Fajin Boots</feet>
+        <feet>Orion Socks</feet>
         <lear>Merman's Earring</lear>
         <rear>Merman's Earring</rear>
       </set>
       <set name="Recycle">
-        <head>Sct. Beret +2</head>
+        <head>Arcadian Beret</head>
         <back>Libeccio Mantle</back>
       </set>
       <set name="PDT">
         <!--<head>Iuitl Headgear</head>-->
         <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
-        <!--<body>Iuitl Vest</body>-->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
@@ -104,8 +105,7 @@
         <!--<head>Iuitl Headgear</head>-->
         <head>Uk'uxkaj Cap</head>
         <neck>Twilight Torque</neck>
-        <!--<body>Iuitl Vest</body>-->
-        <body>Manibozho Jerkin</body>
+        <body>Iuitl Vest</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Iuitl Tights</legs>
         <feet>Iuitl Gaiters</feet>
@@ -116,12 +116,16 @@
         <lring>Dark Ring</lring>
         <rring>Dark Ring</rring>
       </set>
+      <!-- Precast -->
+      <set name="Resting"/>
       <set name="Snapshot">
-        <head>Sylvan Gapette +2</head>
+        <!-- Orion Beret +1 -->
+        <head>Arcadian Beret</head>
         <body>Sylvan Caban +2</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <!--<feet>Wurrukatte Boots</feet>-->
+        <feet>Arcadian Socks</feet>
         <waist>Impulse Belt</waist>
       </set>
       <set name="fastcast" baseset="TP" load="yes">
@@ -131,6 +135,7 @@
         <lear>Loquac. Earring</lear>
         <rring>Prolix Ring</rring>
       </set>
+      <!-- Midcast -->
       <set name="Recast" baseset="fastcast" load="yes">
         <head>Athos's Chapeau</head>
         <!--<neck>Orunmila's Torque</neck>-->
@@ -140,40 +145,44 @@
         <feet>Iuitl Gaiters</feet>
         <waist>Twilight Belt</waist>
       </set>
-      <set name="Resting"/>
       <set name="Barrage" baseset="RATP" load="yes">
-        <head>Sct. Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <!--<hands>Orion Bracers +1</hands>-->
-        <hands>Htr. Bracers +1</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <!--<legs>Desultor Tassets</legs>-->
-        <legs>Sylvan Bragues +2</legs>
-        <feet>Iuitl Gaiters</feet>
+        <legs>Nahtirah Trousers</legs>
+        <feet>Orion Socks</feet>
         <!--<waist>Elanid Belt</waist>-->
         <waist>Scout's Belt</waist>
+        <!-- Lutian Cape -->
         <back>Sylvan's Chlamys</back>
         <lring>Rajas Ring</lring>
-        <!--<rring>Hajduk Ring</rring>-->
         <rring>Arewe Ring +1</rring>
+		<lear>Clearview Earring</lear>
+        <rear>Volley Earring</rear>
       </set>
       <!-- RATP-->
       <!-- Echidna's Bow / Eminence Bow / Non Relic-->
       <set name="Bow-RATP" baseset="Standard" load="yes">
-        <!-- Echidna's Bow - 600 Delay Bow: 15.6 = 29 STP /war 14 /sam-->
-        <!-- Eminence Bow - 720 Delay Bow: 16.5 = 22 STP /war 7STP /sam-->
+        <!-- Echidna's Bow - 600 Delay Bow: 15.6 = 29 STP /war 14 STP /sam-->
+        <!-- Eminence Bow  - 720 Delay Bow: 16.5 = 22 STP /war  7 STP /sam-->
         <!-- Gandiva - 540 delay -->
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <hands>Syl. Glvltte. +2</hands>
+        <!-- Kyujutsugi -->
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <!-- Elanid Belt -->
         <waist>Scout's Belt</waist>
+        <!-- Lutian Cape -->
         <back>Sylvan Chlamys</back>
         <lear>Clearview Earring</lear>
-        <rear>Novia Earring</rear>
+        <!-- 2-->
+        <rear>Volley Earring</rear>
+         <!-- 5 -->
         <lring>Rajas Ring</lring>
         <rring>Arewe Ring +1</rring>
       </set>
@@ -182,9 +191,9 @@
         <!-- Echidna's Bow - 600 Delay Bow: 15.6 = 29 STP /war 14 /sam-->
         <!-- Eminence Bow - 720 Delay Bow: 16.5 = 22 STP /war 7 STP /sam-->
         <!-- Gandiva - 540 delay bow: 15.2 = 32 stp /war 17 STP /sam-->
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -204,9 +213,9 @@
       <!-- Donderbuss / Eminence Gun /-->
       <set name="Gun-RATP" baseset="Standard" load="yes">
         <!-- Donderbuss/Eminence Gun = 600 delay - 20 stp /war 5 STP /sam-->
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -221,9 +230,9 @@
       <!-- Annihilator / Armageddon-->
       <set name="Anni-RATP" baseset="Standard" load="yes">
         <!-- 582 delay =  582 delay = 21 stp /war - 6 STP /sam -->
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -236,9 +245,9 @@
         <rring>Arewe Ring +1</rring>
       </set>
       <set name="XBow-RATP" baseset="Standard" load="yes">
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Syl. Glvltte. +2</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -252,13 +261,12 @@
       </set>
       <!-- Bow and Gun ACC -->
       <set name="Bow-RAAcc" baseset="Bow-RATP">
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
-        <!-- Orion Braccae +1-->
-        <legs>Thurandaut Tights</legs>
-        <feet>Iuitl Gaiters</feet>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
+        <legs>Orion Braccae</legs>
+        <feet>Orion Socks</feet>
         <!-- Elanid Belt -->
         <waist>Scout's Belt</waist>
         <!-- Lutian Cape -->
@@ -269,13 +277,12 @@
         <rring>Arewe Ring +1</rring>
       </set>
       <set name="Gun-RAAcc" baseset="Gun-RATP">
-        <head>Scout's Beret +2</head>
+        <head>Arcadian Beret</head>
         <neck>Ocachi Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
-        <!-- Orion Braccae +1-->
-        <legs>Thurandaut Tights</legs>
-        <feet>Sylvan bottln. +2</feet>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
+        <legs>Orion Braccae</legs>
+        <feet>Orion Socks</feet>
         <!-- Elanid Belt -->
         <waist>Scout's Belt</waist>
         <!-- Lutian Cape -->
@@ -287,13 +294,13 @@
       </set>
       <!-- Ranged Weaponskills -->
       <set name="RAWS" baseset="RATP" load="yes">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Ocachi Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <!--Elanid Belt-->
         <waist>Scout's Belt</waist>
         <!-- Lutian Cape -->
@@ -305,12 +312,13 @@
       </set>
       <!-- Bow WS -->
       <set name="Sidewinder" baseset="RAWS" load="yes">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <back>Buquwik Cape</back>
         <lear>Clearview Earring</lear>
@@ -320,12 +328,13 @@
         <rring>Pyrosoul Ring</rring>
       </set>
       <set name="Refulgent Arrow" baseset="RAWS" load="yes">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <body>Sylvan Caban +2</body>
-        <hands>Manibozho Gloves</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <back>Buquwik Cape</back>
         <!-- Flame Pearl-->
@@ -337,18 +346,18 @@
         <rring>Pyrosoul Ring</rring>
       </set>
       <set name="Jishnu's Radiance" baseset="RAWS" load="yes">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
-        <waist>Light Belt</waist>
+        <feet>Orion Socks</feet>
+		<waist>Scout's Belt</waist>
         <!-- Lutian Cape -->
         <back>Buquwik Cape</back>
         <lear>Clearview Earring</lear>
-        <rear>Jupiter's Earring</rear>
+        <rear>Flame Pearl</rear>
         <lring>Rajas Ring</lring>
         <rring>Pyrosoul Ring</rring>
       </set>
@@ -356,7 +365,7 @@
       <set name="Namas Arrow" baseset="RAWS">
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Manibozho Gloves</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -371,13 +380,13 @@
         <rring>Pyrosoul Ring</rring>
       </set>
       <set name="Apex Arrow" baseset="RAWS">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Thuranduut Tights</legs>
-        <feet>Iuitl Gaiters</feet>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
+        <legs>Nahtirah Trousers</legs>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <back>Terebellum Mantle</back>
         <lring>Stormsoul Ring</lring>
@@ -391,13 +400,13 @@
         <waist>Light Belt</waist>
       </set>
       <set name="Wildfire" baseset="RAWS" load="yes">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Stoicheion Medal</neck>
-        <!-- Iuitl Vest -->
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Thuranduut Tights</legs>
-        <feet>Iuitl Gaiters</feet>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
+        <legs>Orion Braccae</legs>
+        <feet>Orion Socks</feet>
         <waist>Aquiline Belt</waist>
         <back>Toro Cape</back>
         <lring>Stormsoul Ring</lring>
@@ -406,14 +415,13 @@
         <rear>Friomisi Earring</rear>
       </set>
       <set name="Trueflight" baseset="RAWS" load="yes">
-        <!-- MAB > AGI-->
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Stoicheion Medal</neck>
-        <!-- Iuitl Vest -->
-        <body>Manibozho Jerkin</body>
-        <hands>Iuitl Wristbands</hands>
-        <legs>Thuranduut Tights</legs>
-        <feet>Iuitl Gaiters</feet>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
+        <legs>Orion Braccae</legs>
+        <feet>Orion Socks</feet>
         <waist>Aquiline Belt</waist>
         <back>Toro Cape</back>
         <lring>Stormsoul Ring</lring>
@@ -422,13 +430,13 @@
         <rear>Friomisi Earring</rear>
       </set>
       <set name="Last Stand" baseset="RAWS">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <!-- Lutian Cape -->
         <back>Terebellum Mantle</back>
@@ -440,13 +448,13 @@
         <rring>Stormsoul Ring</rring>
       </set>
       <set name="Capatt-Last Stand" baseset="RAWS">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <!-- Iuitl Vest -->
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <!-- Lutian Cape -->
         <back>Sylvan Chlamys</back>
@@ -458,13 +466,13 @@
         <rring>Stormsoul Ring</rring>
       </set>
       <set name="Coronach" baseset="RAWS">
+        <!-- Orion Beret -->
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
-        <!-- Khepri Jacket -->
-        <body>Sylvan Caban +2</body>
-        <hands>Iuitl Wristbands</hands>
+        <body>Orion Jerkin</body>
+        <hands>Orion Bracers</hands>
         <legs>Nahtirah Trousers</legs>
-        <feet>Iuitl Gaiters</feet>
+        <feet>Orion Socks</feet>
         <waist>Light Belt</waist>
         <!-- Lutian Cape -->
         <back>Terebellum Mantle</back>
@@ -480,7 +488,7 @@
         <head>Uk'uxkaj Cap</head>
         <neck>Light Gorget</neck>
         <!-- Khepri Jacket -->
-        <body>Sylvan Caban +2</body>
+        <body>Orion Jerkin</body>
         <hands>Iuitl Wristbands</hands>
         <legs>Nahtirah Trousers</legs>
         <feet>Iuitl Gaiters</feet>
@@ -510,7 +518,7 @@
         <rear>Steelflash Earring</rear>
       </set>
       <set name="ACCTP" baseset="Standard" load="yes">
-        <head>Uk'uxkaj Cap</head>
+        <head>Whirlpool Mask</head>
         <neck>Asperity Necklace</neck>
         <body>Manibozho Jerkin</body>
         <hands>Manibozho Gloves</hands>
@@ -519,7 +527,7 @@
         <waist>Hurch'lan Sash</waist>
         <back>Atheling Mantle</back>
         <lring>Rajas Ring</lring>
-        <rring>Epona's Riniig</rring>
+        <rring>Epona's Ring</rring>
         <lear>Bladeborn Earring</lear>
         <rear>Steelflash Earring</rear>
       </set>
@@ -1018,16 +1026,16 @@
       <else>
         <if spell="Shadowbind">
           <equip when="precast">
-            <hands>Hunter's Bracers</hands>
+            <hands>Orion Bracers</hands>
           </equip>
           <aftercastdelay delay="1.5" />
         </if>
         <elseif spell="Barrage">
-          <equip when="precast|Aftercast" set="Barrage"/>
+          <equip when="precast|Midcast|Aftercast" set="Barrage"/>
         </elseif>
         <elseif spell="Sharpshot">
-          <equip when="precast" delay=".2">
-            <legs>Hunter's Braccae</legs>
+          <equip when="precast">
+            <legs>Orion Braccae</legs>
           </equip>
         </elseif>
         <elseif spell="Double Shot">
@@ -1040,14 +1048,14 @@
             <body>Sylvan Caban +2</body>
           </equip>
         </elseif>
-        <elseif spell="Camoflage">
+        <elseif spell="Camouflage">
           <equip when="precast">
-            <body>Hunter's Jerkin</body>
+            <body>Orion Jerkin</body>
           </equip>
         </elseif>
         <elseif spell="Scavenge">
           <equip when="precast">
-            <feet>Hunter's Socks</feet>
+            <feet>Orion Socks</feet>
           </equip>
         </elseif>
         <elseif spell="Bounty Shot">
@@ -1058,6 +1066,19 @@
         <elseif spell="Unlimited Shot">
           <equip when="precast">
             <feet>Sylvan Bottln. +2</feet>
+          </equip>
+        </elseif>
+        <elseif spell="Eagle Eye Shot">
+          <equip when="precast" set="RAAcc">
+            <legs>Arcadian Braccae</legs>
+          </equip>
+        </elseif>
+        <elseif spell="Flashy Shot">
+          <equip when="precast"/>
+        </elseif>
+        <elseif spell="Stealth Shot">
+          <equip when="precast">
+            <feet>Arcadian Socks</feet>
           </equip>
         </elseif>
       </else>
