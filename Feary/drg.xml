@@ -27,14 +27,12 @@
     <group name="DRG" default="yes">
       <set name="MiscGearCollector" load="yes">
         <item>Angon</item>
-        <item>Vishap Armet</item>
-        <item>Vishap Brais</item>
         <item>Drachen Armet</item>
-        <item>Drachen Brais</item>
-        <item>Wym. Armet +2</item>
-        <item>Wym. Mail +2</item>
-        <item>Wym. Fng. Gnt. +2</item>        
-        <item>Wym. Greaves +2</item>
+        <item>Ptero. Armet</item>
+        <item>Pteroslaver Mail</item>
+        <item>Ptero. Fin. Gaunt.</item>
+		<item>Pteroslaver Brais</item>
+        <item>Ptero. Greaves</item>
         <item>Lncr. Plackart +2</item>
         <item>Lncr. Vmbrc. +2</item>
         <item>Lncr. Cuissots +2</item>
@@ -158,14 +156,14 @@
         <rring>K'ayres Ring</rring>
       </set>
       <set name="Healing Breath|HB" load="yes">
-        <!-- Wyvern hp+ Gear-->
-        <head>Wym. Armet +2</head>
+        <!-- Wyvern HP+ Gear-->
+        <head>Ptero. Armet</head>
         <neck>Lancer's Torque</neck>
         <body>Wyvern Mail</body>
         <!-- Ostreger's Mitts -->
         <hands>Buremte Gloves</hands>
-        <legs>Drachen Brais</legs>
-        <feet>Wym. Greaves +2</feet>
+        <legs>Pteroslaver Brais</legs>
+        <feet>Ptero. Greaves</feet>
         <waist>Glassblower's Belt</waist>
         <back>Updraft Mantle</back>
         <lear>Lancer's Earring</lear>
@@ -363,22 +361,23 @@
         </if>
         <elseif spell="Call Wyvern">
           <equip when="precast">
-            <body>Wym. Mail +2</body>
+            <body>Pteroslaver Mail</body>
           </equip>
         </elseif>
         <elseif spell="Spirit Surge">
           <equip when="precast">
-            <body>Wym. Mail +2</body>
+            <body>Pteroslaver Mail</body>
           </equip>
         </elseif>
         <elseif spell="Spirit Link">
           <equip when="precast">
+			<head>Vishap Armet</head>
             <hands>Lncr. Vmbrc. +2</hands>
           </equip>
         </elseif>
         <elseif spell="Ancient Circle">
           <equip when="precast">
-            <legs>Drachen Brais</legs>
+            <legs>Pteroslaver Brais</legs>
           </equip>
         </elseif>
         <elseif spell="Angon">
@@ -388,7 +387,7 @@
           </if>
           <else>
             <equip when="precast|midcast">
-              <hands>Wym. Fng. Gnt. +2</hands>
+              <hands>Ptero. Fin. Gaunt.</hands>
             </equip>
             <cmd when="aftercast">input /p Angon Just Used it</cmd>
           </else>
