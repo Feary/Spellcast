@@ -73,14 +73,17 @@
         <item>Twilight Cape</item>
         <item>Almace</item>
         <item>Mandau</item>
-        <item>Dls. Chapeau +2</item>
-        <item>Dls. Tabard +2</item>        
-        <item>Dls. Tights +2</item>
-        <item>Dls. Boots +2</item>
-        <item>Warlock's Tights</item>
+        <!-- Porter Moogle -->
+        <item>Vitivation Chapeau</item>
+        <item>Vitivation Tabard</item>
+        <item>Vitivation Gloves</item>
+        <item>Vitivation Tights </item>
+        <item>Vitivation Boots</item>
+        <item>Atrophy Tights</item>
         <item>Estq. Chappel +2</item>
         <item>Estq. Sayon +2</item>
         <item>Estq. Ganthrt. +2</item>
+		<item>Estqr. Fuseau +2</item>
         <item>Estq. Houseaux +2</item>
         <item>Estq. Earring</item>
         <item>Estoqueur's Cape</item>
@@ -92,7 +95,7 @@
       <set name="Standard" baseset="PDT" load="yes">
         <main>$PDTStaff</main>
         <sub>Mephitis Grip</sub>
-        <head>Dls. Chapeau +2</head>
+        <head>Vitivation Chapeau</head>
         <neck>Twilight Torque</neck>
         <hands>Serpentes Cuffs</hands>
         <legs>Blood Cuisses</legs>
@@ -131,7 +134,7 @@
       <set name="Resting" Baseset="PDT" load="yes">
         <main>$RestingStaff</main>
         <ammo>Clarus Stone</ammo>
-        <head>Dls. Chapeau +2</head>
+        <head>Vitivation Chapeau</head>
         <neck>Eidolon Pendant</neck>
         <body>Bokwus Robe</body>
         <hands>Serpentes Cuffs</hands>
@@ -147,7 +150,7 @@
       <set name="FastCast" BaseSet="Standard" load="yes">
         <main>$%SpellElementStaff</main>
         <head>Nahtirah hat</head>
-        <body>Dls. Tabard +2</body>
+        <body>Vitivation Tabard</body>
         <hands>Gendewitha Gages</hands>
         <!-- Hagondes Pants +5 Fastcast -->
         <legs>Orvail Pants</legs>
@@ -165,7 +168,6 @@
       <!-- Midcast -->
       <set name="Recast" baseset="Fastcast" load="yes">
         <head>Nahtirah hat</head>
-        <body>Hedera Cotehardie</body>
         <hands>Hagondes Cuffs</hands>
         <legs>Hagondes Pants</legs>
         <!-- Hagondes Sabots-->
@@ -180,7 +182,6 @@
         <legs>Nares Trews</legs>
         <!--<feet>Aife's Pumps</feet>-->
         <feet>Serpentes Sabots</feet>
-        <waist>Austerity Belt</waist>
         <!--<back>Vita Cape</back>-->
         <lear>Magnetic Earring</lear>
         <rear>Gifted Earring</rear>
@@ -209,7 +210,7 @@
         <!--<waist>Bishop's Sash</waist>-->
         <!--<waist>Ninurta's Sash</waist>-->
         <waist>Witful Belt</waist>
-        <back>Mending Cape</back>
+        <back></back>
         <!-- Beatific Earring -->
         <lear>Loquac. Earring</lear>
         <!-- Healing Earring -->
@@ -218,13 +219,11 @@
         <rring>Haoma's Ring</rring>
       </set>
       <set name="Enhancing" BaseSet="Fastcast" load="yes">
-        <!-- Goal 500 Skill 404 base merits 420 need 80 -->
-        <!-- 71 5 3 2 3-->
+        <!-- Goal 500 -->
         <neck>Colossus's Torque</neck>
-        <body>Dls. Tabard +2</body>
-        <hands>Dls. Gloves +2</hands>
-        <!-- Portent Pants -->
-        <legs>Warlock's Tights</legs>
+        <body>Vitivation Tabard</body>
+        <hands>Vitivation Gloves</hands>
+        <legs>Atrophy Tights</legs>
         <feet>Estq. Houseaux +2</feet>
         <waist>Cascade Belt</waist>
         <back>Estoqueur's Cape</back>
@@ -243,8 +242,7 @@
         <main>$Maccstaff</main>
         <!-- Buremte Hat-->
         <head>Nahtirah Hat</head>
-        <!-- Wilke Torque-->
-        <neck>Enfeebling Torque</neck>
+        <neck>Eddy Necklace</neck>
         <body>Estq. Sayon +2</body>
         <hands>Estq. Ganthrt. +2</hands>
         <legs>Bokwus Slops</legs>
@@ -293,9 +291,9 @@
         <body>Bokwus Robe</body>
         <hands>Yaoyotl Gloves</hands>
         <legs>Hagondes Pants</legs>
-        <feet>Dls. Boots +2</feet>
-        <waist>Cognition Belt</waist>
-        <back>Refraction Cape</back>
+        <feet>Vitivation Boots</feet>
+        <waist>Sekhmet Corset</waist>
+        <back>Toro Cape</back>
         <lring>Icesoul Ring</lring>
         <rring>Icesoul Ring</rring>
         <lear>Novio Earring</lear>
@@ -311,9 +309,9 @@
         <body>Bokwus Robe</body>
         <hands>Yaoyotl Gloves</hands>
         <legs>Hagondes Pants</legs>
-        <feet>Dls. Boots +2</feet>
-        <waist>Cognition Belt</waist>
-        <back>Refraction Cape</back>
+        <feet>Vitivation Boots</feet>
+        <waist>Sekhmet Corset</waist>
+        <back>Toro Cape</back>
         <lring>Icesoul Ring</lring>
         <rring>Icesoul Ring</rring>
         <lear>Novio Earring</lear>
@@ -421,7 +419,7 @@
         <return/>
       </elseif>
       <elseif spell="Chainspell">
-        <body lock="True">Dls. Tabard +2</body>
+        <body lock="True">Vitivation Tabard</body>
       </elseif>
     </if>
     <elseif type="*magic">
@@ -436,7 +434,7 @@
         </if>
         <!-- Chainspell 
         <if advanced='"Af2bodyaugment"=="1"' buffactive="Chainspell">
-          <body lock="true">Dls. Tabard +2</body>
+          <body lock="true">Vitivation Tabard</body>
         </if>-->
         <!--Auto Composure-->
         <if advanced='"$AutoComposure" == "1"'>
@@ -507,7 +505,7 @@
         </if>
         <!-- Enhancing Magic -->
         <elseif skill="EnhancingMagic">
-          <if buffactive="Composure" NOTValidTarget="Self">
+          <if buffactive="Composure" ValidTarget="Self">
             <equip when="precast">
               <head lock="true">Estoqueur's Chappel +2</head>
               <body lock="true">Estoqueur's Sayon +2</body>
@@ -526,7 +524,7 @@
           <elseif spell="*Spikes">
             <!-- Caps at 250 INT  Base 92 need 158 -->
             <equip when="midcast" set="INT">
-              <legs>Dls. Tights +2</legs>
+              <legs>Vitivation Tights </legs>
             </equip>
           </elseif>
           <elseif spell="Stoneskin">
