@@ -296,7 +296,7 @@
         <lring>Stormsoul Ring</lring>
         <rring>Epona's Ring</rring>
       </set>
-      <!-- Evisveration -->
+      <!-- Evisceration -->
       <set name="Evisceration" baseset="Sneak Attack" load="yes">
         <!-- Modifer: DEX:30%  -->
         <head>Pillager's Bonnet</head>

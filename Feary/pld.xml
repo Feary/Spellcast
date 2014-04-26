@@ -86,8 +86,7 @@
       </set>
       <!-- Capped Accuracy-->
       <set name="TP">
-        <!-- Otomi Helm -->
-        <head>Yaoyotl Helm</head>
+        <head>Otomi Helm</head>
         <neck>Asperity Necklace</neck>
         <body>Pak Corselet</body>
         <hands>Cab. Gauntlets</hands>
@@ -597,7 +596,7 @@
           <equip when="precast" set="Chivalry" />
         </if>
         <elseif spell="Rampart">
-          <equip when="precast" set="Enmity">
+          <equip when="precast" set="%Spell">
             <head>Cab. Coronet</head>
           </equip>
         </elseif>
